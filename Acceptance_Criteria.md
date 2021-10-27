@@ -10,9 +10,9 @@ In an effort to provide guidelines to external code contributors for how they ge
 
 
 
-* **Values** are high-level factors that are unlikely to change over time.  They should be understandable even to a non-technical audience. \
+* **Values** are high-level factors that are unlikely to change over time.  They should be understandable even to a non-technical audience.
 
-* **Criteria **are specific, verifiable tests as to how we’re meeting the Values within the current state of affairs.  Criteria will evolve over time to respond to changes in the Project’s technology stack, current best practices, etc. They may require a degree of technical expertise or domain knowledge to fully understand.
+* **Criteria** are specific, verifiable tests as to how we’re meeting the Values within the current state of affairs.  Criteria will evolve over time to respond to changes in the Project’s technology stack, current best practices, etc. They may require a degree of technical expertise or domain knowledge to fully understand.
 
 In some cases, we may not yet have comprehensive Criteria for assessing a module’s adherence to a Value.  In such cases, subjective review and analysis will be applied, and may lead to discussion.
 
@@ -23,29 +23,25 @@ It is also important to note that while this document provides the criteria agai
 
 # Values
 
-
-
 1. Module adheres to Community Code of Conduct
 1. Module license is compatible with the FOLIO Project
 1. Module can be included in existing community build processes
-2. Module has robust testing that can run with existing community testing processes
+1. Module has robust testing that can run with existing community testing processes
 1. Module can be deployed in the Community’s reference environments without undue burden
 1. Module is secure
 1. Module is multi-tenant
 1. Module is internationalized
 1. Module meets current accessibility requirements
-2. Module offers a cohesive user experience consistent with the rest of FOLIO
-3. Module has developer and end-user documentation
-4. Module depends ONLY on other modules and infrastructure that are already included in FOLIO
-5. Module has a long-term development and maintenance plan
-6. Module is scalable
-7. Module supports high availability
-8. Modules conforms to FOLIO upgrade mechanisms
+1. Module offers a cohesive user experience consistent with the rest of FOLIO
+1. Module has developer and end-user documentation
+1. Module depends ONLY on other modules and infrastructure that are already included in FOLIO
+1. Module has a long-term development and maintenance plan
+1. Module is scalable
+1. Module supports high availability
+1. Modules conforms to FOLIO upgrade mechanisms
 
 
 # Criteria
-
-
 
 * Upon acceptance, code author(s) agree to have source code canonically in folio-org github (3, 5, 13)
 * Copyright assigned to OLF (13)
@@ -66,24 +62,24 @@ It is also important to note that while this document provides the criteria agai
 * Sensitive information is not checked into git repository (6)
 * Module is written in a language and framework that FOLIO development teams are familiar with _e.g. Vertx/RMB, Spring Way/folio-spring-base, and React/Stripes_ (13)
 * For backend modules: builds are Maven and JDK 11 based and Dockerfile provided (3, 5, 13)
-* Integration (API) tests written in Karate if applicable (3, 4) -_ note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
+* Integration (API) tests written in Karate if applicable (3, 4) -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * Back-end unit tests at 80% coverage (3, 4)
 * Data is segregated by tenant at the storage layer (6, 7)
 * Back-end modules don’t access data in DB schemas other than their own and public (6, 7)
 * Tenant data is segregated at the transit layer (6, 7)
 * Back-end modules respond with a tenant’s content based on x-okapi-tenant header (7)
-* Standard GET /admin/health endpoint returning a 200 response (5) _- note: read more at [https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol](https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol)_
+* Standard GET /admin/health endpoint returning a 200 response (5) -_note: read more at [https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol](https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol)_
 * HA compliant (5,14,15)
 * Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
 * Module only uses existing infrastructure / platform technologies_ e.g. PostgreSQL, ElasticSearch (and Kafka, despite it being still unofficial at present)_ (3, 5, 12)
 * Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully. (3, 5, 12)
 * Front-end modules: builds are Node 16/Yarn 1 (3, 5, 13)
 * Front-end unit tests written in Jest/RTL at 80% coverage (3, 4)
-* Front-end End-to-end tests written in Cypress, if applicable  (3, 4) - _note: these tests aren’t defined as part of the module_
+* Front-end End-to-end tests written in Cypress, if applicable  (3, 4) -_note: these tests aren’t defined as part of the module_
 * Front-end modules have i18n support via react-intl and an en.json file with English texts (8)
 * Front-end modules have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * Front-end modules use the current version of Stripes (10, 16)
-* Front-end modules follow relevant existing UI layouts, patterns and norms (10) -_ note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
+* Front-end modules follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
 * Front end modules must work in the latest version of Chrome (the supported runtime environment) (10)
 * sonarqube hasn't identified any security issues (6)
 
