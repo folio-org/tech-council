@@ -45,5 +45,5 @@
 * [ ] Front-end modules have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * [ ] Front-end modules use the current version of Stripes (10, 16)
 * [ ] Front-end modules follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
-* [ ] Front end modules must work in the latest version of Chrome (the supported runtime environment) (10)
+* [ ] Front-end modules must work in the latest version of Chrome (the supported runtime environment) (10)
 * [ ] sonarqube hasn't identified any security issues (6)
