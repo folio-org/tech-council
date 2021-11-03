@@ -6,7 +6,7 @@
 * [ ] UNACCEPTABLE
   * comments on what was evaluated/not evaluated, why a criterion failed
 
-# [Criteria](https://github.com/folio-org/tech-council/blob/4dc5ac6d632fb880131cd214d212f973683b9ebe/MODULE_ACCEPTANCE_CRITERIA.MD)
+## [Criteria](https://github.com/folio-org/tech-council/blob/4dc5ac6d632fb880131cd214d212f973683b9ebe/MODULE_ACCEPTANCE_CRITERIA.MD)
 
 * [ ] Upon acceptance, code author(s) agree to have source code canonically in folio-org github (3, 5, 13)
 * [ ] Copyright assigned to OLF (13)
