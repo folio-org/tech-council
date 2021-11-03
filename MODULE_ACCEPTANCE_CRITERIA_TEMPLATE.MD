@@ -26,7 +26,7 @@
 * [ ] Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
 * [ ] Sensitive information is not checked into git repository (6)
 * [ ] Module is written in a language and framework that FOLIO development teams are familiar with _e.g. Vertx/RMB, Spring Way/folio-spring-base, and React/Stripes_ (13)
-* [ ] For backend modules: builds are Maven and JDK 11 based and Dockerfile provided (3, 5, 13)
+* [ ] Back-end modules are based on Maven/JDK 11 and provide a Dockerfile (3, 5, 13)
 * [ ] Integration (API) tests written in Karate if applicable (3, 4) -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * [ ] Back-end unit tests at 80% coverage (3, 4)
 * [ ] Data is segregated by tenant at the storage layer (6, 7)
