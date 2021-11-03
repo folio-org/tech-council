@@ -34,7 +34,7 @@
 * [ ] Tenant data is segregated at the transit layer (6, 7)
 * [ ] Back-end modules respond with a tenant’s content based on x-okapi-tenant header (7)
 * [ ] Standard GET /admin/health endpoint returning a 200 response (5) -_note: read more at [https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol](https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol)_
-* [ ] HA compliant (5,14,15)
+* [ ] HA compliant (5, 14, 15)
 * [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
 * [ ] Module only uses existing infrastructure / platform technologies_ e.g. PostgreSQL, ElasticSearch (and Kafka, despite it being still unofficial at present)_ (3, 5, 12)
 * [ ] Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully. (3, 5, 12)
