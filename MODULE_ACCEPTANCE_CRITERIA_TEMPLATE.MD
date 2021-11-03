@@ -15,7 +15,7 @@
 * [ ] Module’s repository includes a compliant Module Descriptor (3, 5)
 * [ ] Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections (3, 5)
 * [ ] Environment vars are documented in the ModuleDescriptor (5, 11) - _note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
-* [ ] Back end modules must define endpoints consumable by other modules in the Module Descriptor “provides” section (3, 5)
+* [ ] Back-end modules must define endpoints consumable by other modules in the Module Descriptor “provides” section (3, 5)
 * [ ] All API endpoints are documented in RAML or OpenAPI (11)
 * [ ] All API endpoints protected with appropriate permissions (6)
 * [ ] No excessive permissions granted to the module (6)
