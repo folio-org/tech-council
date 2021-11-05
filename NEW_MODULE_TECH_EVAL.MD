@@ -43,7 +43,7 @@ Information gathered includes:
   * The applicable deadline for submissions in the release timeline (not the date, but the name of the milestone/deadline e.g. "deadline for new modules")
 
 ## Evaluation
-1. The Technical Council reviews a JIRA board to see if there are any new submissions, and check on status of evaluations in progress.
+1. The Technical Council reviews a JIRA board to see if there are any new submissions, and check on the status of evaluations in progress.
 1. If there’s a new submission, the Technical Council finds one or more people to do the evaluation. The evaluation team will be formed in a way to allow for a fair review and avoid conflicts for interests.
 1. The module is evaluated.
     * If the evaluator(s) have questions, they may reach out to the provided points of contact.
