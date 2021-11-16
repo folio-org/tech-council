@@ -4,7 +4,7 @@
 This document outlines the JIRA Project and Workflow used by the Technical Evaluation Process.
 
 ### JIRA Project information
-* The project where Technical Evaluation submissions should be created is called [Technical Counctil Requests](https://issues.folio.org/projects/TCR).
+* The project where Technical Evaluation submissions should be created is called [Technical Council Requests](https://issues.folio.org/projects/TCR).
 * The only available issue type and one that should be used for submissions is "Task".
 
 ## JIRA Workflow
