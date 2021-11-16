@@ -56,7 +56,7 @@ Information gathered includes:
     * Asks any questions they have for the evaluators.
     * Weigh in on any subjective criteria.
     * The Technical Council may ask the evaluators to make changes to the evaluation.  
-    * This review may happen either out of band, during the regularly schduled Technical Council meeting, or a separate meeting scheduled specificlly for this purpose.
+    * This review may happen either out of band, during the regularly scheduled Technical Council meeting, or a separate meeting scheduled specificlly for this purpose.
 1. Upon completion of the review, the JIRA will be updated to indicate this.
     * See JIRA workflow for details.
 
