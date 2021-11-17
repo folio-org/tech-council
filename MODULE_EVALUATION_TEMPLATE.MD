@@ -1,6 +1,8 @@
 # Module acceptance criteria template
 
-## Conventions
+## How to use this form
+When performing a technical evaluation of a module, create a copy of this document and use the conventions below to indicate the status of each criteria.  The evaluation results should be placed in the [module_evaluations](https://github.com/folio-org/tech-council/tree/master/module_evaluations) directory and should conform to the following naming convention:  `{JIRA Key}_YYYY-MM-DD.MD`, e.g. `TCR-1_2021-11-17.MD`.  The date here is used to differenciate between initial and potential re-evaluation(s).  It should be the date which the evaluation results file was created.
+
 * [x] ACCEPTABLE
 * [x] ~INAPPLICABLE~
 * [ ] UNACCEPTABLE
