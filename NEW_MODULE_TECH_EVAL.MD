@@ -9,7 +9,7 @@ This document outlines the processes for **technical** evaluation of module for 
 1. Approval/Rejection
 
 ### Supporting documentation
-* Details of the JIRA workflow are captured in a separate [document](TECH_EVAL_JIRA.md). 
+* Details of the JIRA workflow are captured in a separate [document](NEW_MOD_TECH_EVAL_JIRA.md). 
 * Technical evaluation is part of a larger process involving the other FOLIO Councils (PC/CC).  A description of the full process can be found here:  (insert link). 
 
 ## Submission
