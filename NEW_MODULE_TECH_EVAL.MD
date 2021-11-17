@@ -62,7 +62,7 @@ Information gathered includes:
 
 ## Feedback &  Acceptance/Rejection
 1. Evaluation results are published to Technical Council’s GitHub repo and linked to the JIRA ticket in Markdown format
-    * An "Evaluation Results Template" (defined and published by the Technical Council) will be used for this.
+    * An "[Evaluation Results Template](https://github.com/folio-org/tech-council/blob/master/MODULE_EVALUATION_TEMPLATE.MD)" (defined and published by the Technical Council) will be used for this.
 1. Interested parties (e.g. release coordinator, contributor points of contact, Product Council members, etc.) are notified, and provided a link to the results.
     * See JIRA workflow for details.
     * If failed, the contributors may ask for help understanding the failed criteria.
