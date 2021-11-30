@@ -8,8 +8,6 @@
 
 In an effort to provide guidelines to external code contributors for how they get their modules included as part of FOLIO LSP, the Technical Council (TC) has drafted the following document.  This document differentiates between:
 
-
-
 * **Values** are high-level factors that are unlikely to change over time.  They should be understandable even to a non-technical audience.
 
 * **Criteria** are specific, verifiable tests as to how we’re meeting the Values within the current state of affairs.  Criteria will evolve over time to respond to changes in the Project’s technology stack, current best practices, etc. They may require a degree of technical expertise or domain knowledge to fully understand.
@@ -19,7 +17,6 @@ In some cases, we may not yet have comprehensive Criteria for assessing a module
 It is important to note that these Values and Criteria are meant to be applied to new, incoming modules, and may not reflect the current state of affairs in the existing modules of FOLIO.  The Technical Council will work to align the current reality of the code with the Values and Criteria over time, as practicable.
 
 It is also important to note that while this document provides the criteria against which a module will be assessed for inclusion into FOLIO, it does not enumerate the process for that evaluation.  Nor does it account for any retroactive evaluation of modules already accepted into FOLIO that may not meet the criteria as currently written.  Such processes will need to be developed and documented by the Technical Council separately.
-
 
 # Values
 
@@ -44,17 +41,29 @@ It is also important to note that while this document provides the criteria agai
 # Criteria
 
 * Upon acceptance, code author(s) agree to have source code canonically in folio-org github (3, 5, 13)
+  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
 * Copyright assigned to OLF (13)
+  * ***NOTES*** CC criteria? 
+  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
 * Uses Apache 2.0 license (2)
 * Third party dependencies use an Apache 2.0 compatible license (2)
+  * ***NOTES*** This is a tough one to verify, especially on the UI side.  We should probably investigate tools that make this easier and provide a link to the tool, or to documentation describing how to use the tool.  See mod-inventory-storage -> has tooling in the build process to generate/expose licensing info.
 * Module’s repository includes a compliant Module Descriptor (3, 5)
+  * ***NOTES*** Maybe provide a link to the specification, or clarifiaction that it must be compliant with the latest relase of OKAPI
 * Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections (3, 5)
 * Environment vars are documented in the ModuleDescriptor (5, 11) - _note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * Back end modules must define endpoints consumable by other modules in the Module Descriptor “provides” section (3, 5)
 * All API endpoints are documented in RAML or OpenAPI (11)
 * All API endpoints protected with appropriate permissions (6)
+* ***NOTES*** Add criteria about permission declarations, naming conventions, etc.  Also link out to supporting documentation?
+  * https://dev.folio.org/guidelines/naming-conventions/
+  * https://wiki.folio.org/display/DD/Permission+Set+Guidelines
 * No excessive permissions granted to the module (6) 
+  * ***NOTES*** Possibly clarify this a bit... we're after egregious things like okapi.all, or really .all permissions in general.
+* ***NOTES*** Can we add something to verify there are no missing module permissions
 * Code of Conduct statement in repository (1)
+  * ***NOTES*** CC criteria?
+  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
 * Installation documentation included (11)
 * Contribution guide is included in repo (13)
 * Module provides reference data (if applicable) (3, 16)
