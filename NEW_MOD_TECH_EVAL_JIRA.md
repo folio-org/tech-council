@@ -14,7 +14,7 @@ This document outlines the JIRA Project and Workflow used by the New Module Tech
 
 **SUBMITTED** Once the submission is ready for the TC review, the submitter transitions the issue to this state.
 
-**UNDER EVALUATION** Once the sumbmission is reviewed by the TC and an evaluation group is formed, the TC indicates this by transitioning the issue to this state.
+**UNDER EVALUATION** Once the submission is reviewed by the TC and an evaluation group is formed, the TC indicates this by transitioning the issue to this state.
 
 **CANCELLED** If the submitter decides to withdraw the submission (alone or together with the evalation group), he/she transitions the issue to this state.
 The submisison may be resumed at a later time.
