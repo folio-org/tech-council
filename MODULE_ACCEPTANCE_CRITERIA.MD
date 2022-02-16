@@ -1,28 +1,19 @@
 # FOLIO Module Acceptance Values and Criteria
 
-
-## version 1.0 (ratified 9-15-2021)
-
+## version 1.1 (ratified TBD)
 
 # Overview
-
-In an effort to provide guidelines to external code contributors for how they get their modules included as part of FOLIO LSP, the Technical Council (TC) has drafted the following document.  This document differentiates between:
-
-
-
+The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
 * **Values** are high-level factors that are unlikely to change over time.  They should be understandable even to a non-technical audience.
-
 * **Criteria** are specific, verifiable tests as to how we’re meeting the Values within the current state of affairs.  Criteria will evolve over time to respond to changes in the Project’s technology stack, current best practices, etc. They may require a degree of technical expertise or domain knowledge to fully understand.
 
 In some cases, we may not yet have comprehensive Criteria for assessing a module’s adherence to a Value.  In such cases, subjective review and analysis will be applied, and may lead to discussion.
 
 It is important to note that these Values and Criteria are meant to be applied to new, incoming modules, and may not reflect the current state of affairs in the existing modules of FOLIO.  The Technical Council will work to align the current reality of the code with the Values and Criteria over time, as practicable.
 
-It is also important to note that while this document provides the criteria against which a module will be assessed for inclusion into FOLIO, it does not enumerate the process for that evaluation.  Nor does it account for any retroactive evaluation of modules already accepted into FOLIO that may not meet the criteria as currently written.  Such processes will need to be developed and documented by the Technical Council separately.
-
+It is also important to note that while this document provides the criteria against which a module will be assessed for inclusion into a FOLIO release, it does not enumerate the process for that evaluation.  Nor does it account for any retroactive evaluation of modules already accepted into FOLIO that may not meet the criteria as currently written.  Such processes will need to be developed and documented by the Technical Council separately.
 
 # Values
-
 1. Module adheres to Community Code of Conduct
 1. Module license is compatible with the FOLIO Project
 1. Module can be included in existing community build processes
@@ -42,7 +33,6 @@ It is also important to note that while this document provides the criteria agai
 
 
 # Criteria
-
 * Upon acceptance, code author(s) agree to have source code canonically in folio-org github (3, 5, 13)
 * Copyright assigned to OLF (13)
 * Uses Apache 2.0 license (2)
@@ -83,31 +73,17 @@ It is also important to note that while this document provides the criteria agai
 * Front end modules must work in the latest version of Chrome (the supported runtime environment) (10)
 * sonarqube hasn't identified any security issues (6)
 
-
 # Criteria Per Value
-
 An alternate display of the above content
 
-
 ## Module adheres to Community Code of Conduct
-
-
-
 * Code of Conduct statement in repository
 
-
 ## Module license is compatible with the FOLIO Project
-
-
-
 * Uses Apache 2.0 license
 * Third party dependencies use an Apache 2.0 compatible license
 
-
 ## Module can be included in existing community build processes
-
-
-
 * Upon acceptance, code author(s) agree to have source code canonically in folio-org github
 * Module’s repository includes a compliant Module Descriptor
 * Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections
@@ -123,21 +99,13 @@ An alternate display of the above content
 * Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully
 * Front-end modules: builds are Node 16/Yarn 1
 
-
 ## Module has robust testing that can run with existing community testing processes
-
-
-
 * Integration (API) tests written in Karate if applicable
 * Back-end unit tests at 80% coverage
 * Front-end unit tests written in Jest/RTL at 80% coverage
 * Front-end End-to-end tests written in Cypress, if applicable
 
-
 ## Module can be deployed in the Community’s reference environments without undue burden
-
-
-
 * Upon acceptance, code author(s) agree to have source code canonically in folio-org github
 * Module’s repository includes a compliant Module Descriptor
 * Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections
@@ -151,11 +119,7 @@ An alternate display of the above content
 * Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully
 * Front-end modules: builds are Node 16/Yarn 1
 
-
 ## Module is secure
-
-
-
 * All API endpoints protected with appropriate permissions
 * No excessive permissions granted to the module
 * Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file
@@ -165,62 +129,34 @@ An alternate display of the above content
 * Tenant data is segregated at the transit layer
 * sonarqube hasn't identified any security issues
 
-
 ## Module is multi-tenant
-
-
-
 * Tenant data is segregated at the storage layer
 * Back-end modules don’t access data in DB schemas other than their own and public
 * Tenant data is segregated at the transit layer
 * Back-end modules respond with a tenant’s content based on x-okapi-tenant header
 
-
 ## Module is internationalized
-
-
-
 * Front-end modules have i18n support via react-intl and an en.json file with English texts
 
-
 ## Module is meets current accessibility requirements
-
-
-
 * Front-end modules have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
 
-
 ## Module offers a cohesive user experience consistent with the rest of FOLIO
-
-
-
 * Front-end modules use the current version of Stripes
 * Front-end modules follow relevant existing UI layouts, patterns and norms
 * Front end modules must work in the latest version of Chrome
 
-
 ## Module has developer and end-user documentation
-
-
-
 * Environment vars are documented in the ModuleDescriptor
 * API endpoints are all documented in RAML or OpenAPI
 * Installation documentation included
 
-
 ## Module depends ONLY on other modules and infrastructure that are already included in FOLIO
-
-
-
 * Module only uses FOLIO interfaces already provided by previously accepted modules 
 * Module only uses existing infrastructure / platform technologies
 * Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully
 
-
 ## Module has a long-term development and maintenance plan
-
-
-
 * Upon acceptance, code author(s) agree to have source code canonically in folio-org github
 * Copyright assigned to OLF
 * Contribution guide is included in repo
@@ -228,24 +164,12 @@ An alternate display of the above content
 * For backend modules: builds are Maven and JDK 11 based and Dockerfile provided
 * Front-end modules: builds are Node 16/Yarn 1
 
-
 ## Module is scalable
-
-
-
 * HA compliant
-
 
 ## Module supports high availability
-
-
-
 * HA compliant
 
-
 ## Modules conforms to FOLIO upgrade mechanisms
-
-
-
 * Module provides reference data (if applicable)
 * Front-end modules uses the current version of Stripes
