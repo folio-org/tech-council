@@ -3,7 +3,7 @@
 ## version 1.1 (ratified TBD)
 
 # Overview
-The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used to when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
+The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
 * **Values** are high-level factors that are unlikely to change over time.  They should be understandable even to a non-technical audience.
 * **Criteria** are specific, verifiable tests as to how we’re meeting the Values within the current state of affairs.  Criteria will evolve over time to respond to changes in the Project’s technology stack, current best practices, etc. They may require a degree of technical expertise or domain knowledge to fully understand.
 
