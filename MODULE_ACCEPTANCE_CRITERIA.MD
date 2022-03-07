@@ -1,8 +1,6 @@
 # FOLIO Module Acceptance Values and Criteria
 
-
 ## version 1.0 (ratified 9-15-2021)
-
 
 # Overview
 
@@ -37,69 +35,14 @@ It is also important to note that while this document provides the criteria agai
 1. Module supports high availability
 1. Modules conforms to FOLIO upgrade mechanisms
 
-
 # Criteria
 *** NOTES *** Do we want to have distinct sets of criteria for frontend and backend modules?  It's a bit clumsy at the moment.   
 
-* Upon acceptance, code author(s) agree to have source code canonically in folio-org github (3, 5, 13)
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
-* Copyright assigned to OLF (13)
-  * ***NOTES*** CC criteria? 
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
-* Uses Apache 2.0 license (2)
-* Third party dependencies use an Apache 2.0 compatible license (2)
-  * ***NOTES*** This is a tough one to verify, especially on the UI side.  We should probably investigate tools that make this easier and provide a link to the tool, or to documentation describing how to use the tool.  See mod-inventory-storage -> has tooling in the build process to generate/expose licensing info.
-* Module’s repository includes a compliant Module Descriptor (3, 5)
+## Frontend
+* The package.json file contains the necessary information to produce a valid ModuleDescriptor (3, 5)
   * ***NOTES*** Maybe provide a link to the specification, or clarifiaction that it must be compliant with the latest relase of OKAPI
-  * ***NOTES*** What about UI modules?  Should the language be updated to include package.json specifics?  Maybe create a separate criteria for this?
-* Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections (3, 5)
+* The package.json declares all consumed OKAPI interfaces in the "okapiInterfaces" and "optionalOkapiInterfaces" sections (3, 5)
   * ***NOTES*** This is difficult to verify.  Need to give this some thought.
-* Environment vars are documented in the ModuleDescriptor (5, 11) - _note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
-* Back end modules must define endpoints consumable by other modules in the Module Descriptor “provides” section (3, 5)
-  * ***NOTES*** Possibly reword this... it's possible to have a module that isn't consumed by other modules... e.g. edge APIs 
-* All API endpoints are documented in RAML or OpenAPI (11)
-* All API endpoints protected with appropriate permissions (6)
-  * ***NOTES*** Add criteria about permission declarations, naming conventions, etc.  Also link out to supporting documentation?  Also, maybe reword to avoid subjective terminology ("appropriate")
-    * https://dev.folio.org/guidelines/naming-conventions/
-    * https://wiki.folio.org/display/DD/Permission+Set+Guidelines
-* No excessive permissions granted to the module (6) 
-  * ***NOTES*** Possibly clarify this a bit... we're after egregious things like okapi.all, or really .all permissions in general.
-* ***NOTES*** Can we add something to verify there are no missing module permissions -- isn't this covered by line 61 (All API endpoints protected with appropriate permissions)?
-* Code of Conduct statement in repository (1)
-  * ***NOTES*** CC criteria?
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
-* Installation documentation included (11)
-  * ***NOTES*** Provide link to a good example
-* Contribution guide is included in repo (13)
-  * ***NOTES*** CC criteria?
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
-* Module provides reference data (if applicable) (3, 16)
-  * ***NOTES*** Possibly clarify "if applicable", e.g. is there a controlled vocabulary where the module requires at least one value, there should be reference data?
-* Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
-* Sensitive information is not checked into git repository (6)
-  * ***NOTES*** reword to include environment-specific information as well.
-* Module is written in a language and framework that FOLIO development teams are familiar with _e.g. Vertx/RMB, Spring Way/folio-spring-base, and React/Stripes_ (13)
-  * ***NOTES*** provide references, or point to a official list for reference.
-* For backend modules: builds are Maven and JDK 11 based and Dockerfile provided (3, 5, 13)
-  * ***NOTES*** provide references, or point to a official list of build tools (possibly combine with maven point above).
-* Integration (API) tests written in Karate if applicable (3, 4) -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
- * ***NOTES*** Need to avoid "if applicable".  Does this mean that all modules must have karate tests, or that if a module does have integration (API) tests they're written in Karate?
-* Back-end unit tests at 80% coverage (3, 4)
- * ***NOTES*** "or higher"
-* Data is segregated by tenant at the storage layer (6, 7)
- * ***NOTES*** This is really about data storage in FOLIO and we want to get into specifics... by schema?  Not in the same table?  Maybe rephrase "at rest"?
-* Back-end modules don’t access data in DB schemas other than their own and public (6, 7)
-* Tenant data is segregated at the transit layer (6, 7)
- * ***NOTES*** Could be much clearer - need to be reworded, or examples need to be provided of what NOT to do.
-* Back-end modules respond with a tenant’s content based on x-okapi-tenant header (7)
- * ***NOTES*** Could be much clearer - need to be reworded, or examples need to be provided of what NOT to do.  Is this redundant?
-* Standard GET /admin/health endpoint returning a 200 response (5) -_note: read more at [https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol](https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol)_
-* HA compliant (5,14,15)
- * ***NOTES*** we need more here -- is there a document that we can refer to with more details?  Examples of things we've run into in the past may be helpful.
-* Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
-* Module only uses existing infrastructure / platform technologies_ e.g. PostgreSQL, ElasticSearch (and Kafka, despite it being still unofficial at present)_ (3, 5, 12)
-* Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully. (3, 5, 12)
-  * ***NOTES*** Possibly reword this
 * Front-end modules: builds are Node 16/Yarn 1 (3, 5, 13)
   * ***NOTES*** May be better to link out to an official list that's kept up-to-date.
 * Front-end unit tests written in Jest/RTL at 80% coverage (3, 4)
@@ -111,175 +54,68 @@ It is also important to note that while this document provides the criteria agai
 * Front-end modules use the current version of Stripes (10, 16)
   * ***NOTES*** This changes from release to release... since our process tries not to target specific releases, this could be a moving target.
 * Front-end modules follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
+  * ***NOTES*** Do we want to expand this to include UX too?  E.g. saving state when navigating between apps (or confirming that you'll lose the state)
 * Front end modules must work in the latest version of Chrome (the supported runtime environment) (10)
  * ***NOTES*** Potentially a moving target... need to think about how to manage this.
+
+## Backend
+* Module’s repository includes a compliant Module Descriptor (3, 5)
+  * ***NOTES*** Maybe provide a link to the specification, or clarifiaction that it must be compliant with the latest relase of OKAPI
+* Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections (3, 5)
+  * ***NOTES*** This is difficult to verify.  Need to give this some thought.
+* Environment vars are documented in the ModuleDescriptor (5, 11) - _note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
+* If a module provides interfaces intended to be consued by other FOLIO Modules, they must be defined in the Module Descriptor “provides” section (3, 5)
+* All API endpoints are documented in RAML or OpenAPI (11)
+* All API endpoints protected with appropriate permissions as per the following guidelines and recommendations (6)
+  * https://dev.folio.org/guidelines/naming-conventions/
+  * https://wiki.folio.org/display/DD/Permission+Set+Guidelines
+* No excessive permissions granted to the module (6) 
+  * ***NOTES*** Possibly clarify this a bit... we're after egregious things like okapi.all, or really .all permissions in general.
+  * ***NOTES*** Maybe just merge this with the previous criteria as an example?  Technically this is covered by the guidelines linked above.
+* NEW CRITERIA - needs to be worded better:  
+  * ***NOTES*** Can we add something to verify there are no missing module permissions -- isn't this covered by line 61 (All API endpoints protected with appropriate permissions)?
+* Module provides reference data (if applicable) (3, 16)
+  * ***NOTES*** Possibly clarify "if applicable", e.g. is there a controlled vocabulary where the module requires at least one value, there should be reference data?
+* For backend modules: builds are Maven and JDK 11 based and Dockerfile provided (3, 5, 13)
+  * ***NOTES*** provide references, or point to a official list of build tools (possibly combine with language point above).
+* Integration (API) tests written in Karate if applicable (3, 4) -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
+ * ***NOTES*** Need to avoid "if applicable".  Does this mean that all modules must have karate tests, or that if a module does have integration (API) tests they're written in Karate?
+* Back-end unit tests at 80% coverage or higher (3, 4)
+* Data is segregated by tenant at the storage layer (6, 7)
+ * ***NOTES*** This is really about data storage in FOLIO and we want to get into specifics... by schema?  Not in the same table?  Maybe rephrase "at rest"?
+* Back-end modules don’t access data in DB schemas other than their own and public (6, 7)
+* Back-end modules respond with a tenant’s content based on x-okapi-tenant header (7)
+ * ***NOTES*** Could be much clearer - need to be reworded, or examples need to be provided of what NOT to do.  Is this redundant?
+* Standard GET /admin/health endpoint returning a 200 response (5) -_note: read more at [https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol](https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol)_
+* HA compliant (5, 14, 15)
+ * ***NOTES*** we need more here -- is there a document that we can refer to with more details?  Examples of things we've run into in the past may be helpful.
+* Module only uses existing infrastructure / platform technologies_ e.g. PostgreSQL, ElasticSearch (and Kafka, despite it being still unofficial at present)_ (3, 5, 12)
+  * ***NOTES*** provide references, or point to a official list for reference.
+
+## Shared/Common
+* Uses Apache 2.0 license (2)
+* Third party dependencies use an Apache 2.0 compatible license (2)
+  * ***NOTES*** This is a tough one to verify, especially on the UI side.  We should probably investigate tools that make this easier and provide a link to the tool, or to documentation describing how to use the tool.  See mod-inventory-storage -> has tooling in the build process to generate/expose licensing info.
+* Installation documentation included (11)
+  * ***NOTES*** Provide link to a good example
+* Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+* Sensitive information is not checked into git repository (6)
+  * ***NOTES*** reword to include environment-specific information as well.
+* Module is written in a language and framework that FOLIO development teams are familiar with _e.g. Vertx/RMB, Spring Way/folio-spring-base, and React/Stripes_ (13)
+  * ***NOTES*** provide references, or point to a official list for reference.
+* Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
+* Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully. (3, 5, 12)
+  * ***NOTES*** Possibly reword this
 * sonarqube hasn't identified any security issues (6)
- * ***NOTES*** What about major code smells or duplications 
-
-
-# Criteria Per Value
-***NOTES*** Is this really worth maintaining? See earlier comments about splitting the criteria by FE/BE/Shared
-
-An alternate display of the above content
-
-
-## Module adheres to Community Code of Conduct
-
-
-
-* Code of Conduct statement in repository
-
-
-## Module license is compatible with the FOLIO Project
-
-
-
-* Uses Apache 2.0 license
-* Third party dependencies use an Apache 2.0 compatible license
-
-
-## Module can be included in existing community build processes
-
-
-
-* Upon acceptance, code author(s) agree to have source code canonically in folio-org github
-* Module’s repository includes a compliant Module Descriptor
-* Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections
-* Back end modules must define endpoints consumable by other modules in the Module Descriptor “provides” section
-* Module provides reference data (if applicable)
-* For backend modules: builds are Maven and JDK 11 based and Dockerfile provided
-* Integration (API) tests written in Karate if applicable
-* Back-end unit tests at 80% coverage
-* Front-end unit tests written in Jest/RTL at 80% coverage
-* Front-end End-to-end tests written in Cypress, if applicable
-* Module only uses FOLIO interfaces already provided by previously accepted modules 
-* Module only uses existing infrastructure / platform technologies
-* Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully
-* Front-end modules: builds are Node 16/Yarn 1
-
-
-## Module has robust testing that can run with existing community testing processes
-
-
-
-* Integration (API) tests written in Karate if applicable
-* Back-end unit tests at 80% coverage
-* Front-end unit tests written in Jest/RTL at 80% coverage
-* Front-end End-to-end tests written in Cypress, if applicable
-
-
-## Module can be deployed in the Community’s reference environments without undue burden
-
-
-
-* Upon acceptance, code author(s) agree to have source code canonically in folio-org github
-* Module’s repository includes a compliant Module Descriptor
-* Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections
-* Environment vars are documented in the ModuleDescriptor
-* Back end modules must define endpoints consumable by other modules in the Module Descriptor “provides” section
-* HA compliant
-* Standard GET /admin/health endpoint returning a 200 response
-* For backend modules: builds are Maven and JDK 11 based and Dockerfile provided
-* Module only uses FOLIO interfaces already provided by previously accepted modules 
-* Module only uses existing infrastructure / platform technologies
-* Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully
-* Front-end modules: builds are Node 16/Yarn 1
-
-
-## Module is secure
-
-
-
-* All API endpoints protected with appropriate permissions
-* No excessive permissions granted to the module
-* Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file
-* Sensitive information is not checked into git repository
-* Tenant data is segregated at the storage layer
-* Back-end modules don’t access data in DB schemas other than their own and public
-* Tenant data is segregated at the transit layer
-* sonarqube hasn't identified any security issues
-
-
-## Module is multi-tenant
-
-
-
-* Tenant data is segregated at the storage layer
-* Back-end modules don’t access data in DB schemas other than their own and public
-* Tenant data is segregated at the transit layer
-* Back-end modules respond with a tenant’s content based on x-okapi-tenant header
-
-
-## Module is internationalized
-
-
-
-* Front-end modules have i18n support via react-intl and an en.json file with English texts
-
-
-## Module is meets current accessibility requirements
-
-
-
-* Front-end modules have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-
-
-## Module offers a cohesive user experience consistent with the rest of FOLIO
-
-
-
-* Front-end modules use the current version of Stripes
-* Front-end modules follow relevant existing UI layouts, patterns and norms
-* Front end modules must work in the latest version of Chrome
-
-
-## Module has developer and end-user documentation
-
-
-
-* Environment vars are documented in the ModuleDescriptor
-* API endpoints are all documented in RAML or OpenAPI
-* Installation documentation included
-
-
-## Module depends ONLY on other modules and infrastructure that are already included in FOLIO
-
-
-
-* Module only uses FOLIO interfaces already provided by previously accepted modules 
-* Module only uses existing infrastructure / platform technologies
-* Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully
-
-
-## Module has a long-term development and maintenance plan
-
-
-
-* Upon acceptance, code author(s) agree to have source code canonically in folio-org github
-* Copyright assigned to OLF
-* Contribution guide is included in repo
-* Module is written in a language and framework that FOLIO development teams are familiar with
-* For backend modules: builds are Maven and JDK 11 based and Dockerfile provided
-* Front-end modules: builds are Node 16/Yarn 1
-
-
-## Module is scalable
-
-
-
-* HA compliant
-
-
-## Module supports high availability
-
-
-
-* HA compliant
-
-
-## Modules conforms to FOLIO upgrade mechanisms
-
-
-
-* Module provides reference data (if applicable)
-* Front-end modules uses the current version of Stripes
+ * ***NOTES*** What about major code smells or duplications (what percentage?)
+* Upon acceptance, code author(s) agree to have source code canonically in folio-org github (3, 5, 13)
+  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
+* Copyright assigned to OLF (13)
+  * ***NOTES*** CC criteria? 
+  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
+* Code of Conduct statement in repository (1)
+  * ***NOTES*** CC criteria?
+  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
+* Contribution guide is included in repository (13)
+  * ***NOTES*** CC criteria?
+  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
