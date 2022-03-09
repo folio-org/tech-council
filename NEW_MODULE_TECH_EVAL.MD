@@ -10,7 +10,7 @@ This document outlines the processes for **technical** evaluation of module for 
 
 ### Supporting documentation
 * Details of the JIRA workflow are captured in a separate [document](NEW_MOD_TECH_EVAL_JIRA.md). 
-* Technical evaluation is part of a larger process involving the other FOLIO Councils (PC/CC).  A description of the full process can be found here:  (insert link). 
+* Technical evaluation is part of a larger process involving the other FOLIO Councils (PC/CC). A description of the full process is currently being developed by a cross council working group. Upon completion a link to this process will be added here. 
 
 ## Submission
 1. The Product Council fills out a form in JIRA (using a template) and submits it to the Technical Council.  
@@ -71,3 +71,22 @@ Information gathered includes:
       * If a meeting is required or desired, it's the responsibility of the contributor(s) to find a time that works and set the meeting up with the review team.  The regular Technical Council meeting ***will not*** be used for this purpose.
 1. If applicable, the contributor(s) resolve all issues and request a re-review.  
     * * JIRA workflow: the ticket is transitioned from  **REJECTED** to **SUBMITTED**
+
+### Roles
+
+1. Submitter
+
+    * Creates the JIRA ticket on the TCR board.
+    * Can be a member of the PC or a delegate appointed by the PC
+    * Must not be a member of the development team seeking approval.
+
+1. Reviewer
+
+    * Processes a TCR ticket through the JIRA workflow
+    * Can be a member of the TC or a delegate appointed by the TC
+    * Must not be a member of the development team seeking approval.
+
+1. Module Developers
+
+    * Communicates relevent module information through updates to the TCR Issue in jira, once it has been created by the submitter.
+    * Includes developers, product owners and other team members.
