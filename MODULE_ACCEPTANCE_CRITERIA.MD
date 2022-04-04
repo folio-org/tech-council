@@ -36,15 +36,6 @@ It is also important to note that while this document provides the criteria agai
 1. Modules conforms to FOLIO upgrade mechanisms
 
 # Criteria
-TODO: create a wiki page that lists official tools/libraries/technologies/etc.
- - FE: Build tools: Node 16/Yarn 1
- - FE: Unit Test stack: JEST/RTL
- - FE: End-to-end test stack: Cypress
- - BE: Build tools: Maven/JDK 11/Docker
- - BE: Unit test stack: JUnit (version?)
- - BE: Integration tech stack: Karate
- - BE: Infrastructure / Plaform technologies: ES, Kafka, Posgres, etc.
- - All: Languages:  Vertx/RMB, Spring Way/folio-spring-base, and React/Stripes, etc.
 
 ## Frontend
 * The package.json file contains the necessary information to produce a valid ModuleDescriptor (3, 5)
