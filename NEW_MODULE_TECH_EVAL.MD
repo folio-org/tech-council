@@ -47,7 +47,7 @@ Information gathered includes:
 1. If there’s a new submission, the Technical Council finds one or more people to perofm the role of Reviewer. The review team will be formed in a way to allow for a fair review and avoid conflicts for interests.
     * JIRA workflow: the ticket is transitioned from **SUBMITTED** to **UNDER EVALUATION**
 1. The module is evaluated.
-    * If the Reviewer(s) have questions, they may reach out to the Submiter for clarification.
+    * If the Reviewer(s) have questions, they may reach out to the Point of Contact for clarification.
     * If answers aren't provided in a timely manner, the criteria in question may be failed.
 1. Upon completion of the evaluation the JIRA will be updated to indicate this.
      * JIRA workflow: the ticket is transitioned from **UNDER EVALUATION** to **TC REVIEW**
@@ -66,10 +66,10 @@ Information gathered includes:
     * An [Evaluation Results Template](https://github.com/folio-org/tech-council/blob/master/MODULE_EVALUATION_TEMPLATE.MD) will be used for this.
 1. Interested parties (e.g. release coordinator, contributor points of contact, Product Council members, etc.) are notified, and provided a link to the results.
     * JIRA workflow: notification is in the form of transition from **TC REVIEW** to **APROVED** or **REJECTED**
-    * If failed, the Development Team may ask for help understanding the failed criteria.
+    * If failed, the Point of Contact may ask for help understanding the failed criteria.
       * The comments section of the JIRA may be used for this purpose.  
-      * If a meeting is required or desired, it's the responsibility of the Development Team to find a time that works and set the meeting up with the review team.  The regular Technical Council meeting ***will not*** be used for this purpose.
-1. If applicable, the Development Team resolve all issues and request a re-review.  
+      * If a meeting is required or desired, it's the responsibility of the Point of Contact to find a time that works and set the meeting up with the review team.  The regular Technical Council meeting ***will not*** be used for this purpose.
+1. If applicable, the module developers resolve all issues and request a re-review.  
     * * JIRA workflow: the ticket is transitioned from  **REJECTED** to **SUBMITTED**
 
 ### Roles
@@ -86,7 +86,7 @@ Information gathered includes:
     * Can be a member of the TC or a delegate appointed by the TC
     * Must not be a member of the development team seeking approval.
 
-1. Development Team
+1. Development Team Point of Contact (Point of Contact)
 
     * Communicates relevent module information through updates to the TCR Issue in jira, once it has been created by the submitter.
     * Includes developers, product owners and other team members.
