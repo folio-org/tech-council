@@ -44,7 +44,7 @@ Information gathered includes:
 
 ## Evaluation
 1. The Technical Council reviews a JIRA board to see if there are any new submissions, and check on the status of evaluations in progress.
-1. If there’s a new submission, the Technical Council finds one or more people to perofm the role of Reviewer. The review team will be formed in a way to allow for a fair review and avoid conflicts for interests.
+1. If there’s a new submission, the Technical Council finds one or more people to perform the role of Reviewer. The review team will be formed in a way to allow for a fair review and avoid conflicts for interests.
     * JIRA workflow: the ticket is transitioned from **SUBMITTED** to **UNDER EVALUATION**
 1. The module is evaluated.
     * If the Reviewer(s) have questions, they may reach out to the Point of Contact for clarification.
