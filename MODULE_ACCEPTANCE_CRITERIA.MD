@@ -1,23 +1,20 @@
 # FOLIO Module Acceptance Values and Criteria
 
-## version 2.0 (ratified TBD)
+## version 1.1 (ratified TBD)
 
 # Overview
-
-In an effort to provide guidelines to external code contributors for how they get their modules included as part of FOLIO LSP, the Technical Council (TC) has drafted the following document.  This document differentiates between:
+The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
 
 * **Values** are high-level factors that are unlikely to change over time.  They should be understandable even to a non-technical audience.
-
 * **Criteria** are specific, verifiable tests as to how we’re meeting the Values within the current state of affairs.  Criteria will evolve over time to respond to changes in the Project’s technology stack, current best practices, etc. They may require a degree of technical expertise or domain knowledge to fully understand.
 
 In some cases, we may not yet have comprehensive Criteria for assessing a module’s adherence to a Value.  In such cases, subjective review and analysis will be applied, and may lead to discussion.
 
 It is important to note that these Values and Criteria are meant to be applied to new, incoming modules, and may not reflect the current state of affairs in the existing modules of FOLIO.  The Technical Council will work to align the current reality of the code with the Values and Criteria over time, as practicable.
 
-It is also important to note that while this document provides the criteria against which a module will be assessed for inclusion into FOLIO, it does not enumerate the process for that evaluation.  Nor does it account for any retroactive evaluation of modules already accepted into FOLIO that may not meet the criteria as currently written.  Such processes will need to be developed and documented by the Technical Council separately.
+It is also important to note that while this document provides the criteria against which a module will be assessed for inclusion into a FOLIO release, it does not enumerate the process for that evaluation.  Nor does it account for any retroactive evaluation of modules already accepted into FOLIO that may not meet the criteria as currently written.  Such processes will need to be developed and documented by the Technical Council separately.
 
 # Values
-
 1. Module adheres to Community Code of Conduct
 1. Module license is compatible with the FOLIO Project
 1. Module can be included in existing community build processes
@@ -102,3 +99,4 @@ It is also important to note that while this document provides the criteria agai
 * Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6)
 * Builds with tools found on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
+
