@@ -1,6 +1,6 @@
 # FOLIO Module Acceptance Values and Criteria
 
-## version 1.1 (ratified TBD)
+## version 2.0 (ratified TBD)
 
 # Overview
 The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
