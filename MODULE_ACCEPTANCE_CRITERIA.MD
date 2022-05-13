@@ -45,12 +45,8 @@ It is also important to note that while this document provides the criteria agai
 * The package.json declares all consumed OKAPI interfaces in the "okapiInterfaces" and "optionalOkapiInterfaces" sections (3, 5)
   * ***NOTES*** This is difficult to verify.  Need to give this some thought and provide guidance/tips for how to verify this.
   * TODO: ask the Stripes guys how they might go about doing this
-* Builds are Node 16/Yarn 1 (3, 5, 13)
-  * ***NOTES*** May be better to link out to an official list that's kept up-to-date.
-* Unit tests written in Jest/RTL at 80% coverage (3, 4)
-  * ***NOTES*** or higher... again maybe reference some documentation of the officially approved technologies.
-* End-to-end tests written in Cypress, if applicable  (3, 4) -_note: these tests aren’t defined as part of the module_
-  * ***NOTES*** should avoid the use of "if applicable"... needs to be clarified.  Again maybe reference some documentation of the officially approved technologies.
+* End-to-end tests, if implemented, are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
+ * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * Have i18n support via react-intl and an en.json file with English texts (8)
 * Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * Use the latest release of Stripes at the time of evaluation (10, 16)
@@ -61,7 +57,7 @@ It is also important to note that while this document provides the criteria agai
 
 ## Backend
 * Module’s repository includes a compliant Module Descriptor (3, 5)
-  * https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json
+  * See: https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json
 * Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections (3, 5)
   * ***NOTES*** This is difficult to verify.  Need to give this some thought.
   * TODO: ask the BE devs how they might go about doing this -> maybe ask Marc J.
@@ -69,29 +65,27 @@ It is also important to note that while this document provides the criteria agai
 * If a module provides interfaces intended to be consued by other FOLIO Modules, they must be defined in the Module Descriptor “provides” section (3, 5)
 * All API endpoints are documented in RAML or OpenAPI (11)
 * All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
-  * https://dev.folio.org/guidelines/naming-conventions/
-  * https://wiki.folio.org/display/DD/Permission+Set+Guidelines
+  * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/
+  * -_note: read more at https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)  
-* Builds are Maven and JDK 11 based and Dockerfile provided (3, 5, 13)
-  * ***NOTES*** provide references, or point to a official list of build tools (possibly combine with language point above).
-* Must have integration (API) tests written in an acceptable technology (3, 4) 
+* Must have integration (API) tests written in an [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4) 
  * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
- * TODO:  refer to the wiki page w/ official/approved technologies
 * Unit tests at 80% coverage or higher and are written in an approved technology (3, 4)
  * TODO:  refer to the wiki page w/ officially approved technologies
 * Data is segregated by tenant by schema at the storage layer (6, 7)
 * The module doesn’t access data in DB schemas other than its own and public (6, 7)
 * The module responds with a tenant’s content based on x-okapi-tenant header (7)
  * ***NOTES*** Could be much clearer - need to be reworded, or examples need to be provided of what NOT to do.  Is this redundant?
-* Standard GET /admin/health endpoint returning a 200 response (5) -_note: read more at [https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol](https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol)_
+* Standard GET /admin/health endpoint returning a 200 response (5) 
+ * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
 * HA compliant (5, 14, 15)
  * ***NOTES*** we need more here -- is there a document that we can refer to with more details?  Examples of things we've run into in the past may be helpful.
  * Possible red flags:
   * connection affinity is required
   * local container storage is used
   * etc.
-* Module only uses existing infrastructure / platform technologies _e.g. PostgreSQL, ElasticSearch (and Kafka, despite it being still unofficial at present)_ (3, 5, 12)
-  * TODO: refer to the wiki page with officially approved list of technologies.
+* Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
+  * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
 
 ## Shared/Common
 * Uses Apache 2.0 license (2)
@@ -107,6 +101,8 @@ It is also important to note that while this document provides the criteria agai
 * Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
 * The module gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
 * sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6)
+* Builds with tools found on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list (3, 5, 13)
+* Unit tests have 80% coverage or greater, and are based on using [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
 
 **TODO**:  Move these to a Post-acceptance stage in the process document.
 
