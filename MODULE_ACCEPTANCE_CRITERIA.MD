@@ -1,6 +1,6 @@
 # FOLIO Module Acceptance Values and Criteria
 
-## version 1.0 (ratified 9-15-2021)
+## version 2.0 (ratified TBD)
 
 # Overview
 
@@ -103,17 +103,3 @@ It is also important to note that while this document provides the criteria agai
 * sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6)
 * Builds with tools found on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on using [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
-
-**TODO**:  Move these to a Post-acceptance stage in the process document.
-
-* Upon acceptance, code author(s) agree to have source code canonically in folio-org github (3, 5, 13)
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
-* Copyright assigned to OLF (13)
-  * ***NOTES*** CC criteria? 
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
-* Code of Conduct statement in repository (1)
-  * ***NOTES*** CC criteria?
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
-* Contribution guide is included in repository (13)
-  * ***NOTES*** CC criteria?
-  * ***NOTES*** This isn't strictly technical.  Maybe make this part of a separate section/part of the overall process that states expectations of post-acceptance into a release
