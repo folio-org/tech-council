@@ -97,6 +97,6 @@ It is also important to note that while this document provides the criteria agai
 * Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
 * Module gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
 * Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6)
-* Builds with tools found on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list (3, 5, 13)
+* Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
 
