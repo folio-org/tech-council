@@ -35,13 +35,6 @@ It is also important to note that while this document provides the criteria agai
 # Criteria
 
 ## Frontend
-* The package.json file contains the necessary information to produce a valid ModuleDescriptor (3, 5)
-  * ***NOTES*** Maybe provide a link to the specification, or clarifiaction that it must be compliant with the latest relase of OKAPI
-  * TODO: ask the Stripes guys if there's a spec or documentation for this -> Talk to Mike Taylor about this...
-  * Maybe link to this:  https://github.com/folio-org/stripes-cli/blob/master/doc/user-guide.md#managing-ui-modules
-* The package.json declares all consumed OKAPI interfaces in the "okapiInterfaces" and "optionalOkapiInterfaces" sections (3, 5)
-  * ***NOTES*** This is difficult to verify.  Need to give this some thought and provide guidance/tips for how to verify this.
-  * TODO: ask the Stripes guys how they might go about doing this
 * If provided, End-to-end tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4) 
  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
  * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
@@ -56,9 +49,6 @@ It is also important to note that while this document provides the criteria agai
 ## Backend
 * Module’s repository includes a compliant Module Descriptor (3, 5)
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
-* Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections (3, 5)
-  * ***NOTES*** This is difficult to verify.  Need to give this some thought.
-  * TODO: ask the BE devs how they might go about doing this -> maybe ask Marc J.
 * Environment vars are documented in the ModuleDescriptor (5, 11)
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * If a module provides interfaces intended to be consued by other FOLIO Modules, they must be defined in the Module Descriptor “provides” section (3, 5)
@@ -69,10 +59,9 @@ It is also important to note that while this document provides the criteria agai
 * If provided, integration (API) tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4) 
  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
  * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
-* Data is segregated by tenant by schema at the storage layer (6, 7)
+* Data is segregated by tenant at the storage layer (6, 7)
 * The module doesn’t access data in DB schemas other than its own and public (6, 7)
 * The module responds with a tenant’s content based on x-okapi-tenant header (7)
- * ***NOTES*** Could be much clearer - need to be reworded, or examples need to be provided of what NOT to do.  Is this redundant?
 * Standard GET /admin/health endpoint returning a 200 response (5) 
  * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
 * High Availity (HA) compliant (5, 14, 15)
@@ -85,18 +74,16 @@ It is also important to note that while this document provides the criteria agai
 
 ## Shared/Common
 * Uses Apache 2.0 license (2)
+* Module build MUST produce a valid module descriptor (3, 5)
+* Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
 * Third party dependencies use an Apache 2.0 compatible license (2)
-  * ***NOTES*** This is a tough one to verify, especially on the UI side.  
-  * TODO: investigate tools that make this easier and provide a link to the tool, or to documentation describing how to use the tool.  See mod-inventory-storage -> has tooling in the build process to generate/expose licensing info. See also https://www.npmjs.com/package/license-checker for Frontend
 * Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
 * Sensitive and environment-specific information is not checked into git repository (6)
-* Module is written in a language and framework that FOLIO development teams are familiar with _e.g. Vertx/RMB, Spring Way/folio-spring-base, and React/Stripes_ (13)
-  * TODO: refer to the wiki page with officially approved list of technologies/languages/etc.
+* Module is written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page (3, 5)
 * Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
 * Module gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
 * Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6)
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
-
