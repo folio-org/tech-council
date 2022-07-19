@@ -65,10 +65,10 @@ It is also important to note that while this document provides the criteria agai
 * Standard GET /admin/health endpoint returning a 200 response (5) 
  * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
 * High Availability (HA) compliant (5, 14, 15)
- * Possible red flags:
-  * Connection affinity / sticky sessions / etc. are used
-  * Local container storage is used
-  * Services are stateful
+  * Possible red flags:
+    * Connection affinity / sticky sessions / etc. are used
+    * Local container storage is used
+    * Services are stateful
 * Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
   * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
 
