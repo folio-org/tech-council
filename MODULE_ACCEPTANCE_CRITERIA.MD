@@ -64,7 +64,7 @@ It is also important to note that while this document provides the criteria agai
 * The module responds with a tenant’s content based on x-okapi-tenant header (7)
 * Standard GET /admin/health endpoint returning a 200 response (5) 
  * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
-* High Availity (HA) compliant (5, 14, 15)
+* High Availability (HA) compliant (5, 14, 15)
  * Possible red flags:
   * Connection affinity / sticky sessions / etc. are used
   * Local container storage is used
