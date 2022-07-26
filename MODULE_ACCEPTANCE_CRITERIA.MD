@@ -42,7 +42,6 @@ It is also important to note that while this document provides the criteria agai
 * Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * Use the latest release of Stripes at the time of evaluation (10, 16)
 * Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
-* Follow relevant existing UX layouts, patterns and norms (10) -_note: read more about current practices at ???_
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
 * Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation (10)
 
