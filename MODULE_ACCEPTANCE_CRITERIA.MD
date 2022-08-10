@@ -36,8 +36,8 @@ It is also important to note that while this document provides the criteria agai
 
 ## Frontend
 * If provided, End-to-end tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4) 
- * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
- * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
+  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
+  * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * Have i18n support via react-intl and an en.json file with English texts (8)
 * Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * Use the latest release of Stripes at the time of evaluation (10, 16)
@@ -57,13 +57,13 @@ It is also important to note that while this document provides the criteria agai
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)  
 * If provided, integration (API) tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4) 
- * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
- * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
+  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
+  * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * Data is segregated by tenant at the storage layer (6, 7)
 * The module doesn’t access data in DB schemas other than its own and public (6, 7)
 * The module responds with a tenant’s content based on x-okapi-tenant header (7)
 * Standard GET /admin/health endpoint returning a 200 response (5) 
- * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
+  * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
 * High Availability (HA) compliant (5, 14, 15)
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
