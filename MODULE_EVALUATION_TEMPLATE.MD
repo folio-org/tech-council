@@ -1,51 +1,65 @@
 # Module acceptance criteria template
 
 ## How to use this form
-When performing a technical evaluation of a module, create a copy of this document and use the conventions below to indicate the status of each criteria.  The evaluation results should be placed in the [module_evaluations](https://github.com/folio-org/tech-council/tree/master/module_evaluations) directory and should conform to the following naming convention:  `{JIRA Key}_YYYY-MM-DD.MD`, e.g. `TCR-1_2021-11-17.MD`.  The date here is used to differenciate between initial and potential re-evaluation(s).  It should be the date which the evaluation results file was created.
+When performing a technical evaluation of a module, create a copy of this document and use the conventions below to indicate the status of each criterion.  The evaluation results should be placed in the [module_evaluations](https://github.com/folio-org/tech-council/tree/master/module_evaluations) directory and should conform to the following naming convention: `{JIRA Key}_YYYY-MM-DD.MD`, e.g. `TCR-1_2021-11-17.MD`.  The date here is used to differentiate between initial and potential re-evaluation(s).  It should be the date when the evaluation results file was created.
 
 * [x] ACCEPTABLE
 * [x] ~INAPPLICABLE~
 * [ ] UNACCEPTABLE
   * comments on what was evaluated/not evaluated, why a criterion failed
 
-## [Criteria](https://github.com/folio-org/tech-council/blob/4dc5ac6d632fb880131cd214d212f973683b9ebe/MODULE_ACCEPTANCE_CRITERIA.MD)
+## [Criteria](https://github.com/folio-org/tech-council/blob/7b10294a5c1c10c7e1a7c5b9f99f04bf07630f06/MODULE_ACCEPTANCE_CRITERIA.MD)
 
-* [ ] Upon acceptance, code author(s) agree to have source code canonically in folio-org github
-* [ ] Copyright assigned to OLF
+## Shared/Common
 * [ ] Uses Apache 2.0 license
+* [ ] Module build MUST produce a valid module descriptor
+* [ ] Module descriptor MUST include interface requirements for all consumed APIs
 * [ ] Third party dependencies use an Apache 2.0 compatible license
-* [ ] Module’s repository includes a compliant Module Descriptor
-* [ ] Modules must declare all consumed interfaces in the Module Descriptor “requires” and “optional” sections
-* [ ] Environment vars are documented in the ModuleDescriptor - _note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
-* [ ] Back-end modules must define endpoints consumable by other modules in the Module Descriptor “provides” section
+* [ ] Installation documentation is included
+  * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
+* [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
+* [ ] Sensitive and environment-specific information is not checked into git repository
+* [ ] Module is written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page
+* [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
+* [ ] Module gracefully handles the absence of third party systems or related configuration
+* [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication
+* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools
+* [ ] Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+
+## Frontend
+* [ ] If provided, End-to-end tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
+  * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
+* [ ] Have i18n support via react-intl and an `en.json` file with English texts
+* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
+* [ ] Use the latest release of Stripes at the time of evaluation
+* [ ] Follow relevant existing UI layouts, patterns and norms
+  * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
+  * e.g. Saving state when navigating between apps (or confirming that you'll lose the state)
+* [ ] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
+
+## Backend
+* [ ] Module's repository includes a compliant Module Descriptor
+  * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
+* [ ] Environment vars are documented in the ModuleDescriptor
+  * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
+* [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section
 * [ ] All API endpoints are documented in RAML or OpenAPI
-* [ ] All API endpoints protected with appropriate permissions
-* [ ] No excessive permissions granted to the module
-* [ ] Code of Conduct statement in repository
-* [ ] Installation documentation included
-* [ ] Contribution guide is included in repo
-* [ ] Module provides reference data (if applicable)
-* [ ] Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file
-* [ ] Sensitive information is not checked into git repository
-* [ ] Module is written in a language and framework that FOLIO development teams are familiar with _e.g. Vertx/RMB, Spring Way/folio-spring-base, and React/Stripes_
-* [ ] Back-end modules are based on Maven/JDK 11 and provide a Dockerfile
-* [ ] Integration (API) tests written in Karate if applicable -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
-* [ ] Back-end unit tests at 80% coverage
+* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
+  * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
+* [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
+* [ ] If provided, integration (API) tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
+  * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * [ ] Data is segregated by tenant at the storage layer
-* [ ] Back-end modules don’t access data in DB schemas other than their own and public
-* [ ] Tenant data is segregated at the transit layer
-* [ ] Back-end modules respond with a tenant’s content based on x-okapi-tenant header
-* [ ] Standard GET /admin/health endpoint returning a 200 response -_note: read more at [https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol](https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol)_
-* [ ] HA compliant
-* [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_
-* [ ] Module only uses existing infrastructure / platform technologies_ e.g. PostgreSQL, ElasticSearch (and Kafka, despite it being still unofficial at present)_
-* [ ] Integration with any third party system (outside of the FOLIO environment) tolerates the absence of configuration / presence of the system gracefully.
-* [ ] Front-end modules: builds are Node 16/Yarn 1
-* [ ] Front-end unit tests written in Jest/RTL at 80% coverage
-* [ ] Front-end End-to-end tests written in Cypress, if applicable -_note: these tests aren’t defined as part of the module_
-* [ ] Front-end modules have i18n support via react-intl and an en.json file with English texts
-* [ ] Front-end modules have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-* [ ] Front-end modules use the current version of Stripes
-* [ ] Front-end modules follow relevant existing UI layouts, patterns and norms -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
-* [ ] Front-end modules must work in the latest version of Chrome (the supported runtime environment)
-* [ ] sonarqube hasn't identified any security issues
+* [ ] The module doesn't access data in DB schemas other than its own and public
+* [ ] The module responds with a tenant's content based on x-okapi-tenant header
+* [ ] Standard GET `/admin/health` endpoint returning a 200 response
+  * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
+* [ ] High Availability (HA) compliant
+  * Possible red flags:
+    * Connection affinity / sticky sessions / etc. are used
+    * Local container storage is used
+    * Services are stateful
+* [ ] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
+  * _e.g. PostgreSQL, ElasticSearch, etc._
