@@ -13,20 +13,15 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Shared/Common
 * [x] Uses Apache 2.0 license
 * [x] Module build MUST produce a valid module descriptor
-    * The descriptor seems to be valid according to Okapi
-    * However, the modules does not actually provide the stated interface (no endpoints are implemented)
-    * I do not know if that would be considered invalid
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
-  * The descriptor only declares a dependency for the `login` interface
-  * There is code within the module for that makes requests to other interfaces
-  * However the developer states this code is not currently used by production code 
+  * Descriptor includes many interface dependencies, assumed to be complete 
 * [x] Third party dependencies use an Apache 2.0 compatible license
     * assumed
 * [x] Installation documentation is included
     * no documentation, assumed to be standard module
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
-  * The personal data disclosure form states that specific personal data is collected, inc. free form text and custom fields
-  * Given no API has yet been implemented, I cannot find evidence that this data is currently stored
+  * UserModClientAdapter seems to map most of personal data described in the form, assumed to be stored
+  * However, place of birth and gender are marked as stored and do not seem to be included
 * [x] Sensitive and environment-specific information is not checked into git repository
   * The module descriptor contains environment specific configuration
   * I believe this is common practice amongst many back end modules, thus assumed to be an acceptable exclusion
@@ -36,7 +31,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * Only the `login` interface is stated as a dependency
 * [x] ~Module gracefully handles the absence of third party systems or related configuration~
   * Assumed to not integrate with any third party systems
-* [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication
+* [x] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication
   * The configuration excludes significant packages from the analysis:
   * **/src/main/java/org/folio/bulkops/domain/**,
   * **/src/main/java/org/folio/bulkops/error/**
@@ -63,30 +58,28 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Backend
 * [x] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
-* [ ] Environment vars are documented in the ModuleDescriptor
+* [x] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
-  * Module descriptor only includes environment variables for Postgres
-  * However, the [application](https://github.com/folio-org/mod-bulk-operations/blob/c3e6475d0cc7158efb4893a419a5403a9d4019c4/src/main/resources/application.yml#L61) config, defines environment variables for S3 file storage
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section
 * [x] All API endpoints are documented in RAML or OpenAPI
   * List of endpoints match between descriptor and OpenAPI docs
-* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
+* [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * Each endpoint has a permission
   * There are some discrepancies in the scheme used
   * For example, the `/bulk-operations/{operationId}/upload` endpoint uses the item form of permission, `bulk-operations.item.upload.post`
   * Whereas, the `bulk-operations/{operationId}/content-update` endpoint, uses the collection form of permission, `bulk-operations.content-update.collection.post`
-  * Despite them both using similar endpoint structures
+  * Despite them both referring to a single bulk operation in the collection
 * [x] ~Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value~
 * [x] ~If provided, integration (API) tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)~
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * [x] Data is segregated by tenant at the storage layer
-  * Assumed, to be provided by Spring Base
+  * Assumed to be provided by Spring Base
 * [x] The module doesn't access data in DB schemas other than its own and public
-  * Assumed, to be provided by Spring Base
-* [ ] The module responds with a tenant's content based on x-okapi-tenant header
-  * No endpoints have been implemented
+  * Assumed to be provided by Spring Base
+* [x] The module responds with a tenant's content based on x-okapi-tenant header
+  * Assumed to be handled by JpaRepository provided by Spring Base
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
   * Assumed to be provided by Spring Base
@@ -98,4 +91,4 @@ When performing a technical evaluation of a module, create a copy of this docume
     * Services are stateful
 * [x] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
   * Declares environment variables in descriptor for Postgres
-  * Declares environment variables in config for S3
+  * Declares environment variables in descriptor for S3
