@@ -60,11 +60,6 @@ When performing a technical evaluation of a module, create a copy of this docume
   * List of endpoints match between descriptor and OpenAPI docs
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
-  * Each endpoint has a permission
-  * There are some discrepancies in the scheme used
-  * For example, the `/bulk-operations/{operationId}/upload` endpoint uses the item form of permission, `bulk-operations.item.upload.post`
-  * Whereas, the `bulk-operations/{operationId}/content-update` endpoint, uses the collection form of permission, `bulk-operations.content-update.collection.post`
-  * Despite them both referring to a single bulk operation in the collection
 * [x] ~Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value~
 * [x] ~If provided, integration (API) tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)~
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
