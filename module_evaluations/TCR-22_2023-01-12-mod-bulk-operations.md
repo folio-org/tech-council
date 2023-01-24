@@ -38,10 +38,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools
   * Maven
 * [x] Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
-  * [Analysis](https://github.com/folio-org/mod-bulk-operations/runs/10477334470) estimates 82% coverage  
-  * The configuration excludes some code from coverage, I do not know if that is acceptable or not
-    * **/src/main/java/org/folio/bulkops/client/**,
-    * **/src/main/java/org/folio/bulkops/util/ErrorConverter.java  
+  * [Analysis](https://github.com/folio-org/mod-bulk-operations/runs/10477334470) estimates 82% coverage
 
 ## Frontend
 * [] If provided, End-to-end tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
