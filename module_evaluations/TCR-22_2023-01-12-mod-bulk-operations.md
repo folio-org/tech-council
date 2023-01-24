@@ -19,9 +19,7 @@ When performing a technical evaluation of a module, create a copy of this docume
     * assumed
 * [x] Installation documentation is included
     * no documentation, assumed to be standard module
-* [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
-  * UserModClientAdapter seems to map most of personal data described in the form, assumed to be stored
-  * However, place of birth and gender are marked as stored and do not seem to be included
+* [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
   * The module descriptor contains environment specific configuration
   * I believe this is common practice amongst many back end modules, thus assumed to be an acceptable exclusion
