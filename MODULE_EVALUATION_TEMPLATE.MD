@@ -39,7 +39,6 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
 
 ## Backend
-
 * [ ] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
