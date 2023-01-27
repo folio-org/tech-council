@@ -48,6 +48,7 @@ It is also important to note that while this document provides the criteria agai
 ## Backend
 * Module’s repository includes a compliant Module Descriptor (3, 5)
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
+* Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * Environment vars are documented in the ModuleDescriptor (5, 11)
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor “provides” section (3, 5)
