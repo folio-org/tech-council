@@ -61,13 +61,13 @@ Information gathered includes:
     * Weigh in on any subjective criteria.
     * The Technical Council may ask the Reviewer(s) to make changes to the evaluation.  
     * This review may happen either out of band, during the regularly scheduled Technical Council meeting, or a separate meeting scheduled specifically for this purpose.
-    * In certain exceptional circumstances the TC reserves the right to override the results of an evaluation. This will require a vote and in such cases the TC is required to provide written justification of this action.
 1. Upon completion of the review, the JIRA will be updated to indicate this.
     * JIRA workflow: the ticket is transitioned from **TC REVIEW** to **APROVED** or **REJECTED**
 
 ## Feedback & Acceptance/Rejection
 1. Evaluation results are published (in markdown format) to the [tech-council GitHub repository](https://github.com/folio-org/tech-council) and linked to the JIRA ticket.
     * An [Evaluation Results Template](https://github.com/folio-org/tech-council/blob/master/MODULE_EVALUATION_TEMPLATE.MD) will be used for this.
+    * In certain exceptional circumstances the TC reserves the right to override the results of an evaluation. This will require a vote and in such cases the TC is required to provide written justification of this action.
 1. Interested parties (e.g. release coordinator, contributor points of contact, Product Council members, etc.) are notified, and provided a link to the results.
     * JIRA workflow: notification is in the form of transition from **TC REVIEW** to **APROVED** or **REJECTED**
     * If failed, the Point of Contact may ask for help understanding the failed criteria.
