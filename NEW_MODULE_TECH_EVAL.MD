@@ -26,7 +26,7 @@ This document outlines the processes for **technical** evaluation of module for 
       * Any questions about the module will be directed to the points of contact.
     * Request a demonstration of the module
       * In some cases the TC may request a demonstration of the module
-      * In such instances the Reviewer will contact the Submitter with a request for a demonstation, and a mutually sutable time for the demonstation will be scheduled.
+      * In such instances the Reviewer will contact the Submitter with a request for a demonstration, and a mutually suitable time for the demonstration will be scheduled.
 
 ### Submission form
 Information gathered includes:
