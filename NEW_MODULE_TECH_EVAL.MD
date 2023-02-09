@@ -24,6 +24,9 @@ This document outlines the processes for **technical** evaluation of module for 
     * Request additional information
       * If there are missing points of contact, the Product Council will be contacted
       * Any questions about the module will be directed to the points of contact.
+    * Request a demonstration of the module
+      * In some cases the TC may request a demonstration of the module
+      * In such instances the Reviewer will contact the Submitter with a request for a demonstration, and a mutually suitable time for the demonstration will be scheduled.
 
 ### Submission form
 Information gathered includes:
@@ -58,6 +61,10 @@ Information gathered includes:
     * Weigh in on any subjective criteria.
     * The Technical Council may ask the Reviewer(s) to make changes to the evaluation.  
     * This review may happen either out of band, during the regularly scheduled Technical Council meeting, or a separate meeting scheduled specifically for this purpose.
+1. The Technical Council decides, using its standard protocols, to accept or reject the module.
+    * An evaluation where all criteria are met will typically result in the acceptance of a module by the Technical Council.
+    * An evaluation where not all criteria are met will typically result in the rejection of a module by the Technical Council.
+    * When the Technical council's decision is contrary to the evaluation, the Technical Council is required to provide written justification for their decision.
 1. Upon completion of the review, the JIRA will be updated to indicate this.
     * JIRA workflow: the ticket is transitioned from **TC REVIEW** to **APROVED** or **REJECTED**
 
