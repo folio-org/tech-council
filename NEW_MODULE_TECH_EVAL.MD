@@ -15,7 +15,7 @@ This document outlines the processes for **technical** evaluation of module for 
 ## Submission
 1. The Submitter fills out a form in JIRA (using a template) and submits it to the TCR Board for review.  
     * See JIRA workflow for details.
-    * A Evaluator will only respond to submissions from the official Submitters as defined in the 'Roles' section of this document.
+    * An Evaluator will only respond to submissions from the official Submitters as defined in the 'Roles' section of this document.
 1. The Technical Council will update the JIRA within 1 week (See JIRA workflow for details) with the following information:
     * Confirm receipt of the submission
     * Who will be performing the role of Evaluator, as defined in the 'Roles' secrtion of this document
