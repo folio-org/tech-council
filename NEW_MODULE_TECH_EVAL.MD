@@ -15,10 +15,10 @@ This document outlines the processes for **technical** evaluation of module for 
 ## Submission
 1. The Submitter fills out a form in JIRA (using a template) and submits it to the TCR Board for review.  
     * See JIRA workflow for details.
-    * A Reviewer will only respond to submissions from the official Submitters as defined in the 'Roles' section of this document.
+    * A Evaluator will only respond to submissions from the official Submitters as defined in the 'Roles' section of this document.
 1. The Technical Council will update the JIRA within 1 week (See JIRA workflow for details) with the following information:
     * Confirm receipt of the submission
-    * Who will be performing the role of Reviewer, as defined in the 'Roles' secrtion of this document
+    * Who will be performing the role of Evaluator, as defined in the 'Roles' secrtion of this document
     * Provide an rough estimate for the initial evaluation to be completed
       * Should be 3 weeks or less.
     * Request additional information
@@ -26,7 +26,7 @@ This document outlines the processes for **technical** evaluation of module for 
       * Any questions about the module will be directed to the points of contact.
     * Request a demonstration of the module
       * In some cases the TC may request a demonstration of the module
-      * In such instances the Reviewer will contact the Submitter with a request for a demonstration, and a mutually suitable time for the demonstration will be scheduled.
+      * In such instances the Evaluator will contact the Submitter with a request for a demonstration, and a mutually suitable time for the demonstration will be scheduled.
 
 ### Submission form
 Information gathered includes:
@@ -47,10 +47,10 @@ Information gathered includes:
 
 ## Evaluation
 1. The Technical Council reviews a JIRA board to see if there are any new submissions, and check on the status of evaluations in progress.
-1. If there’s a new submission, the Technical Council finds one or more people to perform the role of Reviewer. The review team will be formed in a way to allow for a fair review and avoid conflicts for interests.
+1. If there’s a new submission, the Technical Council finds one or more people to perform the role of Evaluator. The review team will be formed in a way to allow for a fair review and avoid conflicts for interests.
     * JIRA workflow: the ticket is transitioned from **SUBMITTED** to **UNDER EVALUATION**
 1. The module is evaluated.
-    * If the Reviewer(s) have questions, they may reach out to the Point of Contact for clarification.
+    * If the Evaluator(s) have questions, they may reach out to the Point of Contact for clarification.
     * If answers aren't provided in a timely manner, the criteria in question may be failed.
 1. Upon completion of the evaluation the JIRA will be updated to indicate this.
      * JIRA workflow: the ticket is transitioned from **UNDER EVALUATION** to **TC REVIEW**
@@ -59,7 +59,7 @@ Information gathered includes:
 1. The Technical Council reviews the evaluation results.
     * Asks any questions they have for the evaluators.
     * Weigh in on any subjective criteria.
-    * The Technical Council may ask the Reviewer(s) to make changes to the evaluation.  
+    * The Technical Council may ask the Evaluator(s) to make changes to the evaluation.  
     * This review may happen either out of band, during the regularly scheduled Technical Council meeting, or a separate meeting scheduled specifically for this purpose.
 1. The Technical Council decides, using its standard protocols, to accept or reject the module.
     * An evaluation where all criteria are met will typically result in the acceptance of a module by the Technical Council.
@@ -87,7 +87,7 @@ Information gathered includes:
     * Can be a member of the PC or a delegate appointed by the PC
     * Must not be a member of the development team seeking approval.
 
-1. Reviewer
+1. Evaluator
 
     * Processes a TCR ticket through the JIRA workflow
     * Can be a member of the TC or a delegate appointed by the TC
