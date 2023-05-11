@@ -75,15 +75,21 @@ It is also important to note that while this document provides the criteria agai
 ## Shared/Common
 * Uses Apache 2.0 license (2)
 * Module build MUST produce a valid module descriptor (3, 5)
+  * _This is not applicable to libraries_
 * Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
+  * _This is not applicable to libraries_
 * Third party dependencies use an Apache 2.0 compatible license (2)
 * Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
+  * _This is not applicable to libraries_
 * Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+  * _This is not applicable to libraries_
 * Sensitive and environment-specific information is not checked into git repository (6)
-* Module is written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page (3, 5)
-* Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
-* Module gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
+* Written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page (3, 5)
+* Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
+  * _This is not applicable to libraries_
+* Must not depend on a FOLIO library that has not been approved through the TCR process
+* Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
 * Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6)
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
