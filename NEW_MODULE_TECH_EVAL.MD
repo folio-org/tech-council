@@ -85,7 +85,6 @@ Information gathered includes:
 
     * Creates the JIRA ticket on the TCR board.
     * Can be a member of the PC or a delegate appointed by the PC
-    * Must not be a member of the development team seeking approval.
 
 1. Evaluator
 
