@@ -29,13 +29,10 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Frontend
 * [x] ~If provided, End-to-end tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)~
 * [x] Have i18n support via react-intl and an `en.json` file with English texts
-* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-  * There is a single complaint about tabindex=0 on a clickable row in an MCL. This is a legacy pattern that, in fact, we recommended for a long time. Clickable table-rows have been replaced by clicking linked text within a single table-cell. It isn't clear if this app uses a supported pattern (i.e. this needs to be fixed within stripes-components) or if this pattern is already specifically deprecated within stripes-components (i.e. this needs to be fixed within ui-service-interaction). We should consult with Stripes Force for a final opinion.
+* [x] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
 * [x] Use the latest release of Stripes at the time of evaluation
   * Instead of "latest release" should we use the "officially supported technologies list"?
-* [ ] Follow relevant existing UI layouts, patterns and norms
-  * "Number generators" marquee is black with contrasting blue text which is ... unusual and seems unlikely to pass a11y constraints. Although axe dev tools do not complain about the contrast ratio of blue on black that may be a technicality of specifying color as an RGB value rather than as a hex value. Given a hex value, the contrast is insufficient: https://webaim.org/resources/contrastchecker/?fcolor=2F609F&bcolor=000000
-  * New Sequence form helpfully contains popover links with supplementary descriptions of each field, but the "Output template" descriptor contains a "Learn more" link that should either (1) open in a new window or (2) warn that the form will be cleared when navigating away. (1) is preferable. Additionally, the wiki page it links to is blank. Additionally additionally, is the wiki the source of record for application documentation?
+* [x] Follow relevant existing UI layouts, patterns and norms
 * [x] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
 
 ## Backend
