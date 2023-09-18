@@ -50,7 +50,7 @@ When performing a technical evaluation of a module, create a copy of this docume
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [x] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
+* [ ] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
   * _e.g. PostgreSQL, ElasticSearch, etc._
 
 ## TCR Process Improvements
