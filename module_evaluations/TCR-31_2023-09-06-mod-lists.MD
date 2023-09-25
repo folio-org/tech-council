@@ -13,7 +13,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Shared/Common
 * [x] Uses Apache 2.0 license
 * [x] Module build MUST produce a valid module descriptor
-* [x] Module descriptor MUST include interface requirements for all consumed APIs
+* [ ] Module descriptor MUST include interface requirements for all consumed APIs
 * [x] Third party dependencies use an Apache 2.0 compatible license
 * [x] Installation documentation is included
   * _Note: See https://github.com/folio-org/mod-lists/blob/master/README.md_
@@ -21,8 +21,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Sensitive and environment-specific information is not checked into git repository
   * _Note: Verified with `git log -p --pickaxe-regex -i -S "password|token|key"` (passwords, tokens, and API keys being the things most likely to be committed)_
 * [x] Module is written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page
-* [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
-  * _Note: requires mod-fqm-manager which is also under evaluation_
+* [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
+  * _Note: requires mod-fqm-manager which ˜is also under evaluation~ was conditionally accepted on 2023-09-25_
 * [x] Module gracefully handles the absence of third party systems or related configuration
   * _Note: Tested various permutations of omitted and/or bogus S3/MinIO environment variables.  All were handled gracefully by the module._
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication
@@ -60,6 +60,21 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
   * _e.g. PostgreSQL, ElasticSearch, etc._
   * _Note: need to discuss with the TC whether or not MinIO should be on the the OST list_
+
+## Recommendation and justification
+Reviewers recommend acceptance with discussion of three points.
+With the conditional acceptance of `mod-fqm-manager`, there are three criteria which are in question:
+* [ ] Module descriptor MUST include interface requirements for all consumed APIs
+  * `mod-lists` uses `/query` and `/entity-types` APIs, module descriptor needs to be updated
+  * Reviewers think this is a trivial fix and in the context of our timeframe should not block acceptance.
+  * (This was the source of some controversy in the TC discussion.)
+* [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication
+  * There are code smells related to Exception classes having 6 parents which is greater than 5 authorized. Reviewers would give it a pass, but would like TC to discuss.
+  * Ran out of time to discuss, but did not generate controversy. 
+* [ ] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
+  * _Note: need to discuss with the TC whether or not MinIO should be on the the OST list_
+  * Also generated no controversy, [DR-000026 - S3/MinIO](https://wiki.folio.org/pages/viewpage.action?pageId=96419874) has been around in DRAFT status for over two years and seems like an oversight.
+
 
 ## TCR Process Improvements
 * Consider adding lombok to the Officially Supported Technologies list since it is used extensively througout the project, despite NOT having an Apache 2.0 license.  This could help evaluators in the future.
