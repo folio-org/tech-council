@@ -14,7 +14,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Uses Apache 2.0 license
 * [x] Module build MUST produce a valid module descriptor
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
-* [x] Third party dependencies use an Apache 2.0 compatible license
+  * `mod-lists` uses `/query` and `/entity-types` APIs, module descriptor needs to be updated* [x] Third party dependencies use an Apache 2.0 compatible license
 * [x] Installation documentation is included
   * _Note: See https://github.com/folio-org/mod-lists/blob/master/README.md_
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
