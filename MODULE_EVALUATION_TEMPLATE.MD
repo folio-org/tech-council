@@ -35,7 +35,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * [ ] Have i18n support via react-intl and an `en.json` file with English texts
 * [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-* [ ] Use the latest release of Stripes at the time of evaluation
+* [ ] Use release of Stripes referred to by an [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page that is labelled either ACTIVE or ACCEPTED at the time of evaluation
 * [ ] Follow relevant existing UI layouts, patterns and norms
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * e.g. Saving state when navigating between apps (or confirming that you'll lose the state)
