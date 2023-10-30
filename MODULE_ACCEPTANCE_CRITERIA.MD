@@ -43,6 +43,7 @@ It is also important to note that while this document provides the criteria agai
 * Use the latest release of Stripes at the time of evaluation (10, 16)
 * Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
+  * For UI links to documentation, there is no rule on where that documentation should be hosted, i.e. docs.folio.org, or wiki.folio.org, or module-specific destinations.  However any linked documentation should be maintained to avoid broken links.
 * Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation (10)
 
 ## Backend
