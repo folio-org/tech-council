@@ -18,6 +18,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Module build MUST produce a valid module descriptor
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
 * [ ] Third party dependencies use an Apache 2.0 compatible license
+* [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
