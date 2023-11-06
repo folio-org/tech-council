@@ -62,6 +62,7 @@ It is also important to note that while this document provides the criteria agai
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * Data is segregated by tenant at the storage layer (6, 7)
 * The module doesn’t access data in DB schemas other than its own and public (6, 7)
+* Any dependencies, other than on defined interfaces, are declared in the README.md.
 * The module responds with a tenant’s content based on x-okapi-tenant header (7)
 * Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
