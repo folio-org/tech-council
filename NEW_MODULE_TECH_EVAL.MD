@@ -41,7 +41,8 @@ Information gathered includes:
 * Link to self evaluation results
 * Informational Section - provides info, instead of eliciting it.
   * A link/pointer to the most recent version of the Acceptance Criteria.
-  * A maximum duration (3 weeks) from the submission date for the initial review.  
+  * The TC has a maximum duration of 3 weeks to perform the initial review.
+    * The evaluator may have between 2 and 3 weeks, depending when the TC meeting happens during that first week.  
     * This does not include activities that happen after feedback is given, etc. 
   * The applicable deadline for submissions in the release timeline (not the date, but the name of the milestone/deadline e.g. "deadline for new modules")
 
