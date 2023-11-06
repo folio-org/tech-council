@@ -92,6 +92,7 @@ It is also important to note that while this document provides the criteria agai
   * _This is not applicable to libraries_
 * Must not depend on a FOLIO library that has not been approved through the TCR process
 * Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-* Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6)
+* Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled rules are reasonably justified.
+  * note: guidelines on how to disable individual rules, with justification. (@TODO create wiki page / link) 
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
