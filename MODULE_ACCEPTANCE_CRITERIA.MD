@@ -35,7 +35,10 @@ It is also important to note that while this document provides the criteria agai
 # Criteria
 
 ## Frontend
-* If provided, End-to-end tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
+
+Note: Frontend criteria apply to both modules and shared libraries. 
+
+* If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * Have i18n support via react-intl and an en.json file with English texts (8)

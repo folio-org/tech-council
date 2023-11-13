@@ -70,5 +70,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
   * _e.g. PostgreSQL, ElasticSearch, etc._
 
+## Edge
+
 ## TCR Process Improvements
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
