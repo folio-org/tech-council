@@ -57,7 +57,7 @@ It is also important to note that while this document provides the criteria agai
 * All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-* If provided, integration (API) tests must be written in an [officially approved technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
+* If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * Data is segregated by tenant at the storage layer (6, 7)
@@ -71,7 +71,7 @@ It is also important to note that while this document provides the criteria agai
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
+* Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
   * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
 
 ## Shared/Common
@@ -88,7 +88,7 @@ It is also important to note that while this document provides the criteria agai
 * Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * _This is not applicable to libraries_
 * Sensitive and environment-specific information is not checked into git repository (6)
-* Written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page (3, 5)
+* Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page (3, 5)
 * Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
   * _This is not applicable to libraries_
 * Must not depend on a FOLIO library that has not been approved through the TCR process
@@ -96,4 +96,4 @@ It is also important to note that while this document provides the criteria agai
 * Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled rules are reasonably justified.
   * note: guidelines on how to disable individual rules, with justification. (@TODO create wiki page / link) 
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
-* Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
+* Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
