@@ -51,8 +51,11 @@ Information gathered includes:
 1. If there’s a new submission, the Technical Council finds one or more people to perform the role of Evaluator. 
     * The review team will be formed in a way to allow for a fair review and avoid either perceived or actual conflicts of interest.  No members should have participated in the module's development, and at least one member should be independent of the submitter's organization.  The lead evaluator will be assigned in JIRA; if the submitting team has concerns about the chosen evaluator they should contact the TC chairs within one week of the assignment.
     * JIRA workflow: the ticket is transitioned from **SUBMITTED** to **UNDER EVALUATION**
+    * In order to improve notifications when the Jira is updated, the primary reviewer should be the Assignee and other members of the review team should be issue watchers.
 1. The module is evaluated.
     * If the Evaluator(s) have questions, they may reach out to the Point of Contact for clarification.
+      * The evaluator and submitter may choose to iterate on the submission, making adjustment to address the questions raised. 
+      * Whenever changes are made, the submitter should update the commit hash in the Jira.
     * If answers aren't provided in a timely manner, the criteria in question may be failed.
 1. Upon completion of the evaluation the JIRA will be updated to indicate this.
      * JIRA workflow: the ticket is transitioned from **UNDER EVALUATION** to **TC REVIEW**
