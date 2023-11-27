@@ -2,6 +2,7 @@
 
 ## Overview
 This document outlines the processes for **technical** evaluation of module for inclusion in a FOLIO release.  The following activities are covered:
+1. Before Development
 1. Submission
 1. Evaluation
 1. Review
@@ -11,6 +12,10 @@ This document outlines the processes for **technical** evaluation of module for 
 ### Supporting documentation
 * Details of the JIRA workflow are captured in a separate [document](NEW_MOD_TECH_EVAL_JIRA.md). 
 * Technical evaluation is part of a larger process involving the other FOLIO Councils (PC/CC). A description of the full process is currently being developed by a cross council working group. Upon completion a link to this process will be added here. 
+
+## Before Development
+* Please review the New Module Evaluation Criteria before (or as early as possible during) development, to avoid any issues which would lead to delay or rejection of the module.
+* The Technical Council welcomes architectural questions. In particular, if you anticipate that the module will introduce any architectural changes or other innovations that might conflict with existing TCR criteria, or would imply significant changes to the hosting environment or required infrastructure, please do reach out to the Technical Council ASAP.  The TC may recommend an RFC or other process to resolve these questions first, to avoid the module failing or being delayed during the TCR process.
 
 ## Submission
 1. The Submitter fills out a form in JIRA (using a template) and submits it to the TCR Board for review.  
@@ -66,10 +71,13 @@ Information gathered includes:
     * Weigh in on any subjective criteria.
     * The Technical Council may ask the Evaluator(s) to make changes to the evaluation.  
     * This review may happen either out of band, during the regularly scheduled Technical Council meeting, or a separate meeting scheduled specifically for this purpose.
-1. The Technical Council decides, using its standard protocols, to accept or reject the module.
+1. The Technical Council decides, using its standard protocols, to accept, provisionally accept, or reject the module, or else to defer a decision pending other action.
     * An evaluation where all criteria are met will typically result in the acceptance of a module by the Technical Council.
-    * An evaluation where not all criteria are met will typically result in the rejection of a module by the Technical Council.
-    * When the Technical council's decision is contrary to the evaluation, the Technical Council is required to provide written justification for their decision.
+    * An evaluation where not all criteria are met will typically result in the rejection of a module by the Technical Council. However:
+        * If some of the failures are due to proposed architectural (or other cross-module) changes, the TC may request that Submitter first propose those changes via the RFC process to get sufficient community input. In that situation the TC may defer its decision pending the resolution of the RFC. (See [Before Development](#Before-Development).)
+        * If TC and Submitter unanimously agree on module changes that would resolve any failures, the TC may decide to provisionally accept the module with an agreed-upon timeline for the changes to be completed.  When Submitter notifies TC that the changes are complete, the reviewer(s) may update the evaluation and TC may adjust its decision.
+        * If the TC determines that some failed criteria would be resolved by non-controversial changes to the criteria themselves (or referenced requirements like the Officially Supported Technologies), TC may decide to accept the module and make the agreed-upon changes.
+    * When the Technical council's decision is contrary to the evaluation, or after any provisional acceptance or deferral, the Technical Council is required to provide written justification for their decision.
 1. Upon completion of the review, the JIRA will be updated to indicate this.
     * JIRA workflow: the ticket is transitioned from **TC REVIEW** to **APROVED** or **REJECTED**
 
