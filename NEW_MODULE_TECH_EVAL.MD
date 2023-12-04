@@ -67,6 +67,7 @@ Information gathered includes:
 
 ## Review
 1. The Technical Council reviews the evaluation results.
+    * The evaluators present the evaluation results, and optionally recommends a TC decision.
     * Asks any questions they have for the evaluators.
     * Weigh in on any subjective criteria.
     * The Technical Council may ask the Evaluator(s) to make changes to the evaluation.  
