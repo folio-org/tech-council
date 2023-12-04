@@ -93,7 +93,12 @@ Information gathered includes:
 1. If applicable, the module developers resolve all issues and request a re-review.  
     * * JIRA workflow: the ticket is transitioned from  **REJECTED** to **SUBMITTED**
 
-### Roles
+## Process Feedback
+
+1. TC asks the submitter if they have any feedback on the New Module Technical Evaluation process.
+    * TC considers that feedback as part of the next process evaluation improvement round.
+
+## Roles
 
 1. Submitter
 
