@@ -59,7 +59,7 @@ Information gathered includes:
     * In order to improve notifications when the Jira is updated, the primary reviewer should be the Assignee and other members of the review team should be issue watchers.
 1. The module is evaluated.
     * If the Evaluator(s) have questions, they may reach out to the Point of Contact for clarification.
-      * The evaluator and submitter may choose to iterate on the submission, making adjustment to address the questions raised. 
+      * This may be an iterative process: the evaluator and submitter may choose to iterate on the submission, making adjustment to address the questions raised. 
       * Whenever changes are made, the submitter should update the commit hash in the Jira.
     * If answers aren't provided in a timely manner, the criteria in question may be failed.
 1. Upon completion of the evaluation the JIRA will be updated to indicate this.
