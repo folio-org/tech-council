@@ -1,0 +1,1 @@
+The documents in this repository are largely part of the [FOLIO Technical Council's](https://wiki.folio.org/display/TC/Technical+Council) module review process. For an overview of the process and details on how to use these templates, please see: https://wiki.folio.org/display/TC/New+Module+Technical+Evaluations
