@@ -10,9 +10,11 @@ The Technical Council (TC) has defined a process for technical evaluation of mod
 
 In some cases, we may not yet have comprehensive Criteria for assessing a module’s adherence to a Value.  In such cases, subjective review and analysis will be applied, and may lead to discussion.
 
-It is important to note that these Values and Criteria are meant to be applied to new, incoming modules, and may not reflect the current state of affairs in the existing modules of FOLIO.  The Technical Council will work to align the current reality of the code with the Values and Criteria over time, as practicable.
+This document provides the criteria against which a module will be assessed for inclusion into a FOLIO release, following the [New Module Technical Evaluation Process](NEW_MODULE_TECH_EVAL.MD). 
 
-It is also important to note that while this document provides the criteria against which a module will be assessed for inclusion into a FOLIO release, it does not enumerate the process for that evaluation.  Nor does it account for any retroactive evaluation of modules already accepted into FOLIO that may not meet the criteria as currently written.  Such processes will need to be developed and documented by the Technical Council separately.
+Existing FOLIO modules ideally conform to the same Values and Criteria.  It is understood that not all existing modules currently do so, especially modules created after the Values & Criteria were initially defined.  The Technical Council will work with development teams to align the current reality of the code with the Values and Criteria over time, as practicable.  Such processes will need to be developed and documented.
+
+Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) for any planned development to new or existing modules that may intentionally diverge from these Values or Criteria.
 
 # Values
 1. Module adheres to Community Code of Conduct
