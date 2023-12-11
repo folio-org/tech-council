@@ -52,6 +52,9 @@ Note: Frontend criteria apply to both modules and shared libraries.
 * Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation (10)
 
 ## Backend
+
+Note: Backend criteria apply to modules, shared backend libraries, and edge modules.
+
 * Module’s repository includes a compliant Module Descriptor (3, 5)
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
 * Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
