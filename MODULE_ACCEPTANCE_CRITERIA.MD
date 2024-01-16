@@ -45,7 +45,7 @@ Note: Frontend criteria apply to both modules and shared libraries.
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * Have i18n support via react-intl and an en.json file with English texts (8)
 * Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
-* Use the latest release of Stripes at the time of evaluation (10, 16)
+* Use release of Stripes referred to by an [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page that is labelled either ACTIVE or ACCEPTED at the time of evaluation (10, 16)
 * Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
   * For UI links to documentation, there is no rule on where that documentation should be hosted, i.e. docs.folio.org, or wiki.folio.org, or module-specific destinations, as long as it is publicly accessible.
@@ -60,7 +60,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * Environment vars are documented in the ModuleDescriptor (5, 11)
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
-* If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor “provides” section (3, 5)
+* If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * All API endpoints are documented in RAML or OpenAPI (11)
 * All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
