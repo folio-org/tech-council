@@ -12,7 +12,7 @@ In some cases, we may not yet have comprehensive Criteria for assessing a module
 
 This document provides the criteria against which a module will be assessed for inclusion into a FOLIO release, following the [New Module Technical Evaluation Process](NEW_MODULE_TECH_EVAL.MD). 
 
-Existing FOLIO modules ideally conform to the same Values and Criteria.  It is understood that not all existing modules currently do so, especially modules created after the Values & Criteria were initially defined.  The Technical Council will work with development teams to align the current reality of the code with the Values and Criteria over time, as practicable.  Such processes will need to be developed and documented.
+Existing FOLIO modules ideally conform to the same Values and Criteria.  It is understood that not all existing modules currently do so, especially modules created before the Values & Criteria were initially defined.  The Technical Council will work with development teams to align the current reality of the code with the Values and Criteria over time, as practicable.  Such processes will need to be developed and documented.
 
 Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) for any planned development to new or existing modules that may intentionally diverge from these Values or Criteria.
 
@@ -105,3 +105,4 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * note: guidelines on how to disable individual rules, with justification. (@TODO create wiki page / link) 
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
+* Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result. (10???) 
