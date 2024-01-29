@@ -105,4 +105,6 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * note: guidelines on how to disable individual rules, with justification. (@TODO create wiki page / link) 
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) (3, 4)
-* Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result. (10???) 
+
+## Administrative
+* Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
