@@ -114,7 +114,3 @@ Information gathered includes:
 
     * Communicates relevent module information through updates to the TCR Issue in jira, once it has been created by the submitter.
     * Includes developers, product owners and other team members.
-
-1. Product Council
-
-    * Leaves a comment in the TCR saying they approved the relevant functionality.
