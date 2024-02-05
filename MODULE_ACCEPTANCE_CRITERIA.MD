@@ -36,6 +36,33 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 
 # Criteria
 
+## Administrative
+* Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
+
+## Shared/Common
+* Uses Apache 2.0 license (2)
+* Module build MUST produce a valid module descriptor (3, 5)
+  * _This is not applicable to libraries_
+* Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
+  * _This is not applicable to libraries_
+* Third party dependencies use an Apache 2.0 compatible license (2)
+* In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
+* Installation documentation is included (11)
+  * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
+  * _This is not applicable to libraries_
+* Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+  * _This is not applicable to libraries_
+* Sensitive and environment-specific information is not checked into git repository (6)
+* Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
+* Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
+  * _This is not applicable to libraries_
+* Must not depend on a FOLIO library that has not been approved through the TCR process
+* Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
+* Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
+* Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
+* Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+
 ## Frontend
 
 Note: Frontend criteria apply to both modules and shared libraries. 
@@ -81,32 +108,5 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
     * Services are stateful
 * Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
-
-## Shared/Common
-* Uses Apache 2.0 license (2)
-* Module build MUST produce a valid module descriptor (3, 5)
-  * _This is not applicable to libraries_
-* Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
-  * _This is not applicable to libraries_
-* Third party dependencies use an Apache 2.0 compatible license (2)
-* In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
-* Installation documentation is included (11)
-  * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
-  * _This is not applicable to libraries_
-* Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
-  * _This is not applicable to libraries_
-* Sensitive and environment-specific information is not checked into git repository (6)
-* Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
-* Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
-  * _This is not applicable to libraries_
-* Must not depend on a FOLIO library that has not been approved through the TCR process
-* Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-* Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
-  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-* Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
-* Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
-
-## Administrative
-* Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
