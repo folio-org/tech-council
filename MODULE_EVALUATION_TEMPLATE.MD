@@ -23,24 +23,24 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [ ] Sensitive and environment-specific information is not checked into git repository
-* [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page
+* [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [ ] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools
-* [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
+* [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
 
 ## Administrative
 * [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
 
 ## Frontend
-* [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+* [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * [ ] Have i18n support via react-intl and an `en.json` file with English texts
 * [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-* [ ] Use release of Stripes referred to by the most recent ACTIVE release's [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page
+* [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [ ] Follow relevant existing UI layouts, patterns and norms
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * e.g. Saving state when navigating between apps (or confirming that you'll lose the state)
@@ -57,7 +57,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
-* [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+* [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * [ ] Data is segregated by tenant at the storage layer
@@ -71,8 +71,10 @@ When performing a technical evaluation of a module, create a copy of this docume
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
+* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._
 
 ## TCR Process Improvements
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
+
+[^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
