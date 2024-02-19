@@ -45,7 +45,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] ~~Follow relevant existing UI layouts, patterns and norms~~
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * e.g. Saving state when navigating between apps (or confirming that you'll lose the state)
-* [x] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
+* [x] ~~Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation~~
 
 ## Backend
 * [x] Module's repository includes a compliant Module Descriptor
@@ -79,6 +79,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
 * We should clarify where the team is supposed to put their self-review. 
 * We have a broken wiki link:  https://wiki.folio.org/pages/viewpage.action?pageId=65110683
+* We don't provide a lot of guidance to reviewers themselves. We should consider adding a FAQ or other support page to the wiki to help new reviewers if we want to expand our reviewer pool.
 
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
