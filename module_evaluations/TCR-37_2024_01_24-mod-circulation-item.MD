@@ -31,9 +31,10 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
 * [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-* [ ] Environment vars are documented in the ModuleDescriptor
+* [x] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
   * I found pubsub in pom.xml , so does it use Kafka ? If so, KAFKA_HOST, KAFKA_PORT should be in "env" part of the launch descriptor.
+  * There is a [PR](https://github.com/folio-org/mod-circulation-item/pull/23) addressing this issue. 
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section
 * [x] All API endpoints are documented in RAML or OpenAPI
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
@@ -53,11 +54,9 @@ When performing a technical evaluation of a module, create a copy of this docume
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
+* [x] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
   * _e.g. PostgreSQL, ElasticSearch, etc._
-    * IK:
-      * The folio-spring-base.version 7.2.2 is maybe a little outdated ? (we support folio-spring-base 7.4 for Quesnelia)     
-      * <sonar.exclusions>: why exclude those (the Java programs ?)
+  * Uses folio-spring-base.version 7.2.2 --> OST should be upated (it shows 7.4, which does not exist)
 
 ## TCR Process Improvements
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
