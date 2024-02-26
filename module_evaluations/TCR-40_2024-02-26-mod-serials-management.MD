@@ -23,7 +23,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Third party dependencies use an Apache 2.0 compatible license
 * [x] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
-  * Pending addition of documentation to README.md https://folio-org.atlassian.net/browse/MODSER-18
+  * Pending addition PR for documentation https://folio-org.atlassian.net/browse/MODSER-18
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
 * [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
@@ -45,7 +45,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
 * [ ] All API endpoints are documented in OpenAPI
-  * Pending documentation being added to repository https://folio-org.atlassian.net/browse/MODSER-3
+  * Pending PR with OpenAPI documentation https://folio-org.atlassian.net/browse/MODSER-3
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * [x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
