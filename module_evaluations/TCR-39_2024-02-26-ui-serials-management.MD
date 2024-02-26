@@ -30,7 +30,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
-  * Pending work to reduce code duplication https://folio-org.atlassian.net/browse/UISER-60
+  * Pending work to address SonarQube issues https://folio-org.atlassian.net/browse/UISER-60
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * Pending work on increasing test converage https://folio-org.atlassian.net/browse/UISER-51
