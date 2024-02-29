@@ -1,7 +1,7 @@
 # Module acceptance criteria template
 
 ## Module Name
-mod-XXX or ui-XXX etc.
+mod-serials-management
 
 ## How to use this form
 When performing a technical evaluation of a module, create a copy of this document and use the conventions below to indicate the status of each criterion.  The evaluation results should be placed in the [module_evaluations](https://github.com/folio-org/tech-council/tree/master/module_evaluations) directory and should conform to the following naming convention: `{JIRA Key}_YYYY-MM-DD-{module name}.MD`, e.g. `TCR-1_2021-11-17-mod-foo.MD`.  The date here is used to differentiate between initial and potential re-evaluation(s).  It should be the date when the evaluation results file was created.
@@ -14,12 +14,13 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## [Criteria](https://github.com/folio-org/tech-council/blob/7b10294a5c1c10c7e1a7c5b9f99f04bf07630f06/MODULE_ACCEPTANCE_CRITERIA.MD)
 
 ## Administrative
-* [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
+* [x] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
 
 ## Shared/Common
-* [ ] Uses Apache 2.0 license
-* [ ] Module build MUST produce a valid module descriptor
+* [x] Uses Apache 2.0 license
+* [x] Module build MUST produce a valid module descriptor
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
+  * there are no consumed apis (?). Requires section of the module descriptor is empty. But it seems to rely on orders.po-lines.item.get (mod-orders).
 * [ ] Third party dependencies use an Apache 2.0 compatible license
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
@@ -56,7 +57,11 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] All API endpoints are documented in OpenAPI.
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
+  * IK: Naming convention of permissions: serials-management.serials.view  vs. serials-management.refdata.collection.get (probably O.K., because "view" is a collection)
+  * IK: Write permissions are being defined but never referenced (serials-management.settings.write, ...). Probably intended to be used by other modules.
+  * IK: Very granular permission sets. This is probably good.
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
+  * module provides reference data
 * [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
