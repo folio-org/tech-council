@@ -22,6 +22,18 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
   * there are no consumed apis (?). Requires section of the module descriptor is empty. But it seems to rely on orders.po-lines.item.get (mod-orders).
 * [ ] Third party dependencies use an Apache 2.0 compatible license
+  * micronaut.io: O.K.
+  * zaxxer : O.K.
+  * http-builder-ng: O.K.
+  * virtualdogbert: Eclipse Public License v1.0 as published by the Eclipse Foundation or (per the licensee's choosing) under the terms of the GNU Lesser General Public 
+License version 2.1
+  * z3950 zing cql is published unter LGPL 1.0, if it is that: https://github.com/indexdata/cql-java/blob/master/LGPL-2.1   -- not compatible with Apache 2.0 ?? Cf. https://www.apache.org/legal/resolved.html
+  * https://github.com/pledbrook/groovy-handlebars-engine : Apache 2.0
+  * https://github.com/jknack/handlebars.java/blob/master/LICENSE: Apache 2.0
+  * https://github.com/everit-org/json-schema/blob/master/LICENSE : Apache 2.0
+  * https://github.com/renatoathaydes/spock-reports/blob/master/LICENSE.txt : Apache 2.0
+  * https://github.com/bmuschko/gradle-docker-plugin/blob/master/LICENSE.txt : Apache 2.0
+  *** hier weiter ***
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
