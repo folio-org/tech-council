@@ -48,11 +48,11 @@ License version 2.1
 * [x] Sensitive and environment-specific information is not checked into git repository
 * [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
   * gradle.properties says 
-  # Grails
+  - Grails
   grailsVersion=5.3.2
   groovyVersion=3.0.11
   but Quesnelia OST are Grails 6, Groovy 2 : cf. https://folio-org.atlassian.net/wiki/spaces/TC/pages/5056746/Quesnelia
-  However, work is under way, cf. the self evaluation:  Pending upgrade to Grails 6 https://folio-org.atlassian.net/browse/MODSER-10 ; @Oweb: when do you expect this upgrade to be accomplished ?
+  However, work is under way, cf. the self evaluation:  Pending upgrade to Grails 6 https://folio-org.atlassian.net/browse/MODSER-10 ; @Owen: when do you expect this upgrade to be accomplished ?
   * uses openapi 3.1.0  O.K.
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
