@@ -38,34 +38,35 @@ License version 2.1
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * Installation documentation is too sparse. Just mentioning K8s deployment is not enough. The agreement of SysOps SIG is that deployment documentation should always be provided for a single server installation (K8s instructions are useful, but optional).
-    Installation documentation should include running using the grail-app in a Vagrant box, like the documentation for mod-agreements ("Initial Setup").
+    Installation documentation should include running using the grail-app in a Vagrant box, like the documentation for mod-agreements ("Initial Setup"). (I see scripts are all there, but documentation is missing).
     Instead of to the latest module descriptor, it should point to a versionized one.
   * reference to Sonar Cube analysis is missing in the documentation.
   * a word on permissions is missing in the documentation
   * a link to the module's API documentation is missing in the documentation (dev.folio.org/reference/api/...)
   * Dockerfile is incomplete because the "java" command has been commented out
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
-    *** hier weiter ***
-* [ ] Sensitive and environment-specific information is not checked into git repository
+* [x] Sensitive and environment-specific information is not checked into git repository
 * [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
-* [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
-* [ ] Module gracefully handles the absence of third party systems or related configuration
+  * gradle.properties says 
+  # Grails
+  grailsVersion=5.3.2
+  groovyVersion=3.0.11
+  but Quesnelia OST are Grails 6, Groovy 2 : cf. https://folio-org.atlassian.net/wiki/spaces/TC/pages/5056746/Quesnelia
+  However, work is under way, cf. the self evaluation:  Pending upgrade to Grails 6 https://folio-org.atlassian.net/browse/MODSER-10 ; @Oweb: when do you expect this upgrade to be accomplished ?
+  * uses openapi 3.1.0  O.K.
+* [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
+* [x] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
+  * See in self-evaluation: Pending work to check and address any Sonarqube issues https://folio-org.atlassian.net/browse/UISER-61
+* [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
+  * Uses Gradle  O.K.
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
+  * taken from self-evaluation:
+  * Integration tests used in place of unit tests as more appropriate for a module based on the Grails framework (unit tests would only end up testing the framework and database rather than actual software written for this module)
+  * Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
 
-## Frontend
-* [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
-  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
-  * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
-* [ ] Have i18n support via react-intl and an `en.json` file with English texts
-* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-* [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
-* [ ] Follow relevant existing UI layouts, patterns and norms
-  * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
-  * e.g. Saving state when navigating between apps (or confirming that you'll lose the state)
-* [ ] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
+   ### hier weiter ###
 
 ## Backend
 * [ ] Module's repository includes a compliant Module Descriptor
@@ -74,7 +75,8 @@ License version 2.1
 * [ ] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
-* [ ] All API endpoints are documented in OpenAPI.
+* [x] All API endpoints are documented in OpenAPI.
+  * in openapi/serials-management.yaml
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * IK: Naming convention of permissions: serials-management.serials.view  vs. serials-management.refdata.collection.get (probably O.K., because "view" is a collection)
