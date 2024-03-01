@@ -66,12 +66,17 @@ License version 2.1
   * Integration tests used in place of unit tests as more appropriate for a module based on the Grails framework (unit tests would only end up testing the framework and database rather than actual software written for this module)
   * Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
 
-   ### hier weiter ###
 
 ## Backend
-* [ ] Module's repository includes a compliant Module Descriptor
+* [x] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
+  * IK: It is here: service/grails-app/controllers/org/olf/UrlMappings.groovy and probably other .groovy sources in that directory
+  * IK: naming of api o.k. ?  /serials-management/settings* in Module Descriptor vs. /serials-management/settings/appSettings in UrlMappings ? Where is implementation of settings/ ?
+  * IK: classes extend com.k_int.okapi.OkapiTenantAwareController (presumably good)
+
+  ### hier weiter ###
+
 * [ ] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
