@@ -33,11 +33,19 @@ License version 2.1
   * https://github.com/everit-org/json-schema/blob/master/LICENSE : Apache 2.0
   * https://github.com/renatoathaydes/spock-reports/blob/master/LICENSE.txt : Apache 2.0
   * https://github.com/bmuschko/gradle-docker-plugin/blob/master/LICENSE.txt : Apache 2.0
-  *** hier weiter ***
-* [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
+* [x] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
+  * Can't see any
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
-* [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
+  * Installation documentation is too sparse. Just mentioning K8s deployment is not enough. The agreement of SysOps SIG is that deployment documentation should always be provided for a single server installation (K8s instructions are useful, but optional).
+    Installation documentation should include running using the grail-app in a Vagrant box, like the documentation for mod-agreements ("Initial Setup").
+    Instead of to the latest module descriptor, it should point to a versionized one.
+  * reference to Sonar Cube analysis is missing in the documentation.
+  * a word on permissions is missing in the documentation
+  * a link to the module's API documentation is missing in the documentation (dev.folio.org/reference/api/...)
+  * Dockerfile is incomplete because the "java" command has been commented out
+* [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
+    *** hier weiter ***
 * [ ] Sensitive and environment-specific information is not checked into git repository
 * [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
