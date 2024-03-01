@@ -31,8 +31,9 @@ When performing a technical evaluation of a module, create a copy of this docume
   * Unknown:
     * Custom: https://github.com/dominictarr/event-stream
 * [X] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
-* [X] Installation documentation is included
+* [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
+  * The documentation README is included but is (I think) incorrect.  You cannot "serve ui-serials-management by itself" because the find-po-line plugin is a dependency.
 * [X] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [X] Sensitive and environment-specific information is not checked into git repository
 * [X] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
