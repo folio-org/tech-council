@@ -107,21 +107,25 @@ License version 2.1
        - /serials-management/rulesets/{uuid} DELETE
        - /serials-management/predictedPieces/{uuid} PUT
 
-  ### hier weiter ###
-
-* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
+* [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * IK: Naming convention of permissions: serials-management.serials.view  vs. serials-management.refdata.collection.get (probably O.K., because "view" is a collection)
   * IK: Write permissions are being defined but never referenced (serials-management.settings.write, ...). Probably intended to be used by other modules.
   * IK: Very granular permission sets. This is probably good.
-* [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
+* x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
   * module provides reference data
 * [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
-* [ ] Data is segregated by tenant at the storage layer
+  * IK: Because it is the plan of the team to use integration tests in place of unit tests, I consider integration tests in this case mandatory.
+  *  cf. self evaluation: Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
+* [x] Data is segregated by tenant at the storage layer
 * [ ] The module doesn't access data in DB schemas other than its own and public
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
+  * IK: dependency on mod-orders should be declared (+ "there may be others" (Ethan))
+
+  ### hier weiter ###
+
 * [ ] The module responds with a tenant's content based on x-okapi-tenant header
 * [ ] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
