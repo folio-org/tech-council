@@ -30,6 +30,7 @@ When performing a technical evaluation of a module, create a copy of this docume
     * MPL-2.0
   * Unknown:
     * Custom: https://github.com/dominictarr/event-stream
+  * **However** none of these are problems with ui-serials-management in particular, see TCR Process Improvements below.  So I think this may be a TC process problem, not a problem of this module.
 * [X] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
@@ -65,6 +66,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
 
 * Module descriptor check should link to https://dev.folio.org/guides/module-descriptor/
+
+* The reason that the criterion about third-party license dependencies fails is not actually about ui-serials-management; rather it depends on several standard Stripes dependencies that themselves include these issues.  I [wrote up the problem in #stripes](https://folio-project.slack.com/archives/C210UCHQ9/p1709571130512069) and got various helpful feedback.  From TC discussion on 2024-03-24, this should be considered during the next round of TCR Improvements.  
 
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
