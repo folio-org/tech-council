@@ -59,6 +59,7 @@ License version 2.1
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * See in self-evaluation: Pending work to check and address any Sonarqube issues https://folio-org.atlassian.net/browse/UISER-61
+  * IK: UISER-60, 61 are only for the UI module. How are code smells etc. being achieved for the backend module ?
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
   * Uses Gradle  O.K.
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
@@ -74,8 +75,6 @@ License version 2.1
   * IK: It is here: service/grails-app/controllers/org/olf/UrlMappings.groovy and probably other .groovy sources in that directory
   * IK: naming of api o.k. ?  /serials-management/settings* in Module Descriptor vs. /serials-management/settings/appSettings in UrlMappings ? Where is implementation of settings/ ?
   * IK: classes extend com.k_int.okapi.OkapiTenantAwareController (presumably good)
-
-
 * [x] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
