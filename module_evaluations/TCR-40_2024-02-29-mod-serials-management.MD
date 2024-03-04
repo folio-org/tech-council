@@ -75,13 +75,40 @@ License version 2.1
   * IK: naming of api o.k. ?  /serials-management/settings* in Module Descriptor vs. /serials-management/settings/appSettings in UrlMappings ? Where is implementation of settings/ ?
   * IK: classes extend com.k_int.okapi.OkapiTenantAwareController (presumably good)
 
+
+* [x] Environment vars are documented in the ModuleDescriptor
+  * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
+* [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
+* [ ] All API endpoints are documented in OpenAPI.
+  * in openapi/serials-management.yaml
+  * Documentation is incomplete:
+     * present (O.K.)
+       - /serials-management/refdata GET
+       - /serials-management/serials  GET
+       - /serials-management/serials  POST
+       - /serials-management/serials/{uuid}  GET
+       - /serials-management/serials/{uuid}  PUT
+       - /serials-management/rulesets POST
+       - /serials-management/predictedPieces GET
+       - /serials-management/predictedPieces{uuid} GET
+       - /serials-management/predictedPieces/generate POST
+       - /serials-management/predictedPieces/create POST
+     * missing:
+       - /serials-management/settings*  GET, POST, PUT, DELETE
+       - /serials-management/refdata/{domain}/{property}  GET
+       - /serials-management/refdata/{uuid} GET
+       - /serials-management/refdata POST
+       - /serials-management/refdata/{uuid} PUT
+       - /serials-management/refdata/{uuid} DELETE
+       - /serials-management/serials/{uuid} DELETE
+       - /serials-management/rulesets GET
+       - /serials-management/rulesets/{uuid} GET
+       - /serials-management/rulesets/{uuid} PUT
+       - /serials-management/rulesets/{uuid} DELETE
+       - /serials-management/predictedPieces/{uuid} PUT
+
   ### hier weiter ###
 
-* [ ] Environment vars are documented in the ModuleDescriptor
-  * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
-* [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
-* [x] All API endpoints are documented in OpenAPI.
-  * in openapi/serials-management.yaml
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * IK: Naming convention of permissions: serials-management.serials.view  vs. serials-management.refdata.collection.get (probably O.K., because "view" is a collection)
