@@ -19,7 +19,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Shared/Common
 * [X] Uses Apache 2.0 license
 * [X] Module build MUST produce a valid module descriptor
-* [ ] Module descriptor MUST include interface requirements for all consumed APIs
+* [X] Module descriptor MUST include interface requirements for all consumed APIs
   * Lists serials-management interface.  in constants/endpoints.js, also requires orders/*, organizations/*, several others.
 * [ ] Third party dependencies use an Apache 2.0 compatible license
   * ASF excludes:
