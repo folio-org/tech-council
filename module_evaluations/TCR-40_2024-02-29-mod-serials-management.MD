@@ -53,7 +53,7 @@ License version 2.1
   groovyVersion=3.0.11
   but Quesnelia OST are Grails 6, Groovy 2 : cf. https://folio-org.atlassian.net/wiki/spaces/TC/pages/5056746/Quesnelia
   However, work is under way, cf. the self evaluation:  Pending upgrade to Grails 6 https://folio-org.atlassian.net/browse/MODSER-10 ; @Owen: when do you expect this upgrade to be accomplished ?
-  * uses openapi 3.1.0  O.K.
+  * uses openapi 3.1 whereas the OST page says openapi 3.0
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
@@ -112,7 +112,7 @@ License version 2.1
   * IK: Naming convention of permissions: serials-management.serials.view  vs. serials-management.refdata.collection.get (probably O.K., because "view" is a collection)
   * IK: Write permissions are being defined but never referenced (serials-management.settings.write, ...). Probably intended to be used by other modules.
   * IK: Very granular permission sets. This is probably good.
-* x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
+* [x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
   * module provides reference data
 * [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
@@ -123,18 +123,16 @@ License version 2.1
 * [ ] The module doesn't access data in DB schemas other than its own and public
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
   * IK: dependency on mod-orders should be declared (+ "there may be others" (Ethan))
-
-  ### hier weiter ###
-
-* [ ] The module responds with a tenant's content based on x-okapi-tenant header
-* [ ] Standard GET `/admin/health` endpoint returning a 200 response
+* [x] The module responds with a tenant's content based on x-okapi-tenant header
+* [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
+  * IK: "org.springframework.boot:spring-boot-starter-actuator" included in build.gradle O.K.
 * [ ] High Availability (HA) compliant
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
+* [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._
 
 ## TCR Process Improvements
