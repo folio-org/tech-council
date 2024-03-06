@@ -61,13 +61,13 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * See in self-evaluation: Pending work to check and address any Sonarqube issues https://folio-org.atlassian.net/browse/UISER-61
   * IK: UISER-60, 61 are only for the UI module. How are code smells etc. being achieved for the backend module ?
+  * News 06.03. : Julian schlägt eine Integration für Sonarcube vor.
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
   * Uses Gradle  O.K.
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * taken from self-evaluation:
   * Integration tests used in place of unit tests as more appropriate for a module based on the Grails framework (unit tests would only end up testing the framework and database rather than actual software written for this module)
   * Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
-  * News 06.03. : Julian schlägt eine Integration für Sonarcube vor.
 
 
 ## Backend
