@@ -21,13 +21,14 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module build MUST produce a valid module descriptor
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
   * there are no consumed apis (?). Requires section of the module descriptor is empty. But it seems to rely on orders.po-lines.item.get (mod-orders).
+  * mod-order-12.0 has been included as "optional"
 * [ ] Third party dependencies use an Apache 2.0 compatible license
   * micronaut.io: O.K.
   * zaxxer : O.K.
   * http-builder-ng: O.K.
   * virtualdogbert: Eclipse Public License v1.0 as published by the Eclipse Foundation or (per the licensee's choosing) under the terms of the GNU Lesser General Public 
-License version 2.1
-  * z3950 zing cql is published unter LGPL 1.0, if it is that: https://github.com/indexdata/cql-java/blob/master/LGPL-2.1   -- not compatible with Apache 2.0 ?? Cf. https://www.apache.org/legal/resolved.html
+License version 2.1 - According to this list https://www.apache.org/legal/resolved.html, inclusion of EPL 1.0 needs to be "appropriately labeled"
+  * z3950 zing cql is published unter LGPL 1.0, if it is that: https://github.com/indexdata/cql-java/blob/master/LGPL-2.1   -- not compatible with Apache 2.0 ?? Cf. https://www.apache.org/legal/resolved.html => dependency needs to be removed
   * https://github.com/pledbrook/groovy-handlebars-engine : Apache 2.0
   * https://github.com/jknack/handlebars.java/blob/master/LICENSE: Apache 2.0
   * https://github.com/everit-org/json-schema/blob/master/LICENSE : Apache 2.0
@@ -66,6 +67,7 @@ License version 2.1
   * taken from self-evaluation:
   * Integration tests used in place of unit tests as more appropriate for a module based on the Grails framework (unit tests would only end up testing the framework and database rather than actual software written for this module)
   * Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
+  * News 06.03. : Julian schlägt eine Integration für Sonarcube vor.
 
 
 ## Backend
@@ -122,6 +124,7 @@ License version 2.1
 * [ ] The module doesn't access data in DB schemas other than its own and public
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
   * IK: dependency on mod-orders should be declared (+ "there may be others" (Ethan))
+  * IK 06.03.: Possibliy O.K. if the dependency is only optional.
 * [x] The module responds with a tenant's content based on x-okapi-tenant header
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
