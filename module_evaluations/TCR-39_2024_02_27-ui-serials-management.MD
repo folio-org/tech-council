@@ -55,7 +55,10 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
   * no end-to-end tests written
 * [X] Have i18n support via react-intl and an `en.json` file with English texts
-* [TBD] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
+* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
+  * One ARIA violation (multiple times) about the main Serials results table.
+  * Two issues on New Publication Pattern page, about the info popups (which are great!)
+  * Team notes [several other issues](https://folio-org.atlassian.net/issues/?jql=project%20%3D%20UI-Serials-Management%20and%20labels%20%3D%20accessibility%20and%20status%20!%3D%20Closed).
 * [X] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [TBD] Follow relevant existing UI layouts, patterns and norms
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
