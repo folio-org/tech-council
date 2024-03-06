@@ -60,10 +60,10 @@ When performing a technical evaluation of a module, create a copy of this docume
   * Two issues on New Publication Pattern page, about the info popups (which are great!)
   * Team notes [several other issues](https://folio-org.atlassian.net/issues/?jql=project%20%3D%20UI-Serials-Management%20and%20labels%20%3D%20accessibility%20and%20status%20!%3D%20Closed).
 * [X] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
-* [TBD] Follow relevant existing UI layouts, patterns and norms
+* [X] Follow relevant existing UI layouts, patterns and norms
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * e.g. Saving state when navigating between apps (or confirming that you'll lose the state)
-* [TBD] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
+* [X] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
 
 ## TCR Process Improvements
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
