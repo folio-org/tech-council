@@ -32,7 +32,7 @@ When performing a technical evaluation of a module, create a copy of this docume
     * Custom: https://github.com/dominictarr/event-stream
   * **However** none of these are problems with ui-serials-management in particular, see TCR Process Improvements below.  So I think this may be a TC process problem, not a problem of this module.
 * [X] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
-* [ ] Installation documentation is included
+* [X] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * The documentation README is included but is (I think) incorrect.  You cannot "serve ui-serials-management by itself" because the find-po-line plugin is a dependency.
 * [X] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
