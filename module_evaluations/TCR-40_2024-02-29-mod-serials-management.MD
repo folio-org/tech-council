@@ -66,6 +66,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * 07.03.: Julian: jscpd detects 317 duplicated lines (5.25%). Quelle: https://julianladisch.github.io/mod-serials-management-eval/megalinter-reports-copy-paste-2024-03-06/  
      * IK: This should go down to 3%. See the detailed analysis in : https://julianladisch.github.io/mod-serials-management-eval/megalinter-reports-copy-paste-2024-03-06/
      * Julian: Re-tuning of MegaLinter to "COPYPASTE_JSCPD_ARGUMENTS: '--ignore-pattern "import .*| *@Defaults.*"'"  . Then the figure of duplicated lines goes down to 4.4%.
+     * According to Owen: "looking at the duplication report it includes duplications from the domain model - which we don't feel is sensible in the context of this as a groovy on grails app."
   * 07.03.: Julian: CodeNarc, the static code scanner used by sonar-groovy, reports 3 security issues for mod-serials-management. I've created https://folio-org.atlassian.net/browse/MODSER-23 for them.
       * Owen: Reviewed this with @Jack Golding and @Ian Ibbotson (CC) and we're closing with Won't do. Explanation is in the Jira but essentially this is a vulnerability that doesn't apply in this context (applies to mobile code such as applets and situations where the code can be extended by a 3rd party).
   
