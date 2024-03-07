@@ -61,7 +61,13 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * See in self-evaluation: Pending work to check and address any Sonarqube issues https://folio-org.atlassian.net/browse/UISER-61
   * IK: UISER-60, 61 are only for the UI module. How are code smells etc. being achieved for the backend module ?
-  * News 06.03. : Julian schlägt eine Integration für Sonarcube vor.
+  * News 06.03. : Julian schlägt eine Integration für Sonarcube vor. => Geht nicht.
+  * 07.03.: Julian: CodeNarc detects 3584 code smells in the Groovy code, however, all have minor or medium severity, there's no critical severity code smell in the Groovy code. - IK: I will valuate this as "passed".
+  * 07.03.: Julian: jscpd detects 317 duplicated lines (5.25%). Quelle: https://julianladisch.github.io/mod-serials-management-eval/megalinter-reports-copy-paste-2024-03-06/  
+     * IK: This should go down to 3%. See the detailed analysis in : https://julianladisch.github.io/mod-serials-management-eval/megalinter-reports-copy-paste-2024-03-06/
+  * 07.03.: Julian: CodeNarc, the static code scanner used by sonar-groovy, reports 3 security issues for mod-serials-management. I've created https://folio-org.atlassian.net/browse/MODSER-23 for them.
+      * Owen: Reviewed this with @Jack Golding and @Ian Ibbotson (CC) and we're closing with Won't do. Explanation is in the Jira but essentially this is a vulnerability that doesn't apply in this context (applies to mobile code such as applets and situations where the code can be extended by a 3rd party).
+  
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
   * Uses Gradle  O.K.
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
