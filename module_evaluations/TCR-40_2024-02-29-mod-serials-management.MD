@@ -142,7 +142,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
   * IK: "org.springframework.boot:spring-boot-starter-actuator" included in build.gradle O.K.
-* [ ] High Availability (HA) compliant
+* [x] High Availability (HA) compliant
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
