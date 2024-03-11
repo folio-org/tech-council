@@ -19,9 +19,9 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Shared/Common
 * [x] Uses Apache 2.0 license
 * [x] Module build MUST produce a valid module descriptor
-* [ ] Module descriptor MUST include interface requirements for all consumed APIs
+* [x] Module descriptor MUST include interface requirements for all consumed APIs
   * there are no consumed apis (?). Requires section of the module descriptor is empty. But it seems to rely on orders.po-lines.item.get (mod-orders).
-  * mod-order-12.0 has been included as "optional"
+  * mod-orders-12.0 has been included as "optional"
 * [ ] Third party dependencies use an Apache 2.0 compatible license
   * micronaut.io: O.K.
   * zaxxer : O.K.
@@ -34,6 +34,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * https://github.com/everit-org/json-schema/blob/master/LICENSE : Apache 2.0
   * https://github.com/renatoathaydes/spock-reports/blob/master/LICENSE.txt : Apache 2.0
   * https://github.com/bmuschko/gradle-docker-plugin/blob/master/LICENSE.txt : Apache 2.0
+  * IK: Changes are in master (O.K.), but not in TCR-40
 * [x] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
   * Can't see any
 * [ ] Installation documentation is included
@@ -45,6 +46,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * a word on permissions is missing in the documentation
   * a link to the module's API documentation is missing in the documentation (dev.folio.org/reference/api/...)
   * Dockerfile is incomplete because the "java" command has been commented out
+  * IK: O.K. in master, but not in TCR-40
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
 * [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
@@ -54,7 +56,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   groovyVersion=3.0.11
   but Quesnelia OST are Grails 6, Groovy 2 : cf. https://folio-org.atlassian.net/wiki/spaces/TC/pages/5056746/Quesnelia
   However, work is under way, cf. the self evaluation:  Pending upgrade to Grails 6 https://folio-org.atlassian.net/browse/MODSER-10 ; @Owen: when do you expect this upgrade to be accomplished ?
-  * uses openapi 3.1 whereas the OST page says openapi 3.0
+  * uses openapi 3.1 whereas the OST page says openapi 3.0 ==> Solved.
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
@@ -75,15 +77,17 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * taken from self-evaluation:
   * Integration tests used in place of unit tests as more appropriate for a module based on the Grails framework (unit tests would only end up testing the framework and database rather than actual software written for this module)
-  * Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
-
+  * Integration tests in /mod-serials-management/blob/master/service/src/integration-test/groovy/org/olf
+  *    BaseSpec.groovy : Purge tenant, Create tenant, Add Refdata
+  *    PredictedPieceSetLifecycleSpec.groovy : We ask the system to list known PredictedPieceSets, Post to create new empty serial with a ruleset, We ask the system to generate PredictedPieceSets, The system responds with a list of 12
+  *    SerialLifecycleSpec.groovy : We ask the system to list known Serials, Check creating an empty serial, Create a ruleset of a daily recurrence, Create a Serial with status closed with description Test Description
+  * IK: Although there is no explicit figure of code coverage, main functionalities of the module are being covered.
 
 ## Backend
 * [x] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
-* [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-  * IK: It is here: service/grails-app/controllers/org/olf/UrlMappings.groovy and probably other .groovy sources in that directory
-  * IK: naming of api o.k. ?  /serials-management/settings* in Module Descriptor vs. /serials-management/settings/appSettings in UrlMappings ? Where is implementation of settings/ ?
+* [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
+  * IK: It is here: service/grails-app/controllers/org/olf/UrlMappings.groovy and other .groovy sources in that directory
   * IK: classes extend com.k_int.okapi.OkapiTenantAwareController (presumably good)
 * [x] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
@@ -93,28 +97,28 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * Documentation is incomplete:
      * present (O.K.)
        - /serials-management/refdata GET
+       - /serials-management/refdata POST
+       - /serials-management/refdata/{uuid} GET
+       - /serials-management/refdata/{uuid} PUT
+       - /serials-management/refdata/{uuid} DELETE
+       - /serials-management/refdata/{domain}/{property}  GET
        - /serials-management/serials  GET
        - /serials-management/serials  POST
        - /serials-management/serials/{uuid}  GET
        - /serials-management/serials/{uuid}  PUT
+       - /serials-management/serials/{uuid} DELETE
+       - /serials-management/rulesets GET
        - /serials-management/rulesets POST
+       - /serials-management/rulesets/{uuid} GET
+       - /serials-management/rulesets/{uuid} DELETE
        - /serials-management/predictedPieces GET
        - /serials-management/predictedPieces{uuid} GET
        - /serials-management/predictedPieces/generate POST
        - /serials-management/predictedPieces/create POST
-     * missing:
-       - /serials-management/settings*  GET, POST, PUT, DELETE
-       - /serials-management/refdata/{domain}/{property}  GET
-       - /serials-management/refdata/{uuid} GET
-       - /serials-management/refdata POST
-       - /serials-management/refdata/{uuid} PUT
-       - /serials-management/refdata/{uuid} DELETE
-       - /serials-management/serials/{uuid} DELETE
-       - /serials-management/rulesets GET
-       - /serials-management/rulesets/{uuid} GET
-       - /serials-management/rulesets/{uuid} PUT
-       - /serials-management/rulesets/{uuid} DELETE
+     * one is still missing:
        - /serials-management/predictedPieces/{uuid} PUT
+     * IK: Changes are in master but not in TCR-40
+
 
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
@@ -128,9 +132,10 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
   * IK: Because it is the plan of the team to use integration tests in place of unit tests, I consider integration tests in this case mandatory.
   *  cf. self evaluation: Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
+  * IK: not written in Karate or Cucumber Reporting, but not applicable here
 * [x] Data is segregated by tenant at the storage layer
 * [ ] The module doesn't access data in DB schemas other than its own and public
-* [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
+* [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
   * IK: dependency on mod-orders should be declared (+ "there may be others" (Ethan))
   * IK 06.03.: Possibliy O.K. if the dependency is only optional.
 * [x] The module responds with a tenant's content based on x-okapi-tenant header
