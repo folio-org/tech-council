@@ -22,7 +22,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
   * there are no consumed apis (?). Requires section of the module descriptor is empty. But it seems to rely on orders.po-lines.item.get (mod-orders).
   * mod-orders-12.0 has been included as "optional"
-* [ ] Third party dependencies use an Apache 2.0 compatible license
+* [x] Third party dependencies use an Apache 2.0 compatible license
   * micronaut.io: O.K.
   * zaxxer : O.K.
   * http-builder-ng: O.K.
@@ -37,7 +37,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * IK: Changes are in master (O.K.), but not in TCR-40
 * [x] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
   * Can't see any
-* [ ] Installation documentation is included
+* [x] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * Installation documentation is too sparse. Just mentioning K8s deployment is not enough. The agreement of SysOps SIG is that deployment documentation should always be provided for a single server installation (K8s instructions are useful, but optional).
     Installation documentation should include running using the grail-app in a Vagrant box, like the documentation for mod-agreements ("Initial Setup"). (I see scripts are all there, but documentation is missing).
@@ -127,7 +127,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * IK: Very granular permission sets. This is probably good.
 * [x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
   * module provides reference data
-* [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
+* [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
   * IK: Because it is the plan of the team to use integration tests in place of unit tests, I consider integration tests in this case mandatory.
