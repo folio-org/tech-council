@@ -50,13 +50,19 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
 * [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
+  * uses openapi 3.1 whereas the OST page says openapi 3.0 ==> Solved.
   * gradle.properties says 
   - Grails
   grailsVersion=5.3.2
   groovyVersion=3.0.11
   but Quesnelia OST are Grails 6, Groovy 2 : cf. https://folio-org.atlassian.net/wiki/spaces/TC/pages/5056746/Quesnelia
   However, work is under way, cf. the self evaluation:  Pending upgrade to Grails 6 https://folio-org.atlassian.net/browse/MODSER-10 ; @Owen: when do you expect this upgrade to be accomplished ?
-  * uses openapi 3.1 whereas the OST page says openapi 3.0 ==> Solved.
+  * 13.03.:  Grails 6 issue. mod-agreements first. In therory we could do release of the plugins.
+    Criteria will pass in the future. Jeremy: Do you have a kind of swag style timeline ? 
+    It will be there before Quesnelia. We could do a shadow release and get something. But this seems disingenious.
+    What is the reason that Grails 5 not in Quesnelia ? It will sunset. In fact, it will only sunset in Poppy.
+    Jeremy/Owen: A CSP might be a good option. Discussions are bigger than this module.
+
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
@@ -71,6 +77,9 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
      * According to Owen: "looking at the duplication report it includes duplications from the domain model - which we don't feel is sensible in the context of this as a groovy on grails app."
   * 07.03.: Julian: CodeNarc, the static code scanner used by sonar-groovy, reports 3 security issues for mod-serials-management. I've created https://folio-org.atlassian.net/browse/MODSER-23 for them.
       * Owen: Reviewed this with @Jack Golding and @Ian Ibbotson (CC) and we're closing with Won't do. Explanation is in the Jira but essentially this is a vulnerability that doesn't apply in this context (applies to mobile code such as applets and situations where the code can be extended by a 3rd party).
+  * 13.03.: If service/grails-app/domain/ will be excluded from the MegaLinter analysis, duplication cipher will go below 3%.
+            Only the duplications in service/grails-app/services/ really matter. There is one duplication in service/grails-app/services/ which could be worked on, but                  cipher is already below 3%.
+  * 13.03.: The 3 security issues where it needs to go from public static to public static final can be fixed, but it does generally not make sense to fix non-exploitable security issues.
   
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
   * Uses Gradle  O.K.
@@ -82,6 +91,14 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   *    PredictedPieceSetLifecycleSpec.groovy : We ask the system to list known PredictedPieceSets, Post to create new empty serial with a ruleset, We ask the system to generate PredictedPieceSets, The system responds with a list of 12
   *    SerialLifecycleSpec.groovy : We ask the system to list known Serials, Check creating an empty serial, Create a ruleset of a daily recurrence, Create a Serial with status closed with description Test Description
   * IK: Although there is no explicit figure of code coverage, main functionalities of the module are being covered.
+  * 13.03.:  Backend Jacoco Code Coverage. Jacoco will cover code which is not needed to be covered. Going to be adding some integration tests.
+             Configuration isse with Jacoco. Bring those tools in line with our philiosophy.
+             Tool will return significantly lower than 80%. Covers main functionalities, though hoping to have an actual number.
+             Adding in more of the integration tests, so that e hit all the different branches. We can groove that into a single rule set. 
+             Gradle 7.* is required for Grails 5. Gradle 4 is quite old. We've been on Gradle 6.
+             Jeremy: Can we get this into the github actions ?
+              z.B. mod-oa/blob/master/.github/workflows/gradle.yml  - Jack will get that integration test running
+              Owen: done by torrow (Jack)
 
 ## Backend
 * [x] Module's repository includes a compliant Module Descriptor
