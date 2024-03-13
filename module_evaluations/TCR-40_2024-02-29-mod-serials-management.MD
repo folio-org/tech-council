@@ -92,7 +92,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
 * [x] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
-* [ ] All API endpoints are documented in OpenAPI.
+* [x] All API endpoints are documented in OpenAPI.
   * in openapi/serials-management.yaml
   * Documentation is incomplete:
      * present (O.K.)
@@ -134,7 +134,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   *  cf. self evaluation: Pending integration tests to be written https://folio-org.atlassian.net/browse/MODSER-15
   * IK: not written in Karate or Cucumber Reporting, but not applicable here
 * [x] Data is segregated by tenant at the storage layer
-* [ ] The module doesn't access data in DB schemas other than its own and public
+* [x] The module doesn't access data in DB schemas other than its own and public
 * [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
   * IK: dependency on mod-orders should be declared (+ "there may be others" (Ethan))
   * IK 06.03.: Possibliy O.K. if the dependency is only optional.
