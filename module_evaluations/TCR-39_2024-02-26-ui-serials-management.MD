@@ -29,11 +29,11 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
-* [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+* [x] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * Pending work to address SonarQube issues https://folio-org.atlassian.net/browse/UISER-60
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
-  * Pending work on increasing test converage https://folio-org.atlassian.net/browse/UISER-51
+  * Test coverage at 39.1% as of 15th March. Work is being undertaken to increase this to >80% https://folio-org.atlassian.net/browse/UISER-51
 
 ## Frontend
 * [x] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
@@ -41,7 +41,10 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * [x] Have i18n support via react-intl and an `en.json` file with English texts
 * [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-  * Pending a range of fixes for issues identified using axe DevTools Chrome Extension https://folio-org.atlassian.net/issues/?jql=project%20%3D%20UI-Serials-Management%20and%20labels%20%3D%20accessibility%20and%20status%20!%3D%20Closed
+  * We have addressed the majority of issues reported by the axe DevTools Chrome Extension. However there are still two outstanding issues, both of the same type (MCL rows generating the issue: "Certain ARIA roles must contain particular children"):
+    * UISER-71
+    * UISER-75
+  * We see this issue in other MCLs in Folio, for example: Calendar settings -> Current calendar assignments and we believe there is the need for changes to Stripes to support MCLs that do not provide linkable row/row elements. If this is something we can fix in the application we will do so. If a Stripes level fix is required we will work with the Stripes team to work out the fix
 * [x] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [x] Follow relevant existing UI layouts, patterns and norms
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
