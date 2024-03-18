@@ -56,9 +56,11 @@ When performing a technical evaluation of a module, create a copy of this docume
   * no end-to-end tests written
 * [X] Have i18n support via react-intl and an `en.json` file with English texts
 * [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-  * One ARIA violation (multiple times) about the main Serials results table.
-  * Two issues on New Publication Pattern page, about the info popups (which are great!)
-  * Team notes [several other issues](https://folio-org.atlassian.net/issues/?jql=project%20%3D%20UI-Serials-Management%20and%20labels%20%3D%20accessibility%20and%20status%20!%3D%20Closed).
+  * Compliant except for two issues that are Stripes framework-level issues.  From the self-eval:
+>  * We have addressed the majority of issues reported by the axe DevTools Chrome Extension. However there are still two outstanding issues, both of the same type (MCL rows generating the issue: "Certain ARIA roles must contain particular children"):
+    * UISER-71
+    * UISER-75
+> * We see this issue in other MCLs in Folio, for example: Calendar settings -> Current calendar assignments and we believe there is the need for changes to Stripes to support MCLs that do not provide linkable row/row elements. If this is something we can fix in the application we will do so. If a Stripes level fix is required we will work with the Stripes team to work out the fix
 * [X] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [X] Follow relevant existing UI layouts, patterns and norms
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
