@@ -65,7 +65,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
 
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
-* [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+* [x] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * See in self-evaluation: Pending work to check and address any Sonarqube issues https://folio-org.atlassian.net/browse/UISER-61
   * IK: UISER-60, 61 are only for the UI module. How are code smells etc. being achieved for the backend module ?
@@ -80,6 +80,7 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   * 13.03.: If service/grails-app/domain/ will be excluded from the MegaLinter analysis, duplication cipher will go below 3%.
             Only the duplications in service/grails-app/services/ really matter. There is one duplication in service/grails-app/services/ which could be worked on, but                  cipher is already below 3%.
   * 13.03.: The 3 security issues where it needs to go from public static to public static final can be fixed, but it does generally not make sense to fix non-exploitable security issues.
+  * 18.03.: Security issue raised MODSER-23 has been fixed
   
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
   * Uses Gradle  O.K.
