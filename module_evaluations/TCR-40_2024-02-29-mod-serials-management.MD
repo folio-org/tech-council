@@ -58,10 +58,10 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   but Quesnelia OST are Grails 6, Groovy 2 : cf. https://folio-org.atlassian.net/wiki/spaces/TC/pages/5056746/Quesnelia
   However, work is under way, cf. the self evaluation:  Pending upgrade to Grails 6 https://folio-org.atlassian.net/browse/MODSER-10 ; @Owen: when do you expect this upgrade to be accomplished ?
   * 13.03.:  Grails 6 issue. mod-agreements first. In therory we could do release of the plugins.
-    Criteria will pass in the future. Jeremy: Do you have a kind of swag style timeline ? 
-    It will be there before Quesnelia. We could do a shadow release and get something. But this seems disingenious.
-    What is the reason that Grails 5 not in Quesnelia ? It will sunset. In fact, it will only sunset in Poppy.
-    Jeremy/Owen: A CSP might be a good option. Discussions are bigger than this module.
+  * Criteria will pass in the future. Jeremy: Do you have a kind of swag style timeline ? 
+  *  It will be there before Quesnelia. We could do a shadow release and get something. But this seems disingenious.
+  *  What is the reason that Grails 5 not in Quesnelia ? It will sunset. In fact, it will only sunset in Poppy.
+  *  Jeremy/Owen: A CSP might be a good option. Discussions are bigger than this module.
 
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
