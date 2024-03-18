@@ -93,13 +93,14 @@ License version 2.1 - According to this list https://www.apache.org/legal/resolv
   *    SerialLifecycleSpec.groovy : We ask the system to list known Serials, Check creating an empty serial, Create a ruleset of a daily recurrence, Create a Serial with status closed with description Test Description
   * IK: Although there is no explicit figure of code coverage, main functionalities of the module are being covered.
   * 13.03.:  Backend Jacoco Code Coverage. Jacoco will cover code which is not needed to be covered. Going to be adding some integration tests.
-             Configuration isse with Jacoco. Bring those tools in line with our philiosophy.
-             Tool will return significantly lower than 80%. Covers main functionalities, though hoping to have an actual number.
-             Adding in more of the integration tests, so that e hit all the different branches. We can groove that into a single rule set. 
-             Gradle 7.* is required for Grails 5. Gradle 4 is quite old. We've been on Gradle 6.
-             Jeremy: Can we get this into the github actions ?
-              z.B. mod-oa/blob/master/.github/workflows/gradle.yml  - Jack will get that integration test running
-              Owen: done by torrow (Jack)
+         *    Configuration isse with Jacoco. Bring those tools in line with our philiosophy.
+         *    Tool will return significantly lower than 80%. Covers main functionalities, though hoping to have an actual number.
+         *    Adding in more of the integration tests, so that we hit all the different branches. We can groove that into a single rule set. 
+         *    Gradle 7.* is required for Grails 5. Gradle 4 is quite old. We've been on Gradle 6.
+         *    Jeremy: Can we get this into the github actions ?
+         *     z.B. mod-oa/blob/master/.github/workflows/gradle.yml  - Jack will get that integration test running
+         *     Owen: done by torrow (Jack)
+    * 18.03.: Owen: Based on Jacoco reports we are currently at 64% test coverage. This is as high as we've been able to get it. Part of the problem here is that Grails is doing dynamic code generation (and we don't have tests for this code) but Jacoco is including this in code to be tested - so this is bringing down the coverage. I think this is something we'll need to discuss at TC.
 
 ## Backend
 * [x] Module's repository includes a compliant Module Descriptor
