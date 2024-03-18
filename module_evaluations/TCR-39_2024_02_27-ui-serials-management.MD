@@ -72,5 +72,6 @@ When performing a technical evaluation of a module, create a copy of this docume
 
 * The reason that the criterion about third-party license dependencies fails is not actually about ui-serials-management; rather it depends on several standard Stripes dependencies that themselves include these issues.  I [wrote up the problem in #stripes](https://folio-project.slack.com/archives/C210UCHQ9/p1709571130512069) and got various helpful feedback.  From TC discussion on 2024-03-24, this should be considered during the next round of TCR Improvements.  
 
+* For backend modules, we should require that they deploy successfully as part of the vagrant snapshot build.  Currently mod-serials-management doesn't deploy correctly in vagrant, which means that ui-serials-management has to be tested against the reference environment OKAPI.  That's not a deal-breaker but it's not ideal.  
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
