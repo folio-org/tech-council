@@ -47,7 +47,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * Master branch shows [15 major code smells (and 2 critical)](https://sonarcloud.io/project/issues?impactSeverities=HIGH&resolved=false&types=CODE_SMELL&id=org.folio%3Aui-serials-management)
 * [X] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
-  * 35.5% coverage
+  * 56.6% coverage
 
 ## Frontend
 * [X] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
