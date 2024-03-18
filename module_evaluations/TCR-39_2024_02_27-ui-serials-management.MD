@@ -43,8 +43,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [X] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-  * 54 code smells
-  * 7.2% duplication
+  * No security issues, and duplication is below 3%.
+  * Master branch shows [15 major code smells (and 2 critical)](https://sonarcloud.io/project/issues?impactSeverities=HIGH&resolved=false&types=CODE_SMELL&id=org.folio%3Aui-serials-management)
 * [X] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * 35.5% coverage
