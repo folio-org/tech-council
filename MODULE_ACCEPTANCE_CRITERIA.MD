@@ -61,7 +61,7 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 * An automated code scannner hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * The code scanner may be Sonar (via Jenkins), github Actions or other. The testing algorithm must be set up, maintained and documented by the development team. The tests need to be reproducible by the Community.
-  * Examples for Code Duplication Detection metrics (i.e. characterstic numbers) can be found [here](https://folio-org.atlassian.net/wiki/spaces/TC/pages/378994737/2024-08-06+Meeting+notes) .
+  * Examples for Code Duplication Detection metrics (i.e. characterstic numbers) can be found [here](https://folio-org.atlassian.net/wiki/spaces/TC/pages/386891824/Examples+of+Code+Duplication+Metrics+and+Code+Smells+Severity) .
   * The metric used for code smells module acceptance is the the highest severity level:
      * Sonarqube uses the severity level _High_.
      * CodeNarc uses the severity level _Critical_.
