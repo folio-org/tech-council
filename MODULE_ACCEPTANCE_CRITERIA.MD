@@ -20,7 +20,7 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 1. Module adheres to Community Code of Conduct
 1. Module license is compatible with the FOLIO Project
 1. Module can be included in existing community build processes
-1. Module has robust testing that can run with existing community testing processes
+1. Module has robust and fully automated testing procedure supplied and documented by the development team
 1. Module can be deployed in the Community’s reference environments without undue burden
 1. Module is secure
 1. Module is multi-tenant
@@ -58,8 +58,9 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
   * _This is not applicable to libraries_
 * Must not depend on a FOLIO library that has not been approved through the TCR process
 * Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-* Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+* An automated code scannner hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
+  * The code scanner may be Sonar (via Jenkins), github Actions or other. The testing algorithm must be set up, maintained and documented by the development team. The tests need to be reproducible by the Community.
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
 
@@ -68,8 +69,9 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 Note: Frontend criteria apply to both modules and shared libraries. 
 
 * If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
-  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
+  * -_note: If the new module works together with existing modules, the team must provide a result of an integration test.
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
+* Front-end unit tests are written in Jest/RTL and reach at least 80% coverage
 * Have i18n support via react-intl and an en.json file with English texts (8)
 * Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
@@ -92,8 +94,8 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-* If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
-  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
+* Integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+  * -_note: If the new module works together with existing modules, the team must provide a result of an integration test.
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * Data is segregated by tenant at the storage layer (6, 7)
 * The module doesn’t access data in DB schemas other than its own and public (6, 7)
