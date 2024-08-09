@@ -75,7 +75,6 @@ Note: Frontend criteria apply to both modules and shared libraries.
 * If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * -_note: If the new module works together with existing modules, the team must provide a result of an integration test.
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
-* Front-end unit tests are written in Jest/RTL and reach at least 80% coverage
 * Have i18n support via react-intl and an en.json file with English texts (8)
 * Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
