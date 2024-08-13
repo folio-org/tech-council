@@ -20,7 +20,7 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 1. Module adheres to Community Code of Conduct
 1. Module license is compatible with the FOLIO Project
 1. Module can be included in existing community build processes
-1. Module has robust and fully automated testing procedure supplied and documented by the development team
+1. Module has robust testing that can run with existing community testing processes
 1. Module can be deployed in the Community’s reference environments without undue burden
 1. Module is secure
 1. Module is multi-tenant
@@ -60,7 +60,7 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 * Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
 * An automated code scannner hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-  * The code scanner may be Sonar (via Jenkins), github Actions or other. The testing algorithm must be set up, maintained and documented by the development team. The tests need to be reproducible by the Community.
+  * The code scanner may be Sonar (via Jenkins), github Actions or other. The results of the code scanning need to be reproducible by the Community.
   * Examples for Code Duplication Detection metrics (i.e. characterstic numbers) can be found [here](https://folio-org.atlassian.net/wiki/spaces/TC/pages/386891824/Examples+of+Code+Duplication+Metrics+and+Code+Smells+Severity) .
   * The metric used for code smells module acceptance must be the highest severity level:
      * Sonarqube uses the severity level _High_.
@@ -73,7 +73,7 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 Note: Frontend criteria apply to both modules and shared libraries. 
 
 * If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
-  * -_note: If the new module works together with existing modules, the team must provide a result of an integration test.
+  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * Have i18n support via react-intl and an en.json file with English texts (8)
 * Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
