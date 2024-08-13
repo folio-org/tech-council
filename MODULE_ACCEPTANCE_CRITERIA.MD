@@ -97,8 +97,8 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-* Integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
-  * -_note: If the new module works together with existing modules, the team must provide a result of an integration test.
+* If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * Data is segregated by tenant at the storage layer (6, 7)
 * The module doesn’t access data in DB schemas other than its own and public (6, 7)
