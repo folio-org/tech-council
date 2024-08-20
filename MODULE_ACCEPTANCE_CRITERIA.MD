@@ -62,9 +62,9 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * The code scanner may be Sonar (via Jenkins), github Actions or other. The results of the code scanning need to be reproducible by the Community.
   * Examples for Code Duplication Detection metrics (i.e. characterstic numbers) can be found [here](https://folio-org.atlassian.net/wiki/spaces/TC/pages/386891824/Examples+of+Code+Duplication+Metrics+and+Code+Smells+Severity) .
-  * The metric used for code smells module acceptance must be the highest severity level:
-     * Sonarqube uses the severity level _High_.
-     * CodeNarc uses the severity level _Critical_.
+  * For code smells _major_ means the highest severity level:
+     * _High_ for Sonarqube.
+     * _Critical_ for CodeNarc.
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
 
