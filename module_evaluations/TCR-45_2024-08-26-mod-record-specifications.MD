@@ -1,7 +1,7 @@
 # Module acceptance criteria template
 
 ## Module Name
-mod-XXX or ui-XXX etc.
+mod-record-specifications
 
 ## How to use this form
 When performing a technical evaluation of a module, create a copy of this document and use the conventions below to indicate the status of each criterion.  The evaluation results should be placed in the [module_evaluations](https://github.com/folio-org/tech-council/tree/master/module_evaluations) directory and should conform to the following naming convention: `{JIRA Key}_YYYY-MM-DD-{module name}.MD`, e.g. `TCR-1_2021-11-17-mod-foo.MD`.  The date here is used to differentiate between initial and potential re-evaluation(s).  It should be the date when the evaluation results file was created.
@@ -33,18 +33,6 @@ When performing a technical evaluation of a module, create a copy of this docume
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
-
-## Frontend
-* [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
-  * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
-  * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
-* [ ] Have i18n support via react-intl and an `en.json` file with English texts
-* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-* [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
-* [ ] Follow relevant existing UI layouts, patterns and norms
-  * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
-  * e.g. Saving state when navigating between apps (or confirming that you'll lose the state)
-* [ ] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation
 
 ## Backend
 * [ ] Module's repository includes a compliant Module Descriptor
