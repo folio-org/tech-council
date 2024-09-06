@@ -25,8 +25,8 @@ When performing a technical evaluation of a module, create a copy of this docume
      cd mod-record-specifications
      git checkout tech-evaluation
      mvn clean install -DskipTests=true
-[INFO] BUILD SUCCESS
-vim -R target/ModuleDescriptor.json
+     [INFO] BUILD SUCCESS
+     vim -R target/ModuleDescriptor.json
      ```
     
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
