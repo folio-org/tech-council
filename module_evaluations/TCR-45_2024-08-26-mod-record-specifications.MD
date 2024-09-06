@@ -19,8 +19,9 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Shared/Common
 * [x] Uses Apache 2.0 license
   * [Apache License 2.0](https://github.com/folio-org/mod-record-specifications/blob/master/LICENSE)
-* [ ] Module build MUST produce a valid module descriptor
-   * ```
+* [x] Module build MUST produce a valid module descriptor
+   *  Build the module. Inspect module descriptor:
+     ```
      git clone https://github.com/folio-org/mod-record-specifications.git
      cd mod-record-specifications
      git checkout tech-evaluation
@@ -34,6 +35,9 @@ When performing a technical evaluation of a module, create a copy of this docume
      java -Dserver.port=8081 -jar mod-record-specifications-server/target/mod-record-specifications-server-fat.jar
      INFO  TomcatWebServer      Tomcat started on port 8081 (http) with context path '/'
      ```
+   * Better to adjust the [documentation](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation#locally) slightly:
+     * jars are built in subfolders
+     * also, there seem to be more than one application : -dto, -server, -validator
     
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
 * [ ] Third party dependencies use an Apache 2.0 compatible license
