@@ -17,7 +17,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
 
 ## Shared/Common
-* [ ] Uses Apache 2.0 license
+* [x] Uses Apache 2.0 license
+  * [Apache License 2.0](https://github.com/folio-org/mod-record-specifications/blob/master/LICENSE)
 * [ ] Module build MUST produce a valid module descriptor
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
 * [ ] Third party dependencies use an Apache 2.0 compatible license
