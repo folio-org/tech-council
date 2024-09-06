@@ -39,9 +39,10 @@ When performing a technical evaluation of a module, create a copy of this docume
      * jars are built in subfolders
      * also, there seem to be more than one application : -dto, -server, -validator
     
-* [ ] Module descriptor MUST include interface requirements for all consumed APIs
+* [x] Module descriptor MUST include interface requirements for all consumed APIs
   * Navigate to [dev.folio.org](https://dev.folio.org/reference/api/#mod-record-specifications). Follow link under [Source](https://github.com/folio-org/mod-record-specifications/blob/master/target/api/openapi/openapi.yaml) ==> YAML doesn't exist or link to YAML ist wrong (probably the latter).
   * API endpoints described here: [github/specification-storage](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation/api/paths/specification-storage), [config-doc.json](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/config-doc.json) or [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) .
+  * All 20 API endpoints/methods listed in [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) are listed in the module descriptor.
 * [ ] Third party dependencies use an Apache 2.0 compatible license
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
