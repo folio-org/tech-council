@@ -22,6 +22,11 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Module build MUST produce a valid module descriptor
    * ```
      git clone https://github.com/folio-org/mod-record-specifications.git
+     cd mod-record-specifications
+     git checkout tech-evaluation
+     mvn clean install -DskipTests=true
+[INFO] BUILD SUCCESS
+vim -R target/ModuleDescriptor.json
      ```
     
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
