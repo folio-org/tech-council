@@ -20,6 +20,10 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Uses Apache 2.0 license
   * [Apache License 2.0](https://github.com/folio-org/mod-record-specifications/blob/master/LICENSE)
 * [ ] Module build MUST produce a valid module descriptor
+   * ```
+     git clone https://github.com/folio-org/mod-record-specifications.git
+     ```
+    
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
 * [ ] Third party dependencies use an Apache 2.0 compatible license
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
