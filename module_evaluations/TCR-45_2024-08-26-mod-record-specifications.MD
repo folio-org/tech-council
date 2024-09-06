@@ -26,7 +26,13 @@ When performing a technical evaluation of a module, create a copy of this docume
      git checkout tech-evaluation
      mvn clean install -DskipTests=true
      [INFO] BUILD SUCCESS
-     vim -R target/ModuleDescriptor.json
+     cat target/ModuleDescriptor.json
+     ```
+   * Run the module locally on the default listening port (8081) with the prescribed command:
+     ```
+     DB_HOST=10.* DB_PORT=5432 DB_DATABASE=folio DB_USERNAME=folio DB_PASSWORD=folio123 \
+     java -Dserver.port=8081 -jar mod-record-specifications-server/target/mod-record-specifications-server-fat.jar
+     INFO  TomcatWebServer      Tomcat started on port 8081 (http) with context path '/'
      ```
     
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
