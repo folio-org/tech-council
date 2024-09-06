@@ -40,6 +40,7 @@ When performing a technical evaluation of a module, create a copy of this docume
      * also, there seem to be more than one application : -dto, -server, -validator
     
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
+  * Navigate to [dev.folio.org](https://dev.folio.org/reference/api/#mod-record-specifications). Follow link under [Source](https://github.com/folio-org/mod-record-specifications/blob/master/target/api/openapi/openapi.yaml) ==> YAML doesn't exist or link to YAML ist wrong (probably the latter).
 * [ ] Third party dependencies use an Apache 2.0 compatible license
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
