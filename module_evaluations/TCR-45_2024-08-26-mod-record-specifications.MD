@@ -39,6 +39,7 @@ When performing a technical evaluation of a module, create a copy of this docume
      * server jar is built in subfolder mod-record-specifications-server/target
     
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
+  * This module does not consume any external APIs.
 * [x] Third party dependencies use an Apache 2.0 compatible license
   * Checking all dependencies and plugins in [pom.xml](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/pom.xml)
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
