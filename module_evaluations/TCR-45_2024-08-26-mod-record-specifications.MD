@@ -44,6 +44,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * API endpoints described here: [github/specification-storage](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation/api/paths/specification-storage), [config-doc.json](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/config-doc.json) or [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) .
   * All 20 API endpoints/methods listed in [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) are listed in the module descriptor.
 * [ ] Third party dependencies use an Apache 2.0 compatible license
+  * Checking all dependencies in [pom.xml](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/pom.xml)
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
