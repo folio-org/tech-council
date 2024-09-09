@@ -51,13 +51,14 @@ When performing a technical evaluation of a module, create a copy of this docume
     <folio-spring-support.version>8.2.0-SNAPSHOT</folio-spring-support.version>
     <folio-service-tools.version>4.1.0-SNAPSHOT</folio-service-tools.version>
     ```
-* [ ] Installation documentation is included
+* [x] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
-* [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
-* [ ] Sensitive and environment-specific information is not checked into git repository
-* [ ] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
-* [ ] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
-* [ ] Module gracefully handles the absence of third party systems or related configuration
+* [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
+* [x] Sensitive and environment-specific information is not checked into git repository
+* [x] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1], [Ramsons page](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5058042/Ramsons)
+* [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
+  * module(s) do not rely on any other FOLIO modules than themselves.
+* [x] Module gracefully handles the absence of third party systems or related configuration
 * [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
