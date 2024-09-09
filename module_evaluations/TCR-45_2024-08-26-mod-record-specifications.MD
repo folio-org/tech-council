@@ -68,28 +68,32 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-* [ ] Environment vars are documented in the ModuleDescriptor
+* [x] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
-* [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
-* [ ] All API endpoints are documented in OpenAPI.
-* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
+* [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
+* [x] All API endpoints are documented in OpenAPI.
+  * can be viewed here [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html)
+* [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
+  * 20 permission sets defined in Module Descriptor
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
-* [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
+* [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
+  * none provided
 * [ ] Data is segregated by tenant at the storage layer
 * [ ] The module doesn't access data in DB schemas other than its own and public
-* [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
+* [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [ ] The module responds with a tenant's content based on x-okapi-tenant header
 * [ ] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
+  * How can I see that ? Usually the pom.xml includes artifactId spring-boot-starter-actuator, but I don't see that.
 * [ ] High Availability (HA) compliant
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
+* [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._
 
 ## TCR Process Improvements
