@@ -36,8 +36,8 @@ When performing a technical evaluation of a module, create a copy of this docume
      INFO  TomcatWebServer      Tomcat started on port 8081 (http) with context path '/'
      ```
    * Better to adjust the [documentation](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation#locally) slightly:
-     * jars are built in subfolders
-     * also, there seem to be more than one application : -dto, -server, -validator
+     * server jar is built in subfolder mod-record-specifications-server/target
+     * or build mod-record-specifications-*.jar directly in target
     
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
   * Navigate to [dev.folio.org](https://dev.folio.org/reference/api/#mod-record-specifications). Follow link under [Source](https://github.com/folio-org/mod-record-specifications/blob/master/target/api/openapi/openapi.yaml) ==> YAML doesn't exist or link to YAML ist wrong (probably the latter).
