@@ -43,9 +43,14 @@ When performing a technical evaluation of a module, create a copy of this docume
   * Navigate to [dev.folio.org](https://dev.folio.org/reference/api/#mod-record-specifications). Follow link under [Source](https://github.com/folio-org/mod-record-specifications/blob/master/target/api/openapi/openapi.yaml) ==> YAML doesn't exist or link to YAML ist wrong (probably the latter).
   * API endpoints described here: [github/specification-storage](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation/api/paths/specification-storage), [config-doc.json](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/config-doc.json) or [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) .
   * All 20 API endpoints/methods listed in [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) are listed in the module descriptor.
-* [ ] Third party dependencies use an Apache 2.0 compatible license
-  * Checking all dependencies in [pom.xml](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/pom.xml)
+* [x] Third party dependencies use an Apache 2.0 compatible license
+  * Checking all dependencies and plugins in [pom.xml](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/pom.xml)
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
+  * referenced in pom.xml
+    ```
+    <folio-spring-support.version>8.2.0-SNAPSHOT</folio-spring-support.version>
+    <folio-service-tools.version>4.1.0-SNAPSHOT</folio-service-tools.version>
+    ```
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
