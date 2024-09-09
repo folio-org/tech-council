@@ -39,9 +39,6 @@ When performing a technical evaluation of a module, create a copy of this docume
      * server jar is built in subfolder mod-record-specifications-server/target
     
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
-  * Navigate to [dev.folio.org](https://dev.folio.org/reference/api/#mod-record-specifications). Follow link under [Source](https://github.com/folio-org/mod-record-specifications/blob/master/target/api/openapi/openapi.yaml) ==> YAML doesn't exist or link to YAML ist wrong (probably the latter).
-  * API endpoints described here: [github/specification-storage](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation/api/paths/specification-storage), [config-doc.json](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/config-doc.json) or [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) .
-  * All 20 API endpoints/methods listed in [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) are listed in the module descriptor.
 * [x] Third party dependencies use an Apache 2.0 compatible license
   * Checking all dependencies and plugins in [pom.xml](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/pom.xml)
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
@@ -70,6 +67,9 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
+  * Navigate to [dev.folio.org](https://dev.folio.org/reference/api/#mod-record-specifications). Follow link under [Source](https://github.com/folio-org/mod-record-specifications/blob/master/target/api/openapi/openapi.yaml) ==> YAML doesn't exist or link to YAML ist wrong (probably the latter).
+  * API endpoints described here: [github/specification-storage](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation/api/paths/specification-storage), [config-doc.json](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/config-doc.json) or [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) .
+  * All 20 API endpoints/methods listed in [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) are listed in the module descriptor.
 * [x] All API endpoints are documented in OpenAPI.
   * can be viewed here [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html)
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
