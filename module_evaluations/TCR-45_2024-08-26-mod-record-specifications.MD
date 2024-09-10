@@ -42,6 +42,8 @@ When performing a technical evaluation of a module, create a copy of this docume
   * This module does not consume any external APIs.
 * [x] Third party dependencies use an Apache 2.0 compatible license
   * Checking all dependencies and plugins in [pom.xml](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/pom.xml)
+  * Also check indirect dependencies. Those can be viewed by 
+    * mvn dependency:tree
 * [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
   * referenced in pom.xml
     ```
