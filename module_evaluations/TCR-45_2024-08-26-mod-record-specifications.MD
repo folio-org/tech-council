@@ -85,7 +85,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
   * none provided
-* [ ] Data is segregated by tenant at the storage layer
+* [x] Data is segregated by tenant at the storage layer
 * [ ] The module doesn't access data in DB schemas other than its own and public
 * [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [ ] The module responds with a tenant's content based on x-okapi-tenant header
