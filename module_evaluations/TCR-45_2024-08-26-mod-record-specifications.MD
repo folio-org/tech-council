@@ -86,10 +86,10 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] The module doesn't access data in DB schemas other than its own and public
 * [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [ ] The module responds with a tenant's content based on x-okapi-tenant header
-* [ ] Standard GET `/admin/health` endpoint returning a 200 response
+* [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
-  * How can I see that ? Usually the pom.xml includes artifactId spring-boot-starter-actuator, but I don't see that.
-* [ ] High Availability (HA) compliant
+  * Implemented here: [application.yml#L70](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/main/resources/application.yml#L70), and a test is here: [RecordSpecificationsAppIT.java](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/test/java/org/folio/api/RecordSpecificationsAppIT.java#L93) .
+* [x] High Availability (HA) compliant
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
