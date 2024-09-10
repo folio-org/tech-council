@@ -92,6 +92,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
   * Implemented here: [application.yml#L70](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/main/resources/application.yml#L70), and a test is here: [RecordSpecificationsAppIT.java](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/test/java/org/folio/api/RecordSpecificationsAppIT.java#L93) .
+  * local deployment of the module responds like so: curl -XGET localhost:8081/admin/health
+  * {"status":"UP"}
 * [x] High Availability (HA) compliant
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
