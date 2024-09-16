@@ -90,6 +90,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] The module doesn't access data in DB schemas other than its own and public
 * [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [x] The module responds with a tenant's content based on x-okapi-tenant header
+  * generally true in a java-spring based framework and using the pertinent libraries
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
   * Implemented here: [application.yml#L70](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/main/resources/application.yml#L70), and a test is here: [RecordSpecificationsAppIT.java](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/test/java/org/folio/api/RecordSpecificationsAppIT.java#L93) .
