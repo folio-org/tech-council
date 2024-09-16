@@ -14,7 +14,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## [Criteria](https://github.com/folio-org/tech-council/blob/7b10294a5c1c10c7e1a7c5b9f99f04bf07630f06/MODULE_ACCEPTANCE_CRITERIA.MD)
 
 ## Administrative
-* [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
+* [x] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
 
 ## Shared/Common
 * [x] Uses Apache 2.0 license
@@ -90,7 +90,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Data is segregated by tenant at the storage layer
 * [ ] The module doesn't access data in DB schemas other than its own and public
 * [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
-* [ ] The module responds with a tenant's content based on x-okapi-tenant header
+* [x] The module responds with a tenant's content based on x-okapi-tenant header
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
   * Implemented here: [application.yml#L70](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/main/resources/application.yml#L70), and a test is here: [RecordSpecificationsAppIT.java](https://github.com/folio-org/mod-record-specifications/blob/tech-evaluation/mod-record-specifications-server/src/test/java/org/folio/api/RecordSpecificationsAppIT.java#L93) .
