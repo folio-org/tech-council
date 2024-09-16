@@ -78,10 +78,9 @@ When performing a technical evaluation of a module, create a copy of this docume
   * All 20 API endpoints/methods listed in [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html) are listed in the module descriptor.
 * [x] All API endpoints are documented in OpenAPI.
   * can be viewed here [openapi.html](https://s3.amazonaws.com/foliodocs/api/mod-record-specifications/s/openapi.html)
-* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
+* [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * 20 permission sets defined in Module Descriptor (O.K.)
-  * permission specification-storage.specification.item.sync : "sync" is an action verb that is not on the list of allowed actions verbs. See https://folio-org.atlassian.net/browse/MRSPECS-54
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
 * [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
