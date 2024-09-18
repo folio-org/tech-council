@@ -88,7 +88,8 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
   * none provided
 * [x] Data is segregated by tenant at the storage layer
-* [ ] The module doesn't access data in DB schemas other than its own and public
+* [x] The module doesn't access data in DB schemas other than its own and public
+  * For DB access the team uses JPA and common library folio-spring-base. There is a code that changes search_path based on x-okapi-tenant header: [DataSourceFolioWrapper.java](https://github.com/folio-org/folio-spring-support/blob/master/folio-spring-base/src/main/java/org/folio/spring/config/DataSourceFolioWrapper.java)
 * [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [x] The module responds with a tenant's content based on x-okapi-tenant header
   * generally true in a java-spring based framework and using the pertinent libraries
