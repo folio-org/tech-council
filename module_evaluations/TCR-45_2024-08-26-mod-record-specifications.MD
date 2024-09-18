@@ -82,7 +82,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * 20 permission sets defined in Module Descriptor (O.K.)
-* [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
+* [x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
 * [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
