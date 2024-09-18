@@ -37,6 +37,7 @@ When performing a technical evaluation of a module, create a copy of this docume
      ```
    * Better to adjust the [documentation](https://github.com/folio-org/mod-record-specifications/tree/tech-evaluation#locally) slightly:
      * server jar is built in subfolder mod-record-specifications-server/target
+     * has been fixed [PR 72](https://github.com/folio-org/mod-record-specifications/pull/72)
     
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
   * This module does not consume any external APIs.
