@@ -20,7 +20,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Uses Apache 2.0 license
 * [ ] Module build MUST produce a valid module descriptor
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
-* [ ] Third party dependencies use an Apache 2.0 compatible license
+* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html)
+  * org.z3950.zing:cql-java is allowed, even if it is LGPL-2.1-only
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
