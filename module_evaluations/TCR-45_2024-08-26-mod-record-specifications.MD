@@ -51,6 +51,7 @@ When performing a technical evaluation of a module, create a copy of this docume
     <folio-spring-support.version>8.2.0-SNAPSHOT</folio-spring-support.version>
     <folio-service-tools.version>4.1.0-SNAPSHOT</folio-service-tools.version>
     ```
+  * Criterion has been dropped by the TC: [PR-76](https://github.com/folio-org/tech-council/pull/76)
 * [x] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
@@ -83,6 +84,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * 20 permission sets defined in Module Descriptor (O.K.)
 * [x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
+  * The team uses default data that is populated on module init for tenant.
 * [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
@@ -103,6 +105,7 @@ When performing a technical evaluation of a module, create a copy of this docume
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
+  * none found
 * [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._
 
