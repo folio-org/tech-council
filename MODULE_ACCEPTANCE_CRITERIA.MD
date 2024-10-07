@@ -46,7 +46,6 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 * Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
   * _This is not applicable to libraries_
 * Third party dependencies use an Apache 2.0 compatible license (2)
-* In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
