@@ -22,8 +22,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
 * [x] Third party dependencies use an Apache 2.0 compatible license
 * [x] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
-* [ ] Installation documentation is included
-    - readme has not been updated but team has agreed to  update it
+* [x] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
