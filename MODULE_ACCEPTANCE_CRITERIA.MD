@@ -1,6 +1,6 @@
 # FOLIO Module Acceptance Values and Criteria
 
-## version 2.0 (ratified 2022-06-10)
+## version 2.1 (ratified 20??-??-??)
 
 # Overview
 The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
@@ -45,7 +45,8 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
   * _This is not applicable to libraries_
 * Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
   * _This is not applicable to libraries_
-* Third party dependencies use an Apache 2.0 compatible license (2)
+* Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+  * org.z3950.zing:cql-java is allowed, even if it is LGPL-2.1-only
 * Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
