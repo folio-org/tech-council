@@ -48,6 +48,7 @@ When performing a technical evaluation of a module, create a copy of this docume
      * note from the devs: module access data from mod-source-record-storage and mod-entities-links based on design. 
      * See diagrams for details: https://folio-org.atlassian.net/wiki/spaces/SPITFIRE/pages/1401163/Long+term+solution+for+migrating+authority+records
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
+     * The modules used for data access should be considered dependencies, and if not addressed in the module descriptor, should be addressed in the readme in a location such as [this](https://github.com/folio-org/mod-marc-migrations/blob/tech-evaluation/doc/documentation.md#folio-modules-communication)
 * [x] The module responds with a tenant's content based on x-okapi-tenant header
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
 * [x] High Availability (HA) compliant
