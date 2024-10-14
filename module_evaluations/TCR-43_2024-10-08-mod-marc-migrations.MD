@@ -47,7 +47,7 @@ When performing a technical evaluation of a module, create a copy of this docume
      * This module utilizes views (non materialized) to access data within mod-SRS and mod-inventory-storage. The evaluators feel that the use of views to access data in other schemas is a violation of this criteria.  
      * note from the devs: module access data from mod-source-record-storage and mod-entities-links based on design. 
      * See diagrams for details: https://folio-org.atlassian.net/wiki/spaces/SPITFIRE/pages/1401163/Long+term+solution+for+migrating+authority+records
-* [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
+* [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [x] The module responds with a tenant's content based on x-okapi-tenant header
 * [x] Standard GET `/admin/health` endpoint returning a 200 response
 * [x] High Availability (HA) compliant
