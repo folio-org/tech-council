@@ -46,6 +46,7 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 * Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
   * _This is not applicable to libraries_
 * Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+  * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * org.z3950.zing:cql-java is allowed, even if it is LGPL-2.1-only
 * Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
