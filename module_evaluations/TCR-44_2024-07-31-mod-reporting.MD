@@ -29,25 +29,27 @@ When performing a technical evaluation of a module, create a copy of this docume
     * [x] golang.org/x/sync v0.1.0 uses BSD-3-Clause
     * [x] golang.org/x/text v0.9.0 uses BSD-3-Clause
     * [x] moul.io/http2curl v1.0.0 uses Apache 2.0 or MIT Licence as we prefer
-  * Summary: this requirement is met provided that we determine the BSD-3-Clause and MIT licences to be Apache-compatible
+  * Summary: this requirement is met provided because the BSD-3-Clause and MIT licences are Apache-2.0-compatible
 * [x] Installation documentation is included
-  * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
+  * in README: https://github.com/folio-org/mod-reporting
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
 * [ ] Module is written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
+  * uses "settings:1.0" of mod-settings
 * [x] Module gracefully handles the absence of third party systems or related configuration
 * [x] ~INAPPLICABLE~ Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication
-  * The code does not go through Sonarqube, but is vetted by six separate code-style tools.
+  * The code does not go through Sonarqube, but is vetted by six separate code-style tools, see https://github.com/folio-org/.github/blob/master/README-go-lint.md
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools
-* [ ] Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+* [x] Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
+  * Go line coverage is 430/518 = 83%, see https://sonarcloud.io/component_measures?id=org.folio%3Amod-reporting&metric=coverage&view=list
+  * It fails the officially appoved technologies criterium but this results from failing the language criterium above.
 
 ## Backend
 * [x] Module's repository includes a compliant Module Descriptor
-  * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
+  * https://github.com/folio-org/mod-reporting/blame/main/descriptors/ModuleDescriptor-template.json
 * [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * [x] Environment vars are documented in the ModuleDescriptor
-  * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section
 * [x] All API endpoints are documented in RAML or OpenAPI
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
@@ -67,7 +69,9 @@ When performing a technical evaluation of a module, create a copy of this docume
     * Local container storage is used
     * Services are stateful
 * [x] Module only uses infrastructure / platform technologies on the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.
-  * _e.g. PostgreSQL, ElasticSearch, etc._
+  * uses PostgreSQL
 
 ## TCR Process Improvements
-[_Please include here any suggestions that you feel might improve the TCR Processes._]
+* Expand criterium for consumed APIs; mention requires/okapiInterfaces/...: https://github.com/folio-org/tech-council/pull/75
+* Use ASF 3rd Party License Policy for module evaluation: https://github.com/folio-org/tech-council/pull/79
+
