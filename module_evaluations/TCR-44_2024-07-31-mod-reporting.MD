@@ -74,4 +74,5 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## TCR Process Improvements
 * Expand criterium for consumed APIs; mention requires/okapiInterfaces/...: https://github.com/folio-org/tech-council/pull/75
 * Use ASF 3rd Party License Policy for module evaluation: https://github.com/folio-org/tech-council/pull/79
+* Fix broken link to guideline about env var in module descriptor: https://github.com/folio-org/tech-council/pull/82
 
