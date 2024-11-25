@@ -34,13 +34,13 @@ When performing a technical evaluation of a module, create a copy of this docume
   * in README: https://github.com/folio-org/mod-reporting
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
-* [ ] Module is written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page
+* [x] ~INAPPLICABLE~ (because Go has been adopted on 2024-11-11 but not added to the page) Module is written in a language and framework from the [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
   * uses "settings:1.0" of mod-settings
 * [x] Module gracefully handles the absence of third party systems or related configuration
 * [x] ~INAPPLICABLE~ Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication
   * The code does not go through Sonarqube, but is vetted by six separate code-style tools, see https://github.com/folio-org/.github/blob/master/README-go-lint.md
-* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools
+* [x] ~INAPPLICABLE~ (Go has been accepted on 2024-11-11 but build tool page hasn't been expanded yet) Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools
 * [x] Unit tests have 80% coverage or greater, and are based on [officially approved technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)
   * Go line coverage is 430/518 = 83%, see https://sonarcloud.io/component_measures?id=org.folio%3Amod-reporting&metric=coverage&view=list
   * It fails the officially appoved technologies criterium but this results from failing the language criterium above.
