@@ -50,9 +50,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   - The top-level paths '/resource', '/profile', '/reindex' and '/graph' are not good top-level names, they are much too general for linked data.  The team agrees and had already opened PRs to address this, prefixing all with '/linked-data'.
     - https://folio-org.atlassian.net/browse/MODLD-585
     - https://folio-org.atlassian.net/browse/UILD-428
-* [ ] All API endpoints are documented in OpenAPI.
-  - Written with OpenAPI but error accessing documentation: https://s3.amazonaws.com/foliodocs/api/mod-linked-data/s/mod-linked-data.html
-  - The team has an open Jira to address this: https://folio-org.atlassian.net/browse/MODLD-602
+* [X] All API endpoints are documented in OpenAPI.
 * [X] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * [X] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value
