@@ -72,7 +72,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 * Use ASF 3rd Party License Policy for module evaluation: https://github.com/folio-org/tech-council/pull/79
 * Fix broken link to guideline about env var in module descriptor: https://github.com/folio-org/tech-council/pull/82
 * Fix broken link to TCR jira project: https://github.com/folio-org/tech-council/pull/85
-* Merge https://github.com/folio-org/tech-council/blob/master/MODULE_EVALUATION_TEMPLATE.MD?plain=1 into https://github.com/folio-org/tech-council/blob/master/MODULE_ACCEPTANCE_CRITERIA.MD?plain=1 . This avoids that they get out of sync, avoids two almost identical documents, and ensures that the references to the "Values", like `(6)` are in the evaluation from.
+* Merge evaluation template into criteria document: https://github.com/folio-org/tech-council/pull/86
 * Add new acceptance criterium: "Is a good architectural fit and doesn't add unjustified technical debt." Regarding lib-linked-data-marc4ld and other linked data libraries: To avoid release paperwork related libraries should be submodules in a single GitHub repository. Examples: https://github.com/folio-org/folio-spring-support and https://github.com/folio-org/mod-configuration  
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
