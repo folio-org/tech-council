@@ -57,8 +57,13 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
   * _This is not applicable to libraries_
 * Must not depend on a FOLIO library that has not been approved through the TCR process
 * Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-* Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+* An automated code scannner hasn't identified any security issues, major code smells or excessive duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
+  * The code scanner may be Sonar (via Jenkins), github Actions or other. The results of the code scanning need to be reproducible by the Community.
+  * Examples for Code Duplication Detection metrics (i.e. characterstic numbers) can be found [here](https://folio-org.atlassian.net/wiki/spaces/TC/pages/386891824/Examples+of+Code+Duplication+Metrics+and+Code+Smells+Severity) .
+  * For code smells _major_ means the highest severity level:
+     * _High_ for Sonarqube.
+     * _Critical_ for CodeNarc.
 * Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
 
