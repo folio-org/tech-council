@@ -22,7 +22,7 @@ When performing a technical evaluation of a module, create a copy of this docume
 
 Replace the title with the name of the module or library.
 
-Remove the Frontend or the Backend section.
+Remove either the Frontend or the Backend section.
 
 Use these conventions to indicate the status of each criterion.
 
