@@ -36,9 +36,11 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [X] Module gracefully handles the absence of third party systems or related configuration
   - Works without Kafka.  Otherwise, there are no third-party configs that the module should reasonably survive being missing.
 * [X] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
-  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
+  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details.
+  * Results: https://sonarcloud.io/summary/overall?id=org.folio%3Amod-linked-data&branch=master 
 * [X] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
 * [X] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
+  * Currently 90.7%.  https://sonarcloud.io/summary/overall?id=org.folio%3Amod-linked-data&branch=master 
 
 ## Backend
 * [X] Module's repository includes a compliant Module Descriptor
