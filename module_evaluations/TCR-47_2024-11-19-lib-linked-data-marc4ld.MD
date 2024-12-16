@@ -21,23 +21,26 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] INAPPLICABLE (library): ~Module build MUST produce a valid module descriptor~
 * [x] INAPPLICABLE (library): ~Module descriptor MUST include interface requirements for all consumed APIs~
 * [ ] Third party dependencies use an Apache 2.0 compatible license
+  * https://julianladisch.github.io/folio-dependencies/lib-linked-data-marc4ld-1.0.2-SNAPSHOT.html
   * `mvn clean license:add-third-party -Dlicense.failOnMissing=true -Dlicense.force=true -Dlicense.includedScopes=compile,runtime,provided`
   * Compatible licenses used:
     * Apache 2.0
     * MIT
   * Incompatible license used:
     * GNU Lesser General Public License, Version 2.1 or later: https://github.com/marc4j/marc4j
-* [ ] Installation documentation is included
-  * javadoc jar is missing: https://repository.folio.org/service/rest/repository/browse/maven-snapshots/org/folio/lib-linked-data-marc4ld/1.0.2-SNAPSHOT/1.0.2-20241204.081645-40/
+* [x] Installation documentation is included
+  * javadoc jar has been added: https://repository.folio.org/service/rest/repository/browse/maven-snapshots/org/folio/lib-linked-data-marc4ld/1.0.2-SNAPSHOT/1.0.2-20241216.150719-46/
 * [x] INAPPLICABLE (library): Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
 * [x] Sensitive and environment-specific information is not checked into git repository
 * [x] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [x] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [x] Module gracefully handles the absence of third party systems or related configuration
 * [x] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
-  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
+  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details.
+  * https://sonarcloud.io/summary/overall?id=org.folio%3Alib-linked-data-marc4ld&branch=master
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
 * [x] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
+  * https://sonarcloud.io/summary/overall?id=org.folio%3Alib-linked-data-marc4ld&branch=master
 
 ## Backend
 * [x] INAPPLICABLE (library): Module's repository includes a compliant Module Descriptor
@@ -70,7 +73,6 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## TCR Process Improvements
 * Expand criterium for consumed APIs; mention requires/okapiInterfaces/...: https://github.com/folio-org/tech-council/pull/75
 * Use ASF 3rd Party License Policy for module evaluation: https://github.com/folio-org/tech-council/pull/79
-* Fix broken links to info on environment variables: https://github.com/folio-org/tech-council/pull/87
 * Fix broken link to guideline about env var in module descriptor: https://github.com/folio-org/tech-council/pull/82
 * Fix broken link to TCR jira project: https://github.com/folio-org/tech-council/pull/85
 * Merge evaluation template into criteria document: https://github.com/folio-org/tech-council/pull/86
