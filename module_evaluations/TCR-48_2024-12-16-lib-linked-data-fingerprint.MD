@@ -1,7 +1,7 @@
 # Module acceptance criteria template
 
 ## Module Name
-mod-XXX or ui-XXX etc.
+lib-linked-data-fingerprint
 
 ## How to use this form
 When performing a technical evaluation of a module, create a copy of this document and use the conventions below to indicate the status of each criterion.  The evaluation results should be placed in the [module_evaluations](https://github.com/folio-org/tech-council/tree/master/module_evaluations) directory and should conform to the following naming convention: `{JIRA Key}_YYYY-MM-DD-{module name}.MD`, e.g. `TCR-1_2021-11-17-mod-foo.MD`.  The date here is used to differentiate between initial and potential re-evaluation(s).  It should be the date when the evaluation results file was created.
@@ -52,15 +52,15 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] INAPPLICABLE (library): Data is segregated by tenant at the storage layer
 * [x] INAPPLICABLE (library): The module doesn't access data in DB schemas other than its own and public
 * [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
-* [ ] The module responds with a tenant's content based on x-okapi-tenant header
+* [x] INAPPLICABLE (library):The module responds with a tenant's content based on x-okapi-tenant header
 * [x] INAPPLICABLE (library): Standard GET `/admin/health` endpoint returning a 200 response
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
-* [ ] High Availability (HA) compliant
+* [x] High Availability (HA) compliant
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
+* [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._
 
 ## TCR Process Improvements
