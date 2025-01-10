@@ -29,7 +29,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   - Postgres password in docker-compose.yml, but that's standard.
 * [X] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [X] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
-  - Three new library dependencies, these are also in the TCR process currently: 
+  - Three new library dependencies, these are now TCR approved.
     - lib-linked-data-dictionary
     - lib-linked-data-fingerprint
     - lib-linked-data-marc4ld
