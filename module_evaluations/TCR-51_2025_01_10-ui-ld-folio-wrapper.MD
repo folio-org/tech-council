@@ -34,13 +34,12 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
 
 ## Frontend
-* [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
-  * Using "jest": "^26.6.3", but Ramsons wants "^29".
+* [x] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * [x] Have i18n support via react-intl and an `en.json` file with English texts
 * [x] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
-  * Ensure elements that have scrollable content are accessible by keyboard "<div data-testid="preview-contents-container" class="preview-contents-container">" flags, but I was able to use keyboard to navigate and scroll.
+  * Got message about "Ensure elements that have scrollable content are accessible by keyboard <div data-testid="preview-contents-container" class="preview-contents-container">", but I was able to use keyboard to navigate and scroll.
 * [x] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [x] Follow relevant existing UI layouts, patterns and norms
   * -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
