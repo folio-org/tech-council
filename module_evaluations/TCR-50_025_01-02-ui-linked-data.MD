@@ -45,9 +45,10 @@ When performing a technical evaluation of a module, create a copy of this docume
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * [x] Have i18n support via react-intl and an `en.json` file with English texts
-* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
+* [x] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension
   * - Errors caught in self-eval have been fixed.
   * - Two errors caught by WebAIM, a broken ARIA menu and two empty table headers in the results page over the first and last columns (selection buttons and Edit instance buttons)
+  * - Reported fixed as of Jan 22 early morning.
 * [x] INAPPLICABLE ~Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]~
  * - This is a React module, does not use Stripes
 * [x] Follow relevant existing UI layouts, patterns and norms
