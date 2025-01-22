@@ -49,6 +49,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * - Errors caught in self-eval have been fixed.
   * - Two errors caught by WebAIM, a broken ARIA menu and two empty table headers in the results page over the first and last columns (selection buttons and Edit instance buttons)
   * - Reported fixed as of Jan 22 early morning.
+  * - See [UILD-485](https://folio-org.atlassian.net/browse/UILD-485) for response.
 * [x] INAPPLICABLE ~Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]~
  * - This is a React module, does not use Stripes
 * [x] Follow relevant existing UI layouts, patterns and norms
