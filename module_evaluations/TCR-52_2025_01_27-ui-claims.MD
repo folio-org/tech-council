@@ -21,9 +21,13 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [x] Module build MUST produce a valid module descriptor
 * [x] Module descriptor MUST include interface requirements for all consumed APIs
 * [ ] Third party dependencies use an Apache 2.0 compatible license
-    - None of the non-folio dependencies use the Apache license
-    - Almost all of the JS dev dependencies (babel, types, typescript-eslint, etc) uses MIT license
-    - The runtime dependency lodash uses OpenJS Foundation
+    - Only the FOLIO dependencies and `typescript` use the Apache license
+    - Development dependencies that use MIT license: `babel`, `types`, `typescript-eslint`, `core-js`, `eslint`, `history`, `identity-obj-proxy`, `react`, `redux`, `regenerator-runtime`.
+    - The runtime and development dependency `lodash` uses OpenJS Foundation, but includes dependencies from vendors that use other licenses:
+        - `backbone`: Copyright (c) 2010-2016 Jeremy Ashkenas, DocumentCloud
+        - `firebug-lite`: BSD License
+        - `json-js`: no explicit license
+        - `underscore`: Copyright (c) 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative
 * [x] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [x] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
