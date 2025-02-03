@@ -93,7 +93,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * _This is not applicable to libraries_
 * Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * Environment vars are documented in the ModuleDescriptor (5, 11)
-  * -_note: read more at [DR-000020 - Teams must document deployment requirements in a clear & consistent way](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5055298/DR-000020+-+Teams+must+document+deployment+requirements+in+a+clear+consistent+way)_
+  * -_note: read more at https://dev.folio.org/guides/module-descriptor/#docker-env_
 * If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * All API endpoints are documented in OpenAPI (11)
 * All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
