@@ -19,7 +19,6 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Shared/Common
 * [ ] Uses Apache 2.0 license
 * [ ] Module build MUST produce a valid module descriptor
-* [ ] Module descriptor MUST include interface requirements for all consumed APIs
 * [ ] Third party dependencies use an Apache 2.0 compatible license
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
@@ -34,6 +33,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
 
 ## Frontend
+* [ ] For each consumed API `package.json` MUST include the interface requirement in the `"okapiInterfaces"` or `"optionalOkapiInterfaces"` section
+  * -_note: read more at https://github.com/folio-org/stripes/blob/master/doc/dev-guide.md#the-package-file-stripes-entry_
 * [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
@@ -48,6 +49,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Backend
 * [ ] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
+* [ ] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section
+  * _This is not applicable to libraries_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * [ ] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at [DR-000020 - Teams must document deployment requirements in a clear & consistent way](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5055298/DR-000020+-+Teams+must+document+deployment+requirements+in+a+clear+consistent+way)_
