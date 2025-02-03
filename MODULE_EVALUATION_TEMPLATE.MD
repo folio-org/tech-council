@@ -20,7 +20,6 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Uses Apache 2.0 license
 * [ ] Module build MUST produce a valid module descriptor
 * [ ] Third party dependencies use an Apache 2.0 compatible license
-* [ ] In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
@@ -54,7 +53,7 @@ When performing a technical evaluation of a module, create a copy of this docume
   * _This is not applicable to libraries_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * [ ] Environment vars are documented in the ModuleDescriptor
-  * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
+  * -_note: read more at [DR-000020 - Teams must document deployment requirements in a clear & consistent way](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5055298/DR-000020+-+Teams+must+document+deployment+requirements+in+a+clear+consistent+way)_
 * [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces).
 * [ ] All API endpoints are documented in OpenAPI.
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using `*.all` permissions, all necessary module permissions are assigned, etc.

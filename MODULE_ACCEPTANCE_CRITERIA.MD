@@ -1,6 +1,6 @@
 # FOLIO Module Acceptance Values and Criteria
 
-## version 2.??? (ratified ????)
+## version 3.0 (ratified 2025-01-25)
 
 # Overview
 The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
@@ -44,7 +44,6 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 * Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * Third party dependencies use an Apache 2.0 compatible license (2)
-* In order to ensure reproducible builds, snapshot versions of build-time dependencies should not be referenced.
 * Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
@@ -88,7 +87,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * _This is not applicable to libraries_
 * Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * Environment vars are documented in the ModuleDescriptor (5, 11)
-  * -_note: read more at [https://wiki.folio.org/pages/viewpage.action?pageId=65110683](https://wiki.folio.org/pages/viewpage.action?pageId=65110683)_
+  * -_note: read more at [DR-000020 - Teams must document deployment requirements in a clear & consistent way](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5055298/DR-000020+-+Teams+must+document+deployment+requirements+in+a+clear+consistent+way)_
 * If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * All API endpoints are documented in OpenAPI (11)
 * All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
