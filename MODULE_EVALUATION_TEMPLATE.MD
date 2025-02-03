@@ -20,7 +20,11 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Uses Apache 2.0 license
 * [ ] Module build MUST produce a valid module descriptor
 * [ ] Module descriptor MUST include interface requirements for all consumed APIs
-* [ ] Third party dependencies use an Apache 2.0 compatible license
+* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html)
+  * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
+  * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
+  * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+  * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file
@@ -34,6 +38,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
 
 ## Frontend
+* [ ] For each consumed API `package.json` MUST include the interface requirement in the `"okapiInterfaces"` or `"optionalOkapiInterfaces"` section
+  * -_note: read more at https://github.com/folio-org/stripes/blob/master/doc/dev-guide.md#the-package-file-stripes-entry_
 * [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
@@ -48,6 +54,8 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Backend
 * [ ] Module's repository includes a compliant Module Descriptor
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
+* [ ] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section
+  * _This is not applicable to libraries_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * [ ] Environment vars are documented in the ModuleDescriptor
   * -_note: read more at https://dev.folio.org/guides/module-descriptor/#docker-env_
