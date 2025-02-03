@@ -19,7 +19,12 @@ When performing a technical evaluation of a module, create a copy of this docume
 ## Shared/Common
 * [ ] Uses Apache 2.0 license
 * [ ] Module build MUST produce a valid module descriptor
-* [ ] Third party dependencies use an Apache 2.0 compatible license
+* [ ] Module descriptor MUST include interface requirements for all consumed APIs
+* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html)
+  * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
+  * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
+  * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+  * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
 * [ ] Installation documentation is included
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
 * [ ] Personal data form is completed, accurate, and provided as `PERSONAL_DATA_DISCLOSURE.md` file

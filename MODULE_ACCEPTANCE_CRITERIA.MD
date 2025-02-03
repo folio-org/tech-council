@@ -43,7 +43,13 @@ Please see [Before Development](MODULE_EVALUATION_TEMPLATE#before-development) f
 * Uses Apache 2.0 license (2)
 * Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* Third party dependencies use an Apache 2.0 compatible license (2)
+* Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
+  * _This is not applicable to libraries_
+* Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+  * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
+  * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
+  * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+  * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
 * Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
