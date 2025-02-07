@@ -58,8 +58,6 @@ Use these conventions to indicate the status of each criterion.
 * [ ] Uses Apache 2.0 license (2)
 * [ ] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* [ ] Module descriptor MUST include interface requirements for all consumed APIs (3, 5)
-  * _This is not applicable to libraries_
 * [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
