@@ -66,7 +66,7 @@ Use these conventions to indicate the status of each criterion.
   * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   - FOLIO dependencies and `typescript` use the Apache license
   - Development dependencies that explicitly use MIT license: `babel`, `types`, `typescript-eslint`, `core-js`, `eslint`, `history`, `identity-obj-proxy`, `react`, `redux`, `regenerator-runtime`.
-  - The runtime and development dependency `lodash` expressly uses the MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/LICENSE#L15-L32). Lodash includes dependencies from vendors that use the following licenses:
+  - The runtime and development dependency `lodash` expressly uses the MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/LICENSE#L15-L32). Lodash has copied code from vendors that use the following licenses:
         - `backbone`: express MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/backbone/LICENSE#L15C1-L22C32)
         - `firebug-lite`: express the 3_clause BSD License (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/firebug-lite/license.txt#L23C1-L30C80)
         - `json-js`: uses Public Domain license. "NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK."
