@@ -55,7 +55,7 @@ Use these conventions to indicate the status of each criterion.
 
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
-* [x] ~~Module build MUST produce a valid module descriptor (3, 5)~~
+* [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * [x] ~~Module descriptor MUST include interface requirements for all consumed APIs (3, 5)~~
   * _This is not applicable to libraries_
