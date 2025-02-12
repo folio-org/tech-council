@@ -66,14 +66,11 @@ Use these conventions to indicate the status of each criterion.
   * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   - FOLIO dependencies and `typescript` use the Apache license
   - Development dependencies that explicitly use MIT license: `babel`, `types`, `typescript-eslint`, `core-js`, `eslint`, `history`, `identity-obj-proxy`, `react`, `redux`, `regenerator-runtime`.
-  - The runtime and development dependency `lodash` expressly uses the MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/LICENSE#L15-L32). Lodash has copied code from vendors that use the following licenses:
-        - `backbone`: express MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/backbone/LICENSE#L15C1-L22C32)
-        - `firebug-lite`: express the 3_clause BSD License (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/firebug-lite/license.txt#L23C1-L30C80)
-          * Includes scripts sourced with other licences, including: 
-            - Sizzle CSS Selector Engine - v1.0 Released under the MIT, BSD, and GPL Licenses.
-            - Other scripts released under BSD licenses
-        - `json-js`: uses Public Domain license. "NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK."
-        - `underscore`: express MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/underscore/LICENSE#L16C1-L23C32)
+    * The runtime and development dependency `lodash` expressly uses the MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/LICENSE#L15-L32). Lodash has copied code from vendors that use the following licenses:
+      * `backbone`: express MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/backbone/LICENSE#L15C1-L22C32)
+      * `firebug-lite`: express the 3_clause BSD License (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/firebug-lite/license.txt#L23C1-L30C80) but includes scripts sourced with other licences, including: `Sizzle CSS Selector Engine - v1.0` Released under the MIT, BSD, and GPL Licenses and other scripts released under BSD licenses
+    * `json-js`: uses Public Domain license. "NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK."
+    * `underscore`: express MIT license (https://github.com/lodash/lodash/blob/f299b52f39486275a9e6483b60a410e06520c538/vendor/underscore/LICENSE#L16C1-L23C32)
 * [x] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
