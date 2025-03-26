@@ -42,6 +42,7 @@ Information gathered includes:
 * Points of contact (Subject Matter / Domain / Technical)
   * Each point of contact's role should be clearly identified.
   * A single, main point of contact must have an account in issues.folio.org JIRA.
+* Name of application (existing or new) in which this module will be included
 * Free form section for notes, clarifications, background, links to supporting documentation, etc.
 * Link to self evaluation results
 * Informational Section - provides info, instead of eliciting it.

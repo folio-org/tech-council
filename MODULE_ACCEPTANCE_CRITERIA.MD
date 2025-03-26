@@ -78,6 +78,9 @@ Use these conventions to indicate the status of each criterion.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+* [ ] Assigned to exactly one application within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
+  * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
+  * _The specific evaluation method is TBD with input from the Eureka team, but will likely involve checking the definitions of the applications referenced somewhere in that repo._
 
 ### Frontend
 
