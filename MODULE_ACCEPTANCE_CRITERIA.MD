@@ -80,7 +80,7 @@ Use these conventions to indicate the status of each criterion.
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
 * [ ] Assigned to exactly one application within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
-  * _The specific evaluation method is TBD with input from the Eureka team, but will likely involve checking the definitions of the applications referenced somewhere in that repo._
+  * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
 
 ### Frontend
 
