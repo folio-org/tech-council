@@ -81,6 +81,7 @@ Information gathered includes:
     * When the Technical council's decision is contrary to the evaluation, or after any provisional acceptance or deferral, the Technical Council is required to provide written justification for their decision.
 1. Upon completion of the review, the JIRA will be updated to indicate this.
     * JIRA workflow: the ticket is transitioned from **TC REVIEW** to **APROVED** or **REJECTED**
+1. The Technical Council will notify the Release Management Stakeholders Group that the module has been approved.
 
 ## Feedback & Acceptance/Rejection
 1. Evaluation results are published (in markdown format) to the [tech-council GitHub repository](https://github.com/folio-org/tech-council) and linked to the JIRA ticket.
