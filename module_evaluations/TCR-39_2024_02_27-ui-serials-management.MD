@@ -40,13 +40,17 @@ When performing a technical evaluation of a module, create a copy of this docume
 * [X] Module is written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1]
 * [X] Module only uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn't been accepted yet_
 * [X] Module gracefully handles the absence of third party systems or related configuration
-* [ ] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+* [X] Sonarqube hasn't identified any security issues, major code smells or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * No security issues, and duplication is below 3%.
-  * Master branch shows [15 major code smells (and 2 critical)](https://sonarcloud.io/project/issues?impactSeverities=HIGH&resolved=false&types=CODE_SMELL&id=org.folio%3Aui-serials-management)
+  * The developers addressed this gap after the module was provisionally accepted.
+  * Prior:
+    * Master branch shows [15 major code smells (and 2 critical)](https://sonarcloud.io/project/issues?impactSeverities=HIGH&resolved=false&types=CODE_SMELL&id=org.folio%3Aui-serials-management)
 * [X] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools[^1]
-* [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
-  * 56.6% coverage
+* [X] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
+  * The submitters addressed this gap after the module was provisionally accepted.
+  * Prior: 
+    * 56.6% coverage
 
 ## Frontend
 * [X] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1]
