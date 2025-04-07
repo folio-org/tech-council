@@ -34,7 +34,15 @@ This document outlines the processes for **technical** evaluation of module for 
       * In such instances the Evaluator will contact the Submitter with a request for a demonstration, and a mutually suitable time for the demonstration will be scheduled.
 
 ### Submission form
-Information gathered includes:
+
+The submission form uses a Jira template.  To access the form:
+1. Open [Create issue from template](https://folio-org.atlassian.net/jira/software/projects/TCR/apps/11037d47-9c1c-48c5-91dc-17f8cd51d247/e758ec95-a2c9-44c8-b93e-36b2eb5d1716), also available in the sidebar of the [Jira Technical Council Requests](https://folio-org.atlassian.net/jira/software/c/projects/TCR) project.
+1. Select:
+    1. Issue type: Task
+    1. Template name: Request for Technical Evaluation of a Module (TEMP-17).
+1. Confirm.
+
+The information gathered includes:
 * Module name
 * Description of module
 * Link to source - a tag/commit in a publicly accessible git (preferably GitHub) repository 
@@ -42,6 +50,7 @@ Information gathered includes:
 * Points of contact (Subject Matter / Domain / Technical)
   * Each point of contact's role should be clearly identified.
   * A single, main point of contact must have an account in issues.folio.org JIRA.
+* Name of application (existing or new) in which this module will be included
 * Free form section for notes, clarifications, background, links to supporting documentation, etc.
 * Link to self evaluation results
 * Informational Section - provides info, instead of eliciting it.
@@ -50,6 +59,8 @@ Information gathered includes:
     * The evaluator may have between 2 and 3 weeks, depending when the TC meeting happens during that first week.  
     * This does not include activities that happen after feedback is given, etc. 
   * The applicable deadline for submissions in the release timeline (not the date, but the name of the milestone/deadline e.g. "deadline for new modules")
+
+Note for TC / maintainers: when editing the list above, mirror changes over to the [template itself](https://folio-org.atlassian.net/browse/TEMP-17).
 
 ## Evaluation
 1. The Technical Council reviews a JIRA board to see if there are any new submissions, and check on the status of evaluations in progress.
