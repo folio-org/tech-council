@@ -119,7 +119,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
 * [ ] Data is segregated by tenant at the storage layer (6, 7)
-* [ ] The module doesn’t access data in DB schemas other than its own and public, unless this module is a component of [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM). (6, 7)
+* [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
 * [ ] Standard GET /admin/health endpoint returning a 200 response (5)
