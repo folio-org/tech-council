@@ -130,33 +130,45 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 
 * [x] Module’s repository includes a compliant Module Descriptor (3, 5)
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
+  * https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
 * [x] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
-  * https://github.com/folio-org/mod-mosaic/tree/TCR-57/src/main/java/org/folio/mosaic/client
-  * https://github.com/folio-org/mod-mosaic/blob/TCR-57/descriptors/ModuleDescriptor-template.json
+  * https://github.com/folio-org/mod-mosaic/tree/TCR-57-2/src/main/java/org/folio/mosaic/client
+  * https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
 * [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-* [ ] Environment vars are documented in the ModuleDescriptor (5, 11)
+  * all 6 APIs are implemented: https://github.com/folio-org/mod-mosaic/tree/TCR-57-2/src/main/java/org/folio/mosaic/controller
+  * https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/src/main/resources/swagger.api/mosaic.yaml
+* [x] Environment vars are documented in the ModuleDescriptor (5, 11)
   * -_note: read more at https://dev.folio.org/guides/module-descriptor/#docker-env_
-* [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
+  * https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
+* [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
+  * https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
 * [ ] All API endpoints are documented in OpenAPI (11)
-* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
+  * Placeholders are provided, actual documentation is missing: https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/src/main/resources/swagger.api/mosaic.yaml https://github.com/folio-org/acq-models/tree/master/mod-mosaic/schemas
+* [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
+  * All 6 API endpoints require a granular permission: https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-* [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+  * /mosaic/configuration lacks a default.
+* [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
-* [ ] Data is segregated by tenant at the storage layer (6, 7)
-* [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
-* [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
-* [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
-* [ ] Standard GET /admin/health endpoint returning a 200 response (5)
+  * Karate tests: https://github.com/folio-org/folio-integration-tests/tree/6d2a05e/acquisitions/src/main/resources/thunderjet/mod-mosaic
+* [x] Data is segregated by tenant at the storage layer (6, 7)
+  * database schema is prefixed with tenant
+* [x] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
+  * uses database schema that is prefixed with tenant
+* [x] n/a ~Any dependencies, other than on defined interfaces, are declared in the README.md.~
+* [x] The module responds with a tenant’s content based on x-okapi-tenant header (7)
+* [x] Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
-* [ ] High Availability (HA) compliant (5, 14, 15)
+* [x] High Availability (HA) compliant (5, 14, 15)
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
+* [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
+  * Used versions: Java 21, spring-boot-starter-parent 3.4.5 (Sunflower), folio-spring-base 9.1.0 (Sunflower)
 
 ## TCR Process Improvements
 
