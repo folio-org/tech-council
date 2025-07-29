@@ -175,7 +175,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 
 ## TCR Process Improvements
 
-[_Please include here any suggestions that you feel might improve the TCR Processes._]
+Fix dead link about development diverging from Values or Criteria: https://github.com/folio-org/tech-council/pull/101
 
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
