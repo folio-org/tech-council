@@ -66,7 +66,9 @@ Use these conventions to indicate the status of each criterion.
   * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   * -> `mvn license:add-third-party`
   * -> `cat target/generated-sources/license/THIRD-PARTY.txt | sort`
-  * -> 215 dependencies, some entries require detailed investigation:
+  * -> 215 dependencies.
+  * -> Alternative method using `mvn clean project-info-reports:dependencies`: https://julianladisch.github.io/folio-dependencies/mod-mosaic-1.0.0-SNAPSHOT.html
+  * -> Some license entries require detailed investigation:
   * -> (Apache 2) opencsv (com.opencsv:opencsv:5.9 - http://opencsv.sf.net)
     * -> Reported disallowed version `2` is wrong, it is actually allowed version `2.0`: https://sourceforge.net/p/opencsv/source/ci/master/tree/LICENSE
   * -> (Apache Public License 2.0) plexus-build-api (org.sonatype.plexus:plexus-build-api:0.0.7 - http://forge.sonatype.com/spice-parent/plexus-build-api/)
