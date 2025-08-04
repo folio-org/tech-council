@@ -53,7 +53,7 @@ Use these conventions to indicate the status of each criterion.
 
 ### Administrative
 * [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
-  * -> in progress: https://folio-org.atlassian.net/browse/PCE-11
+  * -> in progress: https://folio-org.atlassian.net/browse/PCE-11 and status update requested on Slack `#folio-product-council` on 2025-08-04
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
   * -> https://github.com/folio-org/mod-mosaic/blob/master/LICENSE
@@ -147,13 +147,13 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * -> https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
   * -> https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
-* [ ] All API endpoints are documented in OpenAPI (11)
-  * -> Placeholders are provided, actual documentation is missing: https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/src/main/resources/swagger.api/mosaic.yaml https://github.com/folio-org/acq-models/tree/master/mod-mosaic/schemas
+* [x] All API endpoints are documented in OpenAPI (11)
+  * -> exists: https://s3.amazonaws.com/foliodocs/api/mod-mosaic/s/mosaic.html
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * -> All 6 API endpoints require a granular permission: https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-  * -> /mosaic/configuration lacks a default.
+  * -> /mosaic/configuration is a singleton record but requires a POST to create it so that sysops that want to set it always need to call GET first and then an if-else to either call POST or PUT (or call PUT and on 404 call POST). The singleton record should automatically be created as reference data allowing to remove the POST and DELETE APIs allowing to simply call PUT. To make this possible either make defaultTemplateId optional or initialize defaultTemplateId with NULL UUID 00000000-0000-0000-0000-000000000000.
 * [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
