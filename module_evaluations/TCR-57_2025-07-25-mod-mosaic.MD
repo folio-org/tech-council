@@ -53,7 +53,7 @@ Use these conventions to indicate the status of each criterion.
 
 ### Administrative
 * [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
-  * -> in progress: https://folio-org.atlassian.net/browse/PCE-11 and status update requested on Slack `#folio-product-council` on 2025-08-04
+  * -> in progress: https://folio-org.atlassian.net/browse/PCE-11 - PC will review it on 2025-08-14
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
   * -> https://github.com/folio-org/mod-mosaic/blob/master/LICENSE
