@@ -1,6 +1,6 @@
 # mod-mosaic
 
-## version 3.0 (ratified 2025-01-25)
+TC has approved mod-mosaic on 2025-08-25.
 
 ## Overview
 The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
@@ -152,8 +152,9 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
   * -> All 6 API endpoints require a granular permission: https://github.com/folio-org/mod-mosaic/blob/TCR-57-2/descriptors/ModuleDescriptor-template.json
-* [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
+* [x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
   * -> /mosaic/configuration is a singleton record but requires a POST to create it so that sysops that want to set it always need to call GET first and then an if-else to either call POST or PUT (or call PUT and on 404 call POST). The singleton record should automatically be created as reference data allowing to remove the POST and DELETE APIs allowing to simply call PUT. To make this possible either make defaultTemplateId optional or initialize defaultTemplateId with NULL UUID 00000000-0000-0000-0000-000000000000.
+  * -> This issue doesn't violate the criterium but should be fixed to avoid sysop confusion that we noticed with similar APIs (email configuration).
 * [x] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
