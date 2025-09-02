@@ -57,11 +57,10 @@ Use these conventions to indicate the status of each criterion.
 
 ### Shared/Common
 * [X] Uses Apache 2.0 license (2)
-* [ ] Module build MUST produce a valid module descriptor (3, 5)
+* [X] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-  * Neither Wayne (on OS X) or I (on Windows) can build this.  Yarn install not working either.  What tag/commit is supposed to build?
-  * Mess around for a while and try again.
 * [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+  * How can semgrep be used to specifically see the licenses used in this project?  The [supply chain page for ui-mosaic-settings](https://semgrep.dev/orgs/semgrep_folio_org/supply-chain/vulnerabilities?tab=open&last_opened=All+time&reachability=REACHABILITY_REACHABLE%2CREACHABILITY_ALWAYS_REACHABLE%2CREACHABILITY_CONDITIONALLY_REACHABLE%2CREACHABILITY_UNKNOWN&repo_ref=58300654) does not seem to list third-party licenses.  
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
   * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
@@ -82,11 +81,17 @@ Use these conventions to indicate the status of each criterion.
       - 'order-templates' interface from mod-orders, which has been in the flower releases for an eternity
 * [X] Must not depend on a FOLIO library that has not been approved through the TCR process
 * [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-* [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+  * come back to this
+* [X] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+  * Zero security issues.
+  * 0% duplication.
+  **** ML browse through code for any disabled
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
-* [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+* [X] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
+* [X] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+  * 97.2% test coverage
 * [ ] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
+  * folio_mosaic-settings does belong to exactly one application descriptor -- app-mosaic (https://github.com/folio-org/app-mosaic).  However app-mosaic is not specified as part of the FOLIO community LSP Platform at the link below.  platform-lsp includes app-platform-complete, but platform complete also does not include mosaic.  (although it does include gobi, so probably should include mosaic).
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
 
@@ -94,29 +99,37 @@ Use these conventions to indicate the status of each criterion.
 
 Note: Frontend criteria apply to both modules and shared libraries. 
 
-* [ ] For each consumed API `package.json` MUST include the interface requirement in the `"okapiInterfaces"` or `"optionalOkapiInterfaces"` section (3, 5)
+* [X] For each consumed API `package.json` MUST include the interface requirement in the `"okapiInterfaces"` or `"optionalOkapiInterfaces"` section (3, 5)
   * -_note: read more at https://github.com/folio-org/stripes/blob/master/doc/dev-guide.md#the-package-file-stripes-entry_
-* [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+* [X] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+  * Dev team notes that no end-to-end tests are currently provided.
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
-* [ ] Have i18n support via react-intl and an en.json file with English texts (8)
-* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
+* [X] Have i18n support via react-intl and an en.json file with English texts (8)
+* [X] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
+  * 0 issues reported by axe
 * [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
-* [ ] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
+  * Module uses stripes "^10.0.0".  Trillium requires 10.1 or greater.  But is Trillium our target?  The TCR instructions use to be clear on which OST to look at.  Sunflower required 10.0 or greater.  Both S and T OST pages are currently marked "Active".
+* [X] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
+  * There is a very long text description above the single input, but no rule in the UX guidelines on how paragraph text should be otherwise.
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
   * For UI links to documentation, there is no rule on where that documentation should be hosted, i.e. docs.folio.org, or wiki.folio.org, or module-specific destinations, as long as it is publicly accessible.
-* [ ] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation (10)
+* [X] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation (10)
 
 ## TCR Process Improvements
 
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
 * Document *how* to evaluate each of these steps.
   * For the module actual license, should we check for the top-level LICENSE file, or within package.json (for UI modules), or look on GitHub module page for what it says?
-  * To build a module descriptor for a yarn-based UI module, run 'yarn build-mod-descriptor', look at the file created module-descriptor.json and ???  Need some steps here.
+  * To build a module descriptor for a yarn-based UI module, first tell yarn how to find folio packages (see [yarn config line in Stripes Quick Start Prerequisites](https://github.com/folio-org/stripes/blob/master/doc/quick-start.md#prerequisites)) and run 'yarn build-mod-descriptor', look at the file created module-descriptor.json and ???  Need some steps here.
   * For installation documentation, look in the README
   * For sensitive information (UI modules), check package.json, other json configuration files, mocks in test folder...
   * For interface dependencies (UI modules), check package.json for the okapiInterfaces section to see the interfaces, then search what backend module(s) provide that interface with a URL like https://folio-registry.dev.folio.org/_/proxy/modules?provide=order-templates.  
   * For depending on previously approved libraries (UI modules), look at package.json for dependencies and peer-dependencies section for anything in the @folio namespace.  (Do dev dependencies matter?  Probably not in this context.)
-
+  * Sonarqube checks at https://sonarcloud.io/organizations/folio-org/projects.  Search projects for the module name.  Check the number of Security issues.  Click into the project, Issues tab, and see the severity levels of any issues.  Click on Summary tab, look for duplications %.
+  * There are no instructions here https://dev.folio.org/guides/code-analysis/#rule-customization on how to search for disabled sonar rules in a front-end module.
+  * Is there a better way to prove that OST build tools (i.e. yarn) are used to build it other than just using yarn via "yarn install"?
+  * Unit test coverage criterion should say to actually look at sonarqube page for that, on the summary tab, overall code subtab.
+  * To find application descriptors that include a UI module "ui-foo-bar", search the folio-org organization for "folio_foo-bar".
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
