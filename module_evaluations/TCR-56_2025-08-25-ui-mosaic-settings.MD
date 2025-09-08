@@ -59,13 +59,13 @@ Use these conventions to indicate the status of each criterion.
 * [X] Uses Apache 2.0 license (2)
 * [X] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+* [X] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * How can semgrep be used to specifically see the licenses used in this project?  The [supply chain page for ui-mosaic-settings](https://semgrep.dev/orgs/semgrep_folio_org/supply-chain/vulnerabilities?tab=open&last_opened=All+time&reachability=REACHABILITY_REACHABLE%2CREACHABILITY_ALWAYS_REACHABLE%2CREACHABILITY_CONDITIONALLY_REACHABLE%2CREACHABILITY_UNKNOWN&repo_ref=58300654) does not seem to list third-party licenses.  
+  * There is one regular (non-dev, non-peer) dependency, but it is first-party (@folio/stripes-acq-components), not third-party.
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
   * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
-  **** find the apache checker I used before
 * [X] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
@@ -74,18 +74,17 @@ Use these conventions to indicate the status of each criterion.
 * [X] Sensitive and environment-specific information is not checked into git repository (6)
 * [X] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
   * Typescript
-* [ ] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
+* [X] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
   * _This is not applicable to libraries_
     - Depends on two okapi interfaces. 
-      - 'mosaic' interface from mod-mosaic is in the midst of its own TCR approval.
+      - 'mosaic' interface from mod-mosaic was recently approved.
       - 'order-templates' interface from mod-orders, which has been in the flower releases for an eternity
 * [X] Must not depend on a FOLIO library that has not been approved through the TCR process
-* [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-  * come back to this
+* [X] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
 * [X] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * Zero security issues.
   * 0% duplication.
-  **** ML browse through code for any disabled
+  * Nothing appears disabled.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [X] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [X] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
