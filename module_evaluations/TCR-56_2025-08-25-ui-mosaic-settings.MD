@@ -59,11 +59,11 @@ Use these conventions to indicate the status of each criterion.
 * [X] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * [X] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
-  * There is one regular (non-dev, non-peer) dependency, but it is first-party (@folio/stripes-acq-components), not third-party.
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
   * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+  * There is one regular (non-dev, non-peer) dependency, but it is first-party (@folio/stripes-acq-components), not third-party.
   * Via dev-dependencies, this module uses the following.  I believe this is fine, as devDependencies are not delivered in the build.
     * @folio/stripes-testing, which uses
       * cypress, which uses 
@@ -122,8 +122,8 @@ Note: Frontend criteria apply to both modules and shared libraries.
 * [X] Have i18n support via react-intl and an en.json file with English texts (8)
 * [X] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
   * 0 issues reported by axe
-* [X] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
-  * Module uses stripes "^10.0.0", matching what Sunflower requires.
+* [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
+  * Module uses stripes "^10.0.0", matching Sunflower.  However this criterion (the footnote) says we must refer to the OST page "for the most recent ACTIVE release."  That would be Trillium, which specifies 10.1 or greater.  It's true that "^10.0.0" allows for upgrading to 10.1, but that's not the same as the module actually using that version.  I am asking TC for clarification.
 * [X] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * There is a very long text description above the single input, but no rule in the UX guidelines on how paragraph text should be otherwise.
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
@@ -145,5 +145,6 @@ Note: Frontend criteria apply to both modules and shared libraries.
   * Is there a better way to prove that OST build tools (i.e. yarn) are used to build it other than just using yarn via "yarn install"?
   * Unit test coverage criterion should say to actually look at sonarqube page for that, on the summary tab, overall code subtab.
   * To find application descriptors that include a UI module "ui-foo-bar", search the folio-org organization for "folio_foo-bar".
+    * TC agreed this criterion needs to be re-written to cover the package inclusion better, given what happened here.
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
