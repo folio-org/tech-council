@@ -52,20 +52,34 @@ Use these conventions to indicate the status of each criterion.
 ## Criteria
 
 ### Administrative
-* [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
-  * We were told at TC today that the PC approved this last week.  It's not actually on that page yet, check again later.
+* [X] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
 
 ### Shared/Common
 * [X] Uses Apache 2.0 license (2)
 * [X] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * [X] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
-  * How can semgrep be used to specifically see the licenses used in this project?  The [supply chain page for ui-mosaic-settings](https://semgrep.dev/orgs/semgrep_folio_org/supply-chain/vulnerabilities?tab=open&last_opened=All+time&reachability=REACHABILITY_REACHABLE%2CREACHABILITY_ALWAYS_REACHABLE%2CREACHABILITY_CONDITIONALLY_REACHABLE%2CREACHABILITY_UNKNOWN&repo_ref=58300654) does not seem to list third-party licenses.  
   * There is one regular (non-dev, non-peer) dependency, but it is first-party (@folio/stripes-acq-components), not third-party.
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
   * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+  * Via dev-dependencies, this module uses the following.  I believe this is fine, as devDependencies are not delivered in the build.
+    * @folio/stripes-testing, which uses
+      * cypress, which uses 
+        * ffmpeg (several libraries) which are LGPL-2.1 licensed (weak copyleft)
+        * domain-browser, licensed Artistic-2.0 (unknown)
+      * cypress-cloud, GPL 3.0 licensed (category X)
+      * cypress-testrail-simple, which uses postcss-values-parser, licensed MPL-2.0 (weak copyleft)
+      * eslint-config-stripes, which uses 
+        * axecore, MPL-2.0 licensed (weak copyleft)
+        * caniuse-lite, CC-BY-4.0 (effective technological measures concern)
+      * reportportal, which uses 
+        * js-message, with a custom license
+        * js-queue, with a custom license
+        * node-ipc, with a custom license
+    * @folio/stripes-cli, which uses
+      * karma-bowserstack-launcher, which uses map-stream, with a custom license
 * [X] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
@@ -89,8 +103,9 @@ Use these conventions to indicate the status of each criterion.
 * [X] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [X] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * 97.2% test coverage
-* [ ] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
+* [X] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * folio_mosaic-settings does belong to exactly one application descriptor -- app-mosaic (https://github.com/folio-org/app-mosaic).  However app-mosaic is not specified as part of the FOLIO community LSP Platform at the link below.  platform-lsp includes app-platform-complete, but platform complete also does not include mosaic.  (although it does include gobi, so probably should include mosaic).
+  * TC discussed this on 2025-09-08 and believes the platform aspect of this criteria should be rewritten so that the above issue is not a blocker.  Therefore, counting this as a passed criterion.
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
 
@@ -107,8 +122,8 @@ Note: Frontend criteria apply to both modules and shared libraries.
 * [X] Have i18n support via react-intl and an en.json file with English texts (8)
 * [X] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
   * 0 issues reported by axe
-* [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
-  * Module uses stripes "^10.0.0".  Trillium requires 10.1 or greater.  But is Trillium our target?  The TCR instructions use to be clear on which OST to look at.  Sunflower required 10.0 or greater.  Both S and T OST pages are currently marked "Active".
+* [X] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
+  * Module uses stripes "^10.0.0", matching what Sunflower requires.
 * [X] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * There is a very long text description above the single input, but no rule in the UX guidelines on how paragraph text should be otherwise.
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
