@@ -122,8 +122,8 @@ Note: Frontend criteria apply to both modules and shared libraries.
 * [X] Have i18n support via react-intl and an en.json file with English texts (8)
 * [X] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
   * 0 issues reported by axe
-* [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
-  * Module uses stripes "^10.0.0", matching Sunflower.  However this criterion (the footnote) says we must refer to the OST page "for the most recent ACTIVE release."  That would be Trillium, which specifies 10.1 or greater.  It's true that "^10.0.0" allows for upgrading to 10.1, but that's not the same as the module actually using that version.  I am asking TC for clarification.
+* [X] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
+  * Module uses stripes "^10.0.0", matching Sunflower.  However this criterion (the footnote) says we must refer to the OST page "for the most recent ACTIVE release."  That would be Trillium, which specifies 10.1 or greater.  But "^10.0.0" allows for upgrading to 10.1, and TC discussion on 2025-09-15 was ok with this.
 * [X] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * There is a very long text description above the single input, but no rule in the UX guidelines on how paragraph text should be otherwise.
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
@@ -146,5 +146,6 @@ Note: Frontend criteria apply to both modules and shared libraries.
   * Unit test coverage criterion should say to actually look at sonarqube page for that, on the summary tab, overall code subtab.
   * To find application descriptors that include a UI module "ui-foo-bar", search the folio-org organization for "folio_foo-bar".
     * TC agreed this criterion needs to be re-written to cover the package inclusion better, given what happened here.
+  * The stripes dependency question should be clarified.  TC decided that "Use the Stripes version" is not the same as "Requires the Stripes version", i.e. that lower versions can be supported also.
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
