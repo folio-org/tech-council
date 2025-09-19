@@ -1,0 +1,190 @@
+name: FOLIO Module Evaluation
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository_url:
+        description: 'GitHub URL of the repository to evaluate'
+        required: true
+        type: string
+        default: 'https://github.com/folio-org/mod-users'
+      output_format:
+        description: 'Report output format'
+        required: false
+        type: choice
+        options:
+          - 'both'
+          - 'json-only'
+          - 'html-only'
+        default: 'both'
+      criteria_filter:
+        description: 'Comma-separated list of criterion IDs to evaluate (e.g., S001,S002,B005). Leave empty to evaluate all criteria.'
+        required: false
+        type: string
+        default: ''
+      no_cleanup:
+        description: 'Keep cloned repository for inspection (do not delete after evaluation)'
+        required: false
+        type: boolean
+        default: false
+      custom_output_dir:
+        description: 'Custom output directory for reports'
+        required: false
+        type: string
+        default: './reports'
+
+jobs:
+  evaluate-module:
+    name: Evaluate FOLIO Module
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tech-council repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          architecture: 'x64'
+          cache: 'npm'
+          cache-dependency-path: 'automation/module_eval/package.json'
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('automation/module_eval/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Set up JDK for Maven/Gradle
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Install CLI dependencies
+        working-directory: ./automation/module_eval
+        run: npm install
+
+      - name: Build CLI
+        working-directory: ./automation/module_eval
+        run: npm run build
+
+      - name: Prepare CLI arguments
+        id: prepare-args
+        run: |
+          ARGS="${{ inputs.repository_url }}"
+
+          # Normalize output directory (remove leading ./ if present)
+          OUTPUT_DIR="${{ inputs.custom_output_dir }}"
+          OUTPUT_DIR="${OUTPUT_DIR#./}"  # Remove leading ./
+
+          # Add output directory
+          ARGS="$ARGS --output $OUTPUT_DIR"
+
+          # Add output format options
+          case "${{ inputs.output_format }}" in
+            "json-only")
+              ARGS="$ARGS --json-only"
+              ;;
+            "html-only")
+              ARGS="$ARGS --html-only"
+              ;;
+            "both")
+              # Default behavior, no additional flags needed
+              ;;
+          esac
+
+          # Add criteria filter if provided
+          if [ -n "${{ inputs.criteria_filter }}" ]; then
+            ARGS="$ARGS --criteria ${{ inputs.criteria_filter }}"
+          fi
+
+          # Add no-cleanup flag if requested
+          if [ "${{ inputs.no_cleanup }}" = "true" ]; then
+            ARGS="$ARGS --no-cleanup"
+          fi
+
+          echo "cli_args=$ARGS" >> $GITHUB_OUTPUT
+          echo "normalized_output_dir=$OUTPUT_DIR" >> $GITHUB_OUTPUT
+          echo "Prepared CLI arguments: $ARGS"
+          echo "Normalized output directory: $OUTPUT_DIR"
+
+      - name: Run module evaluation
+        working-directory: ./automation/module_eval
+        run: |
+          echo "🚀 Starting FOLIO Module Evaluation..."
+          echo "Repository: ${{ inputs.repository_url }}"
+          echo "Output format: ${{ inputs.output_format }}"
+          echo "Output directory: ${{ inputs.custom_output_dir }}"
+          echo "Criteria filter: ${{ inputs.criteria_filter }}"
+          echo "No cleanup: ${{ inputs.no_cleanup }}"
+          echo ""
+
+          # Run the evaluation
+          node dist/cli.js evaluate ${{ steps.prepare-args.outputs.cli_args }}
+
+      - name: Display evaluation summary
+        working-directory: ./automation/module_eval
+        run: |
+          echo "📊 Evaluation completed!"
+          echo ""
+          echo "📁 Generated files in ${{ steps.prepare-args.outputs.normalized_output_dir }}:"
+          find ${{ steps.prepare-args.outputs.normalized_output_dir }} -type f -name "*.html" -o -name "*.json" | head -20
+          echo ""
+
+          # Show JSON summary if available
+          JSON_FILE=$(find ${{ steps.prepare-args.outputs.normalized_output_dir }} -name "*.json" | head -1)
+          if [ -f "$JSON_FILE" ]; then
+            echo "📈 Evaluation Summary:"
+            # Extract key metrics from JSON using jq if available, otherwise use basic tools
+            if command -v jq >/dev/null 2>&1; then
+              echo "Module: $(jq -r '.moduleName // "N/A"' "$JSON_FILE")"
+              echo "Language: $(jq -r '.language // "N/A"' "$JSON_FILE")"
+              echo "Total criteria: $(jq -r '.criteria | length' "$JSON_FILE")"
+              echo "Passed: $(jq -r '[.criteria[] | select(.status == "pass")] | length' "$JSON_FILE")"
+              echo "Failed: $(jq -r '[.criteria[] | select(.status == "fail")] | length' "$JSON_FILE")"
+              echo "Manual review: $(jq -r '[.criteria[] | select(.status == "manual")] | length' "$JSON_FILE")"
+            else
+              echo "JSON report generated: $JSON_FILE"
+              echo "Install jq in future workflow runs for detailed summary parsing"
+            fi
+          fi
+
+      - name: Upload evaluation reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: folio-module-evaluation-reports
+          path: automation/module_eval/${{ steps.prepare-args.outputs.normalized_output_dir }}/
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Upload cloned repository (if no-cleanup enabled)
+        uses: actions/upload-artifact@v4
+        if: inputs.no_cleanup == true
+        with:
+          name: cloned-repository-for-inspection
+          path: automation/module_eval/temp/
+          retention-days: 30
+          if-no-files-found: ignore

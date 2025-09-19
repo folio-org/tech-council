@@ -1,11 +1,34 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
-import { LanguageEvaluator, Criterion, CriterionResult, EvaluationStatus } from '../types';
+import { LanguageEvaluator, CriterionResult } from '../types';
+import { AdministrativeEvaluator } from './java/administrative-evaluator';
+import { SharedEvaluator } from './java/shared-evaluator';
+import { BackendEvaluator } from './java/backend-evaluator';
 
 /**
  * Java-specific module evaluator
+ * Uses composition of section-specific evaluators for comprehensive evaluation
+ *
+ * CURRENT FRAMEWORK STATUS:
+ * - ✅ Repository detection (Maven/Gradle/Java files) - IMPLEMENTED
+ * - ✅ Section-based evaluation architecture - IMPLEMENTED
+ * - ⚠️  Specific criterion evaluation logic - STUB IMPLEMENTATIONS
+ * - ⚠️  Most evaluations return MANUAL status - REQUIRES IMPLEMENTATION
+ *
+ * This evaluator provides the framework structure but individual criterion
+ * evaluation methods need detailed implementation to analyze code and return
+ * accurate PASS/FAIL results.
  */
 export class JavaEvaluator implements LanguageEvaluator {
+  private readonly administrativeEvaluator: AdministrativeEvaluator;
+  private readonly sharedEvaluator: SharedEvaluator;
+  private readonly backendEvaluator: BackendEvaluator;
+
+  constructor() {
+    this.administrativeEvaluator = new AdministrativeEvaluator();
+    this.sharedEvaluator = new SharedEvaluator();
+    this.backendEvaluator = new BackendEvaluator();
+  }
   
   /**
    * Check if this evaluator can handle the repository
@@ -25,17 +48,30 @@ export class JavaEvaluator implements LanguageEvaluator {
   }
 
   /**
-   * Evaluate the Java repository against criteria
+   * Evaluate the Java repository against all applicable criteria
    * @param repoPath Path to the cloned repository
-   * @param criteria Array of criteria to evaluate
+   * @param criteriaFilter Optional array of criterion IDs to filter evaluation
    * @returns Promise<CriterionResult[]> Evaluation results
    */
-  async evaluate(repoPath: string, criteria: Criterion[]): Promise<CriterionResult[]> {
+  async evaluate(repoPath: string, criteriaFilter?: string[]): Promise<CriterionResult[]> {
     const results: CriterionResult[] = [];
 
-    for (const criterion of criteria) {
-      const result = await this.evaluateCriterion(repoPath, criterion);
-      results.push(result);
+    try {
+      // Evaluate Administrative criteria (A001)
+      const administrativeResults = await this.administrativeEvaluator.evaluate(repoPath, criteriaFilter);
+      results.push(...administrativeResults);
+
+      // Evaluate Shared/Common criteria (S001-S014)
+      const sharedResults = await this.sharedEvaluator.evaluate(repoPath, criteriaFilter);
+      results.push(...sharedResults);
+
+      // Evaluate Backend criteria (B001-B016) for Java modules
+      const backendResults = await this.backendEvaluator.evaluate(repoPath, criteriaFilter);
+      results.push(...backendResults);
+
+    } catch (error) {
+      console.error('Error during Java evaluation:', error);
+      // Continue with partial results rather than failing completely
     }
 
     return results;
@@ -86,69 +122,5 @@ export class JavaEvaluator implements LanguageEvaluator {
     } catch (error) {
       return false;
     }
-  }
-
-  /**
-   * Evaluate a single criterion (stubbed for now)
-   * @param repoPath Path to repository
-   * @param criterion Criterion to evaluate
-   * @returns Promise<CriterionResult> Result of evaluation
-   */
-  private async evaluateCriterion(repoPath: string, criterion: Criterion): Promise<CriterionResult> {
-    // This is where specific criterion logic would be implemented
-    // For now, return stubbed results based on criterion type
-    
-    const result: CriterionResult = {
-      criterionId: criterion.id,
-      status: EvaluationStatus.MANUAL,
-      evidence: 'Evaluation not yet implemented',
-      details: `This criterion (${criterion.code}) requires manual review. Framework is in place for future implementation.`
-    };
-
-    // Add some basic checks for demonstration
-    if (criterion.description.toLowerCase().includes('readme')) {
-      const hasReadme = await fs.pathExists(path.join(repoPath, 'README.md')) ||
-                       await fs.pathExists(path.join(repoPath, 'readme.md')) ||
-                       await fs.pathExists(path.join(repoPath, 'README.txt'));
-      
-      if (hasReadme) {
-        result.status = EvaluationStatus.PASS;
-        result.evidence = 'README file found in repository root';
-        result.details = 'Repository contains a README file as required';
-      } else {
-        result.status = EvaluationStatus.FAIL;
-        result.evidence = 'No README file found in repository root';
-        result.details = 'Repository should contain a README file';
-      }
-    } else if (criterion.description.toLowerCase().includes('license')) {
-      const hasLicense = await fs.pathExists(path.join(repoPath, 'LICENSE')) ||
-                        await fs.pathExists(path.join(repoPath, 'LICENSE.txt')) ||
-                        await fs.pathExists(path.join(repoPath, 'LICENSE.md'));
-      
-      if (hasLicense) {
-        result.status = EvaluationStatus.PASS;
-        result.evidence = 'LICENSE file found in repository root';
-        result.details = 'Repository contains a LICENSE file';
-      } else {
-        result.status = EvaluationStatus.FAIL;
-        result.evidence = 'No LICENSE file found in repository root';
-        result.details = 'Repository should contain a LICENSE file';
-      }
-    } else if (criterion.description.toLowerCase().includes('pom.xml') || 
-              criterion.description.toLowerCase().includes('maven')) {
-      const hasPom = await fs.pathExists(path.join(repoPath, 'pom.xml'));
-      
-      if (hasPom) {
-        result.status = EvaluationStatus.PASS;
-        result.evidence = 'pom.xml file found in repository root';
-        result.details = 'Maven project structure detected';
-      } else {
-        result.status = EvaluationStatus.MANUAL;
-        result.evidence = 'No pom.xml found - may be Gradle project';
-        result.details = 'Manual review needed for build configuration';
-      }
-    }
-
-    return result;
   }
 }

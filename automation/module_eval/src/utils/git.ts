@@ -8,9 +8,11 @@ import * as os from 'os';
  */
 export class GitUtils {
   private tempDir: string;
+  private timeoutMs: number;
 
-  constructor(tempDir?: string) {
+  constructor(tempDir?: string, timeoutMs: number = 120000) {
     this.tempDir = tempDir || path.join(os.tmpdir(), 'folio-eval');
+    this.timeoutMs = timeoutMs;
   }
 
   /**
@@ -25,7 +27,11 @@ export class GitUtils {
     // Ensure temp directory exists
     await fs.ensureDir(clonePath);
 
-    const git = simpleGit();
+    const git = simpleGit({
+      timeout: {
+        block: this.timeoutMs
+      }
+    });
     await git.clone(repositoryUrl, clonePath);
 
     console.log(`Repository cloned to: ${clonePath}`);
@@ -59,10 +65,12 @@ export class GitUtils {
    * @returns Basic repository info
    */
   async getRepoInfo(repoPath: string): Promise<{ name: string; hasPackageJson: boolean; hasPomXml: boolean; hasBuildGradle: boolean }> {
-    const name = path.basename(repoPath);
+    // Get the repository name from the parent directory (since repoPath includes timestamp)
+    // Path structure: /temp/folio-eval/mod-search/timestamp
+    const name = path.basename(path.dirname(repoPath));
     const hasPackageJson = await fs.pathExists(path.join(repoPath, 'package.json'));
     const hasPomXml = await fs.pathExists(path.join(repoPath, 'pom.xml'));
-    const hasBuildGradle = await fs.pathExists(path.join(repoPath, 'build.gradle')) || 
+    const hasBuildGradle = await fs.pathExists(path.join(repoPath, 'build.gradle')) ||
                           await fs.pathExists(path.join(repoPath, 'build.gradle.kts'));
 
     return {

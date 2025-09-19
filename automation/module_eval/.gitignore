@@ -156,3 +156,6 @@ application-*.properties
 !application.properties
 !application.yml
 !application.yaml
+
+# Reports
+reports/

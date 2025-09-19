@@ -1,21 +1,32 @@
 import { GitUtils } from './utils/git';
-import { CriteriaLoader } from './utils/criteria-loader';
 import { JavaEvaluator } from './evaluators/java-evaluator';
 import { LanguageEvaluator, EvaluationResult, EvaluationConfig, CriterionResult } from './types';
-import * as path from 'path';
+import { getCriteriaForLanguage, isValidCriterionId } from './criteria-definitions';
 
 /**
  * Main orchestrator for module evaluation
+ *
+ * FRAMEWORK IMPLEMENTATION STATUS:
+ * - ✅ Git repository cloning and cleanup - FULLY IMPLEMENTED
+ * - ✅ Language detection and evaluator selection - FULLY IMPLEMENTED
+ * - ✅ Report generation (HTML/JSON) - FULLY IMPLEMENTED
+ * - ✅ CLI interface and configuration - FULLY IMPLEMENTED
+ * - ✅ Java project detection - FULLY IMPLEMENTED
+ * - ⚠️  Individual criterion evaluation logic - STUB IMPLEMENTATIONS
+ *
+ * This framework provides a complete evaluation pipeline but most criterion
+ * evaluations currently return MANUAL status. Implementation of specific
+ * evaluation logic is needed to provide automated PASS/FAIL results.
  */
 export class ModuleEvaluator {
   private gitUtils: GitUtils;
-  private criteriaLoader: CriteriaLoader;
   private evaluators: LanguageEvaluator[];
+  private config: EvaluationConfig;
 
   constructor(config: EvaluationConfig) {
+    this.config = config;
     this.gitUtils = new GitUtils(config.tempDir);
-    this.criteriaLoader = new CriteriaLoader(config.criteriaFilePath);
-    
+
     // Register available evaluators
     this.evaluators = [
       new JavaEvaluator()
@@ -37,10 +48,6 @@ export class ModuleEvaluator {
       // Clone the repository
       repoPath = await this.gitUtils.cloneRepository(repositoryUrl);
       
-      // Load criteria
-      const criteria = await this.criteriaLoader.loadCriteria();
-      console.log(`Loaded ${criteria.length} criteria for evaluation`);
-      
       // Determine appropriate evaluator
       const evaluator = await this.selectEvaluator(repoPath);
       if (!evaluator) {
@@ -48,9 +55,13 @@ export class ModuleEvaluator {
       }
       
       console.log(`Using ${evaluator.getLanguage()} evaluator`);
-      
-      // Perform evaluation
-      const criterionResults = await evaluator.evaluate(repoPath, criteria);
+
+      // Validate criteria filter if provided
+      if (this.config.criteriaFilter) {
+        await this.validateCriteriaFilter(this.config.criteriaFilter, evaluator);
+      }
+
+      const criterionResults = await evaluator.evaluate(repoPath, this.config.criteriaFilter);
       
       // Get repository info
       const repoInfo = await this.gitUtils.getRepoInfo(repoPath);
@@ -68,9 +79,11 @@ export class ModuleEvaluator {
       return result;
       
     } finally {
-      // Clean up cloned repository
-      if (repoPath) {
+      // Clean up cloned repository unless --no-cleanup was specified
+      if (repoPath && !this.config.skipCleanup) {
         await this.gitUtils.cleanup(repoPath);
+      } else if (repoPath && this.config.skipCleanup) {
+        console.log(`Repository preserved at: ${repoPath}`);
       }
     }
   }
@@ -116,5 +129,25 @@ export class ModuleEvaluator {
    */
   getSupportedLanguages(): string[] {
     return this.evaluators.map(evaluator => evaluator.getLanguage());
+  }
+
+  /**
+   * Validate criteria filter against available criteria
+   * @param criteriaFilter Array of criterion IDs to validate
+   * @param evaluator The language evaluator being used
+   */
+  private async validateCriteriaFilter(criteriaFilter: string[], evaluator: LanguageEvaluator): Promise<void> {
+    // Get available criteria IDs from the evaluator
+    const availableCriteria = Array.from(getCriteriaForLanguage(evaluator.getLanguage()));
+
+    // Check each criterion in the filter
+    const invalidCriteria = criteriaFilter.filter(id => !availableCriteria.includes(id));
+
+    if (invalidCriteria.length > 0) {
+      throw new Error(
+        `Invalid criterion IDs: ${invalidCriteria.join(', ')}\n` +
+        `Available criteria for ${evaluator.getLanguage()}: ${availableCriteria.join(', ')}`
+      );
+    }
   }
 }

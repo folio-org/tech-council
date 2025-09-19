@@ -25,7 +25,7 @@ npm install -g .
 
 ```bash
 # Evaluate a repository
-folio-eval evaluate https://github.com/folio-org/mod-users
+folio-eval evaluate https://github.com/folio-org/mod-search
 
 # Use custom criteria file
 folio-eval evaluate <repo-url> --criteria ./my-criteria.md
@@ -138,18 +138,94 @@ Each criterion is automatically assigned:
 
 ## Development
 
+### Prerequisites
+
+- Node.js 18.x or later
+- npm 8.x or later
+
+### Local Development Setup
+
+1. **Clone and install dependencies:**
 ```bash
-# Run in development mode
+git clone <repository-url>
+cd module_eval
+npm install
+```
+
+2. **Development workflow:**
+```bash
+# Run in development mode (uses ts-node)
 npm run dev
+
+# Build TypeScript to JavaScript
+npm run build
+
+# Run the built CLI directly
+node dist/cli.js
 
 # Run tests
 npm test
 
-# Build for production
-npm run build
-
 # Clean build artifacts
 npm run clean
+```
+
+### Development Workflow
+
+#### TypeScript Development Mode
+For rapid development with automatic TypeScript compilation:
+```bash
+# Run directly from TypeScript source
+npm run dev evaluate https://github.com/folio-org/mod-users
+
+# Or use ts-node directly
+npx ts-node src/cli.ts evaluate <repo-url>
+```
+
+#### Production Build Mode
+For testing the compiled JavaScript output:
+```bash
+# Build the project
+npm run build
+
+# Run the compiled CLI
+node dist/cli.js evaluate https://github.com/folio-org/mod-users
+
+# Or use the npm script
+npm start evaluate <repo-url>
+```
+
+#### Development Examples
+```bash
+# Evaluate a local repository (development mode)
+npm run dev evaluate /path/to/local/repo
+
+# Generate only JSON report (built mode)
+node dist/cli.js evaluate <repo-url> --json-only
+
+# Custom output directory (development mode)
+npm run dev evaluate <repo-url> --output ./test-reports
+
+# List supported languages
+node dist/cli.js list-languages
+
+# Show framework information
+npm run dev info
+```
+
+#### Testing and Building
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode during development
+npm test -- --watch
+
+# Build and test the compiled output
+npm run build && node dist/cli.js info
+
+# Clean and rebuild
+npm run clean && npm run build
 ```
 
 ## Current Limitations
