@@ -180,7 +180,7 @@ function printEvaluationSummary(result: EvaluationResult): void {
 
   console.log(`   ✅ Passed: ${stats.pass}`);
   console.log(`   ❌ Failed: ${stats.fail}`);
-  console.log(`   ⚠️  Manual Review: ${stats.manual}`);
+  console.log(`   ⚠️ Manual Review: ${stats.manual}`);
 }
 
 // Handle case where no command is provided

@@ -9,12 +9,6 @@ import { BackendEvaluator } from './java/backend-evaluator';
  * Java-specific module evaluator
  * Uses composition of section-specific evaluators for comprehensive evaluation
  *
- * CURRENT FRAMEWORK STATUS:
- * - ✅ Repository detection (Maven/Gradle/Java files) - IMPLEMENTED
- * - ✅ Section-based evaluation architecture - IMPLEMENTED
- * - ⚠️  Specific criterion evaluation logic - STUB IMPLEMENTATIONS
- * - ⚠️  Most evaluations return MANUAL status - REQUIRES IMPLEMENTATION
- *
  * This evaluator provides the framework structure but individual criterion
  * evaluation methods need detailed implementation to analyze code and return
  * accurate PASS/FAIL results.

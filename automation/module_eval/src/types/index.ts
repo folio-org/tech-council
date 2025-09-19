@@ -6,7 +6,6 @@
  * - FAIL: Criterion automatically verified as NOT meeting requirements
  * - MANUAL: Requires human review (current default for most stub implementations)
  *
- * CURRENT STATUS: Most evaluations return MANUAL due to stub implementations
  */
 export enum EvaluationStatus {
   PASS = 'pass',

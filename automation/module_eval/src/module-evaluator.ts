@@ -6,14 +6,6 @@ import { getCriteriaForLanguage, isValidCriterionId } from './criteria-definitio
 /**
  * Main orchestrator for module evaluation
  *
- * FRAMEWORK IMPLEMENTATION STATUS:
- * - ✅ Git repository cloning and cleanup - FULLY IMPLEMENTED
- * - ✅ Language detection and evaluator selection - FULLY IMPLEMENTED
- * - ✅ Report generation (HTML/JSON) - FULLY IMPLEMENTED
- * - ✅ CLI interface and configuration - FULLY IMPLEMENTED
- * - ✅ Java project detection - FULLY IMPLEMENTED
- * - ⚠️  Individual criterion evaluation logic - STUB IMPLEMENTATIONS
- *
  * This framework provides a complete evaluation pipeline but most criterion
  * evaluations currently return MANUAL status. Implementation of specific
  * evaluation logic is needed to provide automated PASS/FAIL results.
