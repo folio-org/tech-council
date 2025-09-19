@@ -255,6 +255,18 @@ To complete the evaluator, implement specific criteria checks in the language ev
 4. Add integration with CI/CD pipelines
 5. Improve error handling and user experience
 
+## Configuration
+
+### License Policy Configuration
+
+The framework includes configuration files that can be updated manually:
+
+- `config/license-categories.json` - License category mappings (A=Compatible, B=Conditional, X=Prohibited)
+- `config/license-variations.json` - License name variations and normalizations
+- `config/special-exceptions.json` - Special case handling for specific dependencies
+
+These files follow the Apache Software Foundation license categorization policy.
+
 ## License
 
 Apache-2.0 License
