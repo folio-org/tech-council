@@ -66,7 +66,7 @@ Use these conventions to indicate the status of each criterion.
 * [ ] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
-* [ ] Personal data form is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+* [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * _This is not applicable to libraries_
 * [ ] Sensitive and environment-specific information is not checked into git repository (6)
 * [ ] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
