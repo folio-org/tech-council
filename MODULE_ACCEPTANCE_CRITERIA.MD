@@ -63,7 +63,7 @@ Use these conventions to indicate the status of each criterion.
   * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
   * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
-  * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._
+  * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._ (This applies only to Maven. For other package managers, closer evaluation is needed.)
 * [ ] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
