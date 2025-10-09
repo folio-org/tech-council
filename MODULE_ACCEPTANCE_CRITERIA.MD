@@ -60,9 +60,11 @@ Use these conventions to indicate the status of each criterion.
   * _This is not applicable to libraries_
 * [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
-  * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
-  * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
-  * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+  * LGPL consideration:
+    * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
+    * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+    * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+    * By [request of the Community Council](https://folio-org.atlassian.net/wiki/spaces/CC/pages/1243348996/2025-09-26+Community+Council+Meeting+Minutes+at+WOLFcon), and until that request changes, no additional LGPL-licensed dependencies will be allowed. 
   * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._
 * [ ] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
