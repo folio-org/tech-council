@@ -58,10 +58,13 @@ Use these conventions to indicate the status of each criterion.
 * [ ] Uses Apache 2.0 license (2)
 * [ ] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html), as defined and reported by the [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool (2)
-  * GitHub Actions automated evaluation result page (linked in the Jira template) shows a passing evaluation.
-  * _note: See license-categories.json (LINK TBD) for licenses which are allowed (Category A), prohibited (Category X), and allowed when [appropriately labelled in the module's README](https://apache.org/legal/resolved.html#appropriately-labelled-condition) (Category B-WCL).  See special-exceptions.json (LINK TBD) for permitted exceptions._
+* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+  * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
+  * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
+  * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
+  * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
   * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._
+  * _note: The [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool is optionally available to evaluate this criterion for Java modules (built with Maven) and for front-end modules.  TC expects to [require its use](https://github.com/folio-org/tech-council/pull/110) in the module evaluation process after a trial period._
 * [ ] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_

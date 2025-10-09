@@ -46,7 +46,6 @@ The information gathered includes:
 * Module name
 * Description of module
 * Link to source - a tag/commit in a publicly accessible git (preferably GitHub) repository 
-* Link to TC Module Eval automated evaluation result
 * List of related modules (e.g. is this a Frontend/backend pair?  Business logic/storage pair?  etc.)
 * Points of contact (Subject Matter / Domain / Technical)
   * Each point of contact's role should be clearly identified.
