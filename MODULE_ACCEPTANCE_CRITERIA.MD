@@ -1,6 +1,6 @@
 # FOLIO Module Acceptance Values and Criteria
 
-## version 3.0 (ratified 2025-01-25)
+## version 3.0 (ratified 2025-01-25) + draft notes for existing module evaluation
 
 ## Overview
 The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
@@ -12,7 +12,7 @@ In some cases, we may not yet have comprehensive Criteria for assessing a module
 
 This document provides the criteria against which a module will be assessed for inclusion into a FOLIO release, following the [New Module Technical Evaluation Process](NEW_MODULE_TECH_EVAL.MD). 
 
-Existing FOLIO modules ideally conform to the same Values and Criteria.  It is understood that not all existing modules currently do so, especially modules created before the Values & Criteria were initially defined.  The Technical Council will work with development teams to align the current reality of the code with the Values and Criteria over time, as practicable.  Such processes will need to be developed and documented.
+Existing FOLIO modules ideally conform to the same Values and Criteria.  It is understood that not all existing modules currently do so, especially modules created before the Values & Criteria were initially defined.  The Technical Council will work with development teams to align the current reality of the code with the Values and Criteria over time, as practicable.  Such processes will need to be developed and documented.  The Technical Council is currently piloting an existing module evaluation process with a few initial modules, and has noted below with "For existing module evaluation" where individual criteria will be handled differently.
 
 Please see [Before Development](NEW_MODULE_TECH_EVAL.MD#before-development) for any planned development to new or existing modules that may intentionally diverge from these Values or Criteria.
 
@@ -53,6 +53,7 @@ Use these conventions to indicate the status of each criterion.
 
 ### Administrative
 * [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
+  - For existing module evaluation: This criterion is inapplicable.
 
 ### Shared/Common
 * [ ] Uses Apache 2.0 license (2)
@@ -115,6 +116,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * -_note: read more at https://dev.folio.org/guides/module-descriptor/#docker-env_
 * [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * [ ] All API endpoints are documented in OpenAPI (11)
+  * For existing module evaluation: RMB-based modules may continue using RAML instead.
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
