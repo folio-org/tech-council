@@ -1,0 +1,21 @@
+{
+  "_description": "Special exceptions for specific LGPL libraries that are permitted when properly documented in README files",
+  "_note": "These libraries have specific exceptions in FOLIO policy",
+  "exceptions": [
+    {
+      "name": "org.z3950.zing:cql-java",
+      "description": "CQL parser library",
+      "matchType": "exact"
+    },
+    {
+      "name": "org.marc4j:marc4j",
+      "description": "MARC record processing library",
+      "matchType": "exact"
+    },
+    {
+      "name": "org.hibernate",
+      "description": "Hibernate ORM libraries",
+      "matchType": "prefix"
+    }
+  ]
+}
