@@ -53,7 +53,7 @@ Use these conventions to indicate the status of each criterion.
 
 ### Administrative
 * [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
-  - For existing module evaluation:  Possibly skip altogether, or possibly keep some version of this criteria to cover cases where some functionality may no longer be used or needed any longer.  One consideration is wrt what event(s) trigger these reviews/evaluations.
+  - For existing module evaluation: This criterion is inapplicable.
 
 ### Shared/Common
 * [ ] Uses Apache 2.0 license (2)
@@ -72,7 +72,6 @@ Use these conventions to indicate the status of each criterion.
   * _This is not applicable to libraries_
 * [ ] Sensitive and environment-specific information is not checked into git repository (6)
 * [ ] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
-    * For existing module evaluation: Consider "grandfathering" these modules in, e.g. by setting a date - only applicable to modules developed after ______.
 * [ ] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
   * _This is not applicable to libraries_
 * [ ] Must not depend on a FOLIO library that has not been approved through the TCR process
@@ -80,7 +79,6 @@ Use these conventions to indicate the status of each criterion.
 * [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
-  * For existing module evaluation: Consider "grandfathering" these modules in, e.g. by setting a date - only applicable to modules developed after ______.
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
 * [ ] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
@@ -98,7 +96,6 @@ Note: Frontend criteria apply to both modules and shared libraries.
 * [ ] Have i18n support via react-intl and an en.json file with English texts (8)
 * [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
 * [ ] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
-  * For existing module evaluation: The OST pages are essentially a moving target.  Depending on the events which trigger these evaluations, we may want to clarify or adjust this criteria.
 * [ ] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
   * For UI links to documentation, there is no rule on where that documentation should be hosted, i.e. docs.folio.org, or wiki.folio.org, or module-specific destinations, as long as it is publicly accessible.
@@ -117,7 +114,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * -_note: read more at https://dev.folio.org/guides/module-descriptor/#docker-env_
 * [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * [ ] All API endpoints are documented in OpenAPI (11)
-  * For existing module evaluation: Consider "grandfathering" these modules in, e.g. by setting a date - only applicable to modules developed after ______, or maybe explicitly state that it doesn't apply to RMB-based modules, etc.
+  * For existing module evaluation: RMB-based modules may continue using RAML instead.
 * [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
@@ -127,7 +124,6 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [ ] Data is segregated by tenant at the storage layer (6, 7)
 * [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
-  * For existing module evaluation: Consider clarifying this, providing examples, linking to documentation, etc.  It isn't clear what this refers to.
 * [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
 * [ ] Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
