@@ -8,9 +8,23 @@ When FOLIO Module Evaluator tool encounters a dependency with an unknown license
 
 Technical Council [process](https://github.com/folio-org/tc-module-eval/blob/master/LICENSE_LIST_MANAGEMENT.md) will keep the evaluator tool’s lists of licenses up to date with the ASF source lists and FOLIO policy.
 
-## What should we do when a new module includes a problem dependency that is already included in existing modules (that went through TCR, or pre-dated it)?
+## What should TC do when a new module includes a problem dependency that is already included in existing modules (that went through TCR, or pre-dated it)?
 
-TBD
+This advice may be adjusted after CC (and TC) receives the requested legal advice on these issues.
+
+1. Raise the issue with the PO & dev lead to see if there is an alternative dependency (with a safe license) that would serve the same need.  If so, ask the team to switch.
+
+    1. Is that fair to ask at the evaluation stage where the module is already written?  Only if TC gives reasonable notice.  TC will communicate about this [at the start of each release cycle](https://folio-org.atlassian.net/wiki/spaces/TC/pages/227082271/Recurring+Calendar) (as we do in suggesting RFCs) to avoid a surprise.
+
+    1. Is that fair in this context of dependencies that are already part of the project?
+
+        1. Yes, because it prevents us from making the legacy problem worse while we figure out how to address it.  
+
+        1. And also because the alternative solution found for the new module may help solve the same problem in the old modules – or if not, at least demonstrate that the problem is a difficult one to solve with a safe license.
+
+1. If the PO & dev lead cannot find an alternative, they may present an argument to CC on why the inclusion of the dependency in the new module outweighs the license risks.  This may be a lengthy review process, during which TC's module evaluation would pause.
+
+1. Without CC agreement, TC will not mark this criterion as passing when the module includes a problem dependency.
 
 ## Why reference the Apache Software Foundation's policy for the FOLIO project's dependencies?
 
