@@ -80,7 +80,7 @@ Use these conventions to indicate the status of each criterion.
   * _This is not applicable to libraries_
 * [ ] Must not depend on a FOLIO library that has not been approved through the TCR process
 * [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-  * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy.
+  * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
 * [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
@@ -115,31 +115,12 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [ ] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
   * _This is not applicable to libraries_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-* [ ] Environment variables comply with FOLIO Environment Variables Policy (5, 11)
-  * [ ] All environment variables documented in ModuleDescriptor with required fields:
-    * `name` - Variable name following naming conventions
-    * `value` - Default value or empty string if no default
-    * `required` - Boolean indicating if variable must be set
-    * `description` - Purpose, valid values, and behavior
-  * [ ] Variables properly classified as required or optional:
-    * **Required**: Module cannot function without them; no sensible default exists
-    * **Optional**: Module can function with default value or without the feature
-    * Principle: If a variable has a default value in the module code, it is NOT a required variable
-  * [ ] Variable names follow standardized naming conventions:
-    * Database: `DB_` prefix (e.g., `DB_HOST`, `DB_PORT`, `DB_PASSWORD`)
-    * Kafka: `KAFKA_` prefix (e.g., `KAFKA_HOST`, `KAFKA_PORT`)
-    * S3/Cloud Storage: `S3_` prefix (e.g., `S3_URL`, `S3_BUCKET`, `S3_ACCESS_KEY_ID`)
-    * Keycloak: `KC_` prefix (e.g., `KC_URL`, `KC_CLIENT_ID`)
-    * Elasticsearch: `ELASTICSEARCH_` prefix (e.g., `ELASTICSEARCH_URL`)
-    * System User: `SYSTEM_USER_` prefix (e.g., `SYSTEM_USER_PASSWORD`)
-    * Feature Flags: `*_ENABLED` suffix
-    * All names MUST be uppercase with underscores only (no dots, periods)
-  * [ ] Module implements proper startup behavior:
-    * Required variables: Fail fast on startup with clear error message if missing or empty
-    * Optional variables: Use documented default value
-    * Empty strings for required variables treated as missing (except boolean-like variables)
-  * [ ] No sensitive information logged during startup configuration logging
-  * -_note: read more at https://dev.folio.org/guides/module-descriptor/#docker-env_
+* [ ] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
+  * [ ] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
+  * [ ] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
+  * [ ] [Variable names follow standardized naming conventions](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#2.-Naming-Conventions)
+  * [ ] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
+  * [ ] [No sensitive information logged during startup configuration logging](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#6.1-Startup-Configuration-Logging)
 * [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * [ ] All API endpoints are documented in OpenAPI (11)
   * For existing module evaluation: RMB-based modules may continue using RAML instead.
