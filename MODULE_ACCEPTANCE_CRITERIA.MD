@@ -80,6 +80,7 @@ Use these conventions to indicate the status of each criterion.
   * _This is not applicable to libraries_
 * [ ] Must not depend on a FOLIO library that has not been approved through the TCR process
 * [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
+  * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
 * [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
@@ -114,8 +115,12 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [ ] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
   * _This is not applicable to libraries_
 * [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-* [ ] Environment vars are documented in the ModuleDescriptor (5, 11)
-  * -_note: read more at https://dev.folio.org/guides/module-descriptor/#docker-env_
+* [ ] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
+  * [ ] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
+  * [ ] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
+  * [ ] [Variable names follow standardized naming conventions](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#2.-Naming-Conventions)
+  * [ ] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
+  * [ ] [No sensitive information logged during startup configuration logging](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#6.1-Startup-Configuration-Logging)
 * [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * [ ] All API endpoints are documented in OpenAPI (11)
   * For existing module evaluation: RMB-based modules may continue using RAML instead.
