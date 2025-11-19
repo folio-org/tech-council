@@ -80,7 +80,7 @@ Use these conventions to indicate the status of each criterion.
   * _This is not applicable to libraries_
 * [ ] Must not depend on a FOLIO library that has not been approved through the TCR process
 * [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-  * _Note: This applies to optional third-party integrations and configurations. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy. The distinction is: optional configurations enable graceful degradation; required configurations prevent misconfiguration._
+  * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy.
 * [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
