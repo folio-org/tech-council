@@ -58,7 +58,7 @@ Use these conventions to indicate the status of each criterion.
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
   * [ ] licenses of dependencies need to be evaluated 
-* [ ] Module build MUST produce a valid module descriptor (3, 5)
+* [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
@@ -72,8 +72,11 @@ Use these conventions to indicate the status of each criterion.
   * _note: [More information about this criterion](https://github.com/folio-org/tech-council/blob/master/criteria/THIRD_PARTY_DEPENDENCIES.MD)_
 * [ ] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
+  * link to API doucmentation is missing
+  * description of env vars is missing
   * _This is not applicable to libraries_
-* [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+  * configuration information is missing, how to use this module ? What is the purpose of this module ?
+* [x] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * _This is not applicable to libraries_
 * [ ] Sensitive and environment-specific information is not checked into git repository (6)
 * [ ] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
