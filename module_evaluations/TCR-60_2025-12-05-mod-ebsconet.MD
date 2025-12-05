@@ -52,11 +52,12 @@ Use these conventions to indicate the status of each criterion.
 ## Criteria
 
 ### Administrative
-* [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
+* [x] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
   - For existing module evaluation: This criterion is inapplicable.
 
 ### Shared/Common
-* [ ] Uses Apache 2.0 license (2)
+* [x] Uses Apache 2.0 license (2)
+  * [ ] licenses of dependencies need to be evaluated 
 * [ ] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
