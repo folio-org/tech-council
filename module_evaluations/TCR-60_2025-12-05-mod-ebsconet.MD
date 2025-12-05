@@ -57,10 +57,9 @@ Use these conventions to indicate the status of each criterion.
 
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
-  * [ ] licenses of dependencies need to be evaluated 
 * [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+* [x] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * LGPL consideration:
     * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
@@ -77,6 +76,7 @@ Use these conventions to indicate the status of each criterion.
   * _This is not applicable to libraries_
   * configuration information is missing, how to use this module ? What is the purpose of this module ?
 * [x] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+  * mod-ebsconet does not store data to persistent storage (Database, S3, ...) itself
   * _This is not applicable to libraries_
 * [ ] Sensitive and environment-specific information is not checked into git repository (6)
 * [ ] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
@@ -85,7 +85,7 @@ Use these conventions to indicate the status of each criterion.
 * [ ] Must not depend on a FOLIO library that has not been approved through the TCR process
 * [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
-* [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+* [x] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
