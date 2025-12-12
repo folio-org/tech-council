@@ -116,9 +116,9 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 
 * [x] Module’s repository includes a compliant Module Descriptor (3, 5)
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
-* [ ] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
+* [x] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
   * _This is not applicable to libraries_
-  * probably fulfilled. 
+  * very probably fulfilled. Depends on fincance, notes, orders and organisations according to src/main/resources/swagger.api/schemas . And those are included in the "requires" section of the module descriptor (along with order-lines).
 * [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * [-] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
   * [-] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
@@ -132,16 +132,20 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [x] All API endpoints are documented in OpenAPI (11)
   * For existing module evaluation: RMB-based modules may continue using RAML instead.
   * fulfilled in src/main/resources/swagger.api/ebsconet.yaml
-* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
+* [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
 * [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
+  * probably not applicable
 * [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
-* [ ] Data is segregated by tenant at the storage layer (6, 7)
+  * IK: module does not provide an integration test.
+* [x] Data is segregated by tenant at the storage layer (6, 7)
 * [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
+  * wouldn't the consumed interfaces / APIs need to be declared here ?
 * [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
+  * usually true if module is mandantenfähig (translate) i.e. can be enabled for a tenant.
 * [ ] Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
 * [ ] High Availability (HA) compliant (5, 14, 15)
