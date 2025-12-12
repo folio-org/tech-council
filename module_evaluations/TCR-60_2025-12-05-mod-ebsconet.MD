@@ -114,7 +114,7 @@ Note: Frontend criteria apply to both modules and shared libraries.
 
 Note: Backend criteria apply to modules, shared backend libraries, and edge modules.
 
-* [ ] Module’s repository includes a compliant Module Descriptor (3, 5)
+* [x] Module’s repository includes a compliant Module Descriptor (3, 5)
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
 * [ ] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
   * _This is not applicable to libraries_
