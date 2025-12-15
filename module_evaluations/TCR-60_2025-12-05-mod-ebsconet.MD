@@ -78,20 +78,23 @@ Use these conventions to indicate the status of each criterion.
 * [x] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * mod-ebsconet does not store data to persistent storage (Database, S3, ...) itself
   * _This is not applicable to libraries_
-* [ ] Sensitive and environment-specific information is not checked into git repository (6)
+* [x] Sensitive and environment-specific information is not checked into git repository (6)
 * [ ] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
-* [ ] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
+  * What about "Core dependencies" : log4j 2.24.3, mapstruct 1.6.3, openapi-generator 7.11.0, spring-cloud-starter-openfeign 4.2.0, springdoc-openapi-ui 1.8.0, jackson-databind-nullable 0.2.6 ? These are not listed in the OST. Is this part of the Java / JDK 21 ?
+* [x] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
   * _This is not applicable to libraries_
-* [ ] Must not depend on a FOLIO library that has not been approved through the TCR process
-* [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
+* [x] Must not depend on a FOLIO library that has not been approved through the TCR process
+* [x] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
 * [x] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
-* [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+* [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
+* [x] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+  * 86.7% Coverage
 * [ ] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
+  ' mod-ebsconet is part of app-platform-complete and app-platform-full (which is O.K.), but also of app-ebsconet, as the only module thereof. Why does it have its own application ?
 
 ### Frontend
 
@@ -145,7 +148,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
   * wouldn't the consumed interfaces / APIs need to be declared here ?
 * [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
-  * usually true if module is mandantenfähig (translate) i.e. can be enabled for a tenant.
+  * usually true if module has multi-client capability, which it does, i.e. it can be enabled for a tenant.
 * [ ] Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
 * [ ] High Availability (HA) compliant (5, 14, 15)
@@ -153,7 +156,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
+* [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
 
 ## TCR Process Improvements
