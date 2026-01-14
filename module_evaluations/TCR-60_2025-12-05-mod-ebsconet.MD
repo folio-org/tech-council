@@ -145,6 +145,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * IK: module does not provide an integration test.
 * [x] Data is segregated by tenant at the storage layer (6, 7)
 * [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
+  * the module does not include a DB schema at all.
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
   * wouldn't the consumed interfaces / APIs need to be declared here ?
 * [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
