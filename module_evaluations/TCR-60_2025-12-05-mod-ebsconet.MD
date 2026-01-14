@@ -137,22 +137,22 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * fulfilled in src/main/resources/swagger.api/ebsconet.yaml
 * [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
-* [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-  * probably not applicable
+* [x] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
+  * module has no database schema, therefore no refernce data.
 * [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
   * IK: module does not provide an integration test.
 * [x] Data is segregated by tenant at the storage layer (6, 7)
-* [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
-  * the module does not include a DB schema at all.
+* [x] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
+  * the module does not include a DB schema at all and does not use database access.
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
   * wouldn't the consumed interfaces / APIs need to be declared here ?
-* [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
+* [x] The module responds with a tenant’s content based on x-okapi-tenant header (7)
   * usually true if module has multi-client capability, which it does, i.e. it can be enabled for a tenant.
-* [ ] Standard GET /admin/health endpoint returning a 200 response (5)
+* [x] Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
-* [ ] High Availability (HA) compliant (5, 14, 15)
+* [x] High Availability (HA) compliant (5, 14, 15)
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
