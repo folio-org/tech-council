@@ -1,6 +1,4 @@
-# FOLIO Module Acceptance Values and Criteria
-
-## version 3.0 (ratified 2025-01-25) + draft notes for existing module evaluation
+# mod-ebsconet
 
 ## Overview
 The Technical Council (TC) has defined a process for technical evaluation of modules for inclusion in a FOLIO release.  This document outlines the high level values and specific criteria used when evaluating modules as part of this process.  The distinction between values and criteria is as follows:
