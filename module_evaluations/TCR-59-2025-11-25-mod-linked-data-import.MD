@@ -52,13 +52,14 @@ Use these conventions to indicate the status of each criterion.
 ## Criteria
 
 ### Administrative
-* [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
+* [x] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
   * -> The presentation https://docs.google.com/presentation/d/1ouufRa276miGORBBrNIATFkYfEkD-Ibs/edit?slide=id.p10#slide=id.p10 doesn't mention mod-linked-data-import.
+  * -> However, PC evaluates the app as a whole, not the technical implementation, therefore no additional PC evaluation is needed if another back-end module covers the same features.
 
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
 * [x] Module build MUST produce a valid module descriptor (3, 5)
-* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+* [x] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * LGPL consideration:
     * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
@@ -68,6 +69,7 @@ Use these conventions to indicate the status of each criterion.
   * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._ (This applies only to Maven. For other package managers, closer evaluation is needed.)
   * _note: The [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool is optionally available to evaluate this criterion for Java modules (built with Maven) and for front-end modules.  TC expects to [require its use](https://github.com/folio-org/tech-council/pull/110) in the module evaluation process after a trial period._
   * _note: [More information about this criterion](https://github.com/folio-org/tech-council/blob/master/criteria/THIRD_PARTY_DEPENDENCIES.MD)_
+  * -> https://julianladisch.github.io/folio-dependencies/mod-linked-data-import-1.0.0-SNAPSHOT.html
 * [x] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * -> Installation documentation is in the environment variable table: https://github.com/folio-org/mod-linked-data-import/tree/master?tab=readme-ov-file#environment-variables
