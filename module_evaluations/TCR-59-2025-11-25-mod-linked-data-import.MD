@@ -54,7 +54,7 @@ Use these conventions to indicate the status of each criterion.
 ### Administrative
 * [x] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
   * -> The presentation https://docs.google.com/presentation/d/1ouufRa276miGORBBrNIATFkYfEkD-Ibs/edit?slide=id.p10#slide=id.p10 doesn't mention mod-linked-data-import.
-  * -> However, PC evaluates the app as a whole, not the technical implementation, therefore no additional PC evaluation is needed if another back-end module covers the same features.
+  * -> However, PC evaluates the app as a whole, not the technical implementation, therefore no additional PC evaluation is needed when adding a back-end module that still covers the same features.
 
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
@@ -70,12 +70,13 @@ Use these conventions to indicate the status of each criterion.
   * _note: The [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool is optionally available to evaluate this criterion for Java modules (built with Maven) and for front-end modules.  TC expects to [require its use](https://github.com/folio-org/tech-council/pull/110) in the module evaluation process after a trial period._
   * _note: [More information about this criterion](https://github.com/folio-org/tech-council/blob/master/criteria/THIRD_PARTY_DEPENDENCIES.MD)_
   * -> https://julianladisch.github.io/folio-dependencies/mod-linked-data-import-1.0.0-SNAPSHOT.html
+  * -> all dependencies with category B or X are dual licensed ("or") with a category A license
 * [x] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * -> Installation documentation is in the environment variable table: https://github.com/folio-org/mod-linked-data-import/tree/master?tab=readme-ov-file#environment-variables
 * [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * -> Form should mention that the startDate field stored in the import_result_event database table can be personal data.
-  * -> Under GDPR it is personal data if the import is started manually and the person is identifiable.
+  * -> Under GDPR it is personal data if the import is started manually and the person is identifiable. In a library where only one person starts the import this field shows the work time of that person.
 * [x] Sensitive and environment-specific information is not checked into git repository (6)
 * [x] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
 * [x] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
@@ -84,14 +85,15 @@ Use these conventions to indicate the status of each criterion.
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
 * [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details.
-  * -> Exclusions should be per rule and in the Java file. They are in the pom.xml: https://github.com/folio-org/mod-linked-data-import/blob/4a2f340274f8b3623b14092b5f5fa194087bd885/pom.xml#L32-L36
+  * -> https://github.com/search?q=repo%3Afolio-org%2Fmod-linked-data-import+%28suppresswarnings+OR+sonar%29&type=code
+  * -> violation in https://github.com/folio-org/mod-linked-data-import/blob/80da988202dfb73b402c5067e2d0bdbd9ba918f6/src/main/java/org/folio/linked/data/imprt/batch/job/processor/Rdf2LdProcessor.java#L46
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [x] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * -> https://sonarcloud.io/summary/overall?id=org.folio%3Amod-linked-data-import&branch=master
-* [ ] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
+* [x] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
-  * -> App name missing in description of https://folio-org.atlassian.net/browse/TCR-59 and not module not yet included into any app.
+  * -> App name `app-linked-data` mentioned in https://folio-org.atlassian.net/browse/TCR-59
 
 ### Backend
 
@@ -103,38 +105,45 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * -> currently it doesn't consume any API
 * [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
   * -> implementations are ImportController.java and JobController.java
-* [ ] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
+* [x] ~Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)~
   * [ ] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
   * [ ] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
   * [ ] [Variable names follow standardized naming conventions](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#2.-Naming-Conventions)
   * [ ] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
   * [ ] [No sensitive information logged during startup configuration logging](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#6.1-Startup-Configuration-Logging)
-* [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
-* [ ] All API endpoints are documented in OpenAPI (11)
+  * -> Inapplicable because this criterion has been added on 2025-12-01, this is after the module evaluation request has been submitted on 2025-11-25: https://github.com/folio-org/tech-council/pull/112 - https://folio-org.atlassian.net/browse/TCR-59
+* [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
+  * -> all 4 APIs have a compliant entry in the Module Descriptor "provides" section.
+* [x] All API endpoints are documented in OpenAPI (11)
   * For existing module evaluation: RMB-based modules may continue using RAML instead.
-* [ ] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
+  * -> OpenAPI exists: https://github.com/folio-org/mod-linked-data-import/blob/master/src/main/resources/swagger.api/mod-linked-data-import.yaml
+  * -> and has been deployed to https://dev.folio.org/reference/api/#mod-linked-data-import
+* [x] All API endpoints protected with appropriate permissions as per the following guidelines and recommendations, e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
   * -_note: read more at https://dev.folio.org/guidelines/naming-conventions/ and https://wiki.folio.org/display/DD/Permission+Set+Guidelines_
-* [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-* [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+  * -> doesn't comply with https://folio-org.atlassian.net/wiki/spaces/FOLIJET/pages/156368925/Permissions+naming+convention the TC forgot to add to the criterion
+* [x] ~Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)~
+* [x] ~If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)~
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
-* [ ] Data is segregated by tenant at the storage layer (6, 7)
-* [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
-* [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
-* [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
-* [ ] Standard GET /admin/health endpoint returning a 200 response (5)
+* [x] Data is segregated by tenant at the storage layer (6, 7)
+* [x] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
+* [x] Any dependencies, other than on defined interfaces, are declared in the README.md.
+  * PostgreSQL, Kafka, and S3 are declared via environment variables in the README.me.
+* [x] The module responds with a tenant’s content based on x-okapi-tenant header (7)
+* [x] Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
-* [ ] High Availability (HA) compliant (5, 14, 15)
+  * -> yes: https://github.com/folio-org/mod-linked-data-import/blob/81a1a9a0f988912c7d66a47ac4538008cbda0fe9/src/main/resources/application.yml#L103
+* [x] High Availability (HA) compliant (5, 14, 15)
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
+* [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
 
 ## TCR Process Improvements
 
-[_Please include here any suggestions that you feel might improve the TCR Processes._]
+* We should add this to the permissions criterion: https://folio-org.atlassian.net/wiki/spaces/FOLIJET/pages/156368925/Permissions+naming+convention
 
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
