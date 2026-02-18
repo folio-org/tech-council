@@ -59,8 +59,8 @@ Use these conventions to indicate the status of each criterion.
 * [x] Uses Apache 2.0 license (2)
 * [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
-  * emitter-component version 1.1.2 is not licensed https://www.npmjs.com/package/emitter-component/v/1.1.2 but the [latest version](https://github.com/sindresorhus/component-emitter) is under MIT license. I think this means this 3rd party dependency should be updated to the latest, licensed version.
+* [ ] **Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)**
+  * **emitter-component version 1.1.2 is not licensed https://www.npmjs.com/package/emitter-component/v/1.1.2 but the [latest version](https://github.com/sindresorhus/component-emitter) is under MIT license. I think this means this 3rd party dependency should be updated to the latest, licensed version.**
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * LGPL consideration:
     * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
@@ -70,31 +70,31 @@ Use these conventions to indicate the status of each criterion.
   * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._ (This applies only to Maven. For other package managers, closer evaluation is needed.)
   * _note: The [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool is optionally available to evaluate this criterion for Java modules (built with Maven) and for front-end modules.  TC expects to [require its use](https://github.com/folio-org/tech-council/pull/110) in the module evaluation process after a trial period._
   * _note: [More information about this criterion](https://github.com/folio-org/tech-council/blob/master/criteria/THIRD_PARTY_DEPENDENCIES.MD)_
-* [ ] Installation documentation is included (11)
-  * No installation instructions in the README.
+* [ ] **Installation documentation is included (11)**
+  * **No installation instructions in the README.**
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
-* [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+* [ ] **[Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)**
   * _This is not applicable to libraries_
-* [ ] Sensitive and environment-specific information is not checked into git repository (6)
-  * I think this file `bin/create-and-assign-permissions.sh` should be removed as running it depends on another script that is not in the repo.
-  * Also this one? https://github.com/folio-org/ui-inventory-import/blob/3ff636d8995345b8b297ed2f33b70a06de39ee24/package.json#L11
+* [ ] **Sensitive and environment-specific information is not checked into git repository (6)**
+  * **I think this file `bin/create-and-assign-permissions.sh` should be removed as running it depends on another script that is not in the repo.**
+  * **Also this one? https://github.com/folio-org/ui-inventory-import/blob/3ff636d8995345b8b297ed2f33b70a06de39ee24/package.json#L11**
 * [x] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
 * [x] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
   * _This is not applicable to libraries_
 * [x] Must not depend on a FOLIO library that has not been approved through the TCR process
-* [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
-  * I don't think it meets this criteria b/c of the environment-specific information I noted above.
+* [ ] **Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)**
+  * **I don't think it meets this criteria b/c of the environment-specific information I noted above.**
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
-* [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
-  * duplicated lines is at 7.8% above the 3% threshold
-  * 124 major type severity identified
+* [ ] **Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.**
+  * **duplicated lines is at 7.8% above the 3% threshold**
+  * **124 major type severity identified**
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
-* [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
-  * 0% coverage https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main
-* [ ] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
-  * Not in any application descriptor AFAICT.
+* [ ] **Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)**
+  * **0% coverage https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main**
+* [ ] **Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)**
+  * **Not in any application descriptor AFAICT.**
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
 
@@ -102,21 +102,23 @@ Use these conventions to indicate the status of each criterion.
 
 Note: Frontend criteria apply to both modules and shared libraries. 
 
-* [ ] For each consumed API `package.json` MUST include the interface requirement in the `"okapiInterfaces"` or `"optionalOkapiInterfaces"` section (3, 5)
-  * `okapiInterfaces` is empty and `optionalOkapiInterfaces` is missing.
+* [ ] **For each consumed API `package.json` MUST include the interface requirement in the `"okapiInterfaces"` or `"optionalOkapiInterfaces"` section (3, 5)**
+  * **`okapiInterfaces` is empty and `optionalOkapiInterfaces` is missing.**
   * -_note: read more at https://github.com/folio-org/stripes/blob/master/doc/dev-guide.md#the-package-file-stripes-entry_
-* [ ] If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+* [ ] **If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)**
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
-* [ ] Have i18n support via react-intl and an en.json file with English texts (8)
-  * There is only an en.json file under translations.
-* [ ] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
-  * Cannot evaluate this. I can't find `folio/inventory-update` at https://folio-snapshot-2.dev.folio.org/settings/about
+* [ ] **Have i18n support via react-intl and an en.json file with English texts (8)**
+  * **There is only an en.json file under translations.**
+* [ ] **Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)**
+  * **Cannot evaluate this. I can't find `folio/inventory-update` at https://folio-snapshot-2.dev.folio.org/settings/about**
 * [x] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
-* [ ] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
+* [ ] **Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_**
+  * **Cannot evaluate this. I can't find `folio/inventory-update` at https://folio-snapshot-2.dev.folio.org/settings/about**
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
   * For UI links to documentation, there is no rule on where that documentation should be hosted, i.e. docs.folio.org, or wiki.folio.org, or module-specific destinations, as long as it is publicly accessible.
-* [ ] Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation (10)
+* [ ] **Must work in the latest version of Chrome (the supported runtime environment) at the time of evaluation (10)**
+  * **Cannot evaluate this. I can't find `folio/inventory-update` at https://folio-snapshot-2.dev.folio.org/settings/about**
 
 
 ## TCR Process Improvements
