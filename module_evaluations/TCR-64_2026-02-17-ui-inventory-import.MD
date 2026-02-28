@@ -85,7 +85,7 @@ Use these conventions to indicate the status of each criterion.
 * [x] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
 * [ ] **Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.**
-  * **duplicated lines is at 4.1% above the 3% threshold**
+  * **[duplicated lines is at 4.1%](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main) above the 3% threshold**
   * **There are over [100 major type severity issues](https://sonarcloud.io/project/issues?severities=MAJOR&issueStatuses=OPEN%2CCONFIRMED&id=org.folio%3Aui-inventory-import) identified**
   * **There are [5 security hotspots](https://sonarcloud.io/project/security_hotspots?id=org.folio%3Aui-inventory-import) identified by sonarqube**
   * **The security hotspots are addressed in these [PRs](https://github.com/folio-org/ui-inventory-import/pulls?q=ReDoS)**
