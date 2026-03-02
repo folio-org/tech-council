@@ -59,11 +59,11 @@ Use these conventions to indicate the status of each criterion.
 * [x] Uses Apache 2.0 license (2)
 * [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* [ ] **Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)**
+* [x] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * **emitter-component version 1.1.2 is not licensed https://www.npmjs.com/package/emitter-component/v/1.1.2 but the [latest version](https://github.com/sindresorhus/component-emitter) is under MIT license. I think this means this 3rd party dependency should be updated to the latest, licensed version.**
   * **emitter-component has been removed**
   * **I'm not sure why, but the latest run of the [tc-module-eval tool](https://github.com/folio-org/tc-module-eval/actions/runs/22494751658) shows some confusing results that did not appear in the previous run**
-  * **I manually searched npmjs.com for the libraries listed in dependencies and peerDependencies in the package.json file. react-intl v.7.1.5 has a BSD-3-Clause license, which I didn't find on the [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html)page, however BSD-4 Clause is listed as something that cannot be included in an ASF project.**
+  * **I manually searched npmjs.com for the libraries listed in dependencies and peerDependencies in the package.json file. They all appear to pass. Although the manual review was not comprehensive as I didn't review the dependencies of dependencies, etc.**
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * LGPL consideration:
     * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
