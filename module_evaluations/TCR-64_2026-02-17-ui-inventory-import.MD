@@ -86,10 +86,9 @@ Use these conventions to indicate the status of each criterion.
 * [x] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
 * [ ] **Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.**
-  * **[duplicated lines is at 4.1%](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main) above the 3% threshold**
+  * **~[duplicated lines is at 4.1%](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main) above the 3% threshold~ duplicated lines now at 2%**
   * **There are over [100 major type severity issues](https://sonarcloud.io/project/issues?severities=MAJOR&issueStatuses=OPEN%2CCONFIRMED&id=org.folio%3Aui-inventory-import) identified**
-  * **There are [5 security hotspots](https://sonarcloud.io/project/security_hotspots?id=org.folio%3Aui-inventory-import) identified by sonarqube**
-  * **The security hotspots are addressed in these [PRs](https://github.com/folio-org/ui-inventory-import/pulls?q=ReDoS)**
+  * **~There are [5 security hotspots](https://sonarcloud.io/project/security_hotspots?id=org.folio%3Aui-inventory-import) identified by sonarqube~ This has been addressed**
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [ ] **Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)**
@@ -108,12 +107,11 @@ Note: Frontend criteria apply to both modules and shared libraries.
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * [ ] **Have i18n support via react-intl and an en.json file with English texts (8)**
-  * **This is in progress**
+  * **There are non-English json files but they are not translated.**
 * [x] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
   * axe DevTools didn't find any WCAG 2.1 AA compliance issues with inventory-import at https://folio-snapshot-2.dev.folio.org
 * [x] Use the Stripes version of referred on the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (10, 16)
-* [ ] **Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_**
-  * **Documentation on how to use it is missing from docs.folio.org**
+* [x] Follow relevant existing UI layouts, patterns and norms (10) -_note: read more about current practices at [https://ux.folio.org/docs/all-guidelines/](https://ux.folio.org/docs/all-guidelines/)_
   * **There is information about how it works [here](https://folio-org.atlassian.net/wiki/x/BIByMw)**
   * **There is a [slideshow presentation](https://docs.google.com/presentation/d/1hwmSMHMQyPWTAExTH-5AL7NDksC8qIUakp5oNZLT83Q/edit?usp=sharing)**
   * E.g. Saving state when navigating between apps (or confirming that you'll lose the state)
