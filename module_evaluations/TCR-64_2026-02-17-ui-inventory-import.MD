@@ -60,10 +60,8 @@ Use these conventions to indicate the status of each criterion.
 * [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * [x] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
-  * **emitter-component version 1.1.2 is not licensed https://www.npmjs.com/package/emitter-component/v/1.1.2 but the [latest version](https://github.com/sindresorhus/component-emitter) is under MIT license. I think this means this 3rd party dependency should be updated to the latest, licensed version.**
-  * **emitter-component has been removed**
-  * **I'm not sure why, but the latest run of the [tc-module-eval tool](https://github.com/folio-org/tc-module-eval/actions/runs/22494751658) shows some confusing results that did not appear in the previous run**
-  * **I manually searched npmjs.com for the libraries listed in dependencies and peerDependencies in the package.json file. They all appear to pass. Although the manual review was not comprehensive as I didn't review the dependencies of dependencies, etc.**
+  * **~emitter-component version 1.1.2 is not licensed https://www.npmjs.com/package/emitter-component/v/1.1.2 but the [latest version](https://github.com/sindresorhus/component-emitter) is under MIT license. I think this means this 3rd party dependency should be updated to the latest, licensed version.~ emitter-component was removed**
+  * **~I'm not sure why, but the latest run of the [tc-module-eval tool](https://github.com/folio-org/tc-module-eval/actions/runs/22494751658) shows some confusing results that did not appear in the previous run~ Fixed in this [workflow run](https://github.com/folio-org/tc-module-eval/actions/runs/22863824597)**
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * LGPL consideration:
     * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
@@ -106,7 +104,7 @@ Note: Frontend criteria apply to both modules and shared libraries.
 * [ ] ~If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)~
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
-* [ ] **Have i18n support via react-intl and an en.json file with English texts (8)**
+* [x] Have i18n support via react-intl and an en.json file with English texts (8)
   * **There are non-English json files but they are not translated.**
 * [x] Have WCAG 2.1 AA compliance as measured by a current major version of axe DevTools Chrome Extension (9)
   * axe DevTools didn't find any WCAG 2.1 AA compliance issues with inventory-import at https://folio-snapshot-2.dev.folio.org
