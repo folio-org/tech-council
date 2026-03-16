@@ -60,8 +60,8 @@ Use these conventions to indicate the status of each criterion.
 * [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
 * [x] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
-  * **~emitter-component version 1.1.2 is not licensed https://www.npmjs.com/package/emitter-component/v/1.1.2 but the [latest version](https://github.com/sindresorhus/component-emitter) is under MIT license. I think this means this 3rd party dependency should be updated to the latest, licensed version.~ emitter-component was removed**
-  * **~I'm not sure why, but the latest run of the [tc-module-eval tool](https://github.com/folio-org/tc-module-eval/actions/runs/22494751658) shows some confusing results that did not appear in the previous run~ Fixed in this [workflow run](https://github.com/folio-org/tc-module-eval/actions/runs/22863824597)**
+  * **~~emitter-component version 1.1.2 is not licensed https://www.npmjs.com/package/emitter-component/v/1.1.2 but the [latest version](https://github.com/sindresorhus/component-emitter) is under MIT license. I think this means this 3rd party dependency should be updated to the latest, licensed version.~~ emitter-component was removed**
+  * **~~I'm not sure why, but the latest run of the [tc-module-eval tool](https://github.com/folio-org/tc-module-eval/actions/runs/22494751658) shows some confusing results that did not appear in the previous run~~ Fixed in this [workflow run](https://github.com/folio-org/tc-module-eval/actions/runs/22863824597)**
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * LGPL consideration:
     * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
@@ -84,13 +84,15 @@ Use these conventions to indicate the status of each criterion.
 * [x] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
 * [ ] **Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.**
-  * **~[duplicated lines is at 4.1%](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main) above the 3% threshold~ duplicated lines now at 2%**
-  * **There are over [100 major type severity issues](https://sonarcloud.io/project/issues?severities=MAJOR&issueStatuses=OPEN%2CCONFIRMED&id=org.folio%3Aui-inventory-import) identified**
-  * **~There are [5 security hotspots](https://sonarcloud.io/project/security_hotspots?id=org.folio%3Aui-inventory-import) identified by sonarqube~ This has been addressed**
+  * duplicated lines at 2% in main branch and UIINIMP-22 Unit tests branch
+  * **There are over [100 major type severity issues identified in main branch](https://sonarcloud.io/project/issues?severities=MAJOR&issueStatuses=OPEN%2CCONFIRMED&id=org.folio%3Aui-inventory-import) identified**
+  * **UIINIMP-22 Unit tests branch addresses issues in main branch [UIINIMP-22 Unit tests branch overall code issues](https://sonarcloud.io/project/issues?issueStatuses=OPEN%2CCONFIRMED&pullRequest=62&id=org.folio%3Aui-inventory-import)**
+  * ~~There are [5 security hotspots](https://sonarcloud.io/project/security_hotspots?id=org.folio%3Aui-inventory-import) identified by sonarqube~~ This has been addressed
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [ ] **Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)**
-  * **[2.1% test coverage](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main)**
+  * **Test coverage for main branch at ~50% [main branch overall code summary](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main)**
+  * **Test coverage for UIINIMP-22 Unit tests branch at ~62% [UIINIMP-22 Unit tests branch overall code summary](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&pullRequest=62)**
 * [x] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
@@ -101,7 +103,7 @@ Note: Frontend criteria apply to both modules and shared libraries.
 
 * [x] For each consumed API `package.json` MUST include the interface requirement in the `"okapiInterfaces"` or `"optionalOkapiInterfaces"` section (3, 5)
   * -_note: read more at https://github.com/folio-org/stripes/blob/master/doc/dev-guide.md#the-package-file-stripes-entry_
-* [ ] ~If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)~
+* [ ] ~~If provided, End-to-end tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)~~
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/stripes-testing_
 * [x] Have i18n support via react-intl and an en.json file with English texts (8)
@@ -121,6 +123,7 @@ Note: Frontend criteria apply to both modules and shared libraries.
 
 [_Please include here any suggestions that you feel might improve the TCR Processes._]
 * The criteria that the module is assigned to exactly one application descriptor within the FOLIO Community LSP is a bit confusing. How could it be in an application descriptor if it has not yet been approved? And if it is added to one in an open PR, as far as I know, the GitHub search does not search branches except the default branch of repositories, so it would be almost impossible to find with a GitHub search. I think the developers and PO submitting the module for evaluation should provide this information (the PR or information about which application the module has been added).
+* If we don't evaluate new modules by using the main branch, what mechanism is there to ensure the code from other branches that sonarqube shows as passed make it into the main branch, when main branch shows as failed (in sonarqube)?
 
 
 [^1]: Refer to the [Officially Supported Technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page for the most recent ACTIVE release.
