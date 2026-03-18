@@ -83,16 +83,14 @@ Use these conventions to indicate the status of each criterion.
 * [x] Must not depend on a FOLIO library that has not been approved through the TCR process
 * [x] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
-* [ ] **Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.**
+* [x] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * duplicated lines at 2% in main branch and UIINIMP-22 Unit tests branch
-  * **There are over [100 major type severity issues identified in main branch](https://sonarcloud.io/project/issues?severities=MAJOR&issueStatuses=OPEN%2CCONFIRMED&id=org.folio%3Aui-inventory-import) identified**
-  * **UIINIMP-22 Unit tests branch addresses issues in main branch [UIINIMP-22 Unit tests branch overall code issues](https://sonarcloud.io/project/issues?issueStatuses=OPEN%2CCONFIRMED&pullRequest=62&id=org.folio%3Aui-inventory-import)**
+  * ~~There are over [100 major type severity issues identified in main branch](https://sonarcloud.io/project/issues?severities=MAJOR&issueStatuses=OPEN%2CCONFIRMED&id=org.folio%3Aui-inventory-import) identified~~ Resolved.
   * ~~There are [5 security hotspots](https://sonarcloud.io/project/security_hotspots?id=org.folio%3Aui-inventory-import) identified by sonarqube~~ This has been addressed
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [ ] **Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)**
-  * **Test coverage for main branch at ~50% [main branch overall code summary](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main)**
-  * **Test coverage for UIINIMP-22 Unit tests branch at ~62% [UIINIMP-22 Unit tests branch overall code summary](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&pullRequest=62)**
+  * **Test coverage for main branch at 75%, expected to be >=80% by 3/23/2026 [main branch overall code summary in Sonarqube](https://sonarcloud.io/summary/overall?id=org.folio%3Aui-inventory-import&branch=main)**
 * [x] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
