@@ -96,7 +96,7 @@ Note for TC / maintainers: when editing the list above, mirror changes over to t
 
 ## Feedback & Acceptance/Rejection
 1. Evaluation results are published (in markdown format) to the [tech-council GitHub repository](https://github.com/folio-org/tech-council) and linked to the JIRA ticket.
-    * An [Evaluation Results Template](https://github.com/folio-org/tech-council/blob/master/MODULE_EVALUATION_TEMPLATE.MD) will be used for this.
+    * The [Module Acceptance Criteria](https://github.com/folio-org/tech-council/blob/master/MODULE_ACCEPTANCE_CRITERIA.MD) will be used for this.
 1. Interested parties (e.g. release coordinator, contributor points of contact, Product Council members, etc.) are notified, and provided a link to the results.
     * JIRA workflow: notification is in the form of transition from **TC REVIEW** to **APROVED** or **REJECTED**
     * If failed, the Point of Contact may ask for help understanding the failed criteria.
