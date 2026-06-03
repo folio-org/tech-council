@@ -80,7 +80,7 @@ Use these conventions to indicate the status of each criterion.
   * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._ (This applies only to Maven. For other package managers, closer evaluation is needed.)
   * _note: The [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool is optionally available to evaluate this criterion for Java modules (built with Maven) and for front-end modules.  TC expects to [require its use](https://github.com/folio-org/tech-council/pull/110) in the module evaluation process after a trial period._
   * _note: [More information about this criterion](https://github.com/folio-org/tech-council/blob/master/criteria/THIRD_PARTY_DEPENDENCIES.MD)_
-  * RECOMMENDED CHANGE: there are ~20 Category B third party licences identified in prev tech eval tool run -> add to README
+  * !RECOMMENDED CHANGE: there are ~20 Category B third party licences identified in prev tech eval tool run -> add to README
 * [x] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
@@ -88,11 +88,12 @@ Use these conventions to indicate the status of each criterion.
 * [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * _This is not applicable to libraries_
   * evidence: https://github.com/folio-org/mod-rtac-cache/blob/master/PERSONAL_DATA_DISCLOSURE.md
-  * RECOMMENDED CHANGE: the module uses circulation/loans, so consider:
+  * !RECOMMENDED CHANGE: the module uses circulation/loans, so consider:
     * prev:
       * [x] This module does not store any PD.
       * [x] This module does not process any PD.
     * change to:
+      * [x] This module does not store any PD.
       * [x] This module transmits PD (including queues, additional databases, etc.)
       * [x] Circulation transaction(s)
 * [x] Sensitive and environment-specific information is not checked into git repository (6)
@@ -112,13 +113,15 @@ Use these conventions to indicate the status of each criterion.
 * [x] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
   * https://sonarcloud.io/project/overview?id=org.folio%3Amod-rtac-cache
-    * REVIEW: there is a hotspot that is under review
+    * All good
+    * Note fixes for supression and SQL hotspot: 
+      * https://github.com/folio-org/mod-rtac-cache/pull/51
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
   * maven 4.0.0
   * docker
 * [x] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
   * https://sonarcloud.io/project/overview?id=org.folio%3Amod-rtac-cache
-    * 90.8% Coverage
+    * 91% Coverage
 * [x] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
@@ -184,18 +187,15 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
     * _tenant
       * POST /_/tenant
       * DELETE /_/tenant
-* [ ] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
-  * [ ] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
-    * all env vars are documented in ModuleDescriptor but lack :
-      * "required" boolean (though all have some default value even if just empty string)
-      * "description" string (though "purpose" is provided in README)
-    * RECOMMENDED CHANGE: add "required" and "description" fields to environment variables
-  * [ ] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
-    * "required" field not defined in ModuleDescriptor-template.json
-    * RECOMMENDED CHANGE: add "required" and "description" fields to environment variables
+* [x] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
+  * !Required column was recently added to top level env in module descriptor - quesion on whether the required column also needs to be added to README.md 
+  * [x] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
+    * Note fixes in https://github.com/folio-org/mod-rtac-cache/pull/59 
+  * [x] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
+    * Note fixes in https://github.com/folio-org/mod-rtac-cache/pull/59 
   * [ ] [Variable names follow standardized naming conventions](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#2.-Naming-Conventions)
     * yes with one exception
-    * RECOMMENDED CHANGE: MAX_POLL_RECORDS -> KAFKA_MAX_POLL_RECORDS
+    * !RECOMMENDED CHANGE: MAX_POLL_RECORDS -> KAFKA_MAX_POLL_RECORDS
   * [x] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
   * [x] [No sensitive information logged during startup configuration logging](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#6.1-Startup-Configuration-Logging)
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
