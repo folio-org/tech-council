@@ -52,7 +52,7 @@ Use these conventions to indicate the status of each criterion.
 ## Criteria
 
 ### Administrative
-* [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
+* [ ] Listed by the Product Council on [Functionality Evaluated by the PC](https://folio-org.atlassian.net/wiki/spaces/PC/pages/4885367/Functionality+Evaluated+by+the+PC) with a positive evaluation result.
   - For existing module evaluation: This criterion is inapplicable.
 
 ### Shared/Common
