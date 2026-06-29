@@ -135,7 +135,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
 * [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
 * [ ] Standard GET /admin/health endpoint returning a 200 response (5)
-  * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
+  * -_note: read more at https://folio-org.atlassian.net/wiki/spaces/DD/pages/1777917/Back+End+Module+Health+Check+Protocol_
 * [ ] High Availability (HA) compliant (5, 14, 15)
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
