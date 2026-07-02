@@ -79,32 +79,38 @@ Use these conventions to indicate the status of each criterion.
   * _This is not applicable to libraries_
 * [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * -> https://github.com/folio-org/edge-users/blob/master/PERSONAL_DATA_DISCLOSURE.md
-  * -> 
-* [ ] Sensitive and environment-specific information is not checked into git repository (6)
-* [ ] There is no default for any password, access key, private key or any other credential (6)
-* [ ] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
-* [ ] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
+  * -> Using LOGGING_LEVEL_ROOT=INFO it logs "User with id 7261ecaa-e3a7-4dc6-8b46-8e12a70b1aec has blocked status: false" that is not mentioned in the personal data disclosure file.
+* [x] Sensitive and environment-specific information is not checked into git repository (6)
+* [x] There is no default for any password, access key, private key or any other credential (6)
+* [x] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
+* [x] Uses FOLIO interfaces already provided by previously accepted modules _e.g. a UI module cannot be accepted that relies on an interface only provided by a back end module that hasn’t been accepted yet_ (3, 5, 12)
   * _This is not applicable to libraries_
-* [ ] Must not depend on a FOLIO library that has not been approved through the TCR process
-* [ ] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
+* [x] Must not depend on a FOLIO library that has not been approved through the TCR process
+* [x] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
-* [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
-  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details. 
-* [ ] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
-* [ ] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
-* [ ] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
+* [x] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+  * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details.
+  * -> https://sonarcloud.io/project/overview?id=org.folio%3Aedge-users
+* [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
+* [x] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+* [x] Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   * _The FOLIO Community LSP Platform is defined at https://github.com/folio-org/platform-lsp._
   * _This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application._
+  * -> edge-users is in app-edge-locate only: https://github.com/search?q=org%3Afolio-org+edge-users+path%3A*.json&type=code
 
 ### Backend
 
 Note: Backend criteria apply to modules, shared backend libraries, and edge modules.
 
-* [ ] Module’s repository includes a compliant Module Descriptor (3, 5)
+* [x] Module’s repository includes a compliant Module Descriptor (3, 5)
   * -_note: read more at https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json_
-* [ ] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
+  * -> https://github.com/folio-org/edge-users/blob/d54683f11d95f9fecf0652f03ff2755c2f800792/descriptors/ModuleDescriptor-template.json
+* [x] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
   * _This is not applicable to libraries_
-* [ ] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
+  * -> https://github.com/folio-org/edge-users/blob/d54683f11d95f9fecf0652f03ff2755c2f800792/descriptors/ModuleDescriptor-template.json need to list all used APIs. Some are missing:
+    * -> https://github.com/folio-org/edge-users/blob/78755deb5adf411ff2a35c4b931cb51f81d242fe/src/main/java/org/folio/edge/users/client/FeesFinesClient.java#L12
+    * -> https://github.com/folio-org/edge-users/blob/d54683f11d95f9fecf0652f03ff2755c2f800792/src/main/java/org/folio/edge/users/client/PatronBlocksClient.java#L11
+* [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
 * [ ] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
   * [ ] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
   * [ ] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
