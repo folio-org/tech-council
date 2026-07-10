@@ -72,11 +72,15 @@ Use these conventions to indicate the status of each criterion.
 * [x] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
-* [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+* [x] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * _This is not applicable to libraries_
   * The `Pseudonym / Alias / Nickname / Username / User ID` should be checked.
-* [ ] Sensitive and environment-specific information is not checked into git repository (6)
+    * [EDGEINV-36](https://github.com/folio-org/edge-inventory/pull/42) is created to resolve this.
+* [x] Sensitive and environment-specific information is not checked into git repository (6)
   * Has a hard coded IP address `ecsCredentialsEndpoint=http://169.254.170.2` in `src/main/resources/aws_ss.properties`.
+    * The hard coded IP address is a "link local address".
+      * See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
+      * See: https://folio-org.atlassian.net/browse/TCR-53?focusedCommentId=313500
 * [x] There is no default for any password, access key, private key or any other credential (6)
   * Has default user names but this is not a problem because there are no default passwords.
 * [x] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
@@ -102,13 +106,14 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [x] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
   * _This is not applicable to libraries_
 * [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-* [ ] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
+* [x] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
   * [x] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
   * [x] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
   * [x] [Variable names follow standardized naming conventions](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#2.-Naming-Conventions)
     * The `FOLIO_CLIENT_OKAPIURL` is not `OKAPI_URL` but is being treated as an exception case for the purposes of this review. The [edge-common README](https://github.com/folio-org/folio-org.github.io/blob/ea6189b399e6d97876cdcb58499c2231ae765e40/_remote/edge-common/README.md?plain=1#L199) does not describe a `FOLIO_CLIENT_OKAPIURL` but does have `FOLIO_CLIENT_` prefixed environment variables.
-  * [ ] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
+  * [x] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
     * `FOLIO_CLIENT_OKAPIURL` has `required` set to `true` but `mvn spring-boot:run` and `java -jar target/edge-inventory-2.4.0-SNAPSHOT.jar` spin up without failing fast when `FOLIO_CLIENT_OKAPIURL` is not defined. I have found that this is a spring-boot `applicaiton.yaml` provides a default for this via `folio.client.okapiUrl`. Removing the default value and fail fast does not still happen.
+      * [EDGEINV-36](https://github.com/folio-org/edge-inventory/pull/42) is created to resolve this.
   * [x] [No sensitive information logged during startup configuration logging](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#6.1-Startup-Configuration-Logging)
 * [x] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
 * [x] All API endpoints are documented in OpenAPI (11)
