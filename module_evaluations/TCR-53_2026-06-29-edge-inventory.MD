@@ -53,7 +53,8 @@ Use these conventions to indicate the status of each criterion.
 
 ### Administrative
 * [x] ~Listed by the Product Council on [Functionality Evaluated by the PC](https://wiki.folio.org/display/PC/Functionality+Evaluated+by+the+PC) with a positive evaluation result.~
-  - For existing module evaluation: This criterion is inapplicable.
+  - For existing module evaluation: This criterion is inapplicable, see [Evaluation Process Frequently Asked Questions](https://folio-org.atlassian.net/wiki/spaces/PC/pages/662732864/Evaluation+Process+Frequently+Asked+Questions#Examples-of-new-functionality-recently-NOT-reviewed-by-the-PC):
+    - "New edge module for the API for ERM functionality. No UI features or functionality in FOLIO were impacted by the module, so the PC decided that the Technical Council modules review of edge-erm was sufficient."
 
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
