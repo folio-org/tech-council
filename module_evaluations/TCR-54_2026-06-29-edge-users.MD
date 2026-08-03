@@ -59,8 +59,8 @@ Use these conventions to indicate the status of each criterion.
   - -> Ticket to evaluate merging edge-users and edge-patron: https://folio-org.atlassian.net/browse/EDGEUSERS-22
 
 ### Shared/Common
-* [ ] Uses Apache 2.0 license (2)
-  - [pom.xml](https://github.com/folio-org/edge-users/blob/v2.2.0/pom.xml) lacks license declaration. "Ensure that any package.json and pom.xml etc. type of configuration file has the appropriate required “licence” elements." https://dev.folio.org/guidelines/create-new-repo/#add-initial-files
+* [x] Uses Apache 2.0 license (2)
+  - License has been added to pom.xml during TCR review.
 * [x] Module build MUST produce a valid module descriptor (3, 5)
   * -> Yes, see successful module descriptor validation in Maven central workflow: https://github.com/folio-org/edge-users/actions/runs/25481168140
 * [x] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
@@ -77,9 +77,9 @@ Use these conventions to indicate the status of each criterion.
 * [x] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
   * _This is not applicable to libraries_
-* [ ] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
+* [x] [Personal data form](https://github.com/folio-org/personal-data-disclosure) is completed, accurate, and provided as PERSONAL_DATA_DISCLOSURE.md file (6)
   * -> https://github.com/folio-org/edge-users/blob/master/PERSONAL_DATA_DISCLOSURE.md
-  * -> Using LOGGING_LEVEL_ROOT=INFO it logs "User with id 7261ecaa-e3a7-4dc6-8b46-8e12a70b1aec has blocked status: false" that is not mentioned in the personal data disclosure file.
+  * -> During TRC review user id and user status logging has been changed to DEBUG level.
 * [x] Sensitive and environment-specific information is not checked into git repository (6)
 * [x] There is no default for any password, access key, private key or any other credential (6)
 * [x] Written in a language and framework from the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) page[^1] (3, 5)
@@ -107,37 +107,35 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   * -> https://github.com/folio-org/edge-users/blob/d54683f11d95f9fecf0652f03ff2755c2f800792/descriptors/ModuleDescriptor-template.json
 * [x] For each consumed API the module descriptor MUST include the interface requirement in the `"requires"` or `"optional"` section (3, 5)
   * _This is not applicable to libraries_
-  * -> https://github.com/folio-org/edge-users/blob/d54683f11d95f9fecf0652f03ff2755c2f800792/descriptors/ModuleDescriptor-template.json need to list all used APIs. Some are missing:
-    * -> https://github.com/folio-org/edge-users/blob/78755deb5adf411ff2a35c4b931cb51f81d242fe/src/main/java/org/folio/edge/users/client/FeesFinesClient.java#L12
-    * -> https://github.com/folio-org/edge-users/blob/d54683f11d95f9fecf0652f03ff2755c2f800792/src/main/java/org/folio/edge/users/client/PatronBlocksClient.java#L11
+  * -> During TCR review missing APIs have been added to module descriptor.
 * [x] Module includes executable implementations of all endpoints in the provides section of the Module Descriptor
-* [ ] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
-  * [ ] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
-  * [ ] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
-  * [ ] [Variable names follow standardized naming conventions](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#2.-Naming-Conventions)
-  * [ ] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
-  * [ ] [No sensitive information logged during startup configuration logging](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#6.1-Startup-Configuration-Logging)
-  * -> SECURE_STORE_PROPS in https://github.com/folio-org/edge-users/blob/master/ENV_VARS.md lacks the information that the default expects a mount at /usr/verticles/src/main/resources/ephemeral.properties
-* [ ] If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)
-* [ ] All API endpoints are documented in OpenAPI (11)
+* [x] Environment variables comply with [FOLIO Policy](https://folio-org.atlassian.net/wiki/x/NYCgTg) (5, 11)
+  * [x] [All environment variables documented in ModuleDescriptor with required fields](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#3.3-ModuleDescriptor-Enhancement)
+  * [x] [Variables properly classified as required or optional](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.-Required-vs.-Optional-Variables)
+  * [x] [Variable names follow standardized naming conventions](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#2.-Naming-Conventions)
+  * [x] [Module implements proper startup behavior](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#4.2-Startup-Behavior)
+  * [x] [No sensitive information logged during startup configuration logging](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables#6.1-Startup-Configuration-Logging)
+  * -> During TCR review SECURE_STORE_PROPS's default mount point has been added to description.
+* [x] ~If a module provides interfaces intended to be consumed by other FOLIO Modules, they must be defined in the Module Descriptor "provides" section, and must conform to FOLIO [interface naming conventions](https://dev.folio.org/guidelines/naming-conventions/#interfaces) (3, 5)~
+* [x] All API endpoints are documented in OpenAPI (11)
   * For existing module evaluation: RMB-based modules may continue using RAML instead.
-* [ ] All API endpoints protected with appropriate permissions as per the [Permission Naming Guidelines](https://folio-org.atlassian.net/wiki/x/BgDtY), e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)
-* [ ] Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)
-* [ ] If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
+* [x] ~All API endpoints protected with appropriate permissions as per the [Permission Naming Guidelines](https://folio-org.atlassian.net/wiki/x/BgDtY), e.g. avoid using *.all permissions, all necessary module permissions are assigned, etc. (6)~
+* [x] ~Module provides reference data (if applicable), e.g. if there is a controlled vocabulary where the module requires at least one value (3, 16)~
+* [x] ~If provided, integration (API) tests must be written in an [officially supported technology](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)~
   * -_note: while it's strongly recommended that modules implement integration tests, it's not a requirement_
   * -_note: these tests are defined in https://github.com/folio-org/folio-integration-tests_
-* [ ] Data is segregated by tenant at the storage layer (6, 7)
-* [ ] The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)
-* [ ] Any dependencies, other than on defined interfaces, are declared in the README.md.
-* [ ] The module responds with a tenant’s content based on x-okapi-tenant header (7)
-* [ ] Standard GET /admin/health endpoint returning a 200 response (5)
+* [x] ~Data is segregated by tenant at the storage layer (6, 7)~
+* [x] ~The module doesn’t access data in DB schemas other than its own and public. Exception: [FOLIO Query Machine](https://folio-org.atlassian.net/wiki/spaces/TC/pages/852852742/0011-Folio+Query+Machine+FQM) and its modules are the mechanism through which we provide read access across DB storage boundaries. (6, 7)~
+* [x] ~Any dependencies, other than on defined interfaces, are declared in the README.md.~
+* [x] ~The module responds with a tenant’s content based on x-okapi-tenant header (7)~
+* [x] Standard GET /admin/health endpoint returning a 200 response (5)
   * -_note: read more at https://wiki.folio.org/display/DD/Back+End+Module+Health+Check+Protocol_
-* [ ] High Availability (HA) compliant (5, 14, 15)
+* [x] High Availability (HA) compliant (5, 14, 15)
   * Possible red flags:
     * Connection affinity / sticky sessions / etc. are used
     * Local container storage is used
     * Services are stateful
-* [ ] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
+* [x] Module only uses infrastructure / platform technologies on the [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) list.[^1]
   * _e.g. PostgreSQL, ElasticSearch, etc._ (3, 5, 12)
 
 ## TCR Process Improvements
