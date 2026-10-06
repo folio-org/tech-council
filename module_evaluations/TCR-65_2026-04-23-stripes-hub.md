@@ -58,10 +58,9 @@ Use these conventions to indicate the status of each criterion.
 
 ### Shared/Common
 * [x] Uses Apache 2.0 license (2)
-* [ ] Module build MUST produce a valid module descriptor (3, 5)
+* [x] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-  * No module descriptor but dependencies on FOLIO APIs listed in package.json
-* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
+* [x] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
   * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
   * LGPL consideration:
     * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
@@ -84,10 +83,9 @@ Use these conventions to indicate the status of each criterion.
 * [x] Must not depend on a FOLIO library that has not been approved through the TCR process
 * [x] Gracefully handles the absence of third party systems or related configuration. (3, 5, 12)
   * _Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy._
-* [ ] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
+* [x] Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   * See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details.
   * [Sonarqube overview](https://sonarcloud.io/project/overview?id=org.folio%3Astripes-hub)
-    * [High severity issue](https://sonarcloud.io/project/issues?impactSoftwareQualities=SECURITY&issueStatuses=OPEN%2CCONFIRMED&id=org.folio%3Astripes-hub) identified regarding data sanitization.
 * [x] Uses [officially supported](https://wiki.folio.org/display/TC/Officially+Supported+Technologies) build tools (3, 5, 13)
 * [x] Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://wiki.folio.org/display/TC/Officially+Supported+Technologies)[^1] (3, 4)
 * [x] ~Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)~
