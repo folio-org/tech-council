@@ -36,4 +36,12 @@ As the purveyors of the Apache License, the Apache Software Foundation (ASF) is 
 
 The FOLIO Project is using the ASF 3rd Party License Policy as the basis of its own policy to avoid duplicative work. FOLIO's deviations from ASF's policy reflect the project's interpretation of the Apache License in consultation with its own legal counsel. These deviations cater to FOLIO's unique needs and operational requirements. They also take into account the specific legal considerations, risks, and compliance requirements associated with the project's use of third-party open-source components. The FOLIO Project must balance legal integrity with its spirit of openness, collaboration, and contribution, all within the Apache License's framework, which necessitates slight deviations from the ASF's policy.
 
+## Example for appropriate and prominent label for Category B license
 
+ASF 3rd Party License Policy mandates that there is an [appropriate and prominent label for each Category B license](https://www.apache.org/legal/resolved.html#appropriately-labelled-condition).
+
+Example: https://github.com/folio-org/mod-notes#license
+
+In this example the label is appropriate because it mentions that the Category B licenses are significantly different from the Apache license.
+
+And the label is prominent because it is in a sub-section of the License section, and it is in the top level README.md file.
