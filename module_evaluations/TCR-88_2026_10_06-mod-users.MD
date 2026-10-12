@@ -176,12 +176,13 @@ The MODUSERS-335 commit describes changes intended to ensure that, during a tena
 
 ## 8. Integration tests and testing technology
 
-**Assessment: Integration tests are present; official support status requires confirmation.**
+**Assessment: Integration tests are present; official support status and test execution results require confirmation.**
 
-Evidence:
+**Evidence:**
 
 * [Integration-test directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/test/java/org/folio/moduserstest)
 * [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml)
+* [UserOutboxProcessIT.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/test/java/org/folio/moduserstest/UserOutboxProcessIT.java)
 
 The inspected test directory includes:
 
@@ -193,20 +194,14 @@ The inspected test directory includes:
 * `ProxyRelationshipsIT.java`
 * `UserOutboxProcessIT.java`
 
-The Maven configuration declares:
+The Maven configuration declares JUnit BOM version `6.0.3`, JUnit Jupiter API and Engine, JUnit Jupiter parameter support, Testcontainers JUnit Jupiter, Testcontainers LocalStack, and JUnit Vintage Engine.
 
-* JUnit BOM version `6.0.3`
-* JUnit Jupiter API and Engine
-* JUnit Jupiter parameter support
-* Testcontainers JUnit Jupiter
-* Testcontainers LocalStack
-* JUnit Vintage Engine
+The inspected tests use established Java testing frameworks and Testcontainers. `UserOutboxProcessIT` exercises successful Kafka user-event processing and a nonexistent-tenant error scenario.
 
-The tests use established Java testing frameworks and Testcontainers. The review also identified tests that exercise Kafka event publishing and database error handling.
+**Finding:** Integration-test classes and their supporting test dependencies are present. The inspected outbox integration test provides evidence of testing both a successful event-processing scenario and an error scenario.
 
-**Finding:** Integration tests and their supporting test dependencies are present.
+**Limitation:** The presence of test classes and dependency declarations does not establish that the complete test suite passes. The official FOLIO support status of the testing technologies has not been independently confirmed against the applicable technology list or integration-test guidance.
 
-**Limitation:** Dependency declarations do not prove that all tests pass, and the official FOLIO support status of the testing technology has not been independently confirmed against the applicable technology list or integration-test guidance.
 
 ## 9. Tenant data segregation at the storage layer
 
