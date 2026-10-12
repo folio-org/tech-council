@@ -156,34 +156,23 @@ The reviewed descriptor also defines the user-settings and custom-fields interfa
 
 **Assessment: Evidence supports compliance; installation and upgrade behavior not fully verified.**
 
-Evidence:
+**Evidence:**
 
 * [Reference-data directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources/ref-data)
 * [Address-type reference data](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources/ref-data/addresstypes-15.4.0)
 * [User-group reference data](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources/ref-data/groups-17.3.0)
+* [TenantRefAPI.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/rest/impl/TenantRefAPI.java)
 * [MODUSERS-335 commit](https://github.com/folio-org/mod-users/commit/4961efbc818afc06de5dd9b198550c67a9c7aba8)
 
-The module includes these address-type reference-data files:
+The module includes address-type reference-data files (`claim.json`, `home.json`, `order.json`, `payment.json`, `returns.json`, and `work.json`) and user-group reference-data files (`faculty.json`, `graduate.json`, `staff.json`, and `undergraduate.json`).
 
-* `claim.json`
-* `home.json`
-* `order.json`
-* `payment.json`
-* `returns.json`
-* `work.json`
+In `TenantRefAPI.loadData()`, reference data is added to the tenant-loading process conditionally, using `isNew()` to evaluate feature versions. Address types are associated with version `15.4.0`, and user groups with version `17.3.0`. The method separately configures sample-data loading. The `isNew()` helper treats a null `moduleFrom` as a new installation and otherwise delegates version comparison to `Versioned.isNewForThisInstall()`.
 
-The user-group reference-data directory contains:
+The MODUSERS-335 commit describes changes intended to ensure that, during a tenant upgrade, only reference or sample data that has changed is installed or restored.
 
-* `faculty.json`
-* `graduate.json`
-* `staff.json`
-* `undergraduate.json`
+**Finding:** The reference-data files and `TenantRefAPI` implementation provide evidence of version-aware, conditional reference-data loading. The implementation is consistent with the stated goal of avoiding unnecessary reference-data reloads during upgrades.
 
-The associated commit, MODUSERS-335, describes changes intended to install or restore only reference or sample data that has changed during a tenant upgrade.
-
-**Finding:** Reference-data files are present and their purpose is consistent with the criterion.
-
-**Limitation:** The review did not test reference-data installation, restoration, or upgrade behavior. Full runtime compliance is therefore not independently established.
+**Limitation:** The underlying `TenantLoading` behavior and actual installation or upgrade results have not been independently verified. The review therefore does not establish that existing tenant-customized records are always preserved or that all upgrade scenarios behave correctly.
 
 ## 8. Integration tests and testing technology
 
