@@ -57,12 +57,9 @@ The repository contains `PERSONAL_DATA_DISCOSURE.md`, which appears to be a miss
 
 This apparent inconsistency needs review. The disclosure should accurately describe the personal data the module stores or processes.
 
-**Recommended actions:**
+Recommended action: Rename PERSONAL_DATA_DISCOSURE.md to PERSONAL_DATA_DISCLOSURE.md so the file uses the expected filename. Review the disclosure content to ensure it accurately describes the personal data collected, stored, and processed by mod-users. Re-run the Technical Council module evaluation to confirm whether S005 passes after the correction.
 
-1. Review the existing disclosure for completeness and accuracy.
-2. Correct the filename to `PERSONAL_DATA_DISCLOSURE.md`.
-3. Verify that the content accurately reflects the module's behavior.
-4. Rerun the automated evaluation to confirm that S005 is resolved.
+Current status: Failed by the automated evaluator due to the missing expected filename. The filename correction and subsequent evaluator result have not yet been verified.
 
 ## 4. S010 — Runtime dependencies and configuration
 
