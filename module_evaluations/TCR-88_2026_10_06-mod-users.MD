@@ -87,6 +87,8 @@ The automated evaluator identified unresolved runtime-dependency and configurati
 
 **HTTP-client evidence:** `HttpClientFactory` creates and caches `VertxOkapiHttpClient` instances. The client configures timeouts for GET, POST, and DELETE requests, returns HTTP status codes and response bodies, and logs request paths. PUT does not explicitly set a timeout in the inspected method. The inspected code does not establish whether all callers handle asynchronous failures and unsuccessful HTTP responses appropriately; caller-level handling remains to be verified.
 
+**Kafka outbox integration-test evidence:** `UserOutboxProcessIT` verifies that triggering outbox processing publishes a user CREATE event to the expected Kafka topic and checks event headers and the personal-data-changed flag. A separate test verifies that triggering processing for a nonexistent tenant returns HTTP 500 and produces no event on the expected topic. These tests do not establish behavior during Kafka broker outages or failed event publishing, nor whether outbox records are retained or retried after publishing failures.
+
 **Recommended action:** Retain manual-review status until the outstanding runtime scenarios have been tested or otherwise verified. The evidence collected does not, by itself, establish a confirmed S010 defect.
 
 ## 5. API permissions
