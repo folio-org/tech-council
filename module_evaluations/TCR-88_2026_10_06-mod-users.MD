@@ -238,11 +238,12 @@ The integration-test setup also initializes `OkapiHeaders` with `TENANT_NAME` an
 
 **Assessment: No violation identified in the inspected result; complete module-wide verification remains outstanding.**
 
-The repository search for `public.` identified one result:
+**Evidence:**
 
 * [create_configuration_table.sql](https://github.com/folio-org/mod-users/blob/58eb337e7f89667037e88f297db8fcdd44ebdda8/src/main/resources/templates/db_scripts/create_configuration_table.sql#L4)
+* `RecordRepositoryImpl.java`
 
-The supplied SQL snippet includes:
+The repository search for the literal string `public.` returned one result in `create_configuration_table.sql`. The supplied SQL snippet includes:
 
 ```sql
 new_uuid UUID := public.uuid_generate_v4();
@@ -254,13 +255,13 @@ and:
 id uuid PRIMARY KEY DEFAULT public.uuid_generate_v4()
 ```
 
-These references call the UUID-generation function in the `public` schema, which is permitted by the criterion. The shown table is named `configuration` without a different schema prefix.
+These references invoke the UUID-generation function in the `public` schema, which is permitted by the criterion. The shown table is named `configuration` without a different schema prefix.
 
-No `public.` matches were found in `RecordRepositoryImpl.java`.
+The search found no `public.` matches in `RecordRepositoryImpl.java`.
 
-**Finding:** The reviewed evidence does not identify a cross-schema access violation.
+**Finding:** The inspected evidence does not identify a cross-schema access violation.
 
-**Limitation:** Searching for the literal string `public.` is not exhaustive proof that the module never accesses other schemas. A broader review of SQL scripts, query construction, and database operations would be required for full verification.
+**Limitation:** Searching for the literal string `public.` does not exhaustively establish that the module avoids prohibited cross-schema access. SQL scripts, dynamically constructed queries, and other database operations have not been comprehensively reviewed.
 
 ## 11. Dependency documentation in README
 
