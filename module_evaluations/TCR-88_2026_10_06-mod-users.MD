@@ -78,10 +78,7 @@ The automated evaluator identified unresolved runtime-dependency and configurati
 
 ### Outstanding questions
 
-* Handling of missing or invalid database, Kafka, and AWS configuration has not been fully verified.
-* Dedicated tests for profile-picture storage failure scenarios were not identified during this review.
-* HTTP-client failure behavior has not been comprehensively verified.
-* Kafka consumer startup failures require further investigation. In `AbstractConsumersVerticle.java`, the completion callback for `Future.all(futures)` completes the startup promise without explicitly propagating the aggregate failure. This warrants targeted testing and review.
+* Kafka consumer startup failure handling requires further investigation. In `AbstractConsumersVerticle.java`, the completion callback for `Future.all(futures)` completes the startup promise without explicitly propagating the aggregate failure. This is a potential concern that should be verified against the surrounding startup logic and tested before classifying it as a defect.
 
 **Finding:** The available evidence demonstrates runtime integrations and some error-handling tests, but does not establish satisfactory behavior for every required configuration and failure scenario.
 
