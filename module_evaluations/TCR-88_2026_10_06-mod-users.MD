@@ -370,7 +370,7 @@ A search for `aws` in `pom.xml` did not identify a matching dependency entry. Th
 
 | Criterion                       | Preliminary result                                                        |
 | ------------------------------- | ------------------------------------------------------------------------- |
-| S005 — Personal-data disclosure | **Failed by automated evaluator**; correct filename and review content    |
+| S005 — Personal-data disclosure | **Passed by automated evaluator on fork `master`**; disclosure content still warrants review|
 | S010 — Runtime dependencies     | **Manual review required**                                                |
 | API permissions                 | Evidence supports inspected endpoints; full verification outstanding      |
 | Module descriptor               | Manual review; no confirmed defect                                        |
