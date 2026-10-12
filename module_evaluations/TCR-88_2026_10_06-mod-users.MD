@@ -91,6 +91,8 @@ The automated evaluator identified unresolved runtime-dependency and configurati
 
 **Outbox failure-handling evidence:** `UserOutboxService.processOutboxEventLogs()` processes records inside `PostgresClient.withTrans(...)`, joins the Kafka publishing futures, and only then attempts to delete the corresponding outbox records. A publishing failure should prevent the deletion step from running. Transaction rollback and subsequent retry behavior have not been independently verified, so retention and retry after Kafka failure remain to be confirmed.
 
+**Profile-picture storage failure handling:** `ProfilePictureStorage.storeProfilePictureInObjectStorage()` writes and updates profile pictures in object storage and catches exceptions, returning HTTP 404 for a specific missing-object case and HTTP 500 for other storage errors. The inspected implementation provides explicit error responses, but automated test coverage for these failure paths has not been established. The exception handler also assumes `e.getMessage()` is non-null; whether that assumption is safe remains unverified.
+
 **Recommended action:** Retain manual-review status until the outstanding runtime scenarios have been tested or otherwise verified. The evidence collected does not, by itself, establish a confirmed S010 defect.
 
 ## 5. API permissions
