@@ -89,6 +89,8 @@ The automated evaluator identified unresolved runtime-dependency and configurati
 
 **Kafka outbox integration-test evidence:** `UserOutboxProcessIT` verifies that triggering outbox processing publishes a user CREATE event to the expected Kafka topic and checks event headers and the personal-data-changed flag. A separate test verifies that triggering processing for a nonexistent tenant returns HTTP 500 and produces no event on the expected topic. These tests do not establish behavior during Kafka broker outages or failed event publishing, nor whether outbox records are retained or retried after publishing failures.
 
+**Outbox failure-handling evidence:** `UserOutboxService.processOutboxEventLogs()` processes records inside `PostgresClient.withTrans(...)`, joins the Kafka publishing futures, and only then attempts to delete the corresponding outbox records. A publishing failure should prevent the deletion step from running. Transaction rollback and subsequent retry behavior have not been independently verified, so retention and retry after Kafka failure remain to be confirmed.
+
 **Recommended action:** Retain manual-review status until the outstanding runtime scenarios have been tested or otherwise verified. The evidence collected does not, by itself, establish a confirmed S010 defect.
 
 ## 5. API permissions
