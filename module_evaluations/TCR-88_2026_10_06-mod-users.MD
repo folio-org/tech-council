@@ -150,6 +150,8 @@ The deployment descriptor identifies the Java command used to launch the module.
 
 **Finding:** The reviewed files provide evidence of alignment between the descriptor and substantial parts of the implementation. A complete endpoint-by-endpoint and permission-by-permission comparison has not been performed.
 
+The reviewed descriptor also defines the user-settings and custom-fields interfaces. The inspected custom-fields collection PUT handler requires `user-settings.custom-fields.collection.put`; that permission is declared in `permissionSets` and included in the `user-settings.custom-fields.all` composite permission. The user-settings handlers similarly use individual permissions grouped by `users.settings.all`.
+
 ## 7. Reference data
 
 **Assessment: Evidence supports compliance; installation and upgrade behavior not fully verified.**
