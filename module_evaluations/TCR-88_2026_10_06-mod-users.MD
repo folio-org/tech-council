@@ -85,6 +85,8 @@ The automated evaluator identified unresolved runtime-dependency and configurati
 
 **Finding:** The available evidence demonstrates runtime integrations and some error-handling tests, but does not establish satisfactory behavior for every required configuration and failure scenario.
 
+**HTTP-client evidence:** `HttpClientFactory` creates and caches `VertxOkapiHttpClient` instances. The client configures timeouts for GET, POST, and DELETE requests, returns HTTP status codes and response bodies, and logs request paths. PUT does not explicitly set a timeout in the inspected method. The inspected code does not establish whether all callers handle asynchronous failures and unsuccessful HTTP responses appropriately; caller-level handling remains to be verified.
+
 **Recommended action:** Retain manual-review status until the outstanding runtime scenarios have been tested or otherwise verified. The evidence collected does not, by itself, establish a confirmed S010 defect.
 
 ## 5. API permissions
