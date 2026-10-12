@@ -97,35 +97,42 @@ The automated evaluator identified unresolved runtime-dependency and configurati
 
 ## 5. API permissions
 
-**Assessment: Evidence supports compliance in the inspected interfaces; complete verification remains outstanding.**
+**Status: Manual review required**
 
-Evidence:
+### Evidence
 
-* [Module descriptor](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
-* [Users RAML](https://github.com/folio-org/mod-users/tree/v19.6.2/ramls)
+The `descriptors/ModuleDescriptor-template.json` file defines permission sets and API handler mappings through `permissionsRequired`, `permissionsDesired`, and, for selected handlers, `modulePermissions`.
 
-The module descriptor declares API interfaces and permission requirements for the inspected endpoints, including:
+The inspected handler mappings cover:
 
-* `users`
-* `custom-fields`
-* `patron-pin`
-* `user-tenants`
-* `staging-users`
-* `users.settings`
+* **User records:** Collection and item reads, creation, updates, and deletion.
+* **Profile pictures:** GET, POST, PUT, and DELETE operations.
+* **User groups, address types, proxy relationships, and departments:** Collection and item operations.
+* **Custom fields:** Collection and item operations, statistics, and option statistics.
+* **Patron PINs:** Creation, deletion, and verification.
+* **User settings:** Collection and item reads, creation, updates, and deletion.
 
-The reviewed handlers generally specify individual permissions through `permissionsRequired`. Some GET user endpoints also declare `permissionsDesired`, including `users.basic-read.execute` and `users.restricted-read.execute`.
+The inspected `permissionsRequired` entries correspond to permission names declared in `permissionSets` for the operations reviewed.
 
-The descriptor contains composite permissions such as `users.all`, `users.settings.all`, and `user-settings.custom-fields.all`. The presence of composite permissions does not itself demonstrate a violation: the inspected handlers use individual permissions rather than requiring a broad `*.all` permission for every endpoint.
+The composite permission `users.all` groups permissions for user records and several related interfaces, including user groups, address types, proxies, departments, patron PINs, tenant affiliations, profile pictures, and user settings. The composite permission `user-settings.custom-fields.all` separately groups eight custom-field permissions. The custom-field permission `user-settings.custom-fields.item.post` was verified as both individually declared and included in the composite permission.
 
-The DELETE user endpoint also declares module permissions associated with manual blocks.
+The `/users` and `/users/{id}` handlers declare `users.basic-read.execute` and `users.restricted-read.execute` under `permissionsDesired`, while requiring their respective collection or item permissions. The distinction between endpoint access and restricted-field access requires further review.
 
-### Limitations
+The user-delete handler additionally declares `manualblocks.collection.get` and `manualblocks.item.delete` under `modulePermissions`.
 
-* A complete endpoint-by-endpoint comparison against the permission naming guidelines was not performed.
-* The authorization behavior of system interfaces, including `_tenant` and `_timer`, was not independently verified.
-* The review did not establish that every endpoint is protected appropriately under all runtime conditions.
+The RAML `validate` trait includes a 422 validation-error response. The inspected trait does not itself establish authorization enforcement.
 
-**Finding:** No confirmed permission defect was identified in the inspected descriptor entries. Further verification is required before declaring full compliance.
+### Outstanding review items
+
+* Verify runtime enforcement of the declared permissions.
+* Determine how basic-read and restricted-read permissions control access to user fields.
+* Confirm completeness and consistency of permission declarations across all handlers, including all 55 occurrences of `permissionsRequired`.
+* Review the purpose and enforcement of additional `modulePermissions`.
+* Confirm the intended scope of the `users.all` and `user-settings.custom-fields.all` composite permissions.
+
+### Assessment
+
+The inspected descriptor provides substantial evidence of explicit API permission mappings and consistency between selected handler requirements, individual permission declarations, and composite permissions. However, descriptor declarations alone do not establish correct runtime authorization or field-level protection. Further review is required before this criterion can be considered complete.
 
 ## 6. Module descriptor and deployment descriptor
 
