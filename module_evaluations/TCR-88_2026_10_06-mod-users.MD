@@ -267,23 +267,29 @@ The search found no `public.` matches in `RecordRepositoryImpl.java`.
 
 **Assessment: Manual review required; no confirmed violation.**
 
-Evidence:
+**Evidence:**
 
 * [README.md](https://github.com/folio-org/mod-users/blob/v19.6.2/README.md)
-* [Module descriptor](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
+* [ModuleDescriptor-template.json](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
 
 The module descriptor declares optional dependencies on:
 
 * `feesfines`, version `19.1`
 * `configuration`, version `2.0`
 
-The README documents profile-picture configuration through the `users.settings` interface and legacy configuration endpoints. It also describes S3-compatible object-storage configuration.
+The README documents profile-picture configuration through the `users.settings` interface and legacy configuration endpoints. It also describes configuration for S3-compatible object storage.
 
-However, no explicit dependency section was identified, and the README does not mention `feesfines` in the location searched. The occurrence of the word `configuration` relates to configuration documentation and does not necessarily document the separate module dependency.
+No explicit dependency section was identified in the reviewed README content. The searched location did not mention `feesfines`. References to configuration in the README concern application configuration and do not, by themselves, establish that the separate `configuration` module dependency is documented.
 
-**Finding:** The evidence is insufficient to determine whether all dependencies outside defined interfaces are adequately documented.
+**Finding:** The inspected evidence does not establish whether all dependencies requiring documentation are adequately covered by the README.
 
-**Recommended action:** Verify which dependencies are covered by defined interfaces and whether any additional dependencies require explicit README documentation.
+**Outstanding review:**
+
+* Determine which dependencies are covered by the module’s defined interfaces.
+* Identify any dependencies outside those interfaces that require explicit documentation.
+* Check whether the README documents those dependencies and their purpose.
+
+**Recommended action:** Complete the dependency-to-interface comparison before determining whether this criterion is satisfied.
 
 ## 12. Tenant-specific responses and `x-okapi-tenant`
 
