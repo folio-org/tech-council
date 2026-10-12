@@ -60,6 +60,7 @@ This apparent inconsistency needs review. The disclosure should accurately descr
 Recommended action: Rename PERSONAL_DATA_DISCOSURE.md to PERSONAL_DATA_DISCLOSURE.md so the file uses the expected filename. Review the disclosure content to ensure it accurately describes the personal data collected, stored, and processed by mod-users. Re-run the Technical Council module evaluation to confirm whether S005 passes after the correction.
 
 Current status: Failed by the automated evaluator due to the missing expected filename. The filename correction and subsequent evaluator result have not yet been verified.
+The module transmits user personal data through Kafka events. The inspected consortium-user DTO includes user identifiers, names, email addresses, and phone numbers. The inspected event path does not establish whether free-form text fields are transmitted; this remains to be verified.
 
 ## 4. S010 — Runtime dependencies and configuration
 
