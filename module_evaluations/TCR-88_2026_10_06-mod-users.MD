@@ -262,33 +262,18 @@ The search found no `public.` matches in `RecordRepositoryImpl.java`.
 
 **Limitation:** Searching for the literal string `public.` does not exhaustively establish that the module avoids prohibited cross-schema access. SQL scripts, dynamically constructed queries, and other database operations have not been comprehensively reviewed.
 
-## 11. Dependency documentation in README
+## 11. ### Dependency documentation
 
-**Assessment: Manual review required; no confirmed violation.**
+**Assessment: Manual review required.**
 
-**Evidence:**
+**Evidence:** The module descriptor identifies `feesfines` and `configuration` as optional dependencies. The README content reviewed documents profile-picture configuration and S3-compatible storage but does not explicitly explain the `feesfines` dependency.
 
-* [README.md](https://github.com/folio-org/mod-users/blob/v19.6.2/README.md)
-* [ModuleDescriptor-template.json](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
+**Finding:** The documentation requirement for dependencies outside defined interfaces has not been fully determined. The absence of an explanation in the reviewed README content does not, by itself, establish a violation.
 
-The module descriptor declares optional dependencies on:
+**Recommended follow-up:** Confirm which dependency documentation requirements apply to `mod-users` and whether the `feesfines` dependency needs additional explanation.
 
-* `feesfines`, version `19.1`
-* `configuration`, version `2.0`
+**Status:** Manual review required.
 
-The README documents profile-picture configuration through the `users.settings` interface and legacy configuration endpoints. It also describes configuration for S3-compatible object storage.
-
-No explicit dependency section was identified in the reviewed README content. The searched location did not mention `feesfines`. References to configuration in the README concern application configuration and do not, by themselves, establish that the separate `configuration` module dependency is documented.
-
-**Finding:** The inspected evidence does not establish whether all dependencies requiring documentation are adequately covered by the README.
-
-**Outstanding review:**
-
-* Determine which dependencies are covered by the module’s defined interfaces.
-* Identify any dependencies outside those interfaces that require explicit documentation.
-* Check whether the README documents those dependencies and their purpose.
-
-**Recommended action:** Complete the dependency-to-interface comparison before determining whether this criterion is satisfied.
 
 ## 12. Tenant-specific responses and `x-okapi-tenant`
 
