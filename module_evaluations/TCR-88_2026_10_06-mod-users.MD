@@ -318,16 +318,19 @@ The setup then passes the headers into module initialization.
 
 **Assessment: Manual verification required; endpoint not confirmed.**
 
-The search for `/admin/health` did not find a match in:
+**Evidence:**
 
 * [ModuleDescriptor-template.json](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
 * [AbstractRestTest.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/test/java/org/folio/moduserstest/AbstractRestTest.java)
+* Build configuration identifying `org.folio.rest.RestLauncher` and `org.folio.rest.RestVerticle` as application entry points.
 
-The build configuration identifies `org.folio.rest.RestLauncher` and `org.folio.rest.RestVerticle` as the application entry points. This indicates the use of shared FOLIO REST infrastructure, but does not establish that the health endpoint is present or returns HTTP 200.
+The search for `/admin/health` did not identify a match in the inspected module descriptor or integration-test setup.
 
-**Finding:** The required endpoint has not been confirmed from the evidence examined.
+The build configuration identifies the shared FOLIO REST infrastructure as part of the application startup. However, this evidence alone does not establish that the required health endpoint is available or returns HTTP 200.
 
-**Recommended action:** Run a request to `GET /admin/health` against a deployed module or inspect the relevant shared REST infrastructure to verify that the endpoint exists and returns HTTP 200.
+**Finding:** The required health endpoint has not been confirmed by the evidence examined. This is an unverified requirement, not a confirmed implementation defect.
+
+**Recommended action:** Verify `GET /admin/health` against a deployed instance of `mod-users` and confirm that it returns HTTP 200. Alternatively, inspect the relevant shared REST infrastructure and establish that the endpoint is provided for this module.
 
 ## 14. High availability
 
