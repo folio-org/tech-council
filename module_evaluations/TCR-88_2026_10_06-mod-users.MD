@@ -295,24 +295,24 @@ No explicit dependency section was identified in the reviewed README content. Th
 
 **Assessment: Evidence supports tenant-aware test setup; response behavior remains unverified.**
 
-Evidence:
+**Evidence:**
 
 * [AbstractRestTest.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/test/java/org/folio/moduserstest/AbstractRestTest.java)
 
-The test setup contains:
+The test setup initializes `OkapiHeaders` and a PostgreSQL client with the same tenant identifier:
 
 ```java
 okapiHeaders = new OkapiHeaders(wireMockUrl, TENANT_NAME, token);
 postgresClient = PostgresClient.getInstance(vertx, TENANT_NAME);
 ```
 
-It then passes the headers into module initialization.
+The setup then passes the headers into module initialization.
 
-**Finding:** The test setup is tenant-aware and uses a tenant-specific database client.
+**Finding:** The inspected test setup is tenant-aware and configures a database client for the specified tenant.
 
-**Limitation:** The reviewed snippet does not explicitly show the outgoing `x-okapi-tenant` HTTP header or prove that requests from two different tenants return only the appropriate tenant's data.
+**Limitation:** This evidence does not independently establish that outgoing HTTP requests include the expected `x-okapi-tenant` header or that responses contain only data belonging to the requested tenant. Cross-tenant response isolation has not been demonstrated by the inspected snippet.
 
-**Recommended action:** Verify request-header construction and add or inspect cross-tenant integration tests that demonstrate tenant-specific results.
+**Recommended action:** Inspect how `OkapiHeaders` constructs request headers and review or perform integration tests using two tenants to verify that each tenant receives only its own data.
 
 ## 13. Standard health endpoint
 
