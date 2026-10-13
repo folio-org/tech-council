@@ -60,34 +60,39 @@ The module's user-event implementation also warrants review. The inspected code 
 
 ## 4. S010 — Runtime dependencies and configuration
 
-**Assessment: Manual review required.**
+**Assessment: Manual review required.** The inspected code demonstrates explicit propagation of database and Kafka write failures in several paths. Runtime dependency behavior is not fully verified, including configuration-absent scenarios, object-storage failures, producer cleanup, and the intended behavior when Kafka publishing is disabled.
 
-The automated evaluator identified unresolved runtime-dependency and configuration scenarios involving AWS, PostgreSQL, Kafka, object storage, and HTTP clients.
+**Evidence reviewed**
 
-### Evidence reviewed
+1. **Configuration declarations:** `descriptors/ModuleDescriptor-template.json` declares configuration inputs for database connectivity, Kafka, and object storage. The descriptor alone does not establish which settings are mandatory at runtime or how the module behaves when they are absent or invalid.
 
-* `src/main/java/org/folio/verticle/AbstractConsumersVerticle.java` initializes Kafka consumers.
-* `src/main/java/org/folio/event/service/UserOutboxService.java` handles user-event outbox operations.
-* `src/test/java/org/folio/moduserstest/UserOutboxProcessIT.java` tests Kafka event publishing and error handling.
-* `src/test/java/org/folio/moduserstest/UsersAPIIT.java` includes `canHandleDatabaseException()`, which induces a database constraint violation and expects HTTP 500.
-* `src/test/java/org/folio/service/UsersSettingsServiceTest.java` tests profile-picture configuration behavior, including invalid settings.
-* `src/main/java/org/folio/service/storage/ProfilePictureStorage.java` implements database and object-storage functionality.
+2. **HTTP client behavior:** `HttpClientFactory.java` creates and caches a `VertxOkapiHttpClient` per Vert.x instance. `VertxOkapiHttpClient.java` applies explicit timeouts to several request methods and converts responses to the wrapper's response model. Error interpretation and recovery are handled in part by callers; timeout behavior and failure handling across all HTTP operations have not been fully verified.
 
-### Outstanding questions
+3. **HTTP response handling:** `ResponseInterpreter.java` converts unsuccessful HTTP responses into `HttpException` failures. `FeesFinesModuleClientImpl.java` logs and propagates failures in the inspected operations rather than silently recovering them.
 
-* Kafka consumer startup failure handling requires further investigation. In `AbstractConsumersVerticle.java`, the completion callback for `Future.all(futures)` completes the startup promise without explicitly propagating the aggregate failure. This is a potential concern that should be verified against the surrounding startup logic and tested before classifying it as a defect.
+4. **Database failures:** `RecordRepositoryImpl.java` uses `getAsyncResultHandler` for the inspected read and update operations. `ResultHandlerUtils.java` completes the promise successfully when the asynchronous operation succeeds and fails it with the original cause when the operation fails. This supports failure propagation in the reviewed repository paths; it does not establish how every database failure is ultimately translated into an API response.
 
-**Finding:** The available evidence demonstrates runtime integrations and some error-handling tests, but does not establish satisfactory behavior for every required configuration and failure scenario.
+5. **Object-storage failures:** `ProfilePictureStorage.java` catches exceptions in the inspected object-storage operations and translates them into API responses. The reviewed code can return `404` for some caught failures, including failures in retrieving a presigned URL or fetching the image. Further review is needed to establish whether storage outages and other infrastructure failures are classified appropriately. The exception-handling assumptions and timeout behavior also warrant verification.
 
-**HTTP-client evidence:** `HttpClientFactory` creates and caches `VertxOkapiHttpClient` instances. The client configures timeouts for GET, POST, and DELETE requests, returns HTTP status codes and response bodies, and logs request paths. PUT does not explicitly set a timeout in the inspected method. The inspected code does not establish whether all callers handle asynchronous failures and unsuccessful HTTP responses appropriately; caller-level handling remains to be verified.
+6. **Kafka write failures:** `UserEventProducer.java` checks the result of `producer.write(...)`. On failure, it logs the error and fails the returned future with the original cause. The inspected `getKafkaFutures(...)` and `processOutboxEventLogs(...)` methods compose these futures before attempting outbox deletion. Under standard Vert.x future-composition behavior, a failed send should fail this chain and prevent the subsequent deletion step.
 
-**Kafka outbox integration-test evidence:** `UserOutboxProcessIT` verifies that triggering outbox processing publishes a user CREATE event to the expected Kafka topic and checks event headers and the personal-data-changed flag. A separate test verifies that triggering processing for a nonexistent tenant returns HTTP 500 and produces no event on the expected topic. These tests do not establish behavior during Kafka broker outages or failed event publishing, nor whether outbox records are retained or retried after publishing failures.
+7. **Kafka disabled behavior:** The default `UserEventProducer` constructor obtains its enablement setting from `KafkaConfigSingleton.INSTANCE.isKafkaEnabled()`. When publishing is disabled, `sendUserEvent(...)` returns a successful future containing `false`. The inspected outbox-processing code does not inspect individual Boolean results before deriving event IDs for deletion. The intended behavior when Kafka is disabled, and whether outbox records should be retained in that situation, remain to be verified.
 
-**Outbox failure-handling evidence:** `UserOutboxService.processOutboxEventLogs()` processes records inside `PostgresClient.withTrans(...)`, joins the Kafka publishing futures, and only then attempts to delete the corresponding outbox records. A publishing failure should prevent the deletion step from running. Transaction rollback and subsequent retry behavior have not been independently verified, so retention and retry after Kafka failure remain to be confirmed.
+8. **Producer cleanup:** `sendToKafka(...)` calls `producer.end()` after the write completes and calls `producer.close()` on successful completion of `end()`. The inspected code does not establish how cleanup is handled if ending the producer fails.
 
-**Profile-picture storage failure handling:** `ProfilePictureStorage.storeProfilePictureInObjectStorage()` writes and updates profile pictures in object storage and catches exceptions, returning HTTP 404 for a specific missing-object case and HTTP 500 for other storage errors. The inspected implementation provides explicit error responses, but automated test coverage for these failure paths has not been established. The exception handler also assumes `e.getMessage()` is non-null; whether that assumption is safe remains unverified.
+**Finding**
 
-**Recommended action:** Retain manual-review status until the outstanding runtime scenarios have been tested or otherwise verified. The evidence collected does not, by itself, establish a confirmed S010 defect.
+The inspected paths provide evidence of explicit failure propagation for database operations and Kafka writes. They do not establish complete runtime resilience across all dependencies or configuration states. The Kafka-disabled outbox behavior, object-storage error classification, and producer cleanup require further verification before a definitive compliance conclusion can be made.
+
+**Recommended follow-up**
+
+* Verify required and optional configuration settings and behavior when settings are missing or invalid.
+* Confirm the intended outbox behavior when Kafka publishing is disabled, including whether events should remain available for later delivery.
+* Verify object-storage error classification and timeout behavior.
+* Confirm producer cleanup when `end()` fails.
+* Review remaining database and HTTP client failure paths, including how failures are ultimately surfaced to API callers.
+
+**Status: Manual review required.**
 
 ## 5. API permissions
 
