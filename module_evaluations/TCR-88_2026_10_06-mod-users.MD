@@ -16,7 +16,7 @@ The review identified evidence supporting several criteria, while others require
 
 ### Principal findings
 
-1. **Personal-data disclosure (S005):** The automated evaluator reported a failure because `PERSONAL_DATA_DISCLOSURE.md` was not found. A similarly named file, `PERSONAL_DATA_DISCOSURE.md`, exists but has a misspelled filename. Its content also needs review for accuracy.
+1. **S005 — Personal-data disclosure:** Manual review required. The evaluator found and parsed `PERSONAL_DATA_DISCLOSURE.md`, but skipped semantic review because agent review was disabled or unconfigured. The disclosure's accuracy and completeness still require human review.
 2. **Runtime dependencies (S010):** The automated evaluator requires manual review. Evidence exists for PostgreSQL, Kafka, AWS-compatible object storage, and HTTP-client integrations, but runtime configuration and failure-handling coverage is incomplete.
 3. **API permissions:** The module descriptor contains permission requirements for the inspected endpoints. No confirmed permission defect was identified, but full endpoint coverage has not been established.
 4. **Reference data and integration tests:** Reference-data files and integration-test classes are present. The actual reference-data installation behavior and the official support status of the testing technology need further verification.
