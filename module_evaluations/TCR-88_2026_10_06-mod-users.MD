@@ -388,23 +388,24 @@ A search for `aws` in `pom.xml` did not identify a matching dependency entry. Th
 
 ## 16. Consolidated status
 
-| Criterion                       | Preliminary result                                                        |
-| ------------------------------- | ------------------------------------------------------------------------- |
-| S005 — Personal-data disclosure | **Manual review required**; the evaluator found and parsed `PERSONAL_DATA_DISCLOSURE.md`, but skipped the semantic review because agent review was disabled or unconfigured. The disclosure content still warrants review.|
-| S010 — Runtime dependencies     | **Manual review required**                                                |
-| API permissions                 | Evidence supports inspected endpoints; full verification outstanding      |
-| Module descriptor               | Manual review; no confirmed defect                                        |
-| Reference data                  | Evidence supports compliance; loading and upgrade behavior untested       |
-| Integration tests               | Tests and dependencies present; official support status to confirm        |
-| Tenant storage isolation        | Tenant-aware database access observed; full isolation unverified          |
-| Database schema access          | No violation identified in reviewed result; broader verification needed   |
-| Dependency documentation        | Manual review required                                                    |
-| Tenant-specific responses       | Tenant-aware setup observed; cross-tenant behavior unverified             |
-| `/admin/health`                 | Endpoint not confirmed                                                    |
-| High availability               | Reviewed storage path supports compliance; module-wide review outstanding |
-| Supported technologies          | Manual verification required                                              |
+| **Criterion**                   | **Preliminary result**                                                                                                                                                                                                 |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| S005 — Personal-data disclosure | **Manual review required.** The evaluator found and parsed `PERSONAL_DATA_DISCLOSURE.md`, but skipped semantic review because agent review was disabled or unconfigured. The disclosure content still requires review. |
+| S010 — Runtime dependencies     | **Manual review required.** Configuration declarations, HTTP client behavior, and selected error-handling paths were inspected; runtime behavior and failure handling remain incompletely verified.                    |
+| API permissions                 | Permission declarations and selected endpoint mappings were inspected; complete authorization and field-level protection remain unverified.                                                                            |
+| Module descriptor               | **Manual review required.** The inspected descriptor and implementation provide evidence of alignment; a complete endpoint-by-endpoint comparison has not been performed.                                              |
+| Reference data                  | Version-aware reference-data loading is supported by the inspected implementation; actual installation, upgrade, and preservation of tenant-customized records remain untested.                                        |
+| Integration tests               | Integration-test classes and supporting dependencies are present. Complete test execution results and official technology support status remain unverified.                                                            |
+| Tenant storage isolation        | Tenant-aware database access was observed; full tenant isolation has not been independently verified.                                                                                                                  |
+| Database schema access          | No violation was identified in the inspected results; broader verification of SQL scripts and database operations remains outstanding.                                                                                 |
+| Dependency documentation        | **Manual review required.** The documentation requirement for dependencies outside defined interfaces has not been fully determined.                                                                                   |
+| Tenant-specific responses       | Tenant-aware test setup was observed; request-header behavior and cross-tenant response isolation remain unverified.                                                                                                   |
+| `/admin/health`                 | The required endpoint and its HTTP 200 response have not been confirmed.                                                                                                                                               |
+| High availability               | The reviewed profile-picture storage path uses object storage; module-wide high-availability behavior remains unverified.                                                                                              |
+| Supported technologies          | **Manual verification required.** Dependency versions were identified, but compliance with the applicable official FOLIO supported-technologies requirements has not been established.                                 |
 
-These results describe the evidence collected during this review. A preliminary result of “evidence supports compliance” should not be treated as equivalent to a complete test-based verification.
+These results summarize the evidence collected during this review. They are preliminary assessments, not declarations of complete compliance. A finding that evidence supports compliance in a particular area should not be interpreted as complete verification through testing or exhaustive source review. Items marked as unverified or requiring manual review should remain open until sufficient evidence is collected.
+
 
 ## 17. Recommended follow-up actions
 
