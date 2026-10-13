@@ -204,7 +204,7 @@ The inspected tests use established Java testing frameworks and Testcontainers. 
 
 ## 9. Tenant data segregation at the storage layer
 
-**Assessment: Evidence supports tenant-aware database access; full isolation remains unverified.**
+****Assessment: Manual review required.** The inspected code selects tenant-specific PostgreSQL clients in `RecordRepositoryImpl.java`, `UserOutboxService.java`, and `ProfilePictureStorage.java`. `UserOutboxService.java` derives the tenant ID from the Okapi headers, while `AbstractRestTest.java` initializes its test client and headers using the same tenant (`diku`). These findings support tenant-aware client selection in the reviewed paths but do not demonstrate cross-tenant isolation. No explicit test comparing access across two different tenants was identified in the reviewed results. Further verification is required; no tenant-isolation violation has been established.
 
 Evidence:
 
