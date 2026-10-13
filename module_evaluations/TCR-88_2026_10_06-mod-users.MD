@@ -43,26 +43,20 @@ Evidence was gathered by inspecting source files and configuration in the `v19.6
 
 ## 3. S005 — Personal-data disclosure
 
-**Assessment: Failed by the automated evaluator; remediation recommended.**
+**Assessment: Manual review required; semantic compliance has not been verified.**
 
-**Automated finding:** The required top-level `PERSONAL_DATA_DISCLOSURE.md` file was not found.
+**Evidence:**
 
-Evidence:
+The evaluator found and parsed `PERSONAL_DATA_DISCLOSURE.md`. The evaluation output indicates that semantic review was skipped because agent review was disabled or unconfigured.
 
-* [Expected disclosure filename](https://github.com/folio-org/mod-users/blob/v19.6.2/PERSONAL_DATA_DISCLOSURE.md)
-* [Existing misspelled disclosure file](https://github.com/folio-org/mod-users/blob/v19.6.2/PERSONAL_DATA_DISCOSURE.md)
-* [Module repository](https://github.com/folio-org/mod-users/tree/v19.6.2)
+The presence and successful parsing of the disclosure file establish that the expected artifact was found, but do not establish that its contents accurately disclose all relevant personal-data collection, processing, storage, sharing, and retention practices.
 
-The repository contains `PERSONAL_DATA_DISCOSURE.md`, which appears to be a misspelling of the expected filename. The existing disclosure states that no personal data is stored or processed while listing fields such as names, addresses, telephone numbers, email addresses, user identifiers, enrollment information, external IDs, and profile pictures.
+The module's user-event implementation also warrants review. The inspected code constructs user-event data from a user DTO that includes identifying and contact fields when personal information is present. The disclosure should be checked against the actual fields and data flows involved.
 
-This apparent inconsistency needs review. The disclosure should accurately describe the personal data the module stores or processes.
+**Finding:** The required disclosure artifact is present and parseable, but its substantive accuracy and completeness have not been verified.
 
-Recommended action: Rename PERSONAL_DATA_DISCOSURE.md to PERSONAL_DATA_DISCLOSURE.md so the file uses the expected filename. Review the disclosure content to ensure it accurately describes the personal data collected, stored, and processed by mod-users. Re-run the Technical Council module evaluation to confirm whether S005 passes after the correction.
+**Recommended action:** Manually compare the disclosure with the module's implementation and relevant data flows. Confirm that the documented practices accurately describe the personal data processed and transmitted by the module before marking S005 as satisfied.
 
-Current status: Failed by the automated evaluator due to the missing expected filename. The filename correction and subsequent evaluator result have not yet been verified.
-The module transmits user personal data through Kafka events. The inspected consortium-user DTO includes user identifiers, names, email addresses, and phone numbers. The inspected event path does not establish whether free-form text fields are transmitted; this remains to be verified.
-
-The module logs a `CustomField` object at INFO level in `RecordServiceImpl.retrieveStatistic()`. The contents of the logged object have not been verified, so potential personal-data exposure through this log statement remains under review.
 
 ## 4. S010 — Runtime dependencies and configuration
 
