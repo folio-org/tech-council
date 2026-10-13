@@ -405,7 +405,7 @@ These results summarize the evidence collected during this review. They are prel
 
 Prioritize the following work:
 
-1. **Resolve S005:** Correct the disclosure filename, verify its contents, and rerun the automated evaluator.
+1. * **S005 — Personal-data disclosure:** Manually review `PERSONAL_DATA_DISCLOSURE.md` against the module's implementation and data flows. Confirm the disclosure is accurate and complete before marking the criterion as satisfied.
 2. **Complete S010 review:** Investigate configuration-absent scenarios, HTTP-client failures, object-storage failures, database failures, and Kafka consumer startup failures.
 3. **Verify `/admin/health`:** Confirm the endpoint returns HTTP 200 in a deployed environment or through the applicable shared infrastructure.
 4. **Verify tenant isolation:** Confirm the tenant header reaches database operations and inspect cross-tenant integration tests.
