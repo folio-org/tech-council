@@ -400,12 +400,11 @@ A search for `aws` in `pom.xml` did not identify a matching dependency entry. Th
 
 These results summarize the evidence collected during this review. They are preliminary assessments, not declarations of complete compliance. A finding that evidence supports compliance in a particular area should not be interpreted as complete verification through testing or exhaustive source review. Items marked as unverified or requiring manual review should remain open until sufficient evidence is collected.
 
-
 ## 17. Recommended follow-up actions
 
 Prioritize the following work:
 
-1. * **S005 — Personal-data disclosure:** Manually review `PERSONAL_DATA_DISCLOSURE.md` against the module's implementation and data flows. Confirm the disclosure is accurate and complete before marking the criterion as satisfied.
+1. **S005 — Personal-data disclosure:** Manually review `PERSONAL_DATA_DISCLOSURE.md` against the module's implementation and data flows. Confirm the disclosure is accurate and complete before marking the criterion as satisfied.
 2. **Complete S010 review:** Investigate configuration-absent scenarios, HTTP-client failures, object-storage failures, database failures, and Kafka consumer startup failures.
 3. **Verify `/admin/health`:** Confirm the endpoint returns HTTP 200 in a deployed environment or through the applicable shared infrastructure.
 4. **Verify tenant isolation:** Confirm the tenant header reaches database operations and inspect cross-tenant integration tests.
