@@ -339,7 +339,6 @@ No `FileOutputStream` match was found in the reviewed file.
 
 * [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml)
 * [ProfilePictureStorage.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/service/storage/ProfilePictureStorage.java)
-* **Java version:** `pom.xml` sets `<java.version>21</java.version>`. The `mod-users` repository lists Java 21 JDK as a prerequisite, and the FOLIO Technical Council's Trillium backend technology guidance specifies Java 21 / JDK 21. This supports alignment on Java version, but does not establish compliance for every dependency or technology used by the module.
 
 
 The reviewed files identify the following infrastructure technologies and dependencies:
@@ -351,6 +350,8 @@ The reviewed files identify the following infrastructure technologies and depend
 | FOLIO Kafka wrapper          | `org.folio:folio-kafka-wrapper`, version `4.0.0`                                              |
 | Apache Kafka client          | `org.apache.kafka:kafka-clients`, version `4.2.0`                                             |
 | S3-compatible storage        | `FolioS3ClientFactory` and `FolioS3Client` used in profile-picture storage                    |
+* | Java | `pom.xml` sets `java.version` to `21`; the repository lists Java 21 JDK as a prerequisite, and FOLIO Trillium guidance specifies Java 21 / JDK 21. This supports alignment on Java version only. |
+
 
 A search for `aws` in `pom.xml` did not identify a matching dependency entry. This does not establish that AWS-compatible storage is absent; the relevant library may use a different artifact name or be supplied transitively.
 
