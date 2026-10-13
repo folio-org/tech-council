@@ -313,23 +313,15 @@ The setup then passes the headers into module initialization.
 
 **Recommended action:** Inspect how `OkapiHeaders` constructs request headers and review or perform integration tests using two tenants to verify that each tenant receives only its own data.
 
-## 13. Standard health endpoint
+### `/admin/health` endpoint
 
-**Assessment: Manual verification required; endpoint not confirmed.**
+**Assessment: Test evidence identified; execution status unverified.**
 
-**Evidence:**
+**Evidence:** `src/test/java/org/folio/rest/InstallUpgradeIT.java`, line 78, contains a `health()` integration test that sends a GET request to `/admin/health` and asserts HTTP status `200` and response body `"OK"`.
 
-* [ModuleDescriptor-template.json](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
-* [AbstractRestTest.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/test/java/org/folio/moduserstest/AbstractRestTest.java)
-* Build configuration identifying `org.folio.rest.RestLauncher` and `org.folio.rest.RestVerticle` as application entry points.
+**Finding:** The test explicitly verifies the required endpoint and expected response. The available evidence does not establish whether this test was successfully executed in the evaluated version.
 
-The search for `/admin/health` did not identify a match in the inspected module descriptor or integration-test setup.
-
-The build configuration identifies the shared FOLIO REST infrastructure as part of the application startup. However, this evidence alone does not establish that the required health endpoint is available or returns HTTP 200.
-
-**Finding:** The required health endpoint has not been confirmed by the evidence examined. This is an unverified requirement, not a confirmed implementation defect.
-
-**Recommended action:** Verify `GET /admin/health` against a deployed instance of `mod-users` and confirm that it returns HTTP 200. Alternatively, inspect the relevant shared REST infrastructure and establish that the endpoint is provided for this module.
+**Status:** The endpoint requirement is covered by an integration test; successful execution remains unverified.
 
 ## 14. High availability
 
