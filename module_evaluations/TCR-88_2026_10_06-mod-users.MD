@@ -359,26 +359,32 @@ No `FileOutputStream` match was found in the reviewed file.
 
 **Assessment: Manual verification required.**
 
-Evidence:
+**Evidence:**
 
 * [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml)
 * [ProfilePictureStorage.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/service/storage/ProfilePictureStorage.java)
 
-The following dependencies or versions were identified:
+The reviewed files identify the following infrastructure technologies and dependencies:
 
-| Technology or dependency | Evidence                                                                                      |
-| ------------------------ | --------------------------------------------------------------------------------------------- |
-| Vert.x                   | `vertx-stack-depchain`, version `5.0.10`                                                      |
-| PostgreSQL testing       | `org.folio:postgres-testing`, test scope, version managed by `${raml-module-builder.version}` |
-| FOLIO Kafka wrapper      | `org.folio:folio-kafka-wrapper`, version `4.0.0`                                              |
-| Apache Kafka client      | `org.apache.kafka:kafka-clients`, version `4.2.0`                                             |
-| S3-compatible storage    | `FolioS3ClientFactory` and `FolioS3Client` used in profile-picture storage                    |
+| **Technology or dependency** | **Evidence**                                                                                  |
+| ---------------------------- | --------------------------------------------------------------------------------------------- |
+| Vert.x                       | `vertx-stack-depchain`, version `5.0.10`                                                      |
+| PostgreSQL testing           | `org.folio:postgres-testing`, test scope, version managed by `${raml-module-builder.version}` |
+| FOLIO Kafka wrapper          | `org.folio:folio-kafka-wrapper`, version `4.0.0`                                              |
+| Apache Kafka client          | `org.apache.kafka:kafka-clients`, version `4.2.0`                                             |
+| S3-compatible storage        | `FolioS3ClientFactory` and `FolioS3Client` used in profile-picture storage                    |
 
-A search for `aws` in `pom.xml` did not identify a matching dependency entry. This does not establish that AWS-compatible storage is absent; the relevant library may have another artifact name or be supplied transitively.
+A search for `aws` in `pom.xml` did not identify a matching dependency entry. This does not establish that AWS-compatible storage is absent; the relevant library may use a different artifact name or be supplied transitively.
 
-**Finding:** The reviewed files identify several infrastructure technologies, but their versions have not been compared against the official FOLIO supported-technologies list.
+**Finding:** The reviewed files identify several infrastructure technologies and dependency versions. Their compliance with the official FOLIO supported-technologies requirements has not been established.
 
-**Recommended action:** Compare the effective production dependency tree, including transitive dependencies, with the supported-technologies list applicable to this module version. Confirm whether the AWS-compatible storage integration uses an approved library and supported configuration.
+**Recommended action:**
+
+* Compare the effective production dependency tree, including transitive dependencies, with the official supported-technologies list applicable to this module version.
+* Confirm the resolved versions of dependencies managed through Maven properties and dependency management.
+* Verify that the S3-compatible storage integration uses an approved library and supported configuration.
+
+**Limitation:** Dependency declarations alone do not establish that the technologies are officially supported or that the deployed runtime uses the expected versions.
 
 ## 16. Consolidated status
 
