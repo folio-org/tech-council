@@ -389,13 +389,20 @@ These results summarize the evidence collected during this review. They are prel
 
 Prioritize the following work:
 
-1. **S005 — Personal-data disclosure:** Manually review `PERSONAL_DATA_DISCLOSURE.md` against the module's implementation and data flows. Confirm the disclosure is accurate and complete before marking the criterion as satisfied.
+1. **S005 — Personal-data disclosure:** Manually review `PERSONAL_DATA_DISCLOSURE.md` against the module's implementation and data flows. Confirm that the disclosure is accurate and complete before marking the criterion as satisfied.
+
 2. **Complete S010 runtime-dependency verification:** Verify required and optional configuration behavior; confirm Kafka-disabled outbox handling; review object-storage error classification and timeout behavior; verify producer cleanup when `end()` fails; and inspect remaining HTTP and database failure paths.
-3. **Verify `/admin/health`:** Confirm the endpoint returns HTTP 200 in a deployed environment or through the applicable shared infrastructure.
+
+3. **Verify `/admin/health` test execution:** The `InstallUpgradeIT.java` integration test asserts that GET `/admin/health` returns HTTP 200 and body `"OK"`. Confirm that the test passes in the applicable test environment or verify the endpoint in a deployed environment.
+
 4. **Verify tenant isolation:** Review or add tests using two distinct tenant IDs to confirm that requests and database operations for one tenant cannot access another tenant's records. The inspected code shows tenant-aware client selection, but cross-tenant isolation remains unverified.
-5. **Verify dependency documentation:** Determine whether `feesfines` and `configuration` require explicit documentation beyond their declared interfaces.
-6. **Compare supported technologies:** Check the effective dependency tree against the official FOLIO support list.
-7. **Complete the remaining manual checks:** Confirm full API permission coverage, database schema access, reference-data upgrade behavior, and HA-related behavior.
+
+5. **Complete dependency documentation review:** Confirm the applicable documentation requirements for the optional `feesfines` and `configuration` dependencies. The reviewed README content does not explicitly explain the `feesfines` dependency, but no violation has been established.
+
+6. **Complete supported-technologies verification:** Java 21 aligns with the cited FOLIO Trillium backend technology guidance. Compare the effective production dependency tree, including transitive dependencies and resolved versions, against the official supported-technologies requirements applicable to this module version. Verify the S3-compatible storage library as well.
+
+7. **Complete the remaining manual checks:** Confirm full API permission coverage, database schema access, reference-data installation and upgrade behavior—including preservation of tenant-customized records—and high-availability behavior across the module.
+
 
 ## 18. References
 
