@@ -1,29 +1,30 @@
-v3 mod-users
-
 # Technical Council Module Evaluation: mod-users
 
 **Module:** `mod-users`
 **Version reviewed:** `v19.6.2`
 **Evaluation date:** October 9, 2026
 **Repository:** [folio-org/mod-users](https://github.com/folio-org/mod-users/tree/v19.6.2)
-**Acceptance criteria:** [FOLIO Technical Council Module Acceptance Criteria](https://github.com/folio-org/tech-council/blob/master/MODULE_ACCEPTANCE_CRITERIA.MD)
+**Acceptance criteria:** [FOLIO Technical Council Module Acceptance Criteria](https://github.com/folio-org/tech-council)
 
 ## 1. Executive summary
 
-This evaluation reviews selected backend-module acceptance criteria for FOLIO's `mod-users` module at version `v19.6.2`. The review used the module source code, Maven configuration, module and deployment descriptors, integration-test files, README, and automated evaluation results.
+This evaluation reviews selected backend-module acceptance criteria for FOLIO's `mod-users` module at version `v19.6.2`. The review used module source code, Maven configuration, module and deployment descriptors, integration-test files, the README, and automated evaluation results.
 
 The review identified evidence supporting several criteria, while others require additional verification.
 
 ### Principal findings
 
 1. **S005 — Personal-data disclosure:** Manual review required. The evaluator found and parsed `PERSONAL_DATA_DISCLOSURE.md`, but skipped semantic review because agent review was disabled or unconfigured. The disclosure's accuracy and completeness still require human review.
-2. **Runtime dependencies (S010):** The automated evaluator requires manual review. Evidence exists for PostgreSQL, Kafka, AWS-compatible object storage, and HTTP-client integrations, but runtime configuration and failure-handling coverage is incomplete.
-3. **API permissions:** The module descriptor contains permission requirements for the inspected endpoints. No confirmed permission defect was identified, but full endpoint coverage has not been established.
-4. **Reference data and integration tests:** Reference-data files and integration-test classes are present. The actual reference-data installation behavior and the official support status of the testing technology need further verification.
-5. **Tenant isolation:** The reviewed repository methods consistently pass a tenant ID to `PostgresClient`. This supports tenant-aware access but does not independently prove complete storage-layer isolation.
-6. **Health endpoint and supported technologies:** The standard health endpoint was not confirmed in the files examined, and the identified technology versions have not been compared against the official supported-technologies list.
+2. **S010 — Runtime dependencies:** Manual review required. Inspected database and Kafka write paths demonstrate explicit failure propagation in several cases. Configuration-absent behavior, object-storage error classification, Kafka-disabled outbox processing, producer cleanup, and remaining failure paths require further verification.
+3. **API permissions:** The module descriptor contains permission requirements for the inspected endpoints. Full endpoint coverage, runtime authorization, and field-level protection remain unverified.
+4. **Module descriptor and reference data:** The inspected descriptor and implementation provide evidence of alignment, and the reference-data loader supports version-aware loading. Complete descriptor comparison and actual installation and upgrade behavior remain unverified.
+5. **Integration tests:** Integration-test classes and supporting dependencies are present. The presence of tests does not establish that the full suite passes or that every testing technology meets the applicable official support requirements.
+6. **Tenant isolation and tenant-specific responses:** The inspected code and test setup demonstrate tenant-aware client selection. Complete cross-tenant isolation and outgoing request-header behavior remain unverified.
+7. **Database schema access and dependency documentation:** No violation was identified in the inspected database-schema results. The applicable dependency-documentation requirements need further clarification.
+8. **Health endpoint:** `InstallUpgradeIT.java` contains a test asserting that GET `/admin/health` returns HTTP 200 and body `"OK"`. Successful execution of the test remains unverified.
+9. **High availability and supported technologies:** The reviewed profile-picture storage path uses object storage. Java 21 aligns with the cited FOLIO Trillium backend technology guidance, but module-wide HA behavior and compliance of all relevant dependencies with official supported-technologies requirements remain unverified.
 
-**Overall conclusion:** This is a preliminary evidence-based review, not a declaration that all acceptance criteria have passed. No additional confirmed defect should be inferred from a criterion marked for manual verification.
+**Overall conclusion:** This is a preliminary, evidence-based review, not a declaration that all acceptance criteria have passed. A criterion marked for manual verification should remain open until sufficient evidence has been collected.
 
 ## 2. Review scope and methodology
 
@@ -36,16 +37,16 @@ The review covered these areas:
 * Dependency documentation.
 * Tenant-specific request handling.
 * Health endpoint availability.
-* High availability considerations.
+* High-availability considerations.
 * Infrastructure and platform technologies.
 
-Evidence was gathered by inspecting source files and configuration in the `v19.6.2` repository. Where a conclusion depended on behavior that could not be established from the inspected code, the criterion is marked for manual verification.
+Evidence was gathered by inspecting source files and configuration in the `v19.6.2` repository. Where a conclusion depended on behavior that could not be established from the inspected code, the criterion is marked for manual review or verification.
 
 ## 3. S005 — Personal-data disclosure
 
 **Assessment: Manual review required; semantic compliance has not been verified.**
 
-**Evidence:**
+### Evidence
 
 The evaluator found and parsed `PERSONAL_DATA_DISCLOSURE.md`. The evaluation output indicates that semantic review was skipped because agent review was disabled or unconfigured.
 
@@ -53,16 +54,21 @@ The presence and successful parsing of the disclosure file establish that the ex
 
 The module's user-event implementation also warrants review. The inspected code constructs user-event data from a user DTO that includes identifying and contact fields when personal information is present. The disclosure should be checked against the actual fields and data flows involved.
 
-**Finding:** The required disclosure artifact is present and parseable, but its substantive accuracy and completeness have not been verified.
+### Finding
 
-**Recommended action:** Manually compare the disclosure with the module's implementation and relevant data flows. Confirm that the documented practices accurately describe the personal data processed and transmitted by the module before marking S005 as satisfied.
+The required disclosure artifact is present and parseable, but its substantive accuracy and completeness have not been verified.
 
+### Recommended action
+
+Manually compare the disclosure with the module's implementation and relevant data flows. Confirm that the documented practices accurately describe the personal data processed and transmitted by the module before marking S005 as satisfied.
+
+**Status: Manual review required.**
 
 ## 4. S010 — Runtime dependencies and configuration
 
 **Assessment: Manual review required.** The inspected code demonstrates explicit propagation of database and Kafka write failures in several paths. Runtime dependency behavior is not fully verified, including configuration-absent scenarios, object-storage failures, producer cleanup, and the intended behavior when Kafka publishing is disabled.
 
-**Evidence reviewed**
+### Evidence reviewed
 
 1. **Configuration declarations:** `descriptors/ModuleDescriptor-template.json` declares configuration inputs for database connectivity, Kafka, and object storage. The descriptor alone does not establish which settings are mandatory at runtime or how the module behaves when they are absent or invalid.
 
@@ -72,19 +78,19 @@ The module's user-event implementation also warrants review. The inspected code 
 
 4. **Database failures:** `RecordRepositoryImpl.java` uses `getAsyncResultHandler` for the inspected read and update operations. `ResultHandlerUtils.java` completes the promise successfully when the asynchronous operation succeeds and fails it with the original cause when the operation fails. This supports failure propagation in the reviewed repository paths; it does not establish how every database failure is ultimately translated into an API response.
 
-5. **Object-storage failures:** `ProfilePictureStorage.java` catches exceptions in the inspected object-storage operations and translates them into API responses. The reviewed code can return `404` for some caught failures, including failures in retrieving a presigned URL or fetching the image. Further review is needed to establish whether storage outages and other infrastructure failures are classified appropriately. The exception-handling assumptions and timeout behavior also warrant verification.
+5. **Object-storage failures:** `ProfilePictureStorage.java` catches exceptions in the inspected object-storage operations and translates them into API responses. The reviewed code can return `404` for some caught failures, including failures in retrieving a presigned URL or fetching the image. Further review is needed to establish whether storage outages and other infrastructure failures are classified appropriately. Exception-handling assumptions and timeout behavior also warrant verification.
 
 6. **Kafka write failures:** `UserEventProducer.java` checks the result of `producer.write(...)`. On failure, it logs the error and fails the returned future with the original cause. The inspected `getKafkaFutures(...)` and `processOutboxEventLogs(...)` methods compose these futures before attempting outbox deletion. Under standard Vert.x future-composition behavior, a failed send should fail this chain and prevent the subsequent deletion step.
 
-7. **Kafka disabled behavior:** The default `UserEventProducer` constructor obtains its enablement setting from `KafkaConfigSingleton.INSTANCE.isKafkaEnabled()`. When publishing is disabled, `sendUserEvent(...)` returns a successful future containing `false`. The inspected outbox-processing code does not inspect individual Boolean results before deriving event IDs for deletion. The intended behavior when Kafka is disabled, and whether outbox records should be retained in that situation, remain to be verified.
+7. **Kafka-disabled behavior:** The default `UserEventProducer` constructor obtains its enablement setting from `KafkaConfigSingleton.INSTANCE.isKafkaEnabled()`. When publishing is disabled, `sendUserEvent(...)` returns a successful future containing `false`. The inspected outbox-processing code does not inspect individual Boolean results before deriving event IDs for deletion. The intended behavior when Kafka is disabled, and whether outbox records should be retained in that situation, remain to be verified.
 
 8. **Producer cleanup:** `sendToKafka(...)` calls `producer.end()` after the write completes and calls `producer.close()` on successful completion of `end()`. The inspected code does not establish how cleanup is handled if ending the producer fails.
 
-**Finding**
+### Finding
 
 The inspected paths provide evidence of explicit failure propagation for database operations and Kafka writes. They do not establish complete runtime resilience across all dependencies or configuration states. The Kafka-disabled outbox behavior, object-storage error classification, and producer cleanup require further verification before a definitive compliance conclusion can be made.
 
-**Recommended follow-up**
+### Recommended follow-up
 
 * Verify required and optional configuration settings and behavior when settings are missing or invalid.
 * Confirm the intended outbox behavior when Kafka publishing is disabled, including whether events should remain available for later delivery.
@@ -96,7 +102,7 @@ The inspected paths provide evidence of explicit failure propagation for databas
 
 ## 5. API permissions
 
-**Status: Manual review required**
+**Assessment: Manual review required.**
 
 ### Evidence
 
@@ -104,12 +110,12 @@ The `descriptors/ModuleDescriptor-template.json` file defines permission sets an
 
 The inspected handler mappings cover:
 
-* **User records:** Collection and item reads, creation, updates, and deletion.
-* **Profile pictures:** GET, POST, PUT, and DELETE operations.
-* **User groups, address types, proxy relationships, and departments:** Collection and item operations.
-* **Custom fields:** Collection and item operations, statistics, and option statistics.
-* **Patron PINs:** Creation, deletion, and verification.
-* **User settings:** Collection and item reads, creation, updates, and deletion.
+* User records: collection and item reads, creation, updates, and deletion.
+* Profile pictures: GET, POST, PUT, and DELETE operations.
+* User groups, address types, proxy relationships, and departments: collection and item operations.
+* Custom fields: collection and item operations, statistics, and option statistics.
+* Patron PINs: creation, deletion, and verification.
+* User settings: collection and item reads, creation, updates, and deletion.
 
 The inspected `permissionsRequired` entries correspond to permission names declared in `permissionSets` for the operations reviewed.
 
@@ -129,39 +135,43 @@ The RAML `validate` trait includes a 422 validation-error response. The inspecte
 * Review the purpose and enforcement of additional `modulePermissions`.
 * Confirm the intended scope of the `users.all` and `user-settings.custom-fields.all` composite permissions.
 
-### Assessment
+### Finding
 
 The inspected descriptor provides substantial evidence of explicit API permission mappings and consistency between selected handler requirements, individual permission declarations, and composite permissions. However, descriptor declarations alone do not establish correct runtime authorization or field-level protection. Further review is required before this criterion can be considered complete.
 
+**Status: Manual review required.**
+
 ## 6. Module descriptor and deployment descriptor
 
-**Assessment: Manual review; no confirmed descriptor defect identified.**
+**Assessment: Manual review required; no confirmed descriptor defect identified.**
 
-Evidence:
+### Evidence
 
 * [ModuleDescriptor-template.json](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
 * [DeploymentDescriptor-template.json](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/DeploymentDescriptor-template.json)
-* [UsersAPI.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/rest/impl/UsersAPI.java)
+* `UsersAPI.java`
 
 The module descriptor declares the module name and version, provided interfaces, API handlers, permissions, optional dependencies, and scheduled jobs.
 
 The deployment descriptor identifies the Java command used to launch the module. The reviewed `UsersAPI.java` implementation includes core user operations, profile-picture management, configuration, expiration, and outbox processing.
 
-**Finding:** The reviewed files provide evidence of alignment between the descriptor and substantial parts of the implementation. A complete endpoint-by-endpoint and permission-by-permission comparison has not been performed.
-
 The reviewed descriptor also defines the user-settings and custom-fields interfaces. The inspected custom-fields collection PUT handler requires `user-settings.custom-fields.collection.put`; that permission is declared in `permissionSets` and included in the `user-settings.custom-fields.all` composite permission. The user-settings handlers similarly use individual permissions grouped by `users.settings.all`.
+
+### Finding
+
+The reviewed files provide evidence of alignment between the descriptor and substantial parts of the implementation. A complete endpoint-by-endpoint and permission-by-permission comparison has not been performed.
+
+**Status: Manual review required.**
 
 ## 7. Reference data
 
-**Assessment: Evidence supports compliance; installation and upgrade behavior not fully verified.**
+**Assessment: Evidence supports version-aware loading; installation and upgrade behavior are not fully verified.**
 
-**Evidence:**
+### Evidence
 
-* [Reference-data directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources/ref-data)
-* [Address-type reference data](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources/ref-data/addresstypes-15.4.0)
-* [User-group reference data](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources/ref-data/groups-17.3.0)
-* [TenantRefAPI.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/rest/impl/TenantRefAPI.java)
-* [MODUSERS-335 commit](https://github.com/folio-org/mod-users/commit/4961efbc818afc06de5dd9b198550c67a9c7aba8)
+* [Reference-data directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources)
+* `TenantRefAPI.java`
+* MODUSERS-335 commit
 
 The module includes address-type reference-data files (`claim.json`, `home.json`, `order.json`, `payment.json`, `returns.json`, and `work.json`) and user-group reference-data files (`faculty.json`, `graduate.json`, `staff.json`, and `undergraduate.json`).
 
@@ -169,19 +179,25 @@ In `TenantRefAPI.loadData()`, reference data is added to the tenant-loading proc
 
 The MODUSERS-335 commit describes changes intended to ensure that, during a tenant upgrade, only reference or sample data that has changed is installed or restored.
 
-**Finding:** The reference-data files and `TenantRefAPI` implementation provide evidence of version-aware, conditional reference-data loading. The implementation is consistent with the stated goal of avoiding unnecessary reference-data reloads during upgrades.
+### Finding
 
-**Limitation:** The underlying `TenantLoading` behavior and actual installation or upgrade results have not been independently verified. The review therefore does not establish that existing tenant-customized records are always preserved or that all upgrade scenarios behave correctly.
+The reference-data files and `TenantRefAPI` implementation provide evidence of version-aware, conditional reference-data loading. The implementation is consistent with the stated goal of avoiding unnecessary reference-data reloads during upgrades.
+
+### Limitation
+
+The underlying `TenantLoading` behavior and actual installation or upgrade results have not been independently verified. The review therefore does not establish that existing tenant-customized records are always preserved or that all upgrade scenarios behave correctly.
+
+**Status: Further verification required.**
 
 ## 8. Integration tests and testing technology
 
 **Assessment: Integration tests are present; official support status and test execution results require confirmation.**
 
-**Evidence:**
+### Evidence
 
-* [Integration-test directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/test/java/org/folio/moduserstest)
+* [Integration-test directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/it)
 * [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml)
-* [UserOutboxProcessIT.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/test/java/org/folio/moduserstest/UserOutboxProcessIT.java)
+* `UserOutboxProcessIT.java`
 
 The inspected test directory includes:
 
@@ -197,19 +213,28 @@ The Maven configuration declares JUnit BOM version `6.0.3`, JUnit Jupiter API an
 
 The inspected tests use established Java testing frameworks and Testcontainers. `UserOutboxProcessIT` exercises successful Kafka user-event processing and a nonexistent-tenant error scenario.
 
-**Finding:** Integration-test classes and their supporting test dependencies are present. The inspected outbox integration test provides evidence of testing both a successful event-processing scenario and an error scenario.
+### Finding
 
-**Limitation:** The presence of test classes and dependency declarations does not establish that the complete test suite passes. The official FOLIO support status of the testing technologies has not been independently confirmed against the applicable technology list or integration-test guidance.
+Integration-test classes and their supporting test dependencies are present. The inspected outbox integration test provides evidence of testing both a successful event-processing scenario and an error scenario.
 
+### Limitation
+
+The presence of test classes and dependency declarations does not establish that the complete test suite passes. The official FOLIO support status of the testing technologies has not been independently confirmed against the applicable technology list or integration-test guidance.
+
+**Status: Further verification required.**
 
 ## 9. Tenant data segregation at the storage layer
 
-****Assessment: Manual review required.** The inspected code selects tenant-specific PostgreSQL clients in `RecordRepositoryImpl.java`, `UserOutboxService.java`, and `ProfilePictureStorage.java`. `UserOutboxService.java` derives the tenant ID from the Okapi headers, while `AbstractRestTest.java` initializes its test client and headers using the same tenant (`diku`). These findings support tenant-aware client selection in the reviewed paths but do not demonstrate cross-tenant isolation. No explicit test comparing access across two different tenants was identified in the reviewed results. Further verification is required; no tenant-isolation violation has been established.
+**Assessment: Manual review required.** The inspected code selects tenant-specific PostgreSQL clients in `RecordRepositoryImpl.java`, `UserOutboxService.java`, and `ProfilePictureStorage.java`. `UserOutboxService.java` derives the tenant ID from the Okapi headers, while `AbstractRestTest.java` initializes its test client and headers using the same tenant (`diku`). These findings support tenant-aware client selection in the reviewed paths but do not demonstrate cross-tenant isolation.
 
-Evidence:
+No explicit test comparing access across two different tenants was identified in the reviewed results. Further verification is required; no tenant-isolation violation has been established.
 
-* [RecordRepositoryImpl.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/service/impl/RecordRepositoryImpl.java)
-* [AbstractRestTest.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/test/java/org/folio/moduserstest/AbstractRestTest.java)
+### Evidence
+
+* `RecordRepositoryImpl.java`
+* `AbstractRestTest.java`
+* `UserOutboxService.java`
+* `ProfilePictureStorage.java`
 
 The repository defines:
 
@@ -229,20 +254,26 @@ pgClient(tenantId).update(
 
 The integration-test setup also initializes `OkapiHeaders` with `TENANT_NAME` and obtains a PostgreSQL client for that tenant.
 
-**Finding:** The inspected methods consistently pass a tenant identifier to the database client.
+### Finding
 
-**Limitation:** This evidence does not independently prove the underlying client's isolation guarantees or establish that every database access path is tenant-isolated. Cross-tenant integration tests or equivalent evidence would strengthen the conclusion.
+The inspected methods consistently pass a tenant identifier to the database client.
+
+### Limitation
+
+This evidence does not independently prove the underlying client's isolation guarantees or establish that every database access path is tenant-isolated. Cross-tenant integration tests or equivalent evidence would strengthen the conclusion.
+
+**Status: Manual review required.**
 
 ## 10. Database schema access
 
-**Assessment: No violation identified in the inspected result; complete module-wide verification remains outstanding.**
+**Assessment: No violation identified in the inspected results; complete module-wide verification remains outstanding.**
 
-**Evidence:**
+### Evidence
 
 * [create_configuration_table.sql](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/resources/templates/db_scripts/create_configuration_table.sql#L4)
 * `RecordRepositoryImpl.java`
 
-The repository search for the literal string `public.` returned one result in `create_configuration_table.sql`. The supplied SQL snippet includes:
+The repository search for the literal string `public.` returned one result in `create_configuration_table.sql`. The inspected SQL includes:
 
 ```sql
 new_uuid UUID := public.uuid_generate_v4();
@@ -258,30 +289,41 @@ These references invoke the UUID-generation function in the `public` schema, whi
 
 The search found no `public.` matches in `RecordRepositoryImpl.java`.
 
-**Finding:** The inspected evidence does not identify a cross-schema access violation.
+### Finding
 
-**Limitation:** Searching for the literal string `public.` does not exhaustively establish that the module avoids prohibited cross-schema access. SQL scripts, dynamically constructed queries, and other database operations have not been comprehensively reviewed.
+The inspected evidence does not identify a cross-schema access violation.
 
-## 11. ### Dependency documentation
+### Limitation
+
+Searching for the literal string `public.` does not exhaustively establish that the module avoids prohibited cross-schema access. SQL scripts, dynamically constructed queries, and other database operations have not been comprehensively reviewed.
+
+**Status: No violation identified in the inspected results; further verification required.**
+
+## 11. Dependency documentation
 
 **Assessment: Manual review required.**
 
-**Evidence:** The module descriptor identifies `feesfines` and `configuration` as optional dependencies. The README content reviewed documents profile-picture configuration and S3-compatible storage but does not explicitly explain the `feesfines` dependency.
+### Evidence
 
-**Finding:** The documentation requirement for dependencies outside defined interfaces has not been fully determined. The absence of an explanation in the reviewed README content does not, by itself, establish a violation.
+The module descriptor identifies `feesfines` and `configuration` as optional dependencies. The README content reviewed documents profile-picture configuration and S3-compatible storage but does not explicitly explain the `feesfines` dependency.
 
-**Recommended follow-up:** Confirm which dependency documentation requirements apply to `mod-users` and whether the `feesfines` dependency needs additional explanation.
+### Finding
 
-**Status:** Manual review required.
+The documentation requirement for dependencies outside defined interfaces has not been fully determined. The absence of an explanation in the reviewed README content does not, by itself, establish a violation.
 
+### Recommended follow-up
+
+Confirm which dependency documentation requirements apply to `mod-users` and whether the `feesfines` dependency needs additional explanation.
+
+**Status: Manual review required.**
 
 ## 12. Tenant-specific responses and `x-okapi-tenant`
 
 **Assessment: Evidence supports tenant-aware test setup; response behavior remains unverified.**
 
-**Evidence:**
+### Evidence
 
-* [AbstractRestTest.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/test/java/org/folio/moduserstest/AbstractRestTest.java)
+* `AbstractRestTest.java`
 
 The test setup initializes `OkapiHeaders` and a PostgreSQL client with the same tenant identifier:
 
@@ -292,27 +334,39 @@ postgresClient = PostgresClient.getInstance(vertx, TENANT_NAME);
 
 The setup then passes the headers into module initialization.
 
-**Finding:** The inspected test setup is tenant-aware and configures a database client for the specified tenant.
+### Finding
 
-**Limitation:** This evidence does not independently establish that outgoing HTTP requests include the expected `x-okapi-tenant` header or that responses contain only data belonging to the requested tenant. Cross-tenant response isolation has not been demonstrated by the inspected snippet.
+The inspected test setup is tenant-aware and configures a database client for the specified tenant.
 
-**Recommended action:** Inspect how `OkapiHeaders` constructs request headers and review or perform integration tests using two tenants to verify that each tenant receives only its own data.
+### Limitation
 
-### 13. `/admin/health` endpoint
+This evidence does not independently establish that outgoing HTTP requests include the expected `x-okapi-tenant` header or that responses contain only data belonging to the requested tenant. Cross-tenant response isolation has not been demonstrated by the inspected snippet.
+
+### Recommended action
+
+Inspect how `OkapiHeaders` constructs request headers and review or perform integration tests using two tenants to verify that each tenant receives only its own data.
+
+**Status: Further verification required.**
+
+## 13. `/admin/health` endpoint
 
 **Assessment: Test evidence identified; execution status unverified.**
 
-**Evidence:** `src/test/java/org/folio/rest/InstallUpgradeIT.java`, line 78, contains a `health()` integration test that sends a GET request to `/admin/health` and asserts HTTP status `200` and response body `"OK"`.
+### Evidence
 
-**Finding:** The test explicitly verifies the required endpoint and expected response. The available evidence does not establish whether this test was successfully executed in the evaluated version.
+[`src/test/java/org/folio/rest/InstallUpgradeIT.java`, line 78](https://github.com/folio-org/mod-users/blob/81dc3f46cec3b8950585f9c71a7f7bbee5eceddf/src/test/java/org/folio/rest/InstallUpgradeIT.java#L78) contains a `health()` integration test that sends a GET request to `/admin/health` and asserts HTTP status `200` and response body `"OK"`.
 
-**Status:** The endpoint requirement is covered by an integration test; successful execution remains unverified.
+### Finding
+
+The test explicitly verifies the required endpoint and expected response. The available evidence does not establish whether this test was successfully executed in the evaluated version.
+
+**Status: The endpoint requirement is covered by an integration test; successful execution remains unverified.**
 
 ## 14. High availability
 
 **Assessment: Evidence supports the reviewed storage path; full HA compliance remains unverified.**
 
-**Evidence:**
+### Evidence
 
 * [ProfilePictureStorage.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/service/storage/ProfilePictureStorage.java)
 
@@ -325,49 +379,61 @@ The reviewed object-storage methods:
 
 No `FileOutputStream` match was found in the reviewed file.
 
-**Finding:** The inspected profile-picture storage implementation uses an object-storage client and does not show a dependency on local filesystem persistence for the reviewed operations.
+### Finding
 
-**Limitation:** This evidence does not establish that the entire module avoids local persistent storage, sticky sessions, connection affinity, or other high-availability concerns. The behavior of concurrent requests across multiple module instances has not been tested.
+The inspected profile-picture storage implementation uses an object-storage client and does not show a dependency on local filesystem persistence for the reviewed operations.
 
-**Recommended action:** Review the remaining storage and session-related code for dependencies on local state or instance affinity. Where practical, test concurrent operations across multiple module instances to assess whether the relevant functionality works without relying on a particular instance.
+### Limitation
+
+This evidence does not establish that the entire module avoids local persistent storage, sticky sessions, connection affinity, or other high-availability concerns. The behavior of concurrent requests across multiple module instances has not been tested.
+
+### Recommended action
+
+Review the remaining storage and session-related code for dependencies on local state or instance affinity. Where practical, test concurrent operations across multiple module instances to assess whether the relevant functionality works without relying on a particular instance.
+
+**Status: Further verification required.**
 
 ## 15. Officially supported infrastructure and platform technologies
 
 **Assessment: Manual verification required.**
 
-**Evidence:**
+### Evidence
 
 * [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml)
 * [ProfilePictureStorage.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/service/storage/ProfilePictureStorage.java)
 
-
 The reviewed files identify the following infrastructure technologies and dependencies:
 
-| **Technology or dependency** | **Evidence**                                                                                  |
-| ---------------------------- | --------------------------------------------------------------------------------------------- |
-| Vert.x                       | `vertx-stack-depchain`, version `5.0.10`                                                      |
-| PostgreSQL testing           | `org.folio:postgres-testing`, test scope, version managed by `${raml-module-builder.version}` |
-| FOLIO Kafka wrapper          | `org.folio:folio-kafka-wrapper`, version `4.0.0`                                              |
-| Apache Kafka client          | `org.apache.kafka:kafka-clients`, version `4.2.0`                                             |
-| S3-compatible storage        | `FolioS3ClientFactory` and `FolioS3Client` used in profile-picture storage                    |
-| Java | `pom.xml` sets `java.version` to `21`; the repository lists Java 21 JDK as a prerequisite, and FOLIO Trillium guidance specifies Java 21 / JDK 21. This supports alignment on Java version only. |
-
+| Technology or dependency | Evidence                                                                                                                                                                                         |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Vert.x                   | `vertx-stack-depchain`, version `5.0.10`                                                                                                                                                         |
+| PostgreSQL testing       | `org.folio:postgres-testing`, test scope, version managed by `${raml-module-builder.version}`                                                                                                    |
+| FOLIO Kafka wrapper      | `org.folio:folio-kafka-wrapper`, version `4.0.0`                                                                                                                                                 |
+| Apache Kafka client      | `org.apache.kafka:kafka-clients`, version `4.2.0`                                                                                                                                                |
+| S3-compatible storage    | `FolioS3ClientFactory` and `FolioS3Client` used in profile-picture storage                                                                                                                       |
+| Java                     | `pom.xml` sets `java.version` to `21`; the repository lists Java 21 JDK as a prerequisite, and FOLIO Trillium guidance specifies Java 21 / JDK 21. This supports alignment on Java version only. |
 
 A search for `aws` in `pom.xml` did not identify a matching dependency entry. This does not establish that AWS-compatible storage is absent; the relevant library may use a different artifact name or be supplied transitively.
 
-**Finding:** The reviewed files identify several infrastructure technologies and dependency versions. Their compliance with the official FOLIO supported-technologies requirements has not been established.
+### Finding
 
-**Recommended action:**
+The reviewed files identify several infrastructure technologies and dependency versions. Their compliance with the official FOLIO supported-technologies requirements has not been established.
+
+### Recommended action
 
 * Compare the effective production dependency tree, including transitive dependencies, with the official supported-technologies list applicable to this module version.
 * Confirm the resolved versions of dependencies managed through Maven properties and dependency management.
 * Verify that the S3-compatible storage integration uses an approved library and supported configuration.
 
-**Limitation:** Dependency declarations alone do not establish that the technologies are officially supported or that the deployed runtime uses the expected versions.
+### Limitation
+
+Dependency declarations alone do not establish that the technologies are officially supported or that the deployed runtime uses the expected versions.
+
+**Status: Manual verification required.**
 
 ## 16. Consolidated status
 
-| **Criterion**                   | **Preliminary result**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Criterion                       | Preliminary result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | S005 — Personal-data disclosure | **Manual review required.** The evaluator found and parsed `PERSONAL_DATA_DISCLOSURE.md`, but skipped semantic review because agent review was disabled or unconfigured. The disclosure content still requires human review.                                                                                                                                                                                                                                                                          |
 | S010 — Runtime dependencies     | **Manual review required.** Inspected database and Kafka write paths propagate failures through asynchronous futures. HTTP response handling and selected object-storage error paths were also reviewed. Remaining questions include behavior when configuration is absent or invalid, object-storage error classification, Kafka-disabled outbox processing, producer cleanup failures, and runtime failure handling across unreviewed paths. Complete module-wide verification remains outstanding. |
@@ -377,11 +443,11 @@ A search for `aws` in `pom.xml` did not identify a matching dependency entry. Th
 | Integration tests               | Integration-test classes and supporting dependencies are present. Complete test execution results and official technology support status remain unverified.                                                                                                                                                                                                                                                                                                                                           |
 | Tenant isolation                | **Manual review required.** Inspected code selects tenant-specific PostgreSQL clients in `RecordRepositoryImpl.java`, `UserOutboxService.java`, and `ProfilePictureStorage.java`. Test setup uses the same tenant (`diku`) for Okapi headers and the PostgreSQL client. The reviewed evidence does not establish cross-tenant isolation, and no explicit cross-tenant test was identified in the search results. No violation has been established.                                                   |
 | Database schema access          | No violation was identified in the inspected results; broader verification of SQL scripts and database operations remains outstanding.                                                                                                                                                                                                                                                                                                                                                                |
-| Dependency documentation        | **Manual review required.** The module descriptor lists `feesfines` and `configuration` as optional dependencies. The reviewed README content does not explicitly explain the `feesfines` dependency. Applicable documentation requirements have not been fully determined, so no violation has been established.                                                                                                                                                                                                                                                                                                                                                                  |
+| Dependency documentation        | **Manual review required.** The module descriptor lists `feesfines` and `configuration` as optional dependencies. The reviewed README content does not explicitly explain the `feesfines` dependency. Applicable documentation requirements have not been fully determined, so no violation has been established.                                                                                                                                                                                     |
 | Tenant-specific responses       | Tenant-aware test setup was observed; request-header behavior and cross-tenant response isolation remain unverified.                                                                                                                                                                                                                                                                                                                                                                                  |
-| `/admin/health`                 | The `InstallUpgradeIT.java` integration test verifies that GET `/admin/health` returns HTTP 200 and body `"OK"`. Successful execution of the test remains unverified.                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `/admin/health`                 | The `InstallUpgradeIT.java` integration test verifies that GET `/admin/health` returns HTTP 200 and body `"OK"`. Successful execution of the test remains unverified.                                                                                                                                                                                                                                                                                                                                 |
 | High availability               | The reviewed profile-picture storage path uses object storage; module-wide high-availability behavior remains unverified.                                                                                                                                                                                                                                                                                                                                                                             |
-| Supported technologies          | **Manual verification required.** `pom.xml` specifies Java 21, which aligns with the cited FOLIO Trillium backend technology guidance. Vert.x, Kafka, and S3-compatible storage dependencies were also identified, but compliance of all relevant production and transitive dependencies with the applicable official supported-technologies requirements remains unverified.                                                                                                                                                                                                                                                                                                               |
+| Supported technologies          | **Manual verification required.** `pom.xml` specifies Java 21, which aligns with the cited FOLIO Trillium backend technology guidance. Vert.x, Kafka, and S3-compatible storage dependencies were also identified, but compliance of all relevant production and transitive dependencies with the applicable official supported-technologies requirements remains unverified.                                                                                                                         |
 
 These results summarize the evidence collected during this review. They are preliminary assessments, not declarations of complete compliance. A finding that evidence supports compliance in a particular area should not be interpreted as complete verification through testing or exhaustive source review. Items marked as unverified or requiring manual review should remain open until sufficient evidence is collected.
 
@@ -390,31 +456,25 @@ These results summarize the evidence collected during this review. They are prel
 Prioritize the following work:
 
 1. **S005 — Personal-data disclosure:** Manually review `PERSONAL_DATA_DISCLOSURE.md` against the module's implementation and data flows. Confirm that the disclosure is accurate and complete before marking the criterion as satisfied.
-
 2. **Complete S010 runtime-dependency verification:** Verify required and optional configuration behavior; confirm Kafka-disabled outbox handling; review object-storage error classification and timeout behavior; verify producer cleanup when `end()` fails; and inspect remaining HTTP and database failure paths.
-
 3. **Verify `/admin/health` test execution:** The `InstallUpgradeIT.java` integration test asserts that GET `/admin/health` returns HTTP 200 and body `"OK"`. Confirm that the test passes in the applicable test environment or verify the endpoint in a deployed environment.
-
 4. **Verify tenant isolation:** Review or add tests using two distinct tenant IDs to confirm that requests and database operations for one tenant cannot access another tenant's records. The inspected code shows tenant-aware client selection, but cross-tenant isolation remains unverified.
-
 5. **Complete dependency documentation review:** Confirm the applicable documentation requirements for the optional `feesfines` and `configuration` dependencies. The reviewed README content does not explicitly explain the `feesfines` dependency, but no violation has been established.
-
 6. **Complete supported-technologies verification:** Java 21 aligns with the cited FOLIO Trillium backend technology guidance. Compare the effective production dependency tree, including transitive dependencies and resolved versions, against the official supported-technologies requirements applicable to this module version. Verify the S3-compatible storage library as well.
-
 7. **Complete the remaining manual checks:** Confirm full API permission coverage, database schema access, reference-data installation and upgrade behavior—including preservation of tenant-customized records—and high-availability behavior across the module.
-
 
 ## 18. References
 
 * [FOLIO mod-users v19.6.2 source](https://github.com/folio-org/mod-users/tree/v19.6.2)
-* [FOLIO Technical Council module acceptance criteria](https://github.com/folio-org/tech-council/blob/master/MODULE_ACCEPTANCE_CRITERIA.MD)
+* [FOLIO Technical Council module acceptance criteria](https://github.com/folio-org/tech-council)
 * [Module descriptor](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/ModuleDescriptor-template.json)
 * [Deployment descriptor](https://github.com/folio-org/mod-users/blob/v19.6.2/descriptors/DeploymentDescriptor-template.json)
 * [Maven configuration](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml)
 * [README](https://github.com/folio-org/mod-users/blob/v19.6.2/README.md)
-* [Existing personal-data disclosure](https://github.com/folio-org/mod-users/blob/v19.6.2/PERSONAL_DATA_DISCOSURE.md)
-* [Reference-data directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/main/resources/ref-data)
-* [Integration-test directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/test/java/org/folio/moduserstest)
+* [Personal-data disclosure](https://github.com/folio-org/mod-users/blob/v19.6.2/PERSONAL_DATA_DISCLOSURE.md)
+* [Reference-data directory](https://github.com/folio-org/mod-users/tree/v19.6.2)
+* [Integration-test directory](https://github.com/folio-org/mod-users/tree/v19.6.2/src/it)
+* [Health endpoint integration test](https://github.com/folio-org/mod-users/blob/81dc3f46cec3b8950585f9c71a7f7bbee5eceddf/src/test/java/org/folio/rest/InstallUpgradeIT.java#L78)
 
 ---
 
