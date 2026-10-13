@@ -336,7 +336,7 @@ The build configuration identifies the shared FOLIO REST infrastructure as part 
 
 **Assessment: Evidence supports the reviewed storage path; full HA compliance remains unverified.**
 
-Evidence:
+**Evidence:**
 
 * [ProfilePictureStorage.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/service/storage/ProfilePictureStorage.java)
 
@@ -349,11 +349,11 @@ The reviewed object-storage methods:
 
 No `FileOutputStream` match was found in the reviewed file.
 
-**Finding:** The reviewed object-storage implementation does not show a dependency on local filesystem persistence for profile pictures.
+**Finding:** The inspected profile-picture storage implementation uses an object-storage client and does not show a dependency on local filesystem persistence for the reviewed operations.
 
-**Limitation:** This does not establish that the entire module avoids local persistent storage, sticky sessions, connection affinity, or other HA concerns. The review also did not test concurrent operation across multiple module instances.
+**Limitation:** This evidence does not establish that the entire module avoids local persistent storage, sticky sessions, connection affinity, or other high-availability concerns. The behavior of concurrent requests across multiple module instances has not been tested.
 
-**Recommended action:** Review the remaining storage and session-related code and, where practical, validate behavior across multiple module instances.
+**Recommended action:** Review the remaining storage and session-related code for dependencies on local state or instance affinity. Where practical, test concurrent operations across multiple module instances to assess whether the relevant functionality works without relying on a particular instance.
 
 ## 15. Officially supported infrastructure and platform technologies
 
