@@ -234,7 +234,7 @@ The integration-test setup also initializes `OkapiHeaders` with `TENANT_NAME` an
 
 **Evidence:**
 
-* [create_configuration_table.sql](https://github.com/folio-org/mod-users/blob/58eb337e7f89667037e88f297db8fcdd44ebdda8/src/main/resources/templates/db_scripts/create_configuration_table.sql#L4)
+* [create_configuration_table.sql](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/resources/templates/db_scripts/create_configuration_table.sql#L4)
 * `RecordRepositoryImpl.java`
 
 The repository search for the literal string `public.` returned one result in `create_configuration_table.sql`. The supplied SQL snippet includes:
