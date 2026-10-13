@@ -350,7 +350,7 @@ The reviewed files identify the following infrastructure technologies and depend
 | FOLIO Kafka wrapper          | `org.folio:folio-kafka-wrapper`, version `4.0.0`                                              |
 | Apache Kafka client          | `org.apache.kafka:kafka-clients`, version `4.2.0`                                             |
 | S3-compatible storage        | `FolioS3ClientFactory` and `FolioS3Client` used in profile-picture storage                    |
-* | Java | `pom.xml` sets `java.version` to `21`; the repository lists Java 21 JDK as a prerequisite, and FOLIO Trillium guidance specifies Java 21 / JDK 21. This supports alignment on Java version only. |
+| Java | `pom.xml` sets `java.version` to `21`; the repository lists Java 21 JDK as a prerequisite, and FOLIO Trillium guidance specifies Java 21 / JDK 21. This supports alignment on Java version only. |
 
 
 A search for `aws` in `pom.xml` did not identify a matching dependency entry. This does not establish that AWS-compatible storage is absent; the relevant library may use a different artifact name or be supplied transitively.
