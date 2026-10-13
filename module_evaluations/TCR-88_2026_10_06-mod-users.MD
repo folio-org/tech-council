@@ -339,6 +339,8 @@ No `FileOutputStream` match was found in the reviewed file.
 
 * [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml)
 * [ProfilePictureStorage.java](https://github.com/folio-org/mod-users/blob/v19.6.2/src/main/java/org/folio/service/storage/ProfilePictureStorage.java)
+* **Java version:** `pom.xml` sets `<java.version>21</java.version>`. The `mod-users` repository lists Java 21 JDK as a prerequisite, and the FOLIO Technical Council's Trillium backend technology guidance specifies Java 21 / JDK 21. This supports alignment on Java version, but does not establish compliance for every dependency or technology used by the module.
+
 
 The reviewed files identify the following infrastructure technologies and dependencies:
 
