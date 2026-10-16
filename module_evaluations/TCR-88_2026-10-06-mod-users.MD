@@ -10,21 +10,19 @@ TCR-88_2026-10-06-mod-users.MD
 Acceptance criteria: FOLIO Technical Council
 repository
 1. Executive summary
-This document records a preliminary review of selected
+This document records a preliminary, evidence-based review of selected
 FOLIO Technical Council acceptance criteria for mod-users, a backend
 module that maintains user records and related user information. The
 review considered source code, RAML API documentation, Maven
 configuration, module and deployment descriptors, integration-test
 files, the README, the personal-data disclosure, and the automated
 module-evaluation results.
-
 The automated evaluator reported 31 criteria: 5 passed, 0 failed, and 26
 requiring manual review after the personal-data disclosure filename was
 corrected. The evaluator found and parsed PERSONAL_DATA_DISCLOSURE.md,
 but its semantic review was skipped because agent review was disabled or
 unconfigured. The result therefore does not mean that all manual-review
 criteria have passed.
-
 Principal findings
 1. S005 --- Personal-data disclosure: The required
    PERSONAL_DATA_DISCLOSURE.md file was found and parsed after the
