@@ -59,15 +59,10 @@ Use these conventions to indicate the status of each criterion.
 * [ ] Uses Apache 2.0 license (2)
 * [ ] Module build MUST produce a valid module descriptor (3, 5)
   * _This is not applicable to libraries_
-* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html) (2)
-  * Uses README for [Category B Appropriately Labelled Condition](https://apache.org/legal/resolved.html#appropriately-labelled-condition)
-  * LGPL consideration:
-    * org.z3950.zing:cql-java is allowed if appropriately labelled, even if it is LGPL-2.1-only
-    * org.marc4j:marc4j is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
-    * org.hibernate.* is allowed if appropriately labelled, even if it is LGPL-2.1-or-later
-    * By [request of the Community Council](https://folio-org.atlassian.net/wiki/spaces/CC/pages/1243348996/2025-09-26+Community+Council+Meeting+Minutes+at+WOLFcon), and until that request changes, no additional LGPL-licensed dependencies will be allowed. 
+* [ ] Inclusion of third party dependencies complies with [ASF 3rd Party License Policy](https://apache.org/legal/resolved.html), as defined and reported by the [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool (2)
+  * GitHub Actions automated evaluation result page shows a passing evaluation.
+  * _note: See [license-categories.json](https://github.com/folio-org/tc-module-eval/blob/master/config/license-categories.json) for licenses which are allowed (Category A), prohibited (Category X), and allowed when [appropriately labelled in the module's README](https://apache.org/legal/resolved.html#appropriately-labelled-condition) (Category B-WCL).  See [special-exceptions.json](https://github.com/folio-org/tc-module-eval/blob/master/config/special-exceptions.json) for permitted exceptions. By [request of the Community Council](https://folio-org.atlassian.net/wiki/spaces/CC/pages/1243348996/2025-09-26+Community+Council+Meeting+Minutes+at+WOLFcon), and until that request changes, no additional LGPL-licensed dependencies will be allowed._
   * _note: If a library declares multiple licenses in its pom.xml, [only one of them needs to comply](https://maven.apache.org/ref/3.9.11/maven-model/maven.html#project)._ (This applies only to Maven. For other package managers, closer evaluation is needed.)
-  * _note: The [FOLIO Module Evaluator](https://github.com/folio-org/tc-module-eval) tool is optionally available to evaluate this criterion for Java modules (built with Maven) and for front-end modules.  TC expects to [require its use](https://github.com/folio-org/tech-council/pull/110) in the module evaluation process after a trial period._
   * _note: [More information about this criterion](https://github.com/folio-org/tech-council/blob/master/criteria/THIRD_PARTY_DEPENDENCIES.MD)_
 * [ ] Installation documentation is included (11)
   * -_note: read more at https://github.com/folio-org/mod-search/blob/master/README.md_
