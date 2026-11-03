@@ -175,7 +175,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 
 The automated evaluator was useful in identifying compliance questions and reducing manual checking. One possible improvement would be to expand automated checks for required files and documentation, while clearly distinguishing confirmed failures from items requiring manual review. It would also be helpful for the evaluator to identify when a finding depends on policies that may apply differently to existing modules.
 
-##
+## Footnotes
 
 [^1]: Refer to the [Officially Supported Technologies](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5053681/Officially+Supported+Technologies) page for the most recent ACTIVE release.
 
