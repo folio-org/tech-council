@@ -105,9 +105,6 @@ Use these conventions to indicate the status of each criterion.
   - *Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy.*
   * The review examined HTTP integration, database access, profile-picture storage, and Kafka event-processing code. Some inspected paths propagate errors, but the review did not establish whether optional services and missing configurations are handled appropriately in all relevant cases. The profile-picture retrieval path can return 404 for caught storage exceptions; whether this response is appropriate for different failure conditions remains to be verified. Further targeted review is needed before a definitive conclusion can be drawn.
 
-### Backend
-
-Note: Backend criteria apply to modules, shared backend libraries, and edge modules.
 * [ ] UNACCEPTABLE Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
   - See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details.
   * The available SonarQube snapshot reported no security issues, no security hotspots, and 0% duplication, with 26 other issues. The snapshot was labelled `19.7.0-SNAPSHOT`, rather than `v19.6.2`; verify the scan for the exact release and whether any rules were disabled or issues intentionally ignored. The release's [Maven configuration](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml) is the version reference for follow-up.
@@ -121,6 +118,10 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
   - *The FOLIO Community LSP Platform is defined at [https://github.com/folio-org/platform-lsp](https://github.com/folio-org/platform-lsp).*
   - *This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application.*
   * Jira TCR-88 identifies `app-platform-minimal`, which includes `mod-users`. The module also appears in `app-platform-full`, while `app-platform-complete` depends on `app-platform-minimal`. These findings may reflect the intended organization of FOLIO platform applications rather than conflicting assignments. Confirmation of how the Technical Council applies the single-application requirement remains outstanding.
+
+### Backend
+
+Note: Backend criteria apply to modules, shared backend libraries, and edge modules.
 
 * [ ] UNACCEPTABLE Module’s repository includes a compliant Module Descriptor (3, 5)
   - -*note: read more at [https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json](https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json)*
