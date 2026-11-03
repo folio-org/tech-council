@@ -120,7 +120,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 * [ ] UNACCEPTABLE Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   - *The FOLIO Community LSP Platform is defined at [https://github.com/folio-org/platform-lsp](https://github.com/folio-org/platform-lsp).*
   - *This can be evaluated by searching application descriptors across the folio-org GitHub organization (considering those applications part of the community platform) and confirming that this module only appears in the application descriptor of the one specified application.*
-  * Jira TCR-88 identifies `app-platform-minimal`, and the reviewed descriptor includes `mod-users`. A search confirming that the module appears in exactly one applicable Community LSP application descriptor has not been completed.
+  * Jira TCR-88 identifies `app-platform-minimal`, which includes `mod-users`. The module also appears in `app-platform-full`, while `app-platform-complete` depends on `app-platform-minimal`. These findings may reflect the intended organization of FOLIO platform applications rather than conflicting assignments. Confirmation of how the Technical Council applies the single-application requirement remains outstanding.
 
 * [ ] UNACCEPTABLE Module’s repository includes a compliant Module Descriptor (3, 5)
   - -*note: read more at [https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json](https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json)*
