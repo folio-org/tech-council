@@ -12,4 +12,5 @@ jobs:
       ref: v19.6.2
       java_version: '21'
       node_version: '20'
-      output: both
+      output_format: both
+      existing_module: true
