@@ -52,8 +52,6 @@ Use these conventions to indicate the status of each criterion.
 15. Module supports high availability
 16. Modules conforms to FOLIO upgrade mechanisms
 
-The supplemental agent-enabled evaluator ran on November 4, 2026, against commit `361c1ff7092752c164696152b2dc3c08606d83f5`. Its findings supplement, but do not replace, verification of release `v19.6.2`. The agent-enabled output is richer than the current GitHub Actions workflow.
-
 ## Criteria
 
 
