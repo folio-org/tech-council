@@ -54,8 +54,7 @@ Use these conventions to indicate the status of each criterion.
 
 ## Criteria
 
-
-**Evaluation scope:** Backend module `mod-users`, release `v19.6.2`. The initial evaluation was dated October 6, 2026. The supplemental agent-assisted evaluator ran on November 4, 2026, against commit `361c1ff7092752c164696152b2dc3c08606d83f5`. Results from different revisions are identified separately. The supplemental run reported **12 passed, 4 failed, and 15 requiring manual review**; this count excludes the inapplicable Product Council criterion. A failed automated check does not necessarily establish a software defect.
+**Evaluation scope:** Backend module `mod-users`, release `v19.6.2`. The initial evaluation was dated October 6, 2026. A supplemental evaluation ran on November 4, 2026, against commit `361c1ff7092752c164696152b2dc3c08606d83f5`. Results from different revisions are identified separately. The supplemental run reported **12 passed, 4 failed, and 15 requiring manual review**; this count excludes the inapplicable Product Council criterion. The increased pass count resulted from the automated criteria checks, not from AI agent review. Agent review provided advisory information only and did not influence the criteria statuses. A failed automated check does not necessarily establish a software defect.
 
 ### Administrative
 
@@ -234,7 +233,7 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 
 ## TCR Process Improvements
 
-The November 4 evaluation used agent review, providing richer evidence than the current GitHub Actions workflow. The agent-assisted evaluator helped us locate source evidence and focus our manual review. Our evaluation of `mod-users` also identified six practical improvements to the evaluation process:
+The November 4 evaluation included AI agent review, which provided additional evidence and suggestions to support manual investigation. The agent's findings were advisory and did not affect the automated pass, fail, or manual-review statuses. Improvements in the automated criteria checks accounted for the increased number of passing criteria. Our evaluation of `mod-users` also identified six practical improvements to the evaluation process:
 
 1. **Separate filename checks from reviews of document content.** **Example — S005:** The evaluator correctly reported that `PERSONAL_DATA_DISCOSURE.md` does not match the required filename `PERSONAL_DATA_DISCLOSURE.md`. That is a clear filename failure. A separate review is still needed to determine whether the disclosure accurately covers Kafka events, consortium-user data flows, profile-picture storage, and personal information in logs. Reporting these as distinct checks would make the result clearer.
 
