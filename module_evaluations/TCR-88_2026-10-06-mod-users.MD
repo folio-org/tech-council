@@ -136,10 +136,6 @@ Use these conventions to indicate the status of each criterion.
   - **Additional evidence from Technical Council review (November 9):** The reviewer explained that SonarCloud analyzes Git branches rather than release tags. To obtain coverage results for a specific release, a branch can be created from the release tag and the Maven Central workflow run against that branch. Alternatively, an existing branch may be used if its analysis is appropriate for the evaluation.
   - **Conclusion: UNACCEPTABLE pending verification.** The available evidence does not establish that the required coverage level was achieved for the exact evaluated release. Obtain a matching SonarCloud or JaCoCo report and confirm that the testing technologies meet the applicable supported-technologies requirements. This status reflects incomplete verification, not a confirmed failure to meet the 80% coverage threshold.
 
-
-  - **Additional evidence from the earlier review:** The earlier review reported 99.1% coverage for `v19.6.2`; the agent-assisted evaluator reported 91.2% for SonarCloud commit `2a7a624`, not the evaluator commit. Both exceed 80%, but the revisions should not be treated as interchangeable; neither figure has been independently verified against a release-specific coverage report during this check.
-  - **Reason for provisional UNACCEPTABLE status:** The available coverage figures exceed 80%, but they have not been tied conclusively to the exact code revision under evaluation. This status records incomplete verification, not evidence of insufficient coverage. Confirm the matching release analysis and the support status of testing technologies before making a final decision.
-
 * [ ] UNACCEPTABLE Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
   - **Automated result: PASS.** The agent-assisted evaluator reported a pass for application assignment; the earlier review found `mod-users` in `app-platform-minimal` and `app-platform-full`. Clarify how the Council interprets the exactly-one requirement before marking this criterion acceptable.
 
@@ -233,8 +229,8 @@ Note: Backend criteria apply to modules, shared backend libraries, and edge modu
 
 * [x] ACCEPTABLE Module only uses infrastructure / platform technologies on the [officially supported technologies](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5053681/Officially+Supported+Technologies) list.[^1]
   - *e.g. PostgreSQL, ElasticSearch, etc.* (3, 5, 12)
-  - **Automated result: PASS (B016).** The evaluator matched **PostgreSQL**, **Apache Kafka**, and **S3-compatible object storage** to FOLIO's supported infrastructure list. It reviewed dependencies and configuration, but did not verify deployed server versions or every indirect dependency. The RMB 36-versus-35 policy mismatch is recorded separately under S007.
-  - **Additional evidence from the earlier review:** The earlier review also noted Java 21, Vert.x, Kafka, PostgreSQL, and FOLIO object-storage components in [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml). The infrastructure pass is distinct from the S007 RMB 36.0.0 versus published RMB 35 policy mismatch.
+  - **Automated result: PASS (B016).** The evaluator matched **PostgreSQL**, **Apache Kafka**, and **S3-compatible object storage** to FOLIO's supported infrastructure list. It reviewed dependencies and configuration, but did not verify deployed server versions or every indirect dependency. 
+  - **Additional evidence from the earlier review:** The earlier review also noted Java 21, Vert.x, Kafka, PostgreSQL, and FOLIO object-storage components in [pom.xml](https://github.com/folio-org/mod-users/blob/v19.6.2/pom.xml). 
 
 ## TCR Process Improvements
 
