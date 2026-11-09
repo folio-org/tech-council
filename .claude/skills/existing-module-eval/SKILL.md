@@ -66,9 +66,11 @@ Follow the TC's [Existing Module Evaluator Checklist](https://folio-org.atlassia
   - Treat a missing override as a module gap, not a TC question.
 - **Missing README Category B label** (the mod-notes README is the model). The usual list is jakarta.annotation-api, jakarta.transaction-api, aspectjweaver, sisu.plexus, rhino, and cql-java (LGPL).
 - **`_tenant` 2.0 is NOT a finding.** The module descriptor's `GET, DELETE /_/tenant/{id}` block is the canonical Okapi-guide snippet. Modules that finish `POST /_/tenant` synchronously with 204 never get the polling GET, so folio-spring-base's unimplemented `getTenant` doesn't matter. Cite the test asserting 204. `_tenant` documentation is the official tenant.raml.
-- **Env vars:**
-  - `${DB_PASSWORD:folio_admin}`-style defaults (both a default credential and no fail-fast).
-  - Module descriptor env entries without `description`/`required`.
+- **Env vars:** Read the [Environment Variables policy](https://folio-org.atlassian.net/wiki/spaces/TC/pages/1319141429/Environment+Variables) itself.
+  - Section 7.2 (existing modules): compliance = supporting the standardized names. Documentation gaps are recommendations, not a criterion failure (TCR-87 marked B004 ACCEPTABLE on this basis).
+  - Section 4.1: code defaults make a variable *optional*. Defaults like `DB_HOST=localhost` are allowed if documented. Fail-fast (4.2, a SHOULD) applies to required variables only.
+  - Section 3.1: documentation belongs in a *top-level* `env` in the module descriptor plus a README table or ENV_VARS.md. `launchDescriptor.env` is deployment values. Section 2.2: framework variables just link to the framework's docs.
+  - A `${DB_PASSWORD:folio_admin}` default fails the separate *credential* criterion. A default username alone does not (TCR-53).
   - Stale RMB-era `DB_MAXPOOLSIZE`; the library reads `DB_MAXSHAREDPOOLSIZE`, `DB_MINSHAREDPOOLSIZE`, `DB_CONNECTIONRELEASEDELAY`, `DB_MAX_LIFETIME`, `DB_QUERYTIMEOUT`, `DB_CHARSET`.
 - **Actuator** often has health indicators disabled, so health is `UP` even when the DB is down. Note this only as an observation. Direct-container exposure of `loggers`/`env` is out of scope.
 - **PERSONAL_DATA_DISCLOSURE** forms are often on template v1.0. The folio-spring-base log pattern logs the user UUID ("logs personal data").
