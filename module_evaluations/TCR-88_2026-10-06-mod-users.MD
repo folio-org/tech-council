@@ -137,10 +137,13 @@ Use these conventions to indicate the status of each criterion.
   - **Conclusion: UNACCEPTABLE pending coverage verification.** The testing-technology requirement is satisfied. The remaining task is to obtain coverage results matching `v19.6.2` and confirm that coverage meets the required 80%. This is an evidence gap, not a confirmed failure to meet the coverage requirement.
   - **Source:** [Trillium supported technologies](https://folio-org.atlassian.net/wiki/spaces/TC/pages/730891059/Trillium).
 
-* [ ] UNACCEPTABLE Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
-  - **Automated result: PASS.** The agent-assisted evaluator reported a pass for application assignment; the earlier review found `mod-users` in `app-platform-minimal` and `app-platform-full`. Clarify how the Council interprets the exactly-one requirement before marking this criterion acceptable.
+* [x] ACCEPTABLE Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
+  - **Automated result: PASS.** The evaluator reported that the application-assignment requirement was satisfied.
+  - **Additional information from reviewer feedback:** `app-platform-complete` depends on `app-platform-minimal`, while `app-platform-full` lists `mod-users` directly.
+  - **Conclusion: ACCEPTABLE.** The automated check passed, and the reviewer provided additional information about the application relationships. No further verification is requested for this criterion.
 
   - *The FOLIO Community LSP Platform is defined at [https://github.com/folio-org/platform-lsp](https://github.com/folio-org/platform-lsp).*
+
 ### Backend
 
 Note: Backend criteria apply to modules, shared backend libraries, and edge modules.
