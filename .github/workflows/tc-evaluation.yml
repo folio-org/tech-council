@@ -1,0 +1,16 @@
+
+name: TC Module Eval
+
+on:
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    uses: folio-org/tc-module-eval/.github/workflows/evaluate.yml@master
+    with:
+      repository_url: https://github.com/folio-org/mod-users
+      ref: v19.6.2
+      java_version: '21'
+      node_version: '20'
+      output_format: both
+      existing_module: true
