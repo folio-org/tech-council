@@ -54,7 +54,7 @@ Use these conventions to indicate the status of each criterion.
 
 ## Criteria
 
-**Evaluation scope:** Backend module `mod-users`, release `v19.6.2`. The initial evaluation was dated October 6, 2026. A supplemental evaluation ran on November 4, 2026, against commit `361c1ff7092752c164696152b2dc3c08606d83f5`. Results from different revisions are identified separately. The supplemental run reported **12 passed, 4 failed, and 15 requiring manual review**; this count excludes the inapplicable Product Council criterion. The increased pass count resulted from the automated criteria checks, not from AI agent review. Agent review provided advisory information only and did not influence the criteria statuses. A failed automated check does not necessarily establish a software defect.
+**Evaluation scope:** Backend module `mod-users`, release `v19.6.2`. The initial evaluation was dated October 6, 2026. A supplemental evaluation ran on November 4, 2026, against commit `361c1ff7092752c164696152b2dc3c08606d83f5`. The supplemental evaluation commit `361c1ff7092752c164696152b2dc3c08606d83f5` matches the `v19.6.2` release commit. SonarCloud branch `b19.6.2` also matches that commit. Results from other revisions are identified separately. The supplemental run reported **12 passed, 4 failed, and 15 requiring manual review**; this count excludes the inapplicable Product Council criterion. The increased pass count resulted from the automated criteria checks, not from AI agent review. Agent review provided advisory information only and did not influence the criteria statuses. A failed automated check does not necessarily establish a software defect.
 
 ### Administrative
 
