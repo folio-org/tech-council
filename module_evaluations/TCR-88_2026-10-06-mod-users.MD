@@ -137,10 +137,16 @@ Use these conventions to indicate the status of each criterion.
   - **Automated result: PASS.** The evaluator identified officially supported build tools.
 
 * [ ] UNACCEPTABLE Unit tests have 80% coverage or greater, and are based on [officially supported technologies](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5053681/Officially+Supported+Technologies)[^1] (3, 4)
-  - **Automated result: MANUAL REVIEW (S013).** SonarCloud reported 91.2% test coverage for commit `2a7a624`, while the evaluator examined commit `361c1ff7092752c164696152b2dc3c08606d83f5` (`v19.6.2`). The reported coverage exceeds the required 80%, but it has not been verified for the exact release being evaluated.
-  - **Additional verification (November 10):** The Trillium supported-technologies documentation lists JUnit, REST Assured, and Testcontainers without specifying particular versions. The testing technologies therefore meet this part of the criterion.
-  - **Additional evidence from reviewer:** SonarCloud analyzes Git branches rather than release tags. A branch can be created from the `v19.6.2` tag and the Maven Central workflow run to obtain coverage results for the evaluated release. An existing branch may also be suitable if it matches the evaluated code.
-  - **Conclusion: UNACCEPTABLE pending coverage verification.** The testing-technology requirement is satisfied. The remaining task is to obtain coverage results matching `v19.6.2` and confirm that coverage meets the required 80%. This is an evidence gap, not a confirmed failure to meet the coverage requirement.
+  - **Automated result: MANUAL REVIEW (S013).** An earlier SonarCloud analysis reported 91.2% test coverage for a different commit, so that result could not establish coverage for `v19.6.2`.
+
+  - **Additional verification (November 13):** SonarCloud branch `b19.6.2` matches the evaluated release commit and reports **99.1% new-code coverage**. However, because SonarCloud treats this as a short-lived branch, the result does not establish overall module coverage.
+
+  - **Testing technologies:** The Trillium supported-technologies documentation confirms that the testing technologies used by the module are supported. This part of the criterion is satisfied.
+
+  - **Remaining work:** Obtain the **overall module coverage** measurement for `v19.6.2` and confirm that it meets the required 80%. A Technical Council reviewer has been asked how to obtain this measurement.
+
+  - **Conclusion: UNACCEPTABLE pending overall coverage verification.** The release-matching new-code coverage is encouraging, but the required overall coverage has not yet been confirmed. This is an evidence gap, not a confirmed failure to meet the coverage requirement.
+
   - **Source:** [Trillium supported technologies](https://folio-org.atlassian.net/wiki/spaces/TC/pages/730891059/Trillium).
 
 * [x] ACCEPTABLE Assigned to exactly one application descriptor within the FOLIO Community LSP Platform, specified in the Jira task for this module evaluation (3, 5)
