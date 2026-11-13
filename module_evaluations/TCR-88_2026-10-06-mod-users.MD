@@ -124,7 +124,13 @@ Use these conventions to indicate the status of each criterion.
 
   - *Note: This applies to optional third-party integrations and their configurations only. Required environment variables (those without sensible defaults) should fail fast on startup per the Environment Variables Policy.*
 * [ ] UNACCEPTABLE Sonarqube hasn't identified any security issues, any high or greater severity issues, or excessive (>3%) duplication (6); and any disabled or intentionally ignored rules/recommendations are reasonably justified.
-  - **Automated result: MANUAL REVIEW.** An earlier SonarQube/SonarCloud review reported **0 security issues** and **26 other issues** for a `19.7.0-SNAPSHOT` build. These are useful historical findings, but that build is not the `v19.6.2` release under review. **Follow-up:** Confirm the original analysis labels (including whether “security issues” means security hotspots or another measure), check results for the exact evaluated release, and review any high-severity findings, duplication, and rule exceptions. Do not treat the earlier figures as verified results for `v19.6.2`.
+  - **Automated result: MANUAL REVIEW.** An earlier SonarCloud analysis was for `19.7.0-SNAPSHOT`, rather than the evaluated `v19.6.2` release.
+
+  - **Additional verification (November 13):** SonarCloud branch `b19.6.2` matches the release commit. Its quality gate passed, with no new issues or security hotspots reported and 0% new-code duplication.
+
+  - **Remaining work:** Because SonarCloud treats this as a short-lived branch, these results apply to new code rather than the entire module. Overall code-quality measurements and any disabled or intentionally ignored rules still need verification.
+
+  - **Conclusion: UNACCEPTABLE pending verification.** The release-matching results are encouraging, but they do not yet establish that every part of this criterion is satisfied.
 
   - See [Rule Customization](https://dev.folio.org/guides/code-analysis/#rule-customization) details.
 * [x] ACCEPTABLE Uses [officially supported](https://folio-org.atlassian.net/wiki/spaces/TC/pages/5053681/Officially+Supported+Technologies) build tools (3, 5, 13)
