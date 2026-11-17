@@ -61,7 +61,7 @@ Follow the TC's [Existing Module Evaluator Checklist](https://folio-org.atlassia
 
 ## Known recurring findings in Spring Way (folio-spring-base) modules
 - **Liquibase 5.x is FSL-1.1-ALv2 (Category X).** folio-spring-base 10.0.1 pins 4.33.0, but `spring-boot-starter-parent` 4.1.x overrides it with 5.0.3.
-  - Each module needs its own `<liquibase.version>4.33.0</liquibase.version>` (as in mod-rtac-cache MODRTACHCE-58).
+  - Each module needs its own `<liquibase.version>4.33.0</liquibase.version>` (as in mod-rtac-cache MODRTACHCE-58), or uses `folio-spring-parent` as its parent POM.
   - Trillium CSP 1 tickets (e.g. MODTAG-149) bumped Spring Boot and folio-spring-base without the override. Check the CSP ticket's commit diff.
   - Treat a missing override as a module gap, not a TC question.
 - **Missing README Category B label** (the mod-notes README is the model). The usual list is jakarta.annotation-api, jakarta.transaction-api, aspectjweaver, sisu.plexus, rhino, and cql-java (LGPL).
